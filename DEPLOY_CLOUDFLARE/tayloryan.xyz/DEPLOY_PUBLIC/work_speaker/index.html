@@ -380,68 +380,75 @@
         }
 
         function initData(data) {
-            if (!data) return;
+            try {
+                if (!data) return;
 
-            processedData = data
-                .filter(item => item["Date (DD/MM/YY)"] && item["Event Name"])
-                .map(item => {
-                    const dateStr = item["Date (DD/MM/YY)"];
-                    // Parse DD/MM/YY
-                    let dateObj;
-                    if (dateStr.includes('/')) {
-                        const parts = dateStr.split('/');
-                        if (parts.length === 3) {
-                            const d = parseInt(parts[0], 10);
-                            const m = parseInt(parts[1], 10) - 1; // 0-indexed
-                            let y = parseInt(parts[2], 10);
-                            if (y < 100) y += 2000; // Assume 20xx
-                            dateObj = new Date(y, m, d);
+                processedData = data
+                    .filter(item => item["Date (DD/MM/YY)"] && item["Event Name"])
+                    .map(item => {
+                        const dateStr = item["Date (DD/MM/YY)"];
+                        // Parse DD/MM/YY
+                        let dateObj;
+                        if (dateStr.includes('/')) {
+                            const parts = dateStr.split('/');
+                            if (parts.length === 3) {
+                                const d = parseInt(parts[0], 10);
+                                const m = parseInt(parts[1], 10) - 1; // 0-indexed
+                                let y = parseInt(parts[2], 10);
+                                if (y < 100) y += 2000; // Assume 20xx
+                                dateObj = new Date(y, m, d);
+                            } else {
+                                dateObj = new Date(dateStr);
+                            }
                         } else {
                             dateObj = new Date(dateStr);
                         }
-                    } else {
-                        dateObj = new Date(dateStr);
-                    }
 
-                    // Fallback for invalid date
-                    if (isNaN(dateObj)) {
-                        console.warn("Invalid Date found:", dateStr);
-                        // Default to today or recent to avoid breaking sort completely, or allow it to be filterable
-                        dateObj = new Date();
-                    }
+                        // Fallback for invalid date
+                        if (isNaN(dateObj)) {
+                            console.warn("Invalid Date found:", dateStr);
+                            dateObj = new Date();
+                        }
 
-                    return {
-                        ...item,
-                        dateObj: dateObj,
-                        year: dateObj.getFullYear(),
-                        month: dateObj.toLocaleString('default', { month: 'short' }),
-                        fullDate: dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-                    };
-                })
-                .sort((a, b) => b.dateObj - a.dateObj);
+                        return {
+                            ...item,
+                            dateObj: dateObj,
+                            year: dateObj.getFullYear(),
+                            month: dateObj.toLocaleString('default', { month: 'short' }),
+                            fullDate: dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+                        };
+                    })
+                    .sort((a, b) => b.dateObj - a.dateObj);
 
-            // Populate Banner Stats
-            populateStats(processedData);
+                // Populate Banner Stats
+                populateStats(processedData);
 
-            // Populate Marquee
-            populateMarquee(processedData);
+                // Populate Marquee
+                populateMarquee(processedData);
 
-            // Populate Filters
-            populateFilters(processedData);
+                // Populate Filters
+                populateFilters(processedData);
 
-            // Render Engagements
-            try {
+                // Render Engagements
                 if (typeof renderEngagements === 'function') {
                     renderEngagements();
                 } else {
                     throw new Error("renderEngagements function missing");
                 }
-            } catch (e) {
-                console.error("Error rendering engagements:", e);
-                document.getElementById('speaker-list').innerHTML = `<div class="text-center py-20 text-red-500">Error loading data: ${e.message}</div>`;
-            }
 
-            lucide.createIcons();
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            } catch (e) {
+                console.error("Error in initData:", e);
+                const container = document.getElementById('speaker-list');
+                if (container) {
+                    container.innerHTML = `<div class="text-center py-20 text-red-500">
+                        <p class="font-bold">Error initializing data:</p>
+                        <p class="text-sm text-neutral-400 mt-2">${e.message}</p>
+                    </div>`;
+                }
+            }
         }
 
         function populateStats(data) {
