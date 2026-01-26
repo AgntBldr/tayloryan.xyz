@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylor Ryan | GTM & Growth Expert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .clip-text-image {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url('/%23noiseFilter')' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .animate-scroll {
+            animation: scroll 10s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-33.3333%);
+            }
+        }
+    </style>
+    <link rel="canonical" href="https://taylorryan.xyz/">
+    <meta property="og:url" content="https://taylorryan.xyz/">
+</head>
+
+<body class="bg-black min-h-screen">
+    <div class="grain-overlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-32 pb-20">
+
+        <!-- HERO SECTION -->
+        <section class="max-w-7xl mx-auto px-6 mb-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <a href="/contact/"
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold uppercase tracking-widest hover:bg-green-500/20 transition-colors cursor-pointer group">
+                        <span
+                            class="w-2 h-2 rounded-full bg-green-400 animate-pulse group-hover:scale-125 transition-transform"></span>
+                        Available Now
+                    </a>
+                    <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight leading-none">
+                        Driven by <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-500">Growth.</span>
+                    </h1>
+                    <p class="text-xl text-neutral-400 max-w-xl leading-relaxed">
+                        17+ years scaling startups and mastering GTM operational excellence in
+                        AI, Blockchain, and SaaS.
+                    </p>
+                    <div class="flex flex-col gap-6">
+                        <div class="flex flex-wrap gap-4">
+                            <a href="/work/"
+                                class="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-purple-400 hover:text-white transition-all transform hover:-translate-y-1 shadow-xl hover:shadow-purple-500/20">
+                                Explore Work
+                            </a>
+                            <a href="/about/"
+                                class="px-8 py-4 bg-white/5 text-white font-bold rounded-full border border-white/10 hover:bg-white/10 transition-all flex items-center gap-2">
+                                About Me <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <a href="https://bookme.name/TaylorRyan" target="_blank"
+                                class="px-6 py-3 bg-white text-black font-bold rounded-full hover:bg-neutral-200 transition-all flex items-center gap-2">
+                                <i data-lucide="calendar" class="w-4 h-4"></i> Book a Meeting
+                            </a>
+                            <a href="https://t.me/klintMar" target="_blank"
+                                class="p-3 bg-neutral-900 border border-neutral-800 text-blue-400 rounded-full hover:border-blue-400/50 hover:bg-blue-400/10 transition-all">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://x.com/TaylorRyanTweet" target="_blank"
+                                class="p-3 bg-neutral-900 border border-neutral-800 text-white rounded-full hover:border-white/50 hover:bg-white/10 transition-all">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative hidden md:block">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 rounded-full blur-3xl animate-pulse">
+                    </div>
+                    <!-- Placeholder for Headshot/Visual -->
+                    <div
+                        class="relative z-10 w-full h-[600px] bg-neutral-900/50 rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center group">
+                        <div
+                            class="absolute inset-0 bg-[url('/assets/images/taylor_ryan_on_stage_compressed.jpg')] bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST SIGNALS (LOGOS MARQUEE) -->
+        <section class="border-y border-white/5 bg-white/[0.02] py-12 mb-32 overflow-hidden relative">
+            <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
+                <p class="text-sm font-bold text-neutral-500 uppercase tracking-widest">Trusted by leading companies</p>
+            </div>
+
+            <!-- MARQUEE TRACK -->
+            <!-- MARQUEE TRACK -->
+            <!-- MARQUEE TRACK -->
+            <div
+                class="flex animate-scroll whitespace-nowrap gap-12 items-center text-neutral-500 font-bold text-2xl uppercase tracking-widest">
+
+                <!-- Set 1 -->
+                <span class="hover:text-white transition-colors">Novo Nordisk</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Near Protocol</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">SSV Network</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Lunar</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Google</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rhea Finance</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Actimo</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Valuer</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Inflowpay</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Grundfos</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Talent Garden</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Lundbeck</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Nordea</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Maersk</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">The Washington Post</span>
+                <span class="text-neutral-800">•</span>
+
+                <span class="hover:text-white transition-colors">Planday</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechBBQ</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">WeddingWire</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rainmaking</span>
+                <span class="text-neutral-800">•</span>
+
+                <!-- Set 2 -->
+                <span class="hover:text-white transition-colors">Novo Nordisk</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Near Protocol</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">SSV Network</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Lunar</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Google</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rhea Finance</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Actimo</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Valuer</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Inflowpay</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Grundfos</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Talent Garden</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Lundbeck</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Nordea</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Maersk</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">The Washington Post</span>
+                <span class="text-neutral-800">•</span>
+
+                <span class="hover:text-white transition-colors">Planday</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechBBQ</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">WeddingWire</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rainmaking</span>
+                <span class="text-neutral-800">•</span>
+
+                <!-- Set 3 -->
+                <span class="hover:text-white transition-colors">Novo Nordisk</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Near Protocol</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">SSV Network</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Lunar</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Google</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rhea Finance</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Actimo</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Valuer</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Inflowpay</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Grundfos</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Talent Garden</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Lundbeck</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Nordea</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Maersk</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">The Washington Post</span>
+                <span class="text-neutral-800">•</span>
+
+                <span class="hover:text-white transition-colors">Planday</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechBBQ</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">WeddingWire</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rainmaking</span>
+                <span class="text-neutral-800">•</span>
+            </div>
+        </section>
+
+
+
+        <!-- WORK CATEGORY TILES -->
+        <section class="max-w-7xl mx-auto px-6 mb-32">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-4">Areas of Impact</h2>
+                    <p class="text-neutral-400 max-w-xl">Deep expertise across multiple domains. Explore the portfolio.
+                    </p>
+                </div>
+                <a href="/work/"
+                    class="hidden md:flex items-center gap-2 text-white font-bold hover:text-purple-400 transition-colors">
+                    View All Work <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="relative group/slider">
+                <!-- Navigation Arrows -->
+                <button onclick="document.getElementById('work-slider').scrollBy({left: -400, behavior: 'smooth'})"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-20 w-12 h-12 bg-black/80 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition-colors opacity-0 group-hover/slider:opacity-100 hidden md:flex">
+                    <i data-lucide="arrow-left" class="w-6 h-6"></i>
+                </button>
+                <button onclick="document.getElementById('work-slider').scrollBy({left: 400, behavior: 'smooth'})"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-20 w-12 h-12 bg-black/80 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition-colors opacity-0 group-hover/slider:opacity-100 hidden md:flex">
+                    <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                </button>
+
+                <!-- Slider Container -->
+                <div id="work-slider" class="flex gap-6 overflow-x-auto pb-8 snap-x scrollbar-hide">
+
+                    <!-- Quests Tile -->
+                    <a href="/portfolio/quests/"
+                        class="min-w-[90%] md:min-w-[400px] snap-center group relative h-[450px] bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-purple-500/50 transition-all">
+                        <div
+                            class="absolute inset-0 bg-[url('/assets/images/work/card_quests.png')] bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <div
+                                class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Quests & Campaigns</h3>
+                            <p class="text-neutral-400 text-sm line-clamp-2">Interactive learning experiences and
+                                campaigns
+                                across major web3 platforms.</p>
+                        </div>
+                    </a>
+
+                    <!-- Speaker Tile -->
+                    <a href="/work_speaker/"
+                        class="min-w-[90%] md:min-w-[400px] snap-center group relative h-[450px] bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-blue-500/50 transition-all">
+                        <div
+                            class="absolute inset-0 bg-[url('/assets/images/work/card_speaker.png')] bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <div
+                                class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="mic-2" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Keynote Speaking</h3>
+                            <p class="text-neutral-400 text-sm line-clamp-2">170+ keynotes delivered globally on Growth,
+                                AI,
+                                and Future Tech.</p>
+                        </div>
+                    </a>
+
+                    <!-- Projects Tile (Formerly Writing) -->
+                    <a href="/work_projects/"
+                        class="min-w-[90%] md:min-w-[400px] snap-center group relative h-[450px] bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-orange-500/50 transition-all">
+                        <div
+                            class="absolute inset-0 bg-[url('/assets/images/work/card_projects.png')] bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <div
+                                class="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="folder-kanban" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Projects</h3>
+                            <p class="text-neutral-400 text-sm line-clamp-2">Major marketing projects, launches, and
+                                digital
+                                products.</p>
+                        </div>
+                    </a>
+
+                    <!-- Vibecoding Tile -->
+                    <a href="/work_vibecoding/"
+                        class="min-w-[90%] md:min-w-[400px] snap-center group relative h-[450px] bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-green-500/50 transition-all">
+                        <div
+                            class="absolute inset-0 bg-[url('/assets/images/work/box_vibecoding.png')] bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <div
+                                class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="code-2" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Vibecoding</h3>
+                            <p class="text-neutral-400 text-sm line-clamp-2">AI-driven development and agentic
+                                workflows.</p>
+                        </div>
+                    </a>
+
+                    <!-- Courses Tile -->
+                    <a href="/work_courses/"
+                        class="min-w-[90%] md:min-w-[400px] snap-center group relative h-[450px] bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-pink-500/50 transition-all">
+                        <div
+                            class="absolute inset-0 bg-[url('/assets/images/work/box_courses.png')] bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <div
+                                class="w-12 h-12 bg-pink-600 rounded-xl flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Courses</h3>
+                            <p class="text-neutral-400 text-sm line-clamp-2">Educational programs on Growth, AI, and
+                                Marketing.</p>
+                        </div>
+                    </a>
+
+                    <!-- Marketing Tile -->
+                    <a href="/portfolio/marketing/"
+                        class="min-w-[90%] md:min-w-[400px] snap-center group relative h-[450px] bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/50 transition-all">
+                        <div
+                            class="absolute inset-0 bg-[url('/assets/images/work/box_marketing.png')] bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <div
+                                class="w-12 h-12 bg-cyan-600 rounded-xl flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="megaphone" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Marketing</h3>
+                            <p class="text-neutral-400 text-sm line-clamp-2">Comprehensive growth strategies and
+                                execution.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS (Social Proof) -->
+        <!-- TESTIMONIALS (Social Proof) -->
+        <section class="max-w-7xl mx-auto px-6 mb-32">
+            <div class="text-center mb-12">
+                <i data-lucide="quote" class="w-8 h-8 text-purple-500 mx-auto mb-4"></i>
+                <h2 class="text-4xl font-bold text-white">What People Say</h2>
+            </div>
+
+            <div id="homepage-testimonials" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Data injected via JS -->
+                <div class="bg-neutral-900/50 p-8 rounded-2xl border border-white/5 animate-pulse h-64"></div>
+                <div class="bg-neutral-900/50 p-8 rounded-2xl border border-white/5 animate-pulse h-64 hidden md:block">
+                </div>
+                <div class="bg-neutral-900/50 p-8 rounded-2xl border border-white/5 animate-pulse h-64 hidden md:block">
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="/testimonials/"
+                    class="text-sm font-bold text-neutral-500 hover:text-white transition-colors">Read all testimonials
+                    →</a>
+            </div>
+        </section>
+
+        <!-- SKILLS SNAPSHOT -->
+        <section class="max-w-7xl mx-auto px-6 mb-32">
+            <div class="bg-neutral-900/30 rounded-3xl border border-white/5 p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl -mr-32 -mt-32">
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white mb-6">Built on 17 years of <br> <span
+                                class="text-purple-400">Execution.</span></h2>
+                        <p class="text-neutral-400 text-lg leading-relaxed mb-8">
+                            I don't just talk about growth; I build the systems that drive it. My approach blends
+                            technical precision with creative strategy.
+                        </p>
+                        <a href="/about/"
+                            class="text-white font-bold hover:text-purple-400 transition-colors inline-flex items-center gap-2">
+                            View Full Skills Matrix <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="bg-black/50 p-6 rounded-xl border border-white/5 hover:border-purple-500/30 transition-colors">
+                            <i data-lucide="rocket" class="w-8 h-8 text-purple-400 mb-4"></i>
+                            <h4 class="font-bold text-white mb-1">GTM Strategy</h4>
+                            <p class="text-xs text-neutral-500">Launch & Scale</p>
+                        </div>
+                        <div
+                            class="bg-black/50 p-6 rounded-xl border border-white/5 hover:border-blue-500/30 transition-colors">
+                            <i data-lucide="cpu" class="w-8 h-8 text-blue-400 mb-4"></i>
+                            <h4 class="font-bold text-white mb-1">AI Automation</h4>
+                            <p class="text-xs text-neutral-500">Workflows & Agents</p>
+                        </div>
+                        <div
+                            class="bg-black/50 p-6 rounded-xl border border-white/5 hover:border-green-500/30 transition-colors">
+                            <i data-lucide="blocks" class="w-8 h-8 text-green-400 mb-4"></i>
+                            <h4 class="font-bold text-white mb-1">Web3 / Crypto</h4>
+                            <p class="text-xs text-neutral-500">Protocol Growth</p>
+                        </div>
+                        <div
+                            class="bg-black/50 p-6 rounded-xl border border-white/5 hover:border-orange-500/30 transition-colors">
+                            <i data-lucide="mic" class="w-8 h-8 text-orange-400 mb-4"></i>
+                            <h4 class="font-bold text-white mb-1">Public Speaking</h4>
+                            <p class="text-xs text-neutral-500">Keynotes & Workshops</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIBECODING FEATURE -->
+        <section class="max-w-7xl mx-auto px-6 mb-32">
+            <div class="bg-neutral-900/50 rounded-3xl border border-white/5 overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold uppercase tracking-widest mb-6 w-fit">
+                            <i data-lucide="code-2" class="w-4 h-4"></i> Featured Concept
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                            What is <span class="text-green-400">Vibecoding?</span>
+                        </h2>
+                        <p class="text-neutral-400 text-lg leading-relaxed mb-8">
+                            It's the flow state where AI and human creativity merge. By leveraging agentic workflows and
+                            LLMs, I build complex systems at 10x speed. This entire portfolio agent system is a live
+                            example of vibecoding in action.
+                        </p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 text-neutral-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i>
+                                <span>Rapid Prototyping & Deployment</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-neutral-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i>
+                                <span>Agentic Architecture Layers</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-neutral-300">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400"></i>
+                                <span>Seamless Design & Logic Integration</span>
+                            </li>
+                        </ul>
+                        <a href="/work_projects/"
+                            class="inline-flex items-center gap-2 text-white font-bold hover:text-green-400 transition-colors">
+                            See the Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <div class="relative min-h-[400px] bg-black/50 border-l border-white/5">
+                        <div
+                            class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] bg-[position:0_0,0_0] animate-[shimmer_3s_infinite_linear]">
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center p-12">
+                            <!-- Mock Terminal Visual -->
+                            <div
+                                class="w-full max-w-md bg-black rounded-lg border border-neutral-800 shadow-2xl overflow-hidden font-mono text-xs opacity-90">
+                                <div class="bg-neutral-900 px-4 py-2 border-b border-neutral-800 flex gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <div class="p-4 space-y-2 text-green-400">
+                                    <p><span class="text-purple-400">➜</span> <span class="text-blue-400">~</span>
+                                        init_agent_workflow --mode=vibecode</p>
+                                    <p class="text-neutral-500">Initializing core systems...</p>
+                                    <p class="text-neutral-500">Loading modules: [Design, Logic, Strategy]</p>
+                                    <p>> Context established.</p>
+                                    <p>> Generating high-fidelity output...</p>
+                                    <p class="animate-pulse">_</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ACCELERATOR TRUST SIGNALS -->
+        <section class="border-y border-white/5 bg-white/[0.02] py-12 mb-32 overflow-hidden relative">
+            <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
+                <p class="text-sm font-bold text-neutral-500 uppercase tracking-widest">Mentor and Workshops for Over 20
+                    Accelerators Globally</p>
+            </div>
+
+            <!-- MARQUEE TRACK -->
+            <div
+                class="flex animate-scroll whitespace-nowrap gap-12 items-center text-neutral-500 font-bold text-lg uppercase tracking-widest">
+
+                <!-- Set 1 -->
+                <span class="hover:text-white transition-colors">Antler</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Startup Wise Guys</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Hype Sports Innovation</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rainmaking</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">The Camp (TRYG)</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Talent Garden</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Copenhagen Fintech</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Go Grow (CBS)</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Innovation Center Denmark</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">DGI</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Propagator</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Founders Institute</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Crypto Summer Lab</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rockstart</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechStars Boston</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechStars Dublin</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Intentional</span>
+                <span class="text-neutral-800">•</span>
+
+                <!-- Set 2 -->
+                <span class="hover:text-white transition-colors">Antler</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Startup Wise Guys</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Hype Sports Innovation</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rainmaking</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">The Camp (TRYG)</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Talent Garden</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Copenhagen Fintech</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Go Grow (CBS)</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Innovation Center Denmark</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">DGI</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Propagator</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Founders Institute</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Crypto Summer Lab</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rockstart</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechStars Boston</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechStars Dublin</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Intentional</span>
+                <span class="text-neutral-800">•</span>
+
+                <!-- Set 3 -->
+                <span class="hover:text-white transition-colors">Antler</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Startup Wise Guys</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Hype Sports Innovation</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rainmaking</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">The Camp (TRYG)</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Talent Garden</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Copenhagen Fintech</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Go Grow (CBS)</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Innovation Center Denmark</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">DGI</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Propagator</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Founders Institute</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Crypto Summer Lab</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Rockstart</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechStars Boston</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">TechStars Dublin</span>
+                <span class="text-neutral-800">•</span>
+                <span class="hover:text-white transition-colors">Intentional</span>
+                <span class="text-neutral-800">•</span>
+            </div>
+        </section>
+
+        <!-- CONTACT CTA -->
+        <section class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight">Ready to <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">scale?</span>
+            </h2>
+            <p class="text-xl text-neutral-400 mb-12">I'm currently looking for the right leadership seat in a
+                decentralized, product-first project.</p>
+            <a href="/contact/"
+                class="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-bold text-lg rounded-full hover:bg-purple-400 hover:text-white transition-all shadow-2xl hover:shadow-purple-500/30">
+                Get in Touch
+            </a>
+        </section>
+
+    </main>
+
+    <!-- INJECTED LAYOUT -->
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/testimonials_data.js"></script>
+    <script>
+        // Homepage specific logic
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHomepageTestimonials();
+            lucide.createIcons();
+        });
+
+        function renderHomepageTestimonials() {
+            if (typeof TESTIMONIALS_DATA === 'undefined') return;
+
+            const container = document.getElementById('homepage-testimonials');
+            // Select 3 random testimonials that have a name (not Anonymous if possible) and decent length
+            const valid = TESTIMONIALS_DATA.filter(t => t.name && t.name !== 'Anonymous' && t.quote.length < 200);
+
+            // Random shuffle
+            const shuffled = valid.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 3);
+
+            const gradients = [
+                'from-purple-500 to-indigo-500',
+                'from-pink-500 to-rose-500',
+                'from-blue-500 to-cyan-500',
+                'from-emerald-500 to-green-500',
+                'from-orange-500 to-red-500'
+            ];
+
+            container.innerHTML = selected.map((t, index) => {
+                const initial = t.name.charAt(0).toUpperCase();
+                const gradient = gradients[index % gradients.length];
+
+                return `
+                <div class="bg-neutral-900/50 p-8 rounded-2xl border border-white/5 hover:border-purple-500/30 transition-colors flex flex-col">
+                    <p class="text-lg text-neutral-300 italic mb-6 flex-grow">"${t.quote}"</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center font-bold text-white text-sm shadow-lg">
+                            ${initial}
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">${t.name}</h4>
+                            <span class="text-xs text-neutral-500 block max-w-[150px] truncate">${t.role || 'Attendee'}</span>
+                            ${t.company ? `<span class="text-[10px] text-neutral-600 truncate block">${t.company}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+    </script>
+</body>
+
+</html>
