@@ -57,13 +57,13 @@
 
         <!-- View Toggle (Navigation) -->
         <div class="bg-neutral-900 border border-neutral-800 p-1 rounded-full flex gap-1 relative z-20">
-            <a href="/portfolio/quests/"
+            <a 
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Portfolio</a>
-            <a href="/portfolio/quests/overview/"
+            <a 
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Overview</a>
-            <a href="/portfolio/quests/analytics/"
+            <a 
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Analytics</a>
-            <a href="/portfolio/quests/resources/"
+            <a 
                 class="px-6 py-2 rounded-full text-sm font-bold bg-neutral-800 text-white shadow-lg transition-all">Resources</a>
         </div>
     </header>
@@ -82,9 +82,10 @@
     </div>
 
     <!-- MODAL -->
-    <div id="resource-modal"
+    <div id="resource-modal" onclick="closeModal()"
         class="fixed inset-0 z-[100] hidden modal-overlay flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-6xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-300 custom-scrollbar"
+        <div onclick="event.stopPropagation()"
+            class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-300 custom-scrollbar"
             id="modal-content">
 
             <!-- Close Button -->
@@ -93,12 +94,79 @@
                 <i data-lucide="x" class="w-6 h-6 text-neutral-400 group-hover:text-white"></i>
             </button>
 
-            <!-- Modal Content -->
-            <div id="modal-body" class="p-8 md:p-12">
-                <!-- Injected via JS -->
+            <!-- Header Banner -->
+            <div class="bg-gradient-to-r from-blue-900/20 to-neutral-900 p-8 border-b border-white/5">
+                <div class="flex items-start gap-4">
+                    <div id="modal-icon-container"
+                        class="p-4 bg-neutral-800 rounded-xl border border-white/10 text-blue-400 shadow-xl">
+                        <!-- Icon injected -->
+                        <i id="header-icon" data-lucide="file-text" class="w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center gap-2 mb-3">
+                            <span id="modal-type-badge"
+                                class="px-2 py-1 bg-white/5 rounded text-[10px] font-bold text-neutral-400 uppercase tracking-wider border border-white/5">Resource</span>
+                            <span id="modal-category-badge"
+                                class="px-2 py-1 bg-blue-500/10 text-blue-400 rounded text-[10px] font-bold uppercase tracking-wider border border-blue-500/20">Category</span>
+                        </div>
+                        <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                            Resource Title</h2>
+                        <div class="flex items-center gap-2 text-sm text-neutral-400">
+                            <span id="modal-subtitle">Quest Portfolio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Body -->
+            <div id="modal-body" class="p-8">
+
+                <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Description</h3>
+                <p id="modal-desc" class="text-neutral-300 text-base leading-relaxed mb-6 whitespace-pre-wrap">
+                    Description goes here...</p>
+
+                <!-- Metadata Grid -->
+                <!-- Only show if data exists, handled by JS -->
+                <div id="modal-meta-grid"
+                    class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-neutral-800/20 p-4 rounded-xl border border-white/5 hidden">
+                    <div>
+                        <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Type</span>
+                        <div id="meta-type" class="text-sm font-semibold text-white">Sheet</div>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Category</span>
+                        <div id="meta-category" class="text-sm font-semibold text-white">Web3</div>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Access</span>
+                        <div id="meta-access" class="text-sm font-semibold text-white">Full</div>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Cost</span>
+                        <div id="meta-cost" class="text-sm font-semibold text-white">Free</div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (e.g. Sheets) -->
+                <div id="modal-dynamic-content" class="mb-8">
+                    <!-- Injected -->
+                </div>
+
+                <div
+                    class="flex justify-between items-center pt-6 border-t border-white/10 sticky bottom-0 bg-neutral-900 pb-2">
+                    <button onclick="closeModal()"
+                        class="px-6 py-3 rounded-xl font-bold text-neutral-400 hover:text-white hover:bg-white/5 transition-all">Close</button>
+                    <a id="modal-link" href="#" target="_blank"
+                        class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-lg shadow-blue-900/20 transition-all flex items-center gap-2 group">
+                        Open Resource <i data-lucide="external-link"
+                            class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Deployment Timestamp: 2026-01-26 16:38 -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -249,7 +317,34 @@
             const resource = RESOURCES_DB[categoryKey][index];
             const modal = document.getElementById('resource-modal');
             const content = document.getElementById('modal-content');
-            const body = document.getElementById('modal-body');
+
+            // 1. Populate Header
+            document.getElementById('modal-title').textContent = resource.title;
+            document.getElementById('modal-desc').textContent = resource.description || "No description provided.";
+            document.getElementById('modal-type-badge').textContent = resource.type;
+            document.getElementById('modal-category-badge').textContent = categoryKey;
+
+            const btn = document.getElementById('modal-link');
+            if (resource.external_url) {
+                btn.href = resource.external_url;
+                btn.classList.remove('hidden');
+                btn.classList.add('flex');
+            } else {
+                btn.classList.add('hidden');
+                btn.classList.remove('flex');
+            }
+
+            // Populate Metadata
+            document.getElementById('meta-type').textContent = resource.type;
+            document.getElementById('meta-category').textContent = categoryKey;
+            //  Default placeholders since DB doesn't have these fields yet
+            //  But we show the grid anyway for structure
+            document.getElementById('modal-meta-grid').classList.remove('hidden');
+
+
+            // 2. Dynamic Content (Sheets logic)
+            const dynamicContainer = document.getElementById('modal-dynamic-content');
+            dynamicContainer.innerHTML = ''; // Reset
 
             const linkify = (text) => {
                 if (!text) return '';
@@ -257,10 +352,7 @@
                 return text.replace(urlRegex, '<a href="/portfolio/quests/$1" target="_blank" class="text-purple-400 hover:text-purple-300 underline">$1</a>');
             };
 
-            let contentHtml = '';
-
-            // Logic for Sheets (Tabs & Tables)
-            if (resource.type === 'Sheet') {
+            if (resource.type === 'Sheet' && resource.content) {
                 const sheetNames = Object.keys(resource.content);
                 const tabsHtml = sheetNames.map((name, i) => `
                     <button onclick="switchResourceTab(this, '${name.replace(/[^a-zA-Z0-9]/g, '')}')" class="px-4 py-2 text-sm font-medium rounded-t-lg transition-colors ${i === 0 ? 'bg-neutral-800 text-white border-t border-x border-neutral-700' : 'text-neutral-500 hover:text-neutral-300'}">
@@ -289,46 +381,17 @@
                         </table>
                     </div>`;
                 }).join('');
-
-                contentHtml = `<div class="space-y-4"><div class="flex border-b border-neutral-800 gap-1 overflow-x-auto scrollbar-hide">${tabsHtml}</div><div>${tablesHtml}</div></div>`;
-            }
-            // Logic for Text/Other
-            else {
-                contentHtml = `
+                dynamicContainer.innerHTML = `<div class="space-y-4"><div class="flex border-b border-neutral-800 gap-1 overflow-x-auto scrollbar-hide">${tabsHtml}</div><div>${tablesHtml}</div></div>`;
+            } else if (resource.content) {
+                // Generic Text
+                dynamicContainer.innerHTML = `
                     <div class="bg-neutral-800 rounded-xl border border-neutral-700 p-8 md:p-12 prose prose-invert max-w-none">
                         <pre class="whitespace-pre-wrap font-sans text-neutral-300 leading-relaxed">${linkify(resource.content)}</pre>
                     </div>
                 `;
             }
 
-            // Populate Modal Body
-            body.innerHTML = `
-                <div class="space-y-6">
-                    <div class="flex items-start justify-between gap-4 border-b border-neutral-800 pb-6 mb-6">
-                         <div>
-                            <div class="flex items-center gap-3 mb-2">
-                                <span class="px-2 py-1 bg-purple-500/10 text-purple-400 rounded text-xs font-bold uppercase tracking-wider border border-purple-500/20">${resource.type}</span>
-                                ${resource.external_url ? `
-                                <a href="${resource.external_url}" target="_blank" class="text-neutral-500 hover:text-white transition-colors">
-                                    <i data-lucide="external-link" class="w-4 h-4"></i>
-                                </a>
-                                ` : ''}
-                            </div>
-                            <h2 class="text-3xl font-bold text-white mb-2 leading-tight">${resource.title}</h2>
-                            <p class="text-neutral-400 max-w-2xl">${resource.description || ''}</p>
-                         </div>
-                    </div>
-                    ${contentHtml}
-                    
-                    <div class="pt-8 border-t border-neutral-800 text-center">
-                        <button onclick="closeModal()" class="px-8 py-3 bg-neutral-800 hover:bg-neutral-700 rounded-xl text-white font-bold transition-colors">
-                            Close Resource
-                        </button>
-                    </div>
-                </div>
-            `;
-
-            // Open Modal
+            // 3. Open Modal
             modal.classList.remove('hidden');
             // Force Reflow
             void modal.offsetWidth;
@@ -336,7 +399,7 @@
             content.classList.remove('scale-95');
             content.classList.add('scale-100');
 
-            document.body.style.overflow = 'hidden'; // Prevent Body Scroll
+            document.body.style.overflow = 'hidden';
             lucide.createIcons();
         }
 
