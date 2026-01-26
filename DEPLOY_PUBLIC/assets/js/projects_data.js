@@ -2,7 +2,7 @@ const PROJECTS_DATA = [
   {
     "id": "yt-thumbnail-generator",
     "project": "YT Thumbnail-Generator",
-    "image": "/assets/images/projects/YT Thumbnail Generator.png",
+    "image": "/assets/images/projects/yt-thumbnail-generator.png",
     "type": "Image",
     "tags": ["AI Images"],
     "url": "https://ai.studio/apps/drive/1fU5j35zyXBtaJ-5-RZpx_lkqqVpt2C0U?fullscreenApplet=true",
@@ -22,7 +22,7 @@ const PROJECTS_DATA = [
   {
     "id": "ai-character-generator",
     "project": "Ai Character Generator",
-    "image": "/assets/images/projects/Ai Character Generator.png",
+    "image": "/assets/images/projects/ai-character-generator.png",
     "type": "Image",
     "tags": ["AI Images"],
     "url": "https://ai.studio/apps/drive/1AgarJPElZak2TtNZx2IZwvUX-DHDkrdc",
@@ -42,7 +42,7 @@ const PROJECTS_DATA = [
   {
     "id": "nanomem",
     "project": "NanoMem",
-    "image": "/assets/images/projects/NanoMeme.png",
+    "image": "/assets/images/projects/nanomeme.png",
     "type": "Image",
     "tags": ["AI Images"],
     "url": "https://ai.studio/apps/drive/1E03qR53QMHz04MIElRpWpXbcsV1W3_s9",
@@ -62,7 +62,7 @@ const PROJECTS_DATA = [
   {
     "id": "hairstudio",
     "project": "HairStudio",
-    "image": "/assets/images/projects/Headshot Studio.png",
+    "image": "/assets/images/projects/headshot-studio.png",
     "type": "Image",
     "tags": ["AI Images"],
     "url": "https://ai.studio/apps/drive/1s4vSV--ioFIb6GIe_OOFJj9wVWQqAcdf?fullscreenApplet=true",
@@ -82,7 +82,7 @@ const PROJECTS_DATA = [
   {
     "id": "adfushion",
     "project": "AdFushion",
-    "image": "/assets/images/projects/Adfushion.png",
+    "image": "/assets/images/projects/adfushion.png",
     "type": "Video",
     "tags": ["AI Videos"],
     "url": "https://ai.studio/apps/drive/1J35PTwcDad4ODvYz3J_SuJNUbVymypCs?fullscreenApplet=true",
@@ -102,7 +102,7 @@ const PROJECTS_DATA = [
   {
     "id": "cinestudio",
     "project": "CineStudio",
-    "image": "/assets/images/projects/CineStudio.png",
+    "image": "/assets/images/projects/cinestudio.png",
     "type": "Video",
     "tags": ["AI Videos"],
     "url": "https://ai.studio/apps/drive/1EQYsbCoHSkHEOy6L1OimjWRm86ZijiMF?fullscreenApplet=true",
@@ -122,7 +122,7 @@ const PROJECTS_DATA = [
   {
     "id": "psilab",
     "project": "PsiLab",
-    "image": "/assets/images/projects/PsyLab.png",
+    "image": "/assets/images/projects/psylab.png",
     "type": "Game",
     "tags": ["AI Games"],
     "url": "https://ai.studio/apps/drive/1eazv38lv6TwGfAZdwoDX8PUABcSS0ufI",
