@@ -355,7 +355,7 @@
         }
 
         function loadSpeakerData() {
-            fetch('/assets/js/speaker_data.json')
+            fetch('/assets/js/speaker_data_v2.json')
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
