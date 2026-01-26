@@ -355,7 +355,30 @@
                 .filter(item => item["Date (DD/MM/YY)"] && item["Event Name"])
                 .map(item => {
                     const dateStr = item["Date (DD/MM/YY)"];
-                    const dateObj = new Date(dateStr);
+                    // Parse DD/MM/YY
+                    let dateObj;
+                    if (dateStr.includes('/')) {
+                        const parts = dateStr.split('/');
+                        if (parts.length === 3) {
+                            const d = parseInt(parts[0], 10);
+                            const m = parseInt(parts[1], 10) - 1; // 0-indexed
+                            let y = parseInt(parts[2], 10);
+                            if (y < 100) y += 2000; // Assume 20xx
+                            dateObj = new Date(y, m, d);
+                        } else {
+                            dateObj = new Date(dateStr);
+                        }
+                    } else {
+                        dateObj = new Date(dateStr);
+                    }
+
+                    // Fallback for invalid date
+                    if (isNaN(dateObj)) {
+                        console.error("Invalid Date found:", dateStr);
+                        // Default to today or recent to avoid breaking sort completely, or allow it to be filterable
+                        dateObj = new Date();
+                    }
+
                     return {
                         ...item,
                         dateObj: dateObj,
