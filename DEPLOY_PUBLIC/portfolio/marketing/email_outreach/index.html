@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Outreach | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .glass-panel {
+            background: rgba(23, 23, 23, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <link rel="canonical" href="https://taylorryan.xyz/portfolio/marketing/email_outreach/">
+    <meta property="og:url" content="https://taylorryan.xyz/portfolio/marketing/email_outreach/">
+</head>
+
+<body class="bg-black min-h-screen mb-20">
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/marketing_full_data.js"></script>
+    <script src="/assets/js/marketing_sidebar.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMarketingSidebar('email-outreach');
+            renderResources();
+            lucide.createIcons();
+        });
+    </script>
+
+    <div class="md:ml-64 transition-all min-h-screen">
+        <!-- Hero Section -->
+        <header class="pt-32 pb-16 px-6 max-w-7xl mx-auto">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="p-4 bg-blue-900/20 rounded-2xl border border-blue-500/20 text-blue-400">
+                    <i data-lucide="mail" class="w-10 h-10"></i>
+                </div>
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-2">Outbound Email Campaigns</h1>
+                    <p class="text-xl text-neutral-400">High-volume, automated cold email infrastructure and templates.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="glass-panel p-6 rounded-xl">
+                    <span class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Open
+                        Rate</span>
+                    <div class="text-2xl font-bold text-white">45%+</div>
+                    <div class="text-xs text-green-400 mt-1 flex items-center gap-1"><i data-lucide="trending-up"
+                            class="w-3 h-3"></i> Above Industry Avg</div>
+                </div>
+                <div class="glass-panel p-6 rounded-xl">
+                    <span class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Reply
+                        Rate</span>
+                    <div class="text-2xl font-bold text-white">12%</div>
+                </div>
+                <div class="glass-panel p-6 rounded-xl">
+                    <span class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Emails
+                        Sent</span>
+                    <div class="text-2xl font-bold text-white">100k+</div>
+                </div>
+                <div class="glass-panel p-6 rounded-xl">
+                    <span class="block text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Automated
+                        Workflows</span>
+                    <div class="text-2xl font-bold text-white">10+</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="px-6 max-w-7xl mx-auto">
+
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap items-center gap-4 mb-8 border-b border-white/10 pb-1 overflow-x-auto">
+                <a href="/portfolio/marketing/email_outreach/" id="tab-all"
+                    class="px-4 py-2 text-sm font-bold text-white border-b-2 border-blue-500 transition-all whitespace-nowrap">
+                    All Outreach Resources
+                </a>
+                <a href="/portfolio/marketing/email_outreach_templates/" id="tab-templates"
+                    class="px-4 py-2 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:border-white/20 transition-all whitespace-nowrap">
+                    Templates
+                </a>
+                <a href="/portfolio/marketing/email_outreach_video/" id="tab-workflows"
+                    class="px-4 py-2 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:border-white/20 transition-all whitespace-nowrap">
+                    Video Outreach
+                </a>
+            </div>
+
+            <div id="resources-container">
+                <!-- Injected via JS -->
+                <div class="text-center py-20">
+                    <i data-lucide="loader" class="w-8 h-8 text-blue-500 animate-spin mx-auto mb-4"></i>
+                    <p class="text-neutral-500">Loading resources...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Resource Modal -->
+        <div id="resource-modal" onclick="closeModal()"
+            class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4">
+            <div onclick="event.stopPropagation()"
+                class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-200"
+                id="modal-content">
+
+                <!-- Close Button -->
+                <button onclick="closeModal()"
+                    class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                    <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
+                </button>
+
+                <!-- Header Banner -->
+                <div class="bg-gradient-to-r from-blue-900/20 to-neutral-900 p-8 border-b border-white/5">
+                    <div class="flex items-start gap-4">
+                        <div id="modal-icon-container"
+                            class="p-4 bg-neutral-800 rounded-xl border border-white/10 text-blue-400 shadow-xl">
+                            <!-- Icon injected -->
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <span id="modal-collection"
+                                    class="px-2 py-1 bg-white/5 rounded text-[10px] font-bold text-neutral-400 uppercase tracking-wider border border-white/5">Collection</span>
+                                <span id="modal-section"
+                                    class="px-2 py-1 bg-blue-500/10 text-blue-400 rounded text-[10px] font-bold uppercase tracking-wider border border-blue-500/20">Section</span>
+                                <span id="modal-status"
+                                    class="px-2 py-1 bg-green-500/10 text-green-400 rounded text-[10px] font-bold uppercase tracking-wider border border-green-500/20 hidden">Active</span>
+                            </div>
+                            <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                                Resource Title</h2>
+                            <div class="flex items-center gap-2 text-sm text-neutral-400">
+                                <span id="modal-type">Type</span>
+                                <span class="w-1 h-1 rounded-full bg-neutral-600"></span>
+                                <span id="modal-owner">Outreach Team</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8">
+
+                    <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Description</h3>
+                    <p id="modal-desc" class="text-neutral-300 text-base leading-relaxed mb-6 whitespace-pre-wrap">
+                        Description goes here...</p>
+
+                    <!-- Metadata Grid -->
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-neutral-800/20 p-4 rounded-xl border border-white/5">
+                        <div>
+                            <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Difficulty</span>
+                            <div id="modal-difficulty" class="text-sm font-semibold text-white">Intermediate</div>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Access</span>
+                            <div id="modal-access" class="text-sm font-semibold text-white">Full Access</div>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Cost</span>
+                            <div id="modal-cost" class="text-sm font-semibold text-white">Free</div>
+                        </div>
+                        <div>
+                            <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Region</span>
+                            <div id="modal-region" class="text-sm font-semibold text-white">Global</div>
+                        </div>
+                    </div>
+
+                    <div id="goals-section" class="mb-8 hidden">
+                        <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Goals & Use Cases
+                        </h3>
+                        <p id="modal-goals"
+                            class="text-sm text-neutral-400 leading-relaxed p-3 bg-neutral-800 rounded-lg border border-white/5">
+                        </p>
+                    </div>
+
+                    <div id="tags-section" class="mb-8 hidden">
+                        <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Tags & Topics</h3>
+                        <div class="flex flex-wrap gap-2" id="modal-tags">
+                            <!-- Tags injected here -->
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex justify-between items-center pt-6 border-t border-white/10 sticky bottom-0 bg-neutral-900 pb-2">
+                        <button onclick="closeModal()"
+                            class="px-6 py-3 rounded-xl font-bold text-neutral-400 hover:text-white hover:bg-white/5 transition-all">Close</button>
+                        <a id="modal-link" href="#" target="_blank"
+                            class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-lg shadow-blue-900/20 transition-all flex items-center gap-2 group">
+                            Open Resource <i data-lucide="external-link"
+                                class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // State
+            let currentSource = 'All Email Outreach Resources - TaylorRyanPortfolio';
+            let searchQuery = '';
+            let sectionFilter = 'All';
+
+            document.addEventListener('DOMContentLoaded', () => {
+                renderResources();
+                lucide.createIcons();
+            });
+
+            function renderResources() {
+                const container = document.getElementById('resources-container');
+
+                if (typeof MARKETING_FULL_DATA === 'undefined') {
+                    container.innerHTML = '<div class="text-center text-red-500">Error: Data not loaded</div>';
+                    return;
+                }
+
+                // Filter for Email Outreach AND Current Source
+                let data = MARKETING_FULL_DATA.filter(item =>
+                    item.category === 'Email Outreach' &&
+                    item.source_file === currentSource
+                );
+
+                // Apply Search
+                if (searchQuery) {
+                    const lowerQuery = searchQuery.toLowerCase();
+                    data = data.filter(item =>
+                        item.title.toLowerCase().includes(lowerQuery) ||
+                        item.description.toLowerCase().includes(lowerQuery)
+                    );
+                }
+
+                // Apply Section Filter
+                if (sectionFilter !== 'All') {
+                    data = data.filter(item => item.section === sectionFilter);
+                }
+
+                // Get Unique Sections for Dropdown
+                const allSections = ['All', ...new Set(MARKETING_FULL_DATA.filter(item => item.category === 'Email Outreach' && item.source_file === currentSource).map(item => item.section || 'General'))];
+
+                // Group by Section (Since Source is fixed now)
+                const sections = {};
+                data.forEach(item => {
+                    const sec = item.section || 'General';
+                    if (!sections[sec]) sections[sec] = [];
+                    sections[sec].push(item);
+                });
+
+                let html = `
+                <!-- Search & Filters -->
+                <div class="flex flex-col md:flex-row gap-4 mb-12 bg-neutral-900/50 p-4 rounded-2xl border border-white/5 items-center">
+                    <!-- Search -->
+                    <div class="relative flex-1 w-full">
+                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"></i>
+                        <input type="text" placeholder="Search resources..." value="${searchQuery}"
+                            oninput="searchQuery = this.value; renderResources()"
+                            class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:outline-none transition-all placeholder:text-neutral-600">
+                    </div>
+                    
+                    <!-- Filter -->
+                    <div class="relative w-full md:w-64">
+                        <i data-lucide="filter" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
+                        <select onchange="sectionFilter = this.value; renderResources()"
+                            class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white pl-10 pr-8 py-3 appearance-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:outline-none cursor-pointer">
+                            ${allSections.map(sec => `<option value="${sec}" ${sectionFilter === sec ? 'selected' : ''}>${sec}</option>`).join('')}
+                        </select>
+                        <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 pointer-events-none"></i>
+                    </div>
+
+                    <!-- Results Count Pill -->
+                    <div class="px-4 py-3 bg-blue-500/10 rounded-xl border border-blue-500/20 text-blue-400 text-sm font-bold whitespace-nowrap">
+                        ${data.length} Results
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+                     <h2 class="text-2xl font-bold text-white uppercase tracking-widest">${currentSource.replace(' - TaylorRyanPortfolio', '')}</h2>
+                     <a href="#" class="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 border border-white/5">
+                        <i data-lucide="external-link" class="w-3 h-3"></i> Open Source
+                     </a>
+                </div>
+                `;
+
+                if (data.length === 0) {
+                    html += `<div class="p-8 text-center text-neutral-500">No resources found for this section.</div>`;
+                }
+
+                // Render Sections
+                Object.keys(sections).forEach(secName => {
+                    html += `
+                    <div class="mb-12">
+                        ${secName !== 'General' ? `<h3 class="text-xl font-bold text-blue-400 mb-6 flex items-center gap-2"><i
+                                data-lucide="layers" class="w-5 h-5"></i> ${secName}</h3>` : ''}
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${sections[secName].map(item => createCard(item)).join('')}
+                        </div>
+                    </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+                lucide.createIcons();
+            }
+
+            function createCard(item) {
+                let icon = 'file-text';
+                const lowerTitle = item.title.toLowerCase();
+                if (lowerTitle.includes('sheet') || lowerTitle.includes('data')) icon = 'table';
+                if (lowerTitle.includes('template') || lowerTitle.includes('script')) icon = 'copy';
+                if (lowerTitle.includes('video') || lowerTitle.includes('recording')) icon = 'video';
+                if (lowerTitle.includes('tool') || lowerTitle.includes('app')) icon = 'wrench';
+
+                return `
+                <div onclick="openModal('${item.id}')"
+                    class="bg-neutral-900 border border-white/5 p-6 rounded-2xl hover:border-blue-500/50 hover:bg-neutral-800/50 transition-all group cursor-pointer h-full flex flex-col relative">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="p-3 bg-neutral-800 rounded-lg text-neutral-400 group-hover:text-blue-400 group-hover:bg-blue-500/10 transition-colors">
+                            <i data-lucide="${icon}" class="w-6 h-6"></i>
+                        </div>
+                        <span
+                            class="text-[10px] font-bold text-neutral-600 uppercase tracking-wider border border-white/5 px-2 py-1 rounded bg-black/20 h-fit">${item.type}</span>
+                    </div>
+
+                    <h4 class="text-lg font-bold text-white mb-2 leading-tight group-hover:text-blue-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+                        ${item.title}</h4>
+                    <p class="text-sm text-neutral-400 line-clamp-2 mb-4 flex-1">${item.description}</p>
+
+                    <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-500">
+                        <span>View Details</span>
+                        <i data-lucide="arrow-right"
+                            class="w-4 h-4 group-hover:translate-x-1 transition-transform text-blue-500"></i>
+                    </div>
+                </div>
+                `;
+            }
+
+            function openModal(id) {
+                const item = MARKETING_FULL_DATA.find(i => i.id === id);
+                if (!item) return;
+
+                document.getElementById('modal-title').textContent = item.title;
+                document.getElementById('modal-desc').textContent = item.description || "No description provided.";
+                document.getElementById('modal-type').textContent = item.format_inferred || item.type;
+                document.getElementById('modal-section').textContent = item.section;
+                document.getElementById('modal-link').href = item.url || '#';
+
+                document.getElementById('modal-status').textContent = item.status || 'Active';
+                document.getElementById('modal-owner').textContent = item.owner || 'Outreach Team';
+                document.getElementById('modal-collection').textContent = item.source_file || 'General';
+
+                // New Fields
+                document.getElementById('modal-difficulty').textContent = item.difficulty || 'Intermediate';
+                document.getElementById('modal-access').textContent = item.access || 'Full Access';
+                document.getElementById('modal-cost').textContent = item.cost || 'Free';
+                document.getElementById('modal-region').textContent = item.region || 'Global';
+
+                const goalsSection = document.getElementById('goals-section');
+                if (item.goals && item.goals.length > 5) {
+                    document.getElementById('modal-goals').textContent = item.goals;
+                    goalsSection.classList.remove('hidden');
+                } else {
+                    goalsSection.classList.add('hidden');
+                }
+
+                const tagsContainer = document.getElementById('modal-tags');
+                if (item.tags && item.tags.length > 0) {
+                    tagsContainer.innerHTML = item.tags.map(t => `<span
+                        class="px-3 py-1 bg-neutral-800 rounded-lg text-sm text-neutral-300 border border-neutral-700">#${t}</span>`).join('');
+                } else {
+                    tagsContainer.innerHTML = '';
+                }
+
+                const modal = document.getElementById('resource-modal');
+                const content = document.getElementById('modal-content');
+
+                modal.classList.remove('hidden');
+                void modal.offsetWidth; // force reflow
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('resource-modal');
+                const content = document.getElementById('modal-content');
+
+                content.classList.remove('scale-100');
+                content.classList.add('scale-95');
+
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 200);
+            }
+        </script>
+</body>
+
+</html>

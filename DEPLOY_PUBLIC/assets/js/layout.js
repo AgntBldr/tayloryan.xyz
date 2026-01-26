@@ -204,31 +204,48 @@ window.closeContactModal = function () {
     }
 };
 
-window.handleContactSubmit = function (e) {
+window.handleContactSubmit = async function (e) {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
-
-    // Construct Mailto
-    const mailtoLink = `mailto:taylor@klintmarketing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Taylor,\n\n${message}\n\nBest,\n${name}`)}`;
-
-    // Open Mail Client
-    window.location.href = mailtoLink;
-
-    // Optional: Show feedback
     const btn = e.target.querySelector('button');
     const originalText = btn.innerHTML;
-    btn.innerHTML = 'Client Opened <i data-lucide="check" class="w-4 h-4"></i>';
-    btn.classList.add('bg-green-500', 'text-white');
+    
+    // Loading State
+    btn.innerHTML = 'Sending... <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>';
+    btn.disabled = true;
 
-    setTimeout(() => {
-        closeContactModal();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            btn.innerHTML = 'Sent! <i data-lucide="check" class="w-4 h-4"></i>';
+            btn.classList.add('bg-green-500', 'text-white');
+            setTimeout(() => {
+                closeContactModal();
+                btn.innerHTML = originalText;
+                btn.classList.remove('bg-green-500', 'text-white');
+                btn.disabled = false;
+                e.target.reset();
+            }, 2000);
+        } else {
+            alert('Error: ' + (result.error || 'Failed to send message'));
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Network error. Please try again.');
         btn.innerHTML = originalText;
-        btn.classList.remove('bg-green-500', 'text-white');
-        e.target.reset();
-    }, 2000);
+        btn.disabled = false;
+    }
 };
 
 function isActive(href) {
