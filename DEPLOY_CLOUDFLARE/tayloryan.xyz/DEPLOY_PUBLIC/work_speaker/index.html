@@ -7,7 +7,7 @@
     <title>Speaker | Taylor Ryan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="/assets/js/speaker_data.js"></script>
     <style>
         body {
@@ -281,22 +281,7 @@
         </div>
 
         <!-- 4. CHART (Bottom) -->
-        <div class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-8 mb-16 relative overflow-hidden">
-            <div
-                class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none">
-            </div>
 
-            <div class="flex items-center justify-between mb-8 relative z-10">
-                <div>
-                    <h2 class="text-2xl font-bold text-white mb-1">Speaking Efficiency</h2>
-                    <p class="text-neutral-500 text-sm">Engagement frequency over time</p>
-                </div>
-            </div>
-
-            <div class="h-[300px] w-full relative z-10">
-                <canvas id="speakerChart"></canvas>
-            </div>
-        </div>
 
         <!-- CTA Section -->
         <div
@@ -477,49 +462,7 @@
             niches.forEach(n => nFilter.add(new Option(n, n)));
         }
 
-        function renderChart(data) {
-            const ctx = document.getElementById('speakerChart').getContext('2d');
-            const yearCounts = data.reduce((acc, curr) => {
-                acc[curr.year] = (acc[curr.year] || 0) + 1;
-                return acc;
-            }, {});
-            const sortedYears = Object.keys(yearCounts).sort((a, b) => a - b);
-            const counts = sortedYears.map(y => yearCounts[y]);
 
-            chartInstance = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: sortedYears,
-                    datasets: [{
-                        label: 'Engagements',
-                        data: counts,
-                        borderColor: '#60a5fa',
-                        backgroundColor: (context) => {
-                            const ctx = context.chart.ctx;
-                            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-                            gradient.addColorStop(0, 'rgba(96, 165, 250, 0.5)');
-                            gradient.addColorStop(1, 'rgba(96, 165, 250, 0)');
-                            return gradient;
-                        },
-                        borderWidth: 3,
-                        pointBackgroundColor: '#1e3a8a',
-                        pointBorderColor: '#60a5fa',
-                        pointRadius: 6,
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
-                        x: { grid: { display: false }, ticks: { color: '#94a3b8' } }
-                    }
-                }
-            });
-        }
 
         function renderEngagements() {
             const container = document.getElementById('speaker-list');
