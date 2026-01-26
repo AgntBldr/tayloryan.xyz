@@ -403,26 +403,36 @@
 
             // 1. Render Engagements (Priority)
             try {
-                renderEngagements();
+                if (typeof renderEngagements === 'function') {
+                    renderEngagements();
+                } else {
+                    throw new Error("renderEngagements function missing");
+                }
             } catch (e) {
                 console.error("Error rendering engagements:", e);
                 document.getElementById('speaker-list').innerHTML = `<div class="text-center py-20 text-red-500">Error loading data: ${e.message}</div>`;
             }
 
-            // 2. Render Chart (Secondary)
+            // Chart Removed to prevent CSP blocking issues
             try {
-                if (typeof Chart !== 'undefined') {
-                    renderChart(processedData);
-                } else {
-                    console.warn("Chart.js not loaded");
-                    document.getElementById('speakerChart').style.display = 'none';
-                }
-            } catch (e) {
-                console.error("Error rendering chart:", e);
-            }
+                document.getElementById('speakerChart').parentElement.style.display = 'none';
+            } catch (e) { }
 
             lucide.createIcons();
         }
+
+        // Ensure we check for data availability with a retry or fallback
+        setTimeout(() => {
+            const list = document.getElementById('speaker-list');
+            if (list && list.innerText.includes('Loading engagements')) {
+                if (typeof SPEAKER_ENGAGEMENTS === 'undefined') {
+                    list.innerHTML = `<div class="text-center py-20 text-red-500">
+                        Error: Data file not loaded. <br> 
+                        <span class="text-sm text-neutral-500">Please check internet connection or ad-blockers.</span>
+                     </div>`;
+                }
+            }
+        }, 3000);
 
         function populateStats(data) {
             // User hardcoded some values in request: 170+ Engagements, 26 countries, 9 years
