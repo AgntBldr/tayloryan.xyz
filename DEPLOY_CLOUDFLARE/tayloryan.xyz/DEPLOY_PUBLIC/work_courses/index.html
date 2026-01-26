@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <link rel="canonical" href="https://taylorryan.xyz/work_courses/">
+    <meta property="og:url" content="https://taylorryan.xyz/work_courses/">
+</head>
+
+<body class="bg-black min-h-screen">
+    <script src="/assets/js/layout.js"></script>
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+
+        <!-- Header -->
+        <div class="mb-16">
+            <span class="text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Courses</h1>
+            <p class="text-neutral-400 text-xl max-w-3xl leading-relaxed">
+                Educational courses and masterclasses.
+            </p>
+        </div>
+
+        <!-- Section: Courses -->
+        <section class="mb-32">
+            <div id="courses-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Courses injected via JS -->
+                <div class="col-span-full text-center text-neutral-500 py-12">Loading Courses...</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal -->
+    <div id="project-modal"
+        class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-300 scrollbar-hide"
+            id="modal-content">
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group">
+                <i data-lucide="x" class="w-6 h-6 text-neutral-400 group-hover:text-white"></i>
+            </button>
+            <div id="modal-body" class="p-8 md:p-12">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Data & Scripts -->
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/projects_data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCourses();
+            lucide.createIcons();
+        });
+
+        function renderCourses() {
+            const grid = document.getElementById('courses-grid');
+            if (typeof COURSES_DATA === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Courses Data not loaded.</div>';
+                return;
+            }
+
+            grid.innerHTML = COURSES_DATA.map(c => {
+                // Determine stats to show
+                let statsHtml = '';
+                if (c.hours) {
+                    statsHtml += `
+                        <div class="bg-neutral-800 p-3 rounded-lg text-center">
+                            <span class="block text-xl font-bold text-white">${c.hours}</span>
+                            <span class="text-xs text-neutral-500 uppercase">Hours</span>
+                        </div>
+                    `;
+                }
+                if (c.modules) {
+                    statsHtml += `
+                        <div class="bg-neutral-800 p-3 rounded-lg text-center">
+                            <span class="block text-xl font-bold text-white">${c.modules}</span>
+                            <span class="text-xs text-neutral-500 uppercase">Modules</span>
+                        </div>
+                    `;
+                }
+                if (c.slides && c.slides !== 'N/A') {
+                    statsHtml += `
+                        <div class="bg-neutral-800 p-3 rounded-lg text-center">
+                            <span class="block text-xl font-bold text-white">${c.slides}</span>
+                            <span class="text-xs text-neutral-500 uppercase">Slides</span>
+                        </div>
+                    `;
+                } else if (c.resources) {
+                    // Fallback to resources if no slides
+                    statsHtml += `
+                        <div class="bg-neutral-800 p-3 rounded-lg text-center">
+                            <span class="block text-xl font-bold text-white">${c.resources.replace(/\D/g, '')}+</span>
+                            <span class="text-xs text-neutral-500 uppercase">Resources</span>
+                        </div>
+                    `;
+                }
+
+                return `
+                <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all flex flex-col group h-full cursor-pointer" onclick="openModal('${c.id}')">
+                    ${c.image ? `
+                    <div class="relative h-64 w-full overflow-hidden">
+                        <div class="block h-full w-full relative">
+                            <img src="${c.image}" alt="${c.title}"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                    </div>
+                    ` : `
+                    <div class="relative h-64 w-full bg-neutral-800 flex items-center justify-center">
+                        <i data-lucide="graduation-cap" class="w-12 h-12 text-neutral-700"></i>
+                    </div>
+                    `}
+                    
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="hover:text-blue-400 transition-colors">
+                                <h3 class="text-2xl font-bold text-white">${c.title}</h3>
+                            </div>
+                        </div>
+                        <p class="text-neutral-400 mb-6 text-sm line-clamp-3">${c.description}</p>
+
+                        <div class="grid grid-cols-${c.slides !== 'N/A' || c.resources ? '3' : '2'} gap-4 mt-auto">
+                            ${statsHtml}
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function openModal(id) {
+            const item = COURSES_DATA.find(p => p.id === id);
+            if (!item) return;
+
+            const modal = document.getElementById('project-modal');
+            const content = document.getElementById('modal-content');
+            const body = document.getElementById('modal-body');
+
+            // Prevent scroll
+            document.body.style.overflow = 'hidden';
+
+            // --- COURSE MODAL CONTENT ---
+            body.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Left Column: Visuals & Stats -->
+                    <div class="space-y-8">
+                        ${item.image ? `
+                        <div class="rounded-xl overflow-hidden border border-neutral-700 shadow-2xl relative group">
+                            <img src="${item.image}" class="w-full h-auto object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                        ` : ''}
+
+                        <!-- Key Stats -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-neutral-800/30 p-4 rounded-xl border border-neutral-700">
+                                <span class="block text-xs text-neutral-500 uppercase tracking-wider mb-2">Level</span>
+                                <div class="font-bold text-white">${item.level || 'All Levels'}</div>
+                            </div>
+                            <div class="bg-neutral-800/30 p-4 rounded-xl border border-neutral-700">
+                                <span class="block text-xs text-neutral-500 uppercase tracking-wider mb-2">Graduates</span>
+                                <div class="font-bold text-green-400 md:text-xl">${item.graduates ? String(item.graduates).replace(/\D/g, '') + '+' : 'N/A'}</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Detailed Stats -->
+                        <div class="grid grid-cols-3 gap-2 text-center">
+                            <div class="bg-neutral-800 p-2 rounded-lg">
+                                <span class="block font-bold text-white md:text-lg">${item.hours}</span>
+                                <span class="text-[10px] text-neutral-500 uppercase">Hours</span>
+                            </div>
+                            <div class="bg-neutral-800 p-2 rounded-lg">
+                                <span class="block font-bold text-white md:text-lg">${item.modules}</span>
+                                <span class="text-[10px] text-neutral-500 uppercase">Modules</span>
+                            </div>
+                            <div class="bg-neutral-800 p-2 rounded-lg">
+                                <span class="block font-bold text-white md:text-lg">${item.slides !== 'N/A' ? item.slides : (item.resources ? item.resources.replace(/[^\d+]/g, '') : 'N/A')}</span>
+                                <span class="text-[10px] text-neutral-500 uppercase">Resources</span>
+                            </div>
+                        </div>
+
+                            ${item.preview_video && item.preview_video.includes('youtu') ? `
+                        <div class="border-t border-neutral-800 pt-6">
+                            <h4 class="text-sm font-bold text-red-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                <i data-lucide="play-circle" class="w-4 h-4"></i> Preview
+                            </h4>
+                            <a href="${item.preview_video}" target="_blank" class="flex items-center gap-4 p-4 bg-neutral-800/50 rounded-xl hover:bg-neutral-800 transition-colors group">
+                                    <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <i data-lucide="play" class="w-5 h-5 text-white fill-current"></i>
+                                    </div>
+                                    <div>
+                                    <span class="block text-white font-bold">Watch Preview Video</span>
+                                    <span class="text-neutral-500 text-sm">On YouTube</span>
+                                    </div>
+                            </a>
+                        </div>
+                        ` : ''}
+
+                        <!-- External Links -->
+                        <div class="space-y-3 pt-4">
+                            ${item.website ? `
+                            <a href="${item.website}" target="_blank" class="flex items-center justify-between p-4 bg-neutral-800/30 rounded-xl border border-neutral-700 hover:border-neutral-500 transition-colors group">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 bg-blue-500/10 rounded-lg text-blue-400 group-hover:text-white transition-colors">
+                                        <i data-lucide="globe" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="font-bold text-neutral-300 group-hover:text-white transition-colors">Website</span>
+                                </div>
+                                <i data-lucide="external-link" class="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors"></i>
+                            </a>
+                            ` : ''}
+
+                            ${item.udemy_link ? `
+                            <a href="${item.udemy_link}" target="_blank" class="flex items-center justify-between p-4 bg-neutral-800/30 rounded-xl border border-neutral-700 hover:border-neutral-500 transition-colors group">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400 group-hover:text-white transition-colors">
+                                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                                    </div>
+                                    <span class="font-bold text-neutral-300 group-hover:text-white transition-colors">Udemy Course</span>
+                                </div>
+                                <i data-lucide="external-link" class="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors"></i>
+                            </a>
+                            ` : ''}
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details -->
+                    <div class="space-y-8">
+                        <div>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-bold uppercase tracking-wider border border-blue-500/20 mb-4 inline-block">${item.theme || 'Course'}</span>
+                            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">${item.title}</h2>
+                            <p class="text-neutral-300 text-lg leading-relaxed">${item.long_description || item.description}</p>
+                        </div>
+
+                            <!-- Audience -->
+                            ${item.audience ? `
+                        <div class="bg-neutral-900/50 p-6 rounded-xl border border-neutral-800">
+                            <h4 class="text-blue-400 font-bold mb-3 flex items-center gap-2">
+                                <i data-lucide="users" class="w-5 h-5"></i> Who is this for?
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                ${item.audience.split(';').map(a => `
+                                    <span class="px-3 py-1 bg-neutral-800 border border-neutral-700 rounded-lg text-sm text-neutral-300">${a.trim()}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                        ` : ''}
+
+                        <!-- Chapters -->
+                        ${item.chapters ? `
+                        <div>
+                            <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                                <i data-lucide="list" class="w-5 h-5 text-neutral-500"></i> What you'll learn
+                            </h4>
+                            <ul class="space-y-3">
+                                ${item.chapters.split(';').map(c => `
+                                <li class="flex items-start gap-3 text-neutral-400">
+                                    <i data-lucide="check" class="w-5 h-5 text-green-500 shrink-0 mt-0.5"></i>
+                                    <span>${c.trim()}</span>
+                                </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+
+                        <div class="border-t border-neutral-800 pt-8 mt-auto">
+                            <a href="${item.url}" target="_blank" class="block w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold text-center rounded-xl transition-all shadow-lg hover:shadow-blue-500/25">
+                                View Course on Udemy <i data-lucide="external-link" class="w-4 h-4 inline ml-2"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            // Force Reflow
+            void modal.offsetWidth;
+
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            const content = document.getElementById('modal-content');
+
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+    </script>
+</body>
+
+</html>

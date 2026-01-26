@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcasts & Interviews | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/assets/js/podcast_data.js"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+    </style>
+    <link rel="canonical" href="https://taylorryan.xyz/work_podcasts/">
+    <meta property="og:url" content="https://taylorryan.xyz/work_podcasts/">
+</head>
+
+<body class="min-h-screen relative overflow-x-hidden">
+    <!-- Global Layout -->
+    <script src="/assets/js/layout.js"></script>
+
+    <!-- Modal Container -->
+    <div id="modal-container" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-neutral-900 border border-neutral-800 w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-y-auto custom-scrollbar relative shadow-2xl"
+                onclick="event.stopPropagation()">
+                <button onclick="closeModal()"
+                    class="absolute top-4 right-4 p-2 bg-black/50 hover:bg-neutral-800 rounded-full text-white transition-colors z-10 border border-neutral-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-24 relative z-10">
+
+        <!-- Header Section -->
+        <div class="text-center mb-12">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-wider mb-6">
+                <i data-lucide="mic-2" class="w-4 h-4"></i> Work Portfolio
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+                Podcasts & <span class="gradient-text">Interviews</span>
+            </h1>
+
+            <p class="text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
+                Guest appearances, deep-dives, and webinars on Growth, Web3, and Tech.
+            </p>
+        </div>
+
+        <!-- 1. DATA BANNER -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+            <div
+                class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-2xl text-center hover:border-pink-500/30 transition-colors">
+                <div class="text-3xl font-extrabold text-pink-500 mb-1" id="stat-total">0</div>
+                <div class="text-xs text-neutral-400 uppercase tracking-widest">Total Interviews</div>
+            </div>
+            <div
+                class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-2xl text-center hover:border-purple-500/30 transition-colors">
+                <div class="text-3xl font-extrabold text-purple-500 mb-1" id="stat-hosts">0</div>
+                <div class="text-xs text-neutral-400 uppercase tracking-widest">Unique Hosts</div>
+            </div>
+            <div
+                class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-2xl text-center hover:border-blue-500/30 transition-colors">
+                <div class="text-3xl font-extrabold text-blue-500 mb-1" id="stat-hours">0+</div>
+                <div class="text-xs text-neutral-400 uppercase tracking-widest">Hours of Content</div>
+            </div>
+            <div
+                class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-2xl text-center hover:border-green-500/30 transition-colors">
+                <div class="text-3xl font-extrabold text-green-500 mb-1" id="stat-year">2018</div>
+                <div class="text-xs text-neutral-400 uppercase tracking-widest">First Appearance</div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div id="engagements" class="mb-8">
+            <div class="flex flex-col gap-6 border-b border-neutral-800 pb-8">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-3xl font-bold text-white">Media Library</h2>
+                    <span class="text-sm text-neutral-500" id="count-display">Loading...</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-4">
+                    <!-- Search -->
+                    <div class="relative flex-1">
+                        <i data-lucide="search"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
+                        <input type="text" id="search-input" oninput="renderPodcasts()"
+                            placeholder="Search topics, hosts, titles..."
+                            class="w-full bg-neutral-900 border border-neutral-700 text-white rounded-lg pl-10 pr-4 py-2.5 outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+
+                    <!-- Filters -->
+                    <select id="year-filter" onchange="renderPodcasts()"
+                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none">
+                        <option value="all">All Years</option>
+                    </select>
+
+                    <select id="type-filter" onchange="renderPodcasts()"
+                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none max-w-[200px]">
+                        <option value="all">All Types</option>
+                    </select>
+
+                    <select id="industry-filter" onchange="renderPodcasts()"
+                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none max-w-[200px]">
+                        <option value="all">All Industries</option>
+                    </select>
+
+                    <div class="h-8 w-[1px] bg-neutral-800 mx-2 hidden md:block"></div>
+
+                    <!-- View Toggle -->
+                    <div
+                        class="flex bg-neutral-900 border border-neutral-700 rounded-lg p-1 h-[42px] self-start md:self-auto">
+                        <button onclick="switchView('list')" id="btn-list"
+                            class="px-3 rounded-md transition-all flex items-center justify-center bg-neutral-700 text-white shadow-sm"
+                            title="List View">
+                            <i data-lucide="list" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="switchView('grid')" id="btn-grid"
+                            class="px-3 rounded-md transition-all flex items-center justify-center text-neutral-500 hover:text-white"
+                            title="Grid View">
+                            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Podcast List -->
+        <div id="podcast-list" class="space-y-12 mb-24 min-h-[400px]">
+            <div class="text-center py-20">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mx-auto mb-4"></div>
+                <p class="text-neutral-500">Loading library...</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        let processedData = [];
+        let currentView = 'list';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initData();
+        });
+
+        function switchView(mode) {
+            currentView = mode;
+
+            const btnList = document.getElementById('btn-list');
+            const btnGrid = document.getElementById('btn-grid');
+            const container = document.getElementById('podcast-list');
+
+            if (mode === 'list') {
+                btnList.classList.add('bg-neutral-700', 'text-white', 'shadow-sm');
+                btnList.classList.remove('text-neutral-500');
+                btnGrid.classList.remove('bg-neutral-700', 'text-white', 'shadow-sm');
+                btnGrid.classList.add('text-neutral-500');
+
+                // Reset container classes for List
+                container.className = "space-y-12 mb-24 min-h-[400px]";
+            } else {
+                btnGrid.classList.add('bg-neutral-700', 'text-white', 'shadow-sm');
+                btnGrid.classList.remove('text-neutral-500');
+                btnList.classList.remove('bg-neutral-700', 'text-white', 'shadow-sm');
+                btnList.classList.add('text-neutral-500');
+
+                // Set container classes for Grid
+                container.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24 min-h-[400px]";
+            }
+
+            renderPodcasts();
+        }
+
+        function initData() {
+            if (typeof PODCAST_DATA === 'undefined') {
+                return;
+            }
+
+            processedData = PODCAST_DATA
+                .map(item => {
+                    // Try to parse date
+                    let dateObj = new Date(item.date);
+                    if (isNaN(dateObj)) dateObj = new Date('2020-01-01'); // Fallback
+
+                    return {
+                        ...item,
+                        dateObj: dateObj,
+                        year: dateObj.getFullYear(),
+                        month: dateObj.toLocaleString('default', { month: 'short' }),
+                        fullDate: item.date || 'Unknown Date',
+                        // Normalize arrays
+                        industries: item.industry ? item.industry.split(',').map(s => s.trim()) : [],
+                        type: item.category || 'Podcast'
+                    };
+                })
+                .sort((a, b) => b.dateObj - a.dateObj);
+
+            // Populate Stats
+            const total = processedData.length;
+            const hosts = new Set(processedData.map(d => d.media)).size;
+            const years = [...new Set(processedData.map(d => d.year))].sort();
+            const minYear = Math.min(...years);
+
+            document.getElementById('stat-total').innerText = total + '+';
+            document.getElementById('stat-hosts').innerText = hosts;
+            document.getElementById('stat-hours').innerText = Math.round(total * 0.8) + '+'; // Approx 45mins per show
+            document.getElementById('stat-year').innerText = minYear;
+
+            // Populate Filters
+            const yFilter = document.getElementById('year-filter');
+            years.sort((a, b) => b - a).forEach(y => yFilter.add(new Option(y, y)));
+
+            const types = [...new Set(processedData.map(d => d.type))].sort();
+            const tFilter = document.getElementById('type-filter');
+            types.forEach(t => tFilter.add(new Option(t, t)));
+
+            // Extract all unique industries
+            const allIndustries = processedData.reduce((acc, curr) => [...acc, ...curr.industries], []);
+            const uniqueIndustries = [...new Set(allIndustries)].sort();
+            const iFilter = document.getElementById('industry-filter');
+            uniqueIndustries.forEach(i => iFilter.add(new Option(i, i)));
+
+            renderPodcasts();
+            lucide.createIcons();
+        }
+
+        function renderPodcasts() {
+            const container = document.getElementById('podcast-list');
+            const searchVal = document.getElementById('search-input').value.toLowerCase();
+            const yearVal = document.getElementById('year-filter').value;
+            const typeVal = document.getElementById('type-filter').value;
+            const industryVal = document.getElementById('industry-filter').value;
+
+            // Use switchView logic to set correct container classes initially if needed
+            // But simple clearing is safer
+            container.innerHTML = '';
+
+            const filtered = processedData.filter(d => {
+                const matchSearch = (d.title || '').toLowerCase().includes(searchVal) ||
+                    (d.media || '').toLowerCase().includes(searchVal) ||
+                    (d.description || '').toLowerCase().includes(searchVal);
+                const matchYear = yearVal === 'all' || d.year == yearVal;
+                const matchType = typeVal === 'all' || d.type === typeVal;
+                const matchIndustry = industryVal === 'all' || d.industries.includes(industryVal);
+
+                return matchSearch && matchYear && matchType && matchIndustry;
+            });
+
+            document.getElementById('count-display').innerText = `${filtered.length} Items`;
+
+            if (filtered.length === 0) {
+                container.innerHTML = '<div class="text-center py-20 text-neutral-500 col-span-full">No items found matching your criteria.</div>';
+                return;
+            }
+
+            if (currentView === 'list') {
+                renderListView(container, filtered);
+            } else {
+                renderGridView(container, filtered);
+            }
+
+            lucide.createIcons();
+        }
+
+        function renderListView(container, items) {
+            // Group by Year
+            const years = [...new Set(items.map(d => d.year))].sort((a, b) => b - a);
+
+            years.forEach(year => {
+                const yearItems = items.filter(d => d.year === year);
+                const section = document.createElement('div');
+                section.className = "animate-fade-in";
+                section.innerHTML = `
+                    <div class="flex items-center gap-4 mb-8">
+                        <h2 class="text-3xl font-bold text-neutral-500">${year}</h2>
+                        <div class="h-[1px] bg-neutral-800 flex-1"></div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-3"></div>
+                `;
+
+                const grid = section.querySelector('.grid');
+                yearItems.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = "group bg-neutral-900/50 border border-neutral-800 hover:border-pink-500/50 rounded-xl p-5 transition-all hover:bg-neutral-800 cursor-pointer";
+                    card.onclick = () => openModal(item);
+
+                    const icon = item.type.includes('Video') || item.url.includes('youtu') ? 'video' : 'mic';
+
+                    card.innerHTML = `
+                        <div class="flex flex-col md:flex-row gap-4 md:items-center">
+                            
+                            <!-- Date/Media Logo Placeholder -->
+                            <div class="shrink-0 w-16 h-16 rounded-xl bg-neutral-800 flex items-center justify-center text-pink-500/50 group-hover:text-pink-500 transition-colors">
+                                <i data-lucide="${icon}" class="w-8 h-8"></i>
+                            </div>
+                            
+                            <!-- Main Info -->
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                     <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">${item.media}</span>
+                                     <span class="text-neutral-600 text-xs">• ${item.fullDate}</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-white group-hover:text-pink-400 transition-colors mb-2 leading-tight">
+                                    ${item.title}
+                                </h3>
+                                <div class="flex flex-wrap items-center gap-2">
+                                     ${item.industries.slice(0, 3).map(i => `<span class="px-2 py-0.5 rounded bg-neutral-800 text-neutral-400 text-xs">${i}</span>`).join('')}
+                                </div>
+                            </div>
+
+                            <!-- Arrow -->
+                            <div class="hidden md:block text-neutral-600 group-hover:text-white transition-colors">
+                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                container.appendChild(section);
+            });
+        }
+
+        function renderGridView(container, items) {
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "group bg-neutral-900 border border-neutral-800 hover:border-pink-500/50 rounded-2xl p-6 transition-all hover:-translate-y-1 cursor-pointer animate-fade-in flex flex-col h-full";
+                card.onclick = () => openModal(item);
+
+                const icon = item.type.includes('Video') || item.url.includes('youtu') ? 'video' : 'mic';
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-neutral-800 flex items-center justify-center text-pink-500/50 group-hover:text-pink-500 transition-colors">
+                            <i data-lucide="${icon}" class="w-6 h-6"></i>
+                        </div>
+                        <span class="px-2 py-1 bg-neutral-800 rounded text-[10px] text-neutral-400 font-mono">${item.year}</span>
+                    </div>
+
+                    <div class="mb-4 flex-1">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-bold text-pink-400 uppercase tracking-wider line-clamp-1">${item.media}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-pink-400 transition-colors leading-tight line-clamp-3 mb-2">
+                            ${item.title}
+                        </h3>
+                    </div>
+
+                    <div class="pt-4 border-t border-neutral-800 mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                             ${item.industries.slice(0, 2).map(i => `<span class="px-2 py-0.5 rounded bg-neutral-800 text-neutral-400 text-[10px]">${i}</span>`).join('')}
+                             ${item.industries.length > 2 ? `<span class="px-2 py-0.5 rounded bg-neutral-800 text-neutral-500 text-[10px]">+${item.industries.length - 2}</span>` : ''}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function openModal(item) {
+            const container = document.getElementById('modal-container');
+            const content = document.getElementById('modal-content');
+
+            content.innerHTML = `
+                <div class="h-40 bg-gradient-to-r from-pink-900 to-purple-900 relative">
+                    <div class="absolute inset-0 bg-black/20"></div>
+                     <div class="absolute bottom-6 left-6 md:left-10">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-black/40 backdrop-blur text-white text-xs font-bold uppercase tracking-wider border border-white/10 mb-2">
+                            ${item.type}
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-white shadow-sm leading-tight">${item.title}</h2>
+                    </div>
+                </div>
+
+                <div class="p-6 md:p-10 bg-neutral-900">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="md:col-span-2 space-y-6">
+                            <div>
+                                <h3 class="text-lg font-bold text-white mb-2">About this episode</h3>
+                                <p class="text-neutral-300 leading-relaxed">${item.description || 'No description available for this episode.'}</p>
+                            </div>
+                            
+                             <div>
+                                <h4 class="text-sm font-bold text-neutral-500 uppercase tracking-widest mb-3">Topics & Industries</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${item.industries.map(i => `<span class="px-3 py-1 bg-neutral-800 border border-neutral-700 rounded-full text-sm text-neutral-300">${i}</span>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="bg-neutral-800/30 rounded-xl p-6 border border-neutral-800 space-y-4">
+                                <div>
+                                    <span class="block text-xs text-neutral-500 uppercase font-bold mb-1">Host / Media</span>
+                                    <span class="text-white font-medium text-lg">${item.media}</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs text-neutral-500 uppercase font-bold mb-1">Date Aired</span>
+                                    <span class="text-white font-medium">${item.fullDate}</span>
+                                </div>
+                            </div>
+                            
+
+                            <div class="flex flex-col gap-3">
+                                <a href="${item.url}" target="_blank" class="block w-full text-center px-6 py-4 bg-white text-black font-bold rounded-xl hover:scale-[1.02] transition-transform shadow-lg shadow-pink-500/20">
+                                    Listen / Watch Now <i data-lucide="external-link" class="w-4 h-4 inline ml-1"></i>
+                                </a>
+                                
+                                ${item.url2 ? `
+                                <a href="${item.url2}" target="_blank" class="block w-full text-center px-6 py-4 bg-neutral-800 text-white font-bold rounded-xl hover:bg-neutral-700 hover:scale-[1.02] transition-all border border-neutral-700">
+                                    Alternative Link <i data-lucide="link" class="w-4 h-4 inline ml-1"></i>
+                                </a>` : ''}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('modal-container').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body>
+
+</html>
