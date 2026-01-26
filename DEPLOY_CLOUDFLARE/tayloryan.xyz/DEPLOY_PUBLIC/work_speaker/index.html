@@ -398,9 +398,29 @@
             // Populate Filters
             populateFilters(processedData);
 
-            // Initial Render
-            renderChart(processedData);
-            renderEngagements();
+            // Populate Filters
+            populateFilters(processedData);
+
+            // 1. Render Engagements (Priority)
+            try {
+                renderEngagements();
+            } catch (e) {
+                console.error("Error rendering engagements:", e);
+                document.getElementById('speaker-list').innerHTML = `<div class="text-center py-20 text-red-500">Error loading data: ${e.message}</div>`;
+            }
+
+            // 2. Render Chart (Secondary)
+            try {
+                if (typeof Chart !== 'undefined') {
+                    renderChart(processedData);
+                } else {
+                    console.warn("Chart.js not loaded");
+                    document.getElementById('speakerChart').style.display = 'none';
+                }
+            } catch (e) {
+                console.error("Error rendering chart:", e);
+            }
+
             lucide.createIcons();
         }
 
