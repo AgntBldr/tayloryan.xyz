@@ -81,17 +81,17 @@
         </div>
     </div>
 
-    <!-- MODAL -->
+    <!-- Resource Modal (Matches email_outreach.html style) -->
     <div id="resource-modal" onclick="closeModal()"
-        class="fixed inset-0 z-[100] hidden modal-overlay flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4">
         <div onclick="event.stopPropagation()"
-            class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-300 custom-scrollbar"
+            class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-200"
             id="modal-content">
 
             <!-- Close Button -->
             <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-neutral-700">
-                <i data-lucide="x" class="w-6 h-6 text-neutral-400 group-hover:text-white"></i>
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
             </button>
 
             <!-- Header Banner -->
@@ -100,11 +100,11 @@
                     <div id="modal-icon-container"
                         class="p-4 bg-neutral-800 rounded-xl border border-white/10 text-blue-400 shadow-xl">
                         <!-- Icon injected -->
-                        <i id="header-icon" data-lucide="file-text" class="w-8 h-8"></i>
+                        <i id="modal-icon" data-lucide="file-text" class="w-8 h-8"></i>
                     </div>
                     <div class="flex-1">
                         <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span id="modal-type-badge"
+                            <span id="modal-resource-type"
                                 class="px-2 py-1 bg-white/5 rounded text-[10px] font-bold text-neutral-400 uppercase tracking-wider border border-white/5">Resource</span>
                             <span id="modal-category-badge"
                                 class="px-2 py-1 bg-blue-500/10 text-blue-400 rounded text-[10px] font-bold uppercase tracking-wider border border-blue-500/20">Category</span>
@@ -112,6 +112,7 @@
                         <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
                             Resource Title</h2>
                         <div class="flex items-center gap-2 text-sm text-neutral-400">
+                            <span class="w-1 h-1 rounded-full bg-neutral-600"></span>
                             <span id="modal-subtitle">Quest Portfolio</span>
                         </div>
                     </div>
@@ -119,7 +120,7 @@
             </div>
 
             <!-- Modal Body -->
-            <div id="modal-body" class="p-8">
+            <div class="p-8">
 
                 <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Description</h3>
                 <p id="modal-desc" class="text-neutral-300 text-base leading-relaxed mb-6 whitespace-pre-wrap">
@@ -128,14 +129,14 @@
                 <!-- Metadata Grid -->
                 <!-- Only show if data exists, handled by JS -->
                 <div id="modal-meta-grid"
-                    class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-neutral-800/20 p-4 rounded-xl border border-white/5 hidden">
+                    class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-neutral-800/20 p-4 rounded-xl border border-white/5">
                     <div>
                         <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Type</span>
-                        <div id="meta-type" class="text-sm font-semibold text-white">Sheet</div>
+                        <div id="meta-type" class="text-sm font-semibold text-white">-</div>
                     </div>
                     <div>
                         <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Category</span>
-                        <div id="meta-category" class="text-sm font-semibold text-white">Web3</div>
+                        <div id="meta-category" class="text-sm font-semibold text-white">-</div>
                     </div>
                     <div>
                         <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Access</span>
@@ -321,7 +322,7 @@
             // 1. Populate Header
             document.getElementById('modal-title').textContent = resource.title;
             document.getElementById('modal-desc').textContent = resource.description || "No description provided.";
-            document.getElementById('modal-type-badge').textContent = resource.type;
+            document.getElementById('modal-resource-type').textContent = resource.type;
             document.getElementById('modal-category-badge').textContent = categoryKey;
 
             const btn = document.getElementById('modal-link');
