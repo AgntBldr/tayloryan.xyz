@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcasts | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="assets/data_podcasts.js"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen">
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+
+        <!-- Header -->
+        <div class="mb-16">
+            <span class="text-pink-400 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Podcasts & Media</h1>
+            <p class="text-neutral-400 text-xl max-w-3xl leading-relaxed">
+                Guest appearances, interviews, and webinars discussing the future of tech and growth.
+            </p>
+        </div>
+
+        <!-- Filters -->
+        <div
+            class="flex flex-wrap items-center gap-2 mb-12 sticky top-24 z-30 bg-black/80 backdrop-blur pb-4 pt-2 -mx-4 px-4 border-b border-white/5">
+            <button onclick="filterPodcasts('all')"
+                class="p-filter-btn px-4 py-2 rounded-full text-sm font-bold bg-white text-black transition-all shadow-lg shadow-white/10"
+                data-filter="all">All</button>
+            <button onclick="filterPodcasts('Podcasts')"
+                class="p-filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Podcasts">Podcasts</button>
+            <button onclick="filterPodcasts('Webinar')"
+                class="p-filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Webinar">Webinars</button>
+            <button onclick="filterPodcasts('Interviews')"
+                class="p-filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Interviews">Interviews</button>
+        </div>
+
+        <!-- Grid -->
+        <div id="podcast-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Injected via JS -->
+        </div>
+
+    </main>
+
+    <script src="assets/js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof PODCAST_DATA === 'undefined') {
+                document.getElementById('podcast-grid').innerHTML = '<p class="text-neutral-500">No data found.</p>';
+                return;
+            }
+
+            renderPodcasts(PODCAST_DATA);
+        });
+
+        function renderPodcasts(data) {
+            const container = document.getElementById('podcast-grid');
+            if (data.length === 0) {
+                container.innerHTML = '<p class="text-neutral-500 col-span-2 text-center py-20">No items found.</p>';
+                return;
+            }
+
+            container.innerHTML = data.map(item => {
+                // Formatting
+                const mediaLabel = item.media || 'Podcast';
+
+                return `
+                <a href="${item.url}" target="_blank" class="group flex bg-neutral-900 border border-neutral-800 hover:border-pink-500/50 rounded-2xl overflow-hidden transition-all hover:-translate-y-1">
+                    <div class="w-32 bg-neutral-800 shrink-0 flex items-center justify-center border-r border-white/5 group-hover:bg-neutral-800/80 transition-colors">
+                        <i data-lucide="mic" class="w-8 h-8 text-pink-500 opacity-50 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-2">
+                             <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">${mediaLabel}</span>
+                             ${item.industry ? `<span class="text-neutral-600 text-xs">• ${item.industry.split(',')[0]}</span>` : ''}
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-pink-400 transition-colors line-clamp-2">${item.title}</h3>
+                        <p class="text-sm text-neutral-400 line-clamp-1">${item.description}</p>
+                    </div>
+                    <div class="px-6 flex items-center justify-center border-l border-white/5">
+                        <i data-lucide="play-circle" class="w-8 h-8 text-neutral-700 group-hover:text-pink-500 transition-colors"></i>
+                    </div>
+                </a>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        window.filterPodcasts = function (cat) {
+            document.querySelectorAll('.p-filter-btn').forEach(btn => {
+                if (btn.dataset.filter === cat) {
+                    btn.classList.remove('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
+                    btn.classList.add('bg-white', 'text-black');
+                } else {
+                    btn.classList.add('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
+                    btn.classList.remove('bg-white', 'text-black');
+                }
+            });
+
+            if (cat === 'all') {
+                renderPodcasts(PODCAST_DATA);
+            } else {
+                const filtered = PODCAST_DATA.filter(item => {
+                    // Loose matching since categories might be messy
+                    return (item.category && item.category.includes(cat)) || (item.media && item.media.includes(cat));
+                });
+                renderPodcasts(filtered);
+            }
+        }
+    </script>
+</body>
+
+</html>

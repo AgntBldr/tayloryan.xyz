@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaker | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="assets/data_speaker.js"></script>
+    <script src="assets/data_speaker_topics.js"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .dashboard-card {
+            background: linear-gradient(145deg, #171717, #0a0a0a);
+            border: 1px solid #262626;
+        }
+
+        .chart-bar {
+            transition: height 1s ease-out;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen">
+    <script src="assets/js/layout.js"></script>
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+
+        <!-- Header -->
+        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+                <span class="text-blue-500 font-bold tracking-widest uppercase text-sm mb-2 block">Work Portfolio</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4">Keynote Speaker</h1>
+                <p class="text-neutral-400 text-xl max-w-2xl">
+                    170+ Global engagements. Data-driven insights on Growth, AI, and Web3.
+                </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap gap-2">
+                <a href="https://www.youtube.com/c/TaylorRyanPLUS" target="_blank"
+                    class="px-5 py-2 bg-neutral-900 hover:bg-red-600 hover:text-white border border-neutral-800 rounded-full text-sm font-medium transition-colors flex items-center gap-2">
+                    <i data-lucide="youtube" class="w-4 h-4"></i> YouTube
+                </a>
+                <a href="https://youtu.be/t3YK93vuino" target="_blank"
+                    class="px-5 py-2 bg-neutral-900 hover:bg-blue-600 hover:text-white border border-neutral-800 rounded-full text-sm font-medium transition-colors flex items-center gap-2">
+                    <i data-lucide="video" class="w-4 h-4"></i> Highlight Reel
+                </a>
+                <a href="https://docs.google.com/presentation/d/1x2EpVloOT-7i1A45e00SIfS1KS0mm96TagbZxwdlU0o/edit?usp=drive_link"
+                    target="_blank"
+                    class="px-5 py-2 bg-neutral-900 hover:bg-orange-600 hover:text-white border border-neutral-800 rounded-full text-sm font-medium transition-colors flex items-center gap-2">
+                    <i data-lucide="users" class="w-4 h-4"></i> Testimonials
+                </a>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-20">
+
+            <!-- Quick Stats -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="dashboard-card p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i data-lucide="mic-2" class="w-24 h-24 text-blue-500"></i>
+                    </div>
+                    <h3 class="text-neutral-500 text-sm font-bold uppercase tracking-wider mb-1">Total Engagements</h3>
+                    <div class="text-6xl font-black text-white" id="stat-total">170+</div>
+                    <div class="text-blue-400 text-sm mt-2 flex items-center gap-1">
+                        <i data-lucide="globe" class="w-3 h-3"></i> Global Footprint
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="dashboard-card p-6 rounded-2xl">
+                        <h3 class="text-neutral-500 text-xs font-bold uppercase tracking-wider mb-1">Material</h3>
+                        <div class="text-3xl font-bold text-white">600+</div>
+                        <span class="text-xs text-neutral-600">Hours</span>
+                    </div>
+                    <div class="dashboard-card p-6 rounded-2xl">
+                        <h3 class="text-neutral-500 text-xs font-bold uppercase tracking-wider mb-1">Testimonials</h3>
+                        <div class="text-3xl font-bold text-white">70+</div>
+                        <span class="text-xs text-neutral-600">Pages</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Chart -->
+            <div class="lg:col-span-2 dashboard-card p-8 rounded-2xl flex flex-col">
+                <h3 class="text-neutral-400 text-sm font-bold uppercase tracking-wider mb-6">Speaking Activity Timeline
+                </h3>
+                <div class="flex-1 flex items-end justify-between gap-2 h-80 min-h-[320px]" id="timeline-chart">
+                    <!-- Bars injected via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Speaker Topics Section -->
+        <div class="mb-20">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-white">Speaker Topics</h2>
+                <a href="https://docs.google.com/spreadsheets/d/1BkgVSnDuPSUGOOZ3TFVC_rr7cim2Nd60zQ1I8fB70Wo/"
+                    target="_blank"
+                    class="text-sm text-neutral-500 hover:text-white transition-colors flex items-center gap-1">
+                    View Full Sheet <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="topics-grid">
+                <!-- Topics injected via JS -->
+            </div>
+        </div>
+
+        <!-- Engagement List -->
+        <div class="border-t border-neutral-800 pt-16">
+            <h2 class="text-3xl font-bold text-white mb-8">Engagement History</h2>
+            <div id="engagements-list" class="space-y-4">
+                <!-- List injected via JS -->
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDashboard();
+            renderTopics();
+            renderEngagements();
+            lucide.createIcons();
+        });
+
+        function renderDashboard() {
+            if (typeof SPEAKER_STATS === 'undefined' || typeof SPEAKER_DATA === 'undefined') return;
+
+            // Total Stats
+            document.getElementById('stat-total').innerText = SPEAKER_STATS.total_events || SPEAKER_DATA.length;
+
+            // Chart
+            const chartContainer = document.getElementById('timeline-chart');
+            const years = SPEAKER_STATS.years || {};
+            const sortedYears = Object.keys(years).sort(); // Oldest to Newest for chart
+            const maxVal = Math.max(...Object.values(years)) || 1;
+
+            chartContainer.innerHTML = sortedYears.map(year => {
+                const count = years[year];
+                const heightPct = (count / maxVal) * 100;
+                // Only show last 6-7 years
+                if (year === 'Unknown' || year < 2017) return '';
+
+                return `
+                <div class="flex flex-col items-center group flex-1 h-full justify-end">
+                    <div class="w-full max-w-[40px] bg-blue-900/30 rounded-t-lg relative group-hover:bg-blue-600 transition-colors flex items-end overflow-hidden" style="height: ${heightPct}%">
+                        <div class="w-full bg-blue-500 transition-all duration-1000 h-full"></div>
+                    </div>
+                    <span class="text-xs text-neutral-600 mt-2 font-mono group-hover:text-white transition-colors">${year}</span>
+                    <span class="text-xs text-blue-400 font-bold opacity-0 group-hover:opacity-100 transition-opacity absolute -mt-6 bg-black px-1 rounded">${count}</span>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function renderTopics() {
+            const container = document.getElementById('topics-grid');
+            if (typeof SPEAKER_TOPICS === 'undefined') {
+                container.innerHTML = '<p class="text-neutral-500">No topics data loaded.</p>';
+                return;
+            }
+
+            // Take top 6 topics or distinct ones
+            // The excel had some rows. Let's just render all valid ones.
+
+            container.innerHTML = SPEAKER_TOPICS.map(topic => {
+                if (!topic.title) return '';
+
+                return `
+                 <div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl hover:border-blue-500/50 transition-colors group">
+                    <div class="flex items-start justify-between mb-4">
+                         <div class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest rounded-full border border-blue-500/20">
+                            ${topic.theme || 'Keynote'}
+                         </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors leading-tight">${topic.title}</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed mb-4">${topic.description || topic.focus || ''}</p>
+                    
+                    ${topic.tags && topic.tags.length > 0 ? `
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            ${topic.tags.slice(0, 3).map(tag => `<span class="text-[10px] text-neutral-600 bg-neutral-950 px-2 py-1 rounded border border-neutral-900">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                 </div>
+                 `;
+            }).join('');
+        }
+
+        function renderEngagements() {
+            const container = document.getElementById('engagements-list');
+            if (!window.SPEAKER_DATA) return;
+
+            // Group by Year
+            const grouped = {};
+            SPEAKER_DATA.forEach(item => {
+                const year = item.year || 'Other';
+                if (!grouped[year]) grouped[year] = [];
+                grouped[year].push(item);
+            });
+
+            const years = Object.keys(grouped).sort((a, b) => b - a);
+            let html = '';
+
+            years.forEach(year => {
+                html += `
+                    <div class="mb-8">
+                       <h3 class="text-xl font-bold text-neutral-500 mb-4 flex items-center gap-3">
+                            ${year} 
+                            <span class="text-xs bg-neutral-900 text-neutral-700 px-2 py-0.5 rounded-full">${grouped[year].length} Events</span>
+                            <div class="h-px bg-neutral-900 flex-1"></div>
+                       </h3>
+                        <div class="grid grid-cols-1 gap-3">
+                `;
+
+                grouped[year].forEach(item => {
+                    const hasLink = item.link && item.link.startsWith('http');
+                    const linkAction = hasLink ? `href="${item.link}" target="_blank"` : '';
+                    const cursor = hasLink ? 'cursor-pointer hover:border-blue-500/50 hover:bg-neutral-900' : 'cursor-default';
+
+                    html += `
+                    <a ${linkAction} class="block bg-black border border-neutral-800 p-5 rounded-xl transition-all ${cursor} group">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="text-xs font-bold text-blue-500 uppercase">${item.type}</span>
+                                    <span class="text-neutral-600 text-xs">• ${item.organizer}</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">${item.title}</h4>
+                            </div>
+                            <div class="flex items-center gap-4 shrink-0">
+                                <span class="text-neutral-500 text-sm font-mono">${item.date}</span>
+                                ${hasLink ? '<i data-lucide="external-link" class="w-4 h-4 text-neutral-700 group-hover:text-white transition-colors"></i>' : ''}
+                            </div>
+                        </div>
+                    </a>
+                    `;
+                });
+                html += `</div></div>`;
+            });
+
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen">
+    <script src="assets/js/layout.js"></script>
+    <div class="grain-overlay"></div>
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+
+        <!-- Header -->
+        <div class="mb-20">
+            <span class="text-purple-400 font-bold tracking-widest uppercase text-sm mb-4 block">Portfolio</span>
+            <h1 class="text-6xl font-extrabold text-white mb-6">Selected Work</h1>
+            <p class="text-neutral-400 text-xl max-w-2xl">
+                A collection of projects, presentations, and partnerships across the Web3, AI, and SaaS ecosystems.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Quests -->
+            <a href="portfolio/quests/index.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-purple-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_quests.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Quests</h3>
+                            <p class="text-neutral-400 text-sm">Interactive campaigns & on-chain growth</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Speaker -->
+            <a href="work_speaker.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-blue-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_speaker.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="mic-2" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Speaker</h3>
+                            <p class="text-neutral-400 text-sm">Keynotes, workshops & masterclasses</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Projects -->
+            <a href="work_projects.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-orange-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_projects.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="folder-kanban" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Projects</h3>
+                            <p class="text-neutral-400 text-sm">Vibecoding, Courses & Marketing</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Vibecoding (New) -->
+            <a href="work_vibecoding.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-purple-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/box_vibecoding.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="code-2" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Vibecoding</h3>
+                            <p class="text-neutral-400 text-sm">Automated agents & AI workflows</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Courses (New) -->
+            <a href="work_courses.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-blue-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/box_courses.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Courses</h3>
+                            <p class="text-neutral-400 text-sm">Educational programs & masterclasses</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Marketing (New) -->
+            <a href="portfolio/marketing/index.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-green-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/box_marketing.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="megaphone" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Marketing</h3>
+                            <p class="text-neutral-400 text-sm">Growth strategy & creator programs</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Podcasts -->
+            <a href="work_podcasts.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-pink-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_podcasts.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="headphones" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Podcasts</h3>
+                            <p class="text-neutral-400 text-sm">Interviews & guest appearances</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Writing -->
+            <a href="work_writing.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-green-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_writing.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="pen-tool" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Writing</h3>
+                            <p class="text-neutral-400 text-sm">Articles, guides & thought leadership</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Skills Matrix -->
+            <a href="skills.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-indigo-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_skills.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="cpu" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Skills Matrix</h3>
+                            <p class="text-neutral-400 text-sm">Strategic capabilities & tech stack</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Marketing Projects (Detailed Skills) -->
+            <a href="skills_detailed.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_capabilities.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-cyan-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="layers" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Capabilities</h3>
+                            <p class="text-neutral-400 text-sm">Detailed breakdown of 450+ projects</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Awards -->
+            <a href="work_awards.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-yellow-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_awards.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="trophy" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Awards</h3>
+                            <p class="text-neutral-400 text-sm">Recognition & industry honors</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Tutorials -->
+            <!-- Tutorials -->
+            <a href="work_tutorials.html"
+                class="group relative h-96 bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 hover:border-red-500/50 transition-all">
+                <div
+                    class="absolute inset-0 bg-[url('assets/images/work/card_tutorials.png')] bg-cover bg-center opacity-70 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div
+                                class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mb-4 text-white">
+                                <i data-lucide="video" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Tutorials</h3>
+                            <p class="text-neutral-400 text-sm">Technical guides & video walkthroughs</p>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <script src="assets/js/layout.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen">
+
+    <main class="pt-32 pb-20 max-w-4xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Get in Touch</h1>
+            <p class="text-neutral-400 text-xl max-w-2xl mx-auto leading-relaxed">
+                Whether you want to book me for a keynote, discuss a project, or just say hi—here's how to reach me.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+
+            <!-- Email -->
+            <!-- Email -->
+            <a href="#" onclick="openContactModal(); return false;"
+                class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-green-500/50 hover:bg-neutral-900/80 transition-all text-center">
+                <div
+                    class="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-6 flex items-center justify-center group-hover:bg-green-500 group-hover:text-black transition-colors">
+                    <i data-lucide="mail" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">Email</h3>
+                <p class="text-neutral-400 mb-4">Best for speaking inquiries and business.</p>
+                <span class="text-green-400 font-bold group-hover:underline">taylor@klintmarketing.com</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/taylorryan" target="_blank"
+                class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-blue-500/50 hover:bg-neutral-900/80 transition-all text-center">
+                <div
+                    class="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-6 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                    <i data-lucide="linkedin" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">LinkedIn</h3>
+                <p class="text-neutral-400 mb-4">Best for quick messages and following updates.</p>
+                <span class="text-blue-400 font-bold group-hover:underline">/in/taylorryan</span>
+            </a>
+
+            <!-- Book a Meeting -->
+            <a href="https://bookme.name/TaylorRyan" target="_blank"
+                class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-neutral-900/80 transition-all text-center md:col-span-2 lg:col-span-1 lg:col-start-2">
+                <div
+                    class="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-6 flex items-center justify-center group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                    <i data-lucide="calendar" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">Book a Meeting</h3>
+                <p class="text-neutral-400 mb-4">Schedule a time directly on my calendar.</p>
+                <span class="text-purple-400 font-bold group-hover:underline">Let's Talk →</span>
+            </a>
+
+        </div>
+
+    </main>
+
+    <script src="assets/js/layout.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

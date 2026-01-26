@@ -1,0 +1,328 @@
+How I launched 40 quests resulting in 111K activations
+In Web3, attention is easy to buy. Adoption is not.
+Quests close that gap. They turn “I heard about this protocol” into a guided set of actions that prove usage, validate completion, and reward the right behavior.
+Towards the end of last year, I launched 40+ quests across major platforms, resulting in 111K+ unique activations. The work was built as a repeatable system, where each quest is treated like a mini product launch.
+Overview
+What Are Quests - What it is
+On and Off-chain
+
+Why Quests Matter - To who and why it matters 
+Users, Projects, Quest Platforms, and Me
+
+How I build quests
+Project Discovery - Strong fit shortlist - Meaningful first use
+Project Enrichment - Full research pack - Test like a user
+Referral Setup - Trackable referral link - Verify with second wallet
+Functional Testing - Confirmed working flow - Minimum viable transaction
+Quest Doc Build - Clear card-by-card steps - Zero ambiguity wording
+Preview Image - Consistent quest creative - Clean template system
+Builder Implementation - Verified tasks live - Chain and contract checks
+Review and Approval - Quest goes live - Fast feedback loop
+Promotion - Distribution in community - High-intent visibility
+
+Resources:
+Many resources were generated for the purposes of:
+Project Discovery - Find projects to create quests
+Quest Enrichment - Research the project and find links and information 
+Quest Building - Setup the first draft, use the quest builder, and get the quest reviewed
+Quest Promotion - After publishing the quest, promoting the quest for user adoption
+
+All Quest Resources - All Quest Portfolio Resources
+
+What Are Quests?
+A quest is an interactive onboarding and growth campaign that blends on-chain actions, offchain actions, and verification with rewards.
+
+Think of it as a structured user journey. 
+
+Instead of asking someone to “go try the product,” you give them a clear path to the first meaningful outcome.
+
+
+Quest Journey Overview:
+A user opens the quest
+User completes actions 
+On-chain - Swap, Deposit, Provide liquidity, Stake, Lend, Borrow, Bridge, Mint, Vote, etc
+Example - Layer3
+
+
+Off-chain - Open Link, (Go to website, Read docs, Watch a tutorial, etc), Complete a quiz, follow on social media, join community (discord or telegram), Engage with campaign posts, Contribute on GitHub, etc
+
+
+Rewards unlock upon completion
+
+
+There are many different quest platforms, here are just a few: Quest Platforms - Project Discovery
+
+Why Quests Matter
+Why Users LOVE Quests
+Quests reduce confusion and increase confidence.
+Learn by doing - Better appreciate of crypto via exposure to new projects
+Faster first success - a guided on-chain experience
+Less fear of mistakes - Genuine projects with real rewards
+Progress feels measurable - Each quest is gamified 
+Reputation becomes portable - Show your score and get into the community
+Why Projects LOVE Quests
+Quests are a performance channel built around outcomes.
+Instead of optimizing for impressions, teams can optimize for verifiable actions: first swap, first deposit, first vote, first bridge.
+Higher intent users - Real users using real liquidity 
+Faster time to activation - Quest promotions = Fast turnaround time
+Guided “aha” moments - Provide genuine experiences and favorite tools 
+Cleaner attribution signals - Referral URLs, UTM links, and traffic spikes for quests
+Better lifecycle sequencing - Create campaigns which have increased on-chain activity
+Community flywheel effects - Introduce users to more of your project, community, and future roadmap
+Why Quest Platforms LOVE Quests
+Platforms provide the rails that make quests scalable.
+They standardize task formats, verification flows, reward delivery, and discovery. That infrastructure is why quests can function as a reliable growth motion, not just a one-off campaign.
+Task templates at scale - Quest volume = greater predictability and more incentives
+Verification tooling - Consistently validate users and activities
+Reward distribution systems - Create incentives for more activity and increase overall growth
+Leaderboards and sprints - Competition and gamification elements
+Analytics and admin workflows - Incredible granular tracking and testing 
+Why I LOVE Quests
+My motivation is simple: quests are where growth, product, and community meet.
+I like work that is measurable, user-first, and hard to fake. Building quests forces precision: every link, instruction, proof, and reward mechanic has to hold up in the real world.
+Adoption focused writing - Practice promotion and “what’s in it for me” writing
+Funnel and UX thinking - Greater appreciation for better user experience and product-led growth 
+Proof based growth loops - Clear demonstrations of real-world gamification and user triggers resulting in better conversions
+High standards testing - Set a high bar with consistency 
+Clean execution under constraints - Go from manual, To somewhat automation, to 90% automated. 
+Quest Activations on Layer3: 
+How I Build Quests 
+Project Discovery Channels:
+I source projects where quests can create meaningful first use, not just clicks.
+
+You need to know what you’re looking for, where to find it, and what “good” looks like. 
+ 
+Search Terms:
+Search Terms -  Search Terms -  Airdrop
+
+Discovery by Channel
+Airdrop and campaign trackers - Web - Airdrops and ICOs Airdrops and ICOs
+Recently funded lists - Funding, Quests, and Discovery
+Accelerator cohorts - Accelerator Programs 
+Pitch competition lists - Pitch Competition Listing and Directories
+Crypto Events - All Crypto Event Directories
+Hackathon Directories - Hackathon Directories - Web3, Blockchain, Crypto
+Funding Feeds - Funding Feeds
+Quest Platforms - Quest Platforms - Project Discovery
+Telegram Airdrop - Telegram Airdrop Channels
+X Airdrop Alerts - X / Twitter - Airdrop Alerts
+
+Selection and Prioritization Criteria:
+EVM or Solana Ecosystem - More familiarity and greater adoption 
+Functionality - Product works and on-chain activity exists
+Doxxed Founders - Real team with real profiles (Less likely a scam or rug)
+Funding - Did this project get funding - Does the project momentum 
+External Audit - Real web audits done by reputable companies
+X Activity - Does this project have genuine and consistent posts on or/ Discord 
+Referral Link - Does the this platform allow me to create a referral link and can get credit for referring users 
+Smart Contract - Is the smart contract legit - Use de.fi or arkhamintelligence
+Transactions Volume - Are there many transactions (Daily, Weekly, Monthly) associated with the smart contract 
+
+Collection:
+Fast Collection - for further review -  Quest Collection
+
+Project Enrichment:
+Before writing a single task, I map the protocol like a marketer and test it like a user.
+Research checklist:
+
+Web URLs
+Homepage and product pages
+Documentation, litepaper, whitepaper
+Blog, Medium, and News sections
+
+Application / Platform
+Core App URL
+Referral 
+On-Chain Actions
+Social Media and Community
+X / Twitter
+Discord 
+Telegram
+Quest, Airdrop, or Campaign Specific Posts
+
+Resources:
+Deep Research LLM - Perplexity,
+Prompt - Quest Project Research - Prompt- Quest Project Research
+Quest Template - Google Doc - Template - Quest Template
+Quest Enrichment - Add Research to Sheet - Quest Enrichment
+
+Exampe: Using Perplexity to enrich projects
+
+Project Referral Link Creation
+If a project has a referral mechanism, I generate a tracking link early. 
+Referral links give me a chance to earn something on top of the quest. 
+
+Referral links create attribution and allow me to track my incentive structure for sustained promotion.
+
+Referral best practices:
+Complete Registration 
+Find the Referral Link Generator
+Create / Get Unique Referral LINK
+Test Link (Sign Up with a secondary wallet)
+Example - Velvet Trade - https://dapp.velvet.capital/Referral/1 
+
+Functional Testing
+Testing is where good quests stand out. 
+I complete every step exactly as a new user would.
+
+Testing standards:
+What actions can be done)
+Does it work (On-Chain)?
+Is it easy (Beginner - Medium)?
+What is the minimum viable transaction 
+Confirm positive result (Points or rewards earned) 
+Clear time estimates per step
+
+Overview:
+Write a few short sentences describing how this was done. 
+
+Build the Quest in a Google Doc
+In a Google Doc, Build your quest with the following:
+
+Resources:
+Project Links and Raw Data - Quest Enrichment
+LLM + Deep Research / Internet Access
+Prompt - Quest Creation Prompt - Quest Prompt
+Quest Template - Google Doc - Template - Quest Template
+
+Wordsmithing, Adjustments, and Review:
+Protocol Metrics and Details
+Instructions
+Links
+Cards
+
+Most of the time, the LLM (Perplexity), found the web URLs and most of Social Media and community links. 
+
+Example
+ The Autopilot Quest - Draft built in a Google Doc
+
+Create the Quest Preview Image
+Collect your assets and use a simple template. 
+
+Find the logo, make a background, and add it to the template in Photopea. 
+
+Tools:
+X / Twitter - Find Logo
+Photopea - Use .PSD template 
+LLM + Prompt  - Create background photo 
+
+Assets:
+Project Logo - Usually found on X / Twitter Profile
+Background - Generate a background (Landscape) using LLM
+Template - .Psd Template 
+Photopea - Add Layer Mask over template + Add background
+
+Example - Bless PNG - Bless - quest logo psd.psd
+
+
+Finally, export and upload to the quest platform. 
+Native Quest Builder
+Most quests were implemented in the platform’s builder, especially Layer3.
+
+Layer3 has excellent documentation and support in the builder activation documentation. 
+
+
+Builder focus:
+Core Quest Details - Quest name, description and URL structure
+Chain Selection - Solana vs EVM
+Card sequencing - Info cards:
+About the Project / Protocol 
+About the quest
+Potential rewards
+
+
+Onchain Activity
+Chain Selection 
+Smart contract Identification
+Testing / Transaction Validation
+Validation Details - Time, Minimum Amount, Specific Token, etc
+
+
+Off-chain activity
+Open Link (View Website, Video, Blog, Post)
+Join Community
+Like, Comment, and Retweet
+Follow on X
+
+Resources
+Quest Draft - Google Doc (Specific to this quest)
+Preview Image - PNG with Company Logo and background
+Links - Referral, SoMe, Community, Documentation, Etc
+Screenshots - Steps, Actions, Platform, etc
+
+
+Review Checklist
+Flow - Does it make sense and work
+Link review - Referral link, SoMe Or Community 
+Wordsmithing and format adjustments 
+
+The goal was always the same: keep users moving, keep proof clean.
+
+Submit For Approval
+After completion of the quest inside of the builder, I submit it inside of the platform. 
+
+Sometimes I would publish multiple quests in the same day. 
+
+Using a telegram group, I write to a few moderators and ask for feedback. 
+
+
+The moderators would review the quest and sometimes provide feedback. 
+
+Feedback would almost always be minor and the quest would go live within 1-2 business days. 
+
+Promotion:
+After the quest was published on layer3, I would amplify the reach of the quest by doing the following:
+Post the Quest on my own X
+Tag the Project
+DM the Channel and Team (if possible)
+ 
+
+Join the Community (Discord or Telegram)
+Post in a general channel asking if people from the community had seen it yet 
+Create a ticket and ask the moderators to post about it. 
+
+Resources
+Prompt - Quest Promotion - Prompt - Quest Promotion - Portfolio
+Prompt - Quest Promotion - Prompt - Written Posts - Quest Promotion - Portfolio
+Monitoring
+On-occasion, I’ll check back on the project to see 
+How my referral earnings are going
+Project developments 
+
+Conclusion
+The 111K+ activations did not come from guesswork. 
+
+They came from a launch system designed to remove friction, protect proof quality, and make completion feel obvious.
+
+In many cases I would receive points every time someone clicked through a quest link and signed up. 
+
+Additionally, Layer3 gave me kickbacks for publishing quests. 
+
+Sometimes the projects might give me a small kickback for my trouble. 
+
+Layer3 had a very active community and anyone could publish quests
+39 of my quests went live on Layer3
+More than 111,000 activations in total
+2500 - 3500 activations per quest
+Generated $32K in Rewards 
+My Repeatable Quest Launch System
+Project Discovery - Strong fit shortlist - Meaningful first use
+Project Enrichment - Full research pack - Test like a user
+Referral Setup - Trackable referral link - Verify with second wallet
+Functional Testing - Confirmed working flow - Minimum viable transaction
+Quest Doc Build - Clear card-by-card steps - Zero ambiguity wording
+Preview Image - Consistent quest creative - Clean template system
+Builder Implementation - Verified tasks live - Chain and contract checks
+Review and Approval - Quest goes live - Fast feedback loop
+Promotion - Distribution in community - High-intent visibility
+
+What clients and teams get from this approach
+Faster onboarding - First to value
+Stronger verification - Fewer farmers
+Better completion - Clarity
+Campaigns built - Real usage
+Launch process - Scalable 
+
+If you want onboarding that feels crisp, measurable, and genuinely useful to users, quests are one of the best tools Web3 has.
+
+The difference is execution. That’s the part I’ve systematized.

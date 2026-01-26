@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylor's Quest Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/resources_data.js"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(139, 92, 246, 0.15);
+            border-color: #7c3aed;
+        }
+
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Custom Select Style */
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3a3a3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-6 md:p-12">
+
+    <!-- Header -->
+    <header class="mb-12 text-center relative z-10 flex flex-col items-center">
+        <h1
+            class="text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+            Quest Portfolio
+        </h1>
+        <p class="text-neutral-400 max-w-2xl mx-auto text-lg mb-8">
+            Discover 40+ on-chain activations and growth campaigns designed to drive engagement.
+        </p>
+
+        <!-- View Toggle -->
+        <div class="bg-neutral-900 border border-neutral-800 p-1 rounded-full flex gap-1 relative z-20">
+            <button onclick="switchView('grid')" id="btn-grid"
+                class="px-6 py-2 rounded-full text-sm font-bold transition-all bg-neutral-800 text-white shadow-lg">Portfolio</button>
+            <button onclick="switchView('overview')" id="btn-overview"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Overview</button>
+            <button onclick="switchView('analytics')" id="btn-analytics"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Analytics</button>
+            <button onclick="switchView('resources')" id="btn-resources"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Resources</button>
+        </div>
+    </header>
+
+    <!-- Controls (Grid View Only) -->
+    <div id="controls-container"
+        class="relative z-50 max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-center gap-4 bg-neutral-900/50 p-4 rounded-2xl border border-neutral-800 backdrop-blur-sm">
+        <!-- Filter Dropdown -->
+        <div class="flex items-center gap-3 w-full md:w-auto">
+            <span class="text-neutral-500 text-sm font-medium uppercase tracking-wider">Filter By:</span>
+            <div class="relative w-full md:w-64">
+                <select id="type-filter" onchange="filterQuests()"
+                    class="w-full pl-4 pr-10 py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-200 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors cursor-pointer hover:bg-neutral-700/50">
+                    <option value="all">All Categories</option>
+                    <!-- Options injected via JS -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Filter 2: Environment (Multi-Select) -->
+        <div class="relative w-full md:w-64 group" id="env-multiselect-container">
+            <button onclick="toggleEnvDropdown()" id="env-dropdown-btn"
+                class="w-full pl-4 pr-10 py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-200 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors cursor-pointer hover:bg-neutral-700/50 text-left flex items-center justify-between">
+                <span>All Environments</span>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-neutral-400"></i>
+            </button>
+
+            <!-- Dropdown Content -->
+            <div id="env-dropdown-content"
+                class="hidden absolute top-full left-0 w-full mt-2 bg-neutral-900 border border-neutral-700 rounded-xl shadow-xl z-50 overflow-hidden">
+                <div class="p-2 border-b border-neutral-800 flex justify-between items-center bg-neutral-900/50">
+                    <span class="text-xs font-mono text-neutral-500 uppercase tracking-wider">Select</span>
+                    <button onclick="clearEnvSelection()" class="text-xs text-purple-400 hover:text-purple-300">Unselect
+                        All</button>
+                </div>
+                <div id="env-checkbox-list" class="max-h-60 overflow-y-auto p-2 space-y-1">
+                    <!-- Checkboxes injected via JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Search & Count -->
+        <div class="flex items-center gap-4 w-full md:w-auto">
+            <div class="relative w-full md:w-64">
+                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
+                <input type="text" id="search-input" placeholder="Search projects..."
+                    class="w-full pl-10 pr-4 py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-200 text-sm focus:outline-none focus:border-purple-500 transition-colors placeholder-neutral-600">
+            </div>
+            <span class="text-neutral-500 text-sm font-mono whitespace-nowrap min-w-[100px] text-right"
+                id="count-display">Loading...</span>
+        </div>
+    </div>
+
+    <!-- MAIN GRID CONTAINER -->
+    <div id="quest-grid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto pb-12 transition-opacity duration-300">
+        <!-- Cards injected here -->
+    </div>
+
+    <!-- OVERVIEW CONTAINER -->
+
+    <!-- ANALYTICS VIEW -->
+    <div id="analytics-view"
+        class="hidden w-full max-w-7xl mx-auto pb-12 transition-opacity duration-300 opacity-0 relative z-10">
+        <div class="p-8 bg-neutral-900 border border-neutral-800 rounded-xl">
+            <h2 class="text-3xl font-bold text-white mb-6">Analytics Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- KPI Cards -->
+                <div class="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                    <h3 class="text-neutral-400 text-sm uppercase tracking-wider mb-2">Total Quests</h3>
+                    <p class="text-4xl font-bold text-white" id="kpi-quests">-</p>
+                </div>
+                <div class="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                    <h3 class="text-neutral-400 text-sm uppercase tracking-wider mb-2">Total Activations</h3>
+                    <p class="text-4xl font-bold text-white" id="kpi-activations">-</p>
+                </div>
+                <div class="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                    <h3 class="text-neutral-400 text-sm uppercase tracking-wider mb-2">Top Performer</h3>
+                    <p class="text-xl font-bold text-white truncate" id="kpi-top">-</p>
+                    <p class="text-xs text-green-400 mt-1" id="kpi-top-val">-</p>
+                </div>
+            </div>
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800 relative">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i data-lucide="layout-grid" class="w-4 h-4 text-purple-500"></i> Quests by Environment
+                        </h3>
+                        <button id="btn-clear-analytics-env" onclick="clearAnalyticsEnvSelection()"
+                            class="hidden text-xs text-red-400 hover:text-red-300 border border-red-500/30 bg-red-500/10 px-2 py-1 rounded transition-colors cursor-pointer z-10">
+                            Clear Selection
+                        </button>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="chart-environment"></canvas>
+                    </div>
+                    <p class="text-xs text-neutral-500 mt-2 text-center">Click bars to filter the table below</p>
+                </div>
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="pie-chart" class="w-4 h-4 text-blue-500"></i> Distribution by Theme
+                    </h3>
+                    <div class="h-64 relative">
+                        <canvas id="chart-theme"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Chart (Full Width) -->
+            <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800 mb-8">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="activity" class="w-4 h-4 text-green-500"></i> Publishing Activity
+                </h3>
+                <div class="h-64 relative">
+                    <canvas id="chart-timeline"></canvas>
+                </div>
+            </div>
+
+            <!-- Top Quests Table -->
+            <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800 overflow-hidden">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="trophy" class="w-4 h-4 text-yellow-500"></i> Top Performing Quests
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-gray-400">
+                        <thead class="bg-neutral-900 text-xs uppercase font-medium text-gray-500 tracking-wider">
+                            <tr>
+                                <th class="px-6 py-4 rounded-l-lg">Project</th>
+                                <th class="px-6 py-4">Theme</th>
+                                <th class="px-6 py-4">Environment</th>
+                                <th class="px-6 py-4 text-right rounded-r-lg">Activations</th>
+                            </tr>
+                        </thead>
+                        <tbody id="analytics-table-body" class="divide-y divide-neutral-800/50">
+                            <!-- Rows injected via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Resources View -->
+    <div id="resources-view"
+        class="hidden w-full max-w-7xl mx-auto pb-12 transition-opacity duration-300 opacity-0 relative z-10">
+        <!-- Breadcrumbs -->
+        <nav id="res-breadcrumbs" class="mb-8 flex items-center gap-2 text-sm text-neutral-500 font-mono">
+            <span class="hover:text-white cursor-pointer transition-colors" onclick="renderResources()">Resources</span>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div id="res-content-area">
+            <!-- Content injected via JS -->
+        </div>
+    </div>
+    <div id="overview-view"
+        class="hidden w-full max-w-4xl mx-auto pb-12 transition-opacity duration-300 opacity-0 relative z-10">
+        <div id="overview-content" class="view-section active space-y-8 animate-fade-in custom-scrollbar">
+            <!-- Hero / Title Section -->
+            <div class="text-center mb-12">
+                <h1
+                    class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-6 leading-tight">
+                    How I launched 40 quests resulting in 111K activations</h1>
+                <div class="h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="max-w-4xl mx-auto prose prose-invert prose-lg mb-12">
+                <p class="text-gray-300 leading-relaxed text-xl">In Web3, attention is easy to buy. Adoption is not.</p>
+                <p class="text-gray-300 leading-relaxed text-lg">Quests close that gap. They turn “I heard about this
+                    protocol” into
+                    a guided set of actions that prove usage, validate completion, and reward the right behavior.</p>
+                <p class="text-gray-300 leading-relaxed text-lg">Towards the end of last year, I launched 40+ quests
+                    across major
+                    platforms, resulting in 111K+ unique activations. The work was built as a repeatable system, where
+                    each quest is
+                    treated like a mini product launch.</p>
+            </div>
+
+            <!-- KPI / Stats Grid (Moved to Top for Impact) -->
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <!-- Activations -->
+                <div
+                    class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 relative overflow-hidden group hover:border-purple-500/30 transition-all duration-300">
+                    <div
+                        class="absolute right-0 top-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-purple-500/20 transition-colors">
+                    </div>
+                    <h3
+                        class="text-neutral-400 text-sm font-medium uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="users" class="w-4 h-4 text-purple-500"></i> Total Activations
+                    </h3>
+                    <p class="text-4xl md:text-5xl font-bold text-white mb-1" id="kpi-activations">111K+</p>
+                    <div class="text-sm text-purple-400 font-mono">Across all campaigns</div>
+                </div>
+
+                <!-- Quests -->
+                <div
+                    class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/30 transition-all duration-300">
+                    <div
+                        class="absolute right-0 top-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-blue-500/20 transition-colors">
+                    </div>
+                    <h3
+                        class="text-neutral-400 text-sm font-medium uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="target" class="w-4 h-4 text-blue-500"></i> Total Quests
+                    </h3>
+                    <p class="text-4xl md:text-5xl font-bold text-white mb-1" id="kpi-quests">40+</p>
+                    <div class="text-sm text-blue-400 font-mono">Active Projects</div>
+                </div>
+
+                <!-- Top Performer -->
+                <div
+                    class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 relative overflow-hidden group hover:border-pink-500/30 transition-all duration-300">
+                    <div
+                        class="absolute right-0 top-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-pink-500/20 transition-colors">
+                    </div>
+                    <h3
+                        class="text-neutral-400 text-sm font-medium uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="trophy" class="w-4 h-4 text-pink-500"></i> Top Performer
+                    </h3>
+                    <p class="text-2xl font-bold text-white mb-1 truncate" id="kpi-top">Layer3</p>
+                    <div class="text-sm text-pink-400 font-mono" id="kpi-top-val">High Engagement</div>
+                </div>
+            </div>
+
+            <!-- Main Blog Content -->
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Table of Contents -->
+                <div class="bg-neutral-900/30 border border-neutral-800 rounded-xl p-8 mb-12">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <span class="w-1.5 h-8 bg-blue-500 rounded-sm mr-3"></span>Table of Contents
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-lg">
+                        <a href="#resources-overview"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="folder-open" class="w-4 h-4 mr-2 opacity-70"></i>Resources Overview</a>
+                        <a href="#what-are-quests"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="help-circle" class="w-4 h-4 mr-2 opacity-70"></i>What Are Quests</a>
+                        <a href="#types-of-quests"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="list" class="w-4 h-4 mr-2 opacity-70"></i>Types of Quests</a>
+                        <a href="#why-quests-matter"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="heart" class="w-4 h-4 mr-2 opacity-70"></i>Why Quests Matter</a>
+                        <a href="#how-i-build-quests"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="hammer" class="w-4 h-4 mr-2 opacity-70"></i>How I Build Quests</a>
+                        <a href="#conclusion"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="check-circle" class="w-4 h-4 mr-2 opacity-70"></i>Conclusion</a>
+                    </div>
+                </div>
+
+                <!-- Content Sections -->
+                <div class="space-y-16 text-gray-300 leading-relaxed text-lg">
+
+                    <!-- Resources Overview -->
+                    <section id="resources-overview" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>Resources
+                            Overview
+                        </h2>
+                        <p class="mb-4">Many resources were generated for the purposes of:</p>
+                        <ul class="space-y-3 mb-6 ml-2">
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span><strong
+                                        class="text-white">Project Discovery</strong> - Find projects to create
+                                    quests</span></li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span><strong
+                                        class="text-white">Quest Enrichment</strong> - Research the project and find
+                                    links and
+                                    information</span></li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span><strong
+                                        class="text-white">Quest Building</strong> - Setup the first draft, use the
+                                    quest builder,
+                                    and get the quest reviewed</span></li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span><strong
+                                        class="text-white">Quest Promotion</strong> - After publishing the quest,
+                                    promoting the
+                                    quest for user adoption</span></li>
+                        </ul>
+                        <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mt-6">
+                            <p class="font-bold text-blue-200 mb-2">Where to find all my resources:</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center text-blue-300"><i data-lucide="link"
+                                        class="w-4 h-4 mr-2"></i>Resources
+                                    tab (Within this portfolio)</li>
+                                <li class="flex items-center"><i data-lucide="external-link"
+                                        class="w-4 h-4 mr-2 text-blue-400"></i><a
+                                        href="https://docs.google.com/spreadsheets/d/1xKfrR7PgbR3ZVBgg-VcbNPDM-sW3YG333HIhulw3wko/edit?usp=drive_link"
+                                        target="_blank"
+                                        class="text-blue-400 hover:text-blue-300 underline underline-offset-4">All
+                                        Quest Portfolio Resources (Google Sheet)</a></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- What Are Quests -->
+                    <section id="what-are-quests" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>What
+                            Are Quests?
+                        </h2>
+
+                        <h3 class="text-2xl font-semibold text-blue-300 mt-8 mb-4">Intro</h3>
+                        <p class="mb-4">A quest is an interactive onboarding and growth campaign that blends on-chain
+                            actions,
+                            off-chain actions, and verification with rewards.</p>
+                        <p class="mb-4">Think of it as a <strong class="text-white">structured user journey</strong>.
+                        </p>
+                        <p class="mb-4">Instead of asking someone to “go try the product,” you give them a clear path to
+                            the first
+                            meaningful outcome.</p>
+                        <p class="mb-4">Quests are new incentive-based user experience which incentivize users and use
+                            gamification
+                            for them to experience your product. Often involving several audiences and with many
+                            variations, quests
+                            provide a unique way to engage with platforms and websites.</p>
+
+                        <h3 class="text-2xl font-semibold text-blue-300 mt-8 mb-4">Quest Journey Overview</h3>
+                        <p class="mb-4">Just as the nature of technology is to evolve, so does the user. Quests are also
+                            always in a
+                            state of evolution because users are constantly seeking out new and novel experiences.</p>
+                        <p class="mb-6">The best quests give users quests of varying sophistication and actions. Why?
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-bold text-white mb-2">Experience Levels</h4>
+                                <p class="text-sm text-gray-400">Inexperienced users vs experienced degens</p>
+                            </div>
+                            <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-bold text-white mb-2">Repetition</h4>
+                                <p class="text-sm text-gray-400">Too many of the same quests = users leave</p>
+                            </div>
+                            <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-bold text-white mb-2">Novelty</h4>
+                                <p class="text-sm text-gray-400">Narrative or novelty keeps people engaged</p>
+                            </div>
+                            <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-bold text-white mb-2">Scoreboard</h4>
+                                <p class="text-sm text-gray-400">Dashboards to compete and watch points grow</p>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-bold text-white mt-6 mb-3">Quest Start to Finish</h4>
+                        <ol class="list-decimal list-inside space-y-2 mb-6 ml-2 marker:text-blue-500">
+                            <li>Find a quest on a quest platform</li>
+                            <li>User opens the quest</li>
+                            <li>User completes actions (On-Chain and Off-Chain)</li>
+                            <li>Rewards unlock upon completion</li>
+                        </ol>
+
+                        <div class="mt-6 flex items-center gap-2 p-3 bg-neutral-800 rounded-lg">
+                            <i data-lucide="info" class="w-5 h-5 text-gray-400"></i>
+                            <span class="text-sm">There are many different quest platforms: <a
+                                    href="https://docs.google.com/spreadsheets/d/1Qg_e5j7zhJsEsfh6cvQA-Vf5dbsfNxUKg-BNNkwa3m4/"
+                                    target="_blank" class="text-blue-400 hover:text-white underline">Quest Platforms -
+                                    Project
+                                    Discovery [Sheet]</a></span>
+                        </div>
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- Types of Quests -->
+                    <section id="types-of-quests" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>Types
+                            of Quests
+                        </h2>
+                        <p class="mb-6">Usually quests I build come in a few variations of quest “types”</p>
+
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-xl font-bold text-white border-b border-gray-700 pb-2 mb-3">On-Chain
+                                    Activity <span class="text-gray-500 text-base font-normal ml-2">- Sign Up and
+                                        Complete a transaction</span>
+                                </h3>
+                                <p class="mb-3">Certain types of projects such as dexes, per dexes, lending protocols,
+                                    etc want
+                                    users to interact with the smart contract to show user participation (swap, add
+                                    liquidity, mint,
+                                    lend, borrow, etc).</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Haiku</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Cables
+                                        Finance</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Loopscale</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold text-white border-b border-gray-700 pb-2 mb-3">Campaign
+                                    Quests <span class="text-gray-500 text-base font-normal ml-2">- Sign Up and
+                                        Participate</span></h3>
+                                <p class="mb-3">Native quest setups built out of an onboarding process with gamified
+                                    elements such
+                                    as points, levels, multipliers, and expiring initiatives.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Ducate</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">ZenChain</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Syntekika</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold text-white border-b border-gray-700 pb-2 mb-3">Creator
+                                    Platforms <span class="text-gray-500 text-base font-normal ml-2">- Sign Up and
+                                        Create</span></h3>
+                                <p class="mb-3">Platforms rewarding users for publishing content. Users are encouraged
+                                    to join and
+                                    promote a specific campaign or make something original.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">ScribbleDao</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Zoop</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 bg-neutral-800/30 p-6 rounded-xl border border-neutral-700/50">
+                            <h3 class="text-xl font-bold text-white mb-4">Quest Actions Breakdown</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-blue-400 mb-2">On-chain</h4>
+                                    <p class="text-sm text-gray-400">Swap, Deposit, Provide liquidity, Stake, Lend,
+                                        Borrow, Bridge,
+                                        Mint, Vote</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-purple-400 mb-2">Off-chain</h4>
+                                    <p class="text-sm text-gray-400">Open Link, Read docs, Watch tutorial, Quiz, Follow
+                                        socials,
+                                        Join community</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- Why Quests Matter -->
+                    <section id="why-quests-matter" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>Why
+                            Quests Matter
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-neutral-900 border border-neutral-800 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center"><i
+                                        data-lucide="user-check" class="w-5 h-5 mr-2"></i>Why Users LOVE Quests</h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>Reduce
+                                        confusion and
+                                        increase confidence</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>Learn by
+                                        doing (guided
+                                        on-chain experience)</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>Less fear of
+                                        mistakes
+                                    </li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>Progress
+                                        feels measurable
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-neutral-900 border border-neutral-800 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-orange-400 mb-4 flex items-center"><i
+                                        data-lucide="briefcase" class="w-5 h-5 mr-2"></i>Why Projects LOVE Quests</h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">✓</span>Performance
+                                        channel
+                                        built around outcomes</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">✓</span>Higher
+                                        intent users
+                                        (real liquidity)</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">✓</span>Cleaner
+                                        attribution
+                                        signals</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">✓</span>Community
+                                        flywheel
+                                        effects</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h3 class="text-2xl font-bold text-white mb-4">Why I LOVE Quests</h3>
+                            <p
+                                class="text-lg italic text-gray-400 border-l-4 border-blue-500 pl-4 py-2 bg-neutral-800/20 rounded-r-lg">
+                                "My motivation is simple: quests are where growth, product, and community meet. I like
+                                work that is
+                                measurable, user-first, and hard to fake."
+                            </p>
+                            <div class="my-8 rounded-xl overflow-hidden shadow-2xl border border-white/10 group">
+                                <img src="assets/overview/overview_image_1.png" alt="Quest Activations"
+                                    class="w-full h-auto transform group-hover:scale-[1.01] transition-transform duration-700">
+                                <p class="text-center text-sm text-gray-500 mt-2 bg-black/50 py-1">Quest Activations on
+                                    Layer3</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- How I Build Quests -->
+                    <section id="how-i-build-quests" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-8 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>How
+                            I Build Quests
+                        </h2>
+
+                        <!-- Step 1 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                1</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Project Discovery</h3>
+                            <p class="mb-4">I source projects where quests can create meaningful first use, not just
+                                clicks. Finding
+                                new projects is a game of speed.</p>
+                            <div class="bg-neutral-800/50 p-4 rounded-lg mb-6">
+                                <h4 class="font-bold text-gray-200 mb-2 text-sm uppercase tracking-wide">Discovery
+                                    Channels</h4>
+                                <div class="flex flex-wrap gap-2 text-sm text-blue-400">
+                                    <span class="bg-black/30 px-2 py-1 rounded">Airdrop Clean Trackers</span>
+                                    <span class="bg-black/30 px-2 py-1 rounded">Funded Lists</span>
+                                    <span class="bg-black/30 px-2 py-1 rounded">Accelerator Cohorts</span>
+                                    <span class="bg-black/30 px-2 py-1 rounded">Hackathons</span>
+                                </div>
+                            </div>
+                            <div class="my-6 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="assets/overview/overview_image_2.png" alt="Quest Collection Sheet"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                2</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Project Enrichment</h3>
+                            <p class="mb-4">Before writing a single task, I map the protocol like a marketer and test it
+                                like a
+                                user.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-neutral-800 p-3 rounded">
+                                    <h5 class="text-blue-400 font-bold text-sm">Web URLs</h5>
+                                    <p class="text-xs text-gray-400">Homepage, Docs, Whitepaper, Blog</p>
+                                </div>
+                                <div class="bg-neutral-800 p-3 rounded">
+                                    <h5 class="text-blue-400 font-bold text-sm">Socials</h5>
+                                    <p class="text-xs text-gray-400">X/Twitter, Discord, Telegram</p>
+                                </div>
+                            </div>
+                            <p class="text-sm mb-2 text-gray-400">Example: Using Perplexity to enrich projects</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="assets/overview/overview_image_3.png" alt="Project Enrichment"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                3</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Referral Setup</h3>
+                            <p class="mb-4">Referral links create attribution and allow me to track my incentive
+                                structure for
+                                sustained promotion.</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="assets/overview/overview_image_4.png" alt="Referral Setup"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                4</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Functional Testing</h3>
+                            <p class="mb-4">Testing is where good quests stand out. I complete every step exactly as a
+                                new user
+                                would.</p>
+                            <ul class="list-disc list-inside text-sm text-gray-400 space-y-1 mb-6">
+                                <li>Does it work (On-Chain)?</li>
+                                <li>Is it easy (Beginner - Medium)?</li>
+                                <li>What is the minimum viable transaction?</li>
+                                <li>Confirm positive result (Points/Rewards)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                5</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Quest Doc Build</h3>
+                            <p class="mb-4">Building the quest in a Google Doc with all resources, links, and clear
+                                instructions.
+                            </p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="assets/overview/overview_image_5.png" alt="Quest Doc Build"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                6</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Quest Preview Image</h3>
+                            <p class="mb-4">Consistent quest creative using a clean template system.</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="assets/overview/overview_image_6.png" alt="Quest Preview Image"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                7</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Native Quest Builder</h3>
+                            <p class="mb-4">Implementing the quest in the platform builder (e.g. Layer3). Configuring
+                                chain, tasks,
+                                and verification.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <img src="assets/overview/overview_image_7.png" alt="Quest Overview"
+                                    class="rounded-lg border border-white/5">
+                                <img src="assets/overview/overview_image_8.png" alt="Card Sequencing"
+                                    class="rounded-lg border border-white/5">
+                                <img src="assets/overview/overview_image_9.png" alt="Onchain Activity"
+                                    class="rounded-lg border border-white/5">
+                                <img src="assets/overview/overview_image_10.png" alt="Offchain Activity"
+                                    class="rounded-lg border border-white/5">
+                            </div>
+                        </div>
+
+                        <!-- Step 8 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                8</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Review and Approval</h3>
+                            <p class="mb-4">Submitting for review and getting feedback from moderators.</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="assets/overview/overview_image_11.png" alt="Review and Approval"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 9 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                9</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Promotion</h3>
+                            <p class="mb-4">Amplifying reach: Posting on X, joining communities, and creating tickets.
+                            </p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="assets/overview/overview_image_12.png" alt="Promotion" class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 10 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-4">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                10</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Monitoring</h3>
+                            <p class="mb-4">Checking referrals and future airdrops.</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="assets/overview/overview_image_13.png" alt="Monitoring" class="w-full h-auto">
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- Conclusion -->
+                    <section id="conclusion" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>Conclusion
+                        </h2>
+                        <p class="mb-4">The 111K+ activations did not come from guesswork. They came from a launch
+                            system designed
+                            to remove friction, protect proof quality, and make completion feel obvious.</p>
+
+                        <div class="bg-green-500/10 border border-green-500/20 rounded-xl p-6 mt-8">
+                            <h3 class="text-xl font-bold text-green-400 mb-4">My Method Works</h3>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Faster
+                                    onboarding - First to value</li>
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Stronger
+                                    verification - Fewer farmers</li>
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Better
+                                    completion - Clarity</li>
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Campaigns
+                                    built - Real usage</li>
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Launch
+                                    process - Scalable</li>
+                            </ul>
+                        </div>
+
+                        <p class="mt-8 text-xl font-medium text-white text-center">
+                            If you want onboarding that feels crisp, measurable, and genuinely useful to users, quests
+                            are one of
+                            the best tools Web3 has.
+                            <br><span class="text-blue-400">The difference is execution. That’s the part I’ve
+                                systematized.</span>
+                        </p>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Overview Charts Section (Clean Style - No Glass) -->
+        <div class="mt-12 p-8 bg-neutral-900 border border-neutral-800 rounded-xl">
+            <h2 class="text-3xl font-bold text-white mb-6">Performance Overview</h2>
+            <!-- KPI Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800">
+                    <div class="text-neutral-500 text-sm mb-1 uppercase tracking-wider">Total Quests</div>
+                    <div class="text-3xl font-bold text-white font-mono" id="ov-kpi-quests">-</div>
+                </div>
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800">
+                    <div class="text-neutral-500 text-sm mb-1 uppercase tracking-wider">Total Activations</div>
+                    <div class="text-3xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 font-mono"
+                        id="ov-kpi-activations">-</div>
+                </div>
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800">
+                    <div class="text-neutral-500 text-sm mb-1 uppercase tracking-wider">Top Project</div>
+                    <div class="text-xl font-bold text-white truncate" id="ov-kpi-top">-</div>
+                    <div class="text-xs text-green-400 mt-1" id="ov-kpi-top-val">-</div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="layout-grid" class="w-4 h-4 text-purple-500"></i> Quests by Environment
+                    </h3>
+                    <div class="h-64 relative">
+                        <canvas id="chart-overview-dist"></canvas>
+                    </div>
+                </div>
+                <!-- Timeline Mirror -->
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="activity" class="w-4 h-4 text-green-500"></i> Publishing Activity
+                    </h3>
+                    <div class="h-64 relative">
+                        <canvas id="chart-overview-timeline"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Table Mirror -->
+            <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800 overflow-hidden">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="trophy" class="w-4 h-4 text-yellow-500"></i> Performance Breakdown
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr
+                                class="text-left border-b border-neutral-700 text-neutral-500 text-sm uppercase tracking-wider">
+                                <th class="px-6 py-3 font-medium">Quest</th>
+                                <th class="px-6 py-3 font-medium">Theme</th>
+                                <th class="px-6 py-3 font-medium">Environment</th>
+                                <th class="px-6 py-3 text-right font-medium">Activations</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ov-analytics-table-body" class="divide-y divide-neutral-800">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div id="resources-view"
+        class="hidden max-w-7xl mx-auto pb-12 transition-opacity duration-300 opacity-0 text-center py-20">
+        <i data-lucide="wrench" class="w-12 h-12 text-neutral-600 mx-auto mb-4"></i>
+        <p class="text-neutral-500 text-lg">Resources tab is under construction.</p>
+    </div>
+    <div id="resource-detail-view"
+        class="hidden max-w-7xl mx-auto pb-12 transition-opacity duration-300 opacity-0 text-center py-20">
+    </div>
+
+    <!-- Data Loader -->
+    <script src="quests_data.js"></script>
+
+
+    <!-- Modal (unchanged) -->
+    <div id="modal"
+        class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <!-- ... modal code ... -->
+        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-300 scrollbar-hide"
+            id="modal-content">
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group">
+                <i data-lucide="x" class="w-6 h-6 text-neutral-400 group-hover:text-white"></i>
+            </button>
+            <div id="modal-body" class="p-8"></div>
+        </div>
+    </div>
+
+    <script>
+        // Icons
+        lucide.createIcons();
+
+        let searchQuery = '';
+        let currentView = 'grid';
+        let chartsInitialized = false;
+        let observer; // Intersection Observer
+
+        // Multi-Select States
+        let selectedEnvs = []; // For Portfolio Grid
+        let analyticsSelectedEnvs = []; // For Analytics Chart
+
+        // Possible Environments (Hardcoded priority or derived)
+        // User list: EVM, Bitcoin native, NEAR, Multi-chain, Off-chain, Sui, Solana
+        // We will derive from data but sort to prioritize these if present.
+
+        function init() {
+            if (!window.quests) {
+                console.error("No data found!");
+                return;
+            }
+
+            // --- FILTER LOGIC 1 (THEMES - Single Select) ---
+            const themeCounts = window.quests.reduce((acc, q) => {
+                const theme = q.theme || 'Uncategorized';
+                acc[theme] = (acc[theme] || 0) + 1;
+                return acc;
+            }, {});
+
+            const uniqueThemes = Object.keys(themeCounts).sort();
+            const select = document.getElementById('type-filter');
+            uniqueThemes.forEach(theme => {
+                const option = document.createElement('option');
+                option.value = theme;
+                option.innerText = `${theme} (${themeCounts[theme]})`;
+                select.appendChild(option);
+            });
+
+            // --- FILTER LOGIC 2 (ENVIRONMENTS - Multi-Select) ---
+            const envCounts = window.quests.reduce((acc, q) => {
+                const env = q.environment || 'Unknown';
+                acc[env] = (acc[env] || 0) + 1;
+                return acc;
+            }, {});
+
+            const uniqueEnvs = Object.keys(envCounts).sort();
+            const envList = document.getElementById('env-checkbox-list');
+
+            uniqueEnvs.forEach(env => {
+                // Checkbox Item
+                const div = document.createElement('div');
+                div.className = 'flex items-center gap-3 p-2 rounded hover:bg-neutral-800 cursor-pointer select-none transition-colors';
+                div.onclick = (e) => {
+                    e.preventDefault();
+                    toggleEnvOption(env);
+                };
+                div.innerHTML = `
+                    <div class="w-4 h-4 border border-neutral-600 rounded flex items-center justify-center transition-colors ${selectedEnvs.includes(env) ? 'bg-purple-500 border-purple-500' : ''}" id="cb-${env.replace(/\s+/g, '-')}-grid">
+                        <i data-lucide="check" class="w-3 h-3 text-white ${selectedEnvs.includes(env) ? '' : 'hidden'}"></i>
+                    </div>
+                    <span class="text-sm text-neutral-300">${env}</span>
+                    <span class="text-xs text-neutral-600 ml-auto font-mono">${envCounts[env]}</span>
+                `;
+                envList.appendChild(div);
+            });
+
+
+            // Initialize Intersection Observer for Lazy Loading
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Listeners
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase();
+                renderQuests();
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                const container = document.getElementById('env-multiselect-container');
+                const dropdown = document.getElementById('env-dropdown-content');
+                if (container && dropdown && !container.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+
+            renderQuests();
+        }
+
+        // --- SUB-FUNCTIONS FOR DROPDOWN ---
+        function toggleEnvDropdown() {
+            const dropdown = document.getElementById('env-dropdown-content');
+            dropdown.classList.toggle('hidden');
+            lucide.createIcons();
+        }
+
+        function toggleEnvOption(env) {
+            if (selectedEnvs.includes(env)) {
+                selectedEnvs = selectedEnvs.filter(e => e !== env);
+            } else {
+                selectedEnvs.push(env);
+            }
+            updateEnvDropdownUI();
+            renderQuests();
+        }
+
+        function clearEnvSelection() {
+            selectedEnvs = []; // Empty = All
+            updateEnvDropdownUI();
+            renderQuests();
+        }
+
+        function updateEnvDropdownUI() {
+            // Update Button Text
+            const btnSpace = document.querySelector('#env-dropdown-btn span');
+            if (btnSpace) {
+                if (selectedEnvs.length === 0) {
+                    btnSpace.innerText = "All Environments";
+                } else if (selectedEnvs.length === 1) {
+                    btnSpace.innerText = selectedEnvs[0];
+                } else {
+                    btnSpace.innerText = `${selectedEnvs.length} Selected`;
+                }
+            }
+
+
+            // Update Checkboxes Visuals
+            const allCheckboxes = document.querySelectorAll('#env-checkbox-list > div');
+            allCheckboxes.forEach(div => {
+                const envNameSpan = div.querySelector('span.text-neutral-300');
+                if (!envNameSpan) return; // Skip if element not found
+                const envName = envNameSpan.innerText;
+                const cbContainer = div.querySelector('div:first-child');
+                const icon = cbContainer.querySelector('i');
+
+                if (selectedEnvs.includes(envName)) {
+                    cbContainer.classList.add('bg-purple-500', 'border-purple-500');
+                    icon.classList.remove('hidden');
+                } else {
+                    cbContainer.classList.remove('bg-purple-500', 'border-purple-500');
+                    icon.classList.add('hidden');
+                }
+            });
+            lucide.createIcons();
+        }
+
+
+        // --- VIEW SWITCHING ---
+        function switchView(view) {
+            currentView = view;
+            const grid = document.getElementById('quest-grid');
+            const analytics = document.getElementById('analytics-view');
+            const overview = document.getElementById('overview-view');
+            const controls = document.getElementById('controls-container');
+            const btnGrid = document.getElementById('btn-grid');
+            const btnAnalytics = document.getElementById('btn-analytics');
+            const btnOverview = document.getElementById('btn-overview');
+            const btnResources = document.getElementById('btn-resources');
+
+            [btnGrid, btnAnalytics, btnOverview, btnResources].forEach(btn => {
+                btn.classList.remove('bg-neutral-800', 'text-white', 'shadow-lg');
+                btn.classList.add('text-neutral-500');
+            });
+
+            // Hide all views first
+            [grid, analytics, overview].forEach(el => {
+                el.classList.add('opacity-0');
+                el.classList.add('hidden');
+            });
+            const resView = document.getElementById('resources-view');
+            if (resView) {
+                resView.classList.add('opacity-0');
+                resView.classList.add('hidden');
+            }
+
+            // Activate specific view
+            if (view === 'grid') {
+                grid.classList.remove('hidden');
+                controls.classList.remove('hidden');
+                setTimeout(() => grid.classList.remove('opacity-0'), 10);
+
+                btnGrid.classList.add('bg-neutral-800', 'text-white', 'shadow-lg');
+                btnGrid.classList.remove('text-neutral-500');
+
+            } else if (view === 'analytics') {
+                analytics.classList.remove('hidden');
+                controls.classList.add('hidden');
+                setTimeout(() => analytics.classList.remove('opacity-0'), 10);
+
+                btnAnalytics.classList.add('bg-neutral-800', 'text-white', 'shadow-lg');
+                btnAnalytics.classList.remove('text-neutral-500');
+
+                if (!chartsInitialized) renderAnalytics();
+
+            } else if (view === 'overview') {
+                overview.classList.remove('hidden');
+                controls.classList.add('hidden');
+                setTimeout(() => {
+                    overview.classList.remove('opacity-0');
+                    // Render/Refresh charts after layout is visible
+                    if (!chartsInitialized) renderAnalytics();
+                    else renderOverviewCharts(null, window.quests);
+                }, 10);
+
+                btnOverview.classList.add('bg-neutral-800', 'text-white', 'shadow-lg');
+                btnOverview.classList.remove('text-neutral-500');
+                lucide.createIcons(); // Ensure icons load in overview
+            } else if (view === 'resources') {
+                // ... resources view logic ...
+                if (resView) {
+                    resView.classList.remove('hidden');
+                    controls.classList.add('hidden');
+                    setTimeout(() => resView.classList.remove('opacity-0'), 10);
+                }
+
+                btnResources.classList.add('bg-neutral-800', 'text-white', 'shadow-lg');
+                btnResources.classList.remove('text-neutral-500');
+                renderResources();
+            } else if (view === 'resource-detail') {
+                const detailView = document.getElementById('resource-detail-view');
+                detailView.classList.remove('hidden');
+                controls.classList.add('hidden');
+                setTimeout(() => detailView.classList.remove('opacity-0'), 10);
+
+                // Keep Resource Tab Active
+                btnResources.classList.add('bg-neutral-800', 'text-white', 'shadow-lg');
+                btnResources.classList.remove('text-neutral-500');
+
+            }
+        }
+
+        // --- RESOURCES VIEW LOGIC ---
+        function renderResources(categoryKey = null) {
+            const container = document.getElementById('res-content-area');
+            const breadcrumbs = document.getElementById('res-breadcrumbs');
+
+            // 1. Resources as Rows Layout
+            breadcrumbs.innerHTML = `<span class="text-purple-400 font-bold">Resources</span>`;
+
+            const categories = Object.keys(RESOURCES_DB);
+            // Sort standard categories first if needed, otherwise default order
+
+            const contentHtml = categories.map(cat => {
+                const resources = RESOURCES_DB[cat];
+                if (resources.length === 0) return '';
+
+                // Category Header and Icon
+                let icon = 'folder';
+                if (cat.includes('Discovery')) icon = 'compass';
+                if (cat.includes('Enrichment')) icon = 'database';
+                if (cat.includes('Building')) icon = 'hammer';
+                if (cat.includes('Promotion')) icon = 'megaphone';
+
+                const resourcesHtml = resources.map((res, index) => {
+                    const typeLabel = res.type === 'Sheet' ? 'Spreadsheet' : 'Document';
+                    const typeColor = res.type === 'Sheet' ? 'text-green-400' : 'text-blue-400';
+                    const typeIcon = res.type === 'Sheet' ? 'table-2' : 'file-text';
+
+                    const openOnlineBtn = res.external_url ? `
+                        <a href="${res.external_url}" target="_blank" onclick="event.stopPropagation()" class="px-3 py-1 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-xs rounded-lg border border-purple-500/20 transition-colors flex items-center gap-1">
+                            Open Online <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    ` : '';
+
+                    return `
+                    <div onclick="openResourceDetail('${cat}', ${index})" class="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden hover:border-neutral-600 transition-all cursor-pointer group flex flex-col h-full">
+                        <div class="h-40 bg-neutral-800/50 relative overflow-hidden flex items-center justify-center group-hover:bg-neutral-800 transition-colors shrink-0">
+                            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+                            <i data-lucide="${typeIcon}" class="w-12 h-12 ${typeColor} opacity-50 group-hover:scale-110 transition-transform"></i>
+                            <div class="absolute top-3 right-3 flex gap-2">
+                                <span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-black/40 text-neutral-400 border border-white/5">${typeLabel}</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="flex justify-between items-start mb-2 gap-2">
+                                <h4 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors line-clamp-2">${res.title}</h4>
+                            </div>
+                            
+                            <p class="text-xs text-neutral-400 font-medium mb-3 line-clamp-2 min-h-[2.5em]">${res.description || 'No description available.'}</p>
+                            
+                            <div class="mt-auto flex items-center justify-between pt-4 border-t border-neutral-800/50">
+                                <div class="text-sm text-neutral-500 group-hover:text-neutral-300 flex items-center">
+                                    View Content <i data-lucide="eye" class="w-3 h-3 ml-2"></i>
+                                </div>
+                                ${openOnlineBtn}
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('');
+
+                return `
+                <div class="mb-12">
+                     <div class="flex items-center gap-4 mb-6 pb-4 border-b border-neutral-800">
+                        <div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center border border-neutral-700">
+                            <i data-lucide="${icon}" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">${cat}</h2>
+                        <span class="text-neutral-500 font-mono text-sm bg-neutral-900 px-2 py-1 rounded border border-neutral-800">${resources.length} items</span>
+                     </div>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        ${resourcesHtml}
+                     </div>
+                </div>
+                `;
+            }).join('');
+
+            container.innerHTML = `<div class="animate-fade-in">${contentHtml}</div>`;
+            lucide.createIcons();
+            // 2. Category View: List of Resources
+
+            lucide.createIcons();
+        }
+
+        function openResourceDetail(categoryKey, index) {
+            const resource = RESOURCES_DB[categoryKey][index];
+            const container = document.getElementById('res-content-area');
+            const breadcrumbs = document.getElementById('res-breadcrumbs');
+
+            // Update Breadcrumbs
+            breadcrumbs.innerHTML = `
+                <span class="hover:text-white cursor-pointer transition-colors" onclick="renderResources()">Resources</span>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                <span class="text-purple-400 font-bold max-w-[200px] truncate">${resource.title}</span>
+            `;
+
+            // 1. Linkify Helper
+            const linkify = (text) => {
+                if (!text) return '';
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                return text.replace(urlRegex, '<a href="$1" target="_blank" class="text-purple-400 hover:text-purple-300 underline">$1</a>');
+            };
+
+            // Render Content based on Type
+            let contentHtml = '';
+
+            if (resource.type === 'Sheet') {
+                const sheetNames = Object.keys(resource.content);
+
+                // Tabs Header
+                const tabsHtml = sheetNames.map((name, i) => `
+                    <button onclick="switchResourceTab(this, '${name.replace(/[^a-zA-Z0-9]/g, '')}')" class="px-4 py-2 text-sm font-medium rounded-t-lg transition-colors ${i === 0 ? 'bg-neutral-800 text-white border-t border-x border-neutral-700' : 'text-neutral-500 hover:text-neutral-300'}">
+                        ${name}
+                    </button>
+                `).join('');
+
+                // Tables
+                const tablesHtml = sheetNames.map((name, i) => {
+                    const rows = resource.content[name];
+                    const safeName = name.replace(/[^a-zA-Z0-9]/g, '');
+                    if (!rows || rows.length === 0) return `<div id="res-tab-${safeName}" class="${i === 0 ? '' : 'hidden'} p-8 text-neutral-500 text-center">Empty Sheet</div>`;
+
+                    const headers = Object.keys(rows[0]);
+
+                    return `
+                    <div id="res-tab-${safeName}" class="${i === 0 ? '' : 'hidden'} overflow-x-auto custom-scrollbar bg-neutral-800 rounded-b-xl border border-neutral-700">
+                        <table class="w-full text-left text-sm whitespace-nowrap">
+                            <thead class="bg-neutral-900/50 text-neutral-400 font-medium border-b border-neutral-700">
+                                <tr>
+                                    ${headers.map(h => `<th class="px-6 py-3">${h}</th>`).join('')}
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-neutral-700/50">
+                                ${rows.map(row => `
+                                    <tr class="hover:bg-neutral-700/30 transition-colors">
+                                        ${headers.map(h => `<td class="px-6 py-3 text-neutral-300 border-r border-neutral-800/50 last:border-0">${linkify(String(row[h] || '').substring(0, 500))}</td>`).join('')}
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                    `;
+                }).join('');
+
+                contentHtml = `
+                    <div class="space-y-4">
+                        <div class="flex border-b border-neutral-800 gap-1 overflow-x-auto scrollbar-hide">
+                            ${tabsHtml}
+                        </div>
+                        <div>
+                            ${tablesHtml}
+                        </div>
+                    </div>
+                `;
+
+            } else {
+                // Document View
+                contentHtml = `
+                    <div class="bg-neutral-800 rounded-xl border border-neutral-700 p-8 md:p-12 prose prose-invert max-w-none">
+                        <pre class="whitespace-pre-wrap font-sans text-neutral-300 leading-relaxed">${linkify(resource.content)}</pre>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = `
+                <div class="animate-fade-in space-y-6">
+                    <div class="flex items-center justify-between">
+                         <div>
+                            <h2 class="text-3xl font-bold text-white mb-2">${resource.title}</h2>
+                            <p class="text-neutral-400 max-w-2xl">${resource.description || ''}</p>
+                         </div>
+                         <div class="flex gap-2">
+                             ${resource.external_url ? `
+                                <a href="${resource.external_url}" target="_blank" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg text-sm font-bold text-white transition-colors flex items-center gap-2">
+                                    Open Online <i data-lucide="external-link" class="w-4 h-4"></i>
+                                </a>
+                             ` : ''}
+                             <button onclick="renderResources()" class="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
+                                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back
+                             </button>
+                         </div>
+                    </div>
+                    ${contentHtml}
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        // Tab Switcher Helper
+        window.switchResourceTab = function (btn, tabId) {
+            // Reset buttons
+            const parent = btn.parentElement;
+            Array.from(parent.children).forEach(child => {
+                child.className = 'px-4 py-2 text-sm font-medium rounded-t-lg transition-colors text-neutral-500 hover:text-neutral-300';
+            });
+            // Activate button
+            btn.className = 'px-4 py-2 text-sm font-medium rounded-t-lg transition-colors bg-neutral-800 text-white border-t border-x border-neutral-700';
+
+            // Hide all tabs
+            const container = parent.nextElementSibling;
+            Array.from(container.children).forEach(child => child.classList.add('hidden'));
+
+            // Show target
+            document.getElementById(`res-tab-${tabId}`).classList.remove('hidden');
+        };
+
+        // --- ANALYTICS STATE & RENDER ---
+        let envChartInstance = null;
+        let themeChartInstance = null;
+        let timelineChartInstance = null;
+        let overviewDistChartInstance = null;
+        let overviewTimelineChartInstance = null;
+
+
+
+        function renderAnalytics() {
+            chartsInitialized = true;
+            const quests = window.quests;
+
+            // 1. KPI Calculations & Updates (Both Tabs)
+            updateKPIs(quests);
+
+            // 2. Data Prep
+            const envCounts = quests.reduce((acc, q) => {
+                const env = q.environment || 'Unknown';
+                acc[env] = (acc[env] || 0) + 1;
+                return acc;
+            }, {});
+            const sortedEnvs = Object.entries(envCounts).sort((a, b) => b[1] - a[1]);
+
+            const themeCounts = quests.reduce((acc, q) => {
+                const theme = q.theme || 'Uncategorized';
+                acc[theme] = (acc[theme] || 0) + 1;
+                return acc;
+            }, {});
+            const sortedThemes = Object.entries(themeCounts).sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+            // 3. Render ENV Chart (Interactive)
+            if (envChartInstance) envChartInstance.destroy();
+            const envCtx = document.getElementById('chart-environment').getContext('2d');
+            envChartInstance = new Chart(envCtx, {
+                type: 'bar',
+                data: {
+                    labels: sortedEnvs.map(x => x[0]),
+                    datasets: [{
+                        label: 'Quests',
+                        data: sortedEnvs.map(x => x[1]),
+                        backgroundColor: sortedEnvs.map(x => analyticsSelectedEnvs.includes(x[0]) ? '#a855f7' : '#a855f7'), // Initial color
+                        borderRadius: 4,
+                        hoverBackgroundColor: '#c084fc'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    onClick: (e, elements) => handleEnvChartClick(e, elements, envChartInstance),
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#9ca3af' }, grid: { color: '#262626' } },
+                        y: { ticks: { color: '#9ca3af' }, grid: { color: '#262626' }, beginAtZero: true }
+                    }
+                }
+            });
+            window.envChart = envChartInstance; // Expose for update helpers
+
+            // 4. Render Theme Chart
+            if (themeChartInstance) themeChartInstance.destroy();
+            const themeCtx = document.getElementById('chart-theme').getContext('2d');
+            themeChartInstance = new Chart(themeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: sortedThemes.map(x => x[0]),
+                    datasets: [{
+                        data: sortedThemes.map(x => x[1]),
+                        backgroundColor: ['#3b82f6', '#ec4899', '#10b981', '#f59e0b', '#8b5cf6', '#6b7280'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#e5e7eb', usePointStyle: true, boxWidth: 8 } }
+                    }
+                }
+            });
+
+            // 5. Render Timeline Chart
+            renderPublishingTimeline(quests);
+
+            // 6. Render Overview Charts (Mirror)
+            renderOverviewCharts(sortedEnvs, quests);
+
+            // 7. Initial Table Render
+            updateAnalyticsState();
+        }
+
+        // --- KPI Helper ---
+        function updateKPIs(quests) {
+            const totalQuests = quests.length;
+            const totalActivations = quests.reduce((sum, q) => sum + (q.activations || 0), 0);
+            const topQuest = [...quests].sort((a, b) => (b.activations || 0) - (a.activations || 0))[0];
+
+            // Analytics Tab KPIs
+            if (document.getElementById('kpi-quests')) document.getElementById('kpi-quests').innerText = totalQuests;
+            if (document.getElementById('kpi-activations')) document.getElementById('kpi-activations').innerText = totalActivations.toLocaleString();
+            if (topQuest && document.getElementById('kpi-top')) {
+                document.getElementById('kpi-top').innerText = topQuest.project;
+                document.getElementById('kpi-top-val').innerText = `${topQuest.activations.toLocaleString()} Activations`;
+            }
+
+            // Overview Tab KPIs
+            if (document.getElementById('ov-kpi-quests')) document.getElementById('ov-kpi-quests').innerText = totalQuests;
+            if (document.getElementById('ov-kpi-activations')) document.getElementById('ov-kpi-activations').innerText = totalActivations.toLocaleString();
+            if (topQuest && document.getElementById('ov-kpi-top')) {
+                document.getElementById('ov-kpi-top').innerText = topQuest.project;
+                document.getElementById('ov-kpi-top-val').innerText = `${topQuest.activations.toLocaleString()} Activations`;
+            }
+        }
+
+        // --- Timeline Chart ---
+        function renderPublishingTimeline(quests) {
+            if (timelineChartInstance) timelineChartInstance.destroy();
+
+            // Group by Day (YYYY-MM-DD) for granular timeline
+            // Assumes q.date format "Month Day, Year" e.g., "September 9, 2025"
+            const timeMap = {};
+            quests.forEach(q => {
+                if (!q.date) return;
+                const d = new Date(q.date);
+                if (isNaN(d)) return;
+
+                // Key for sorting: timestamp
+                // Key for determining bucket: Day precision
+                const dayStart = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+
+                if (!timeMap[dayStart]) {
+                    timeMap[dayStart] = {
+                        label: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }), // "Sep 9"
+                        count: 0,
+                        quests: [] // Store quests for interaction
+                    };
+                }
+                // Aggregate ACTIVATIONS
+                timeMap[dayStart].count += (q.activations || 0);
+                timeMap[dayStart].quests.push(q);
+            });
+
+            const sortedKeys = Object.keys(timeMap).sort((a, b) => a - b);
+            const labels = sortedKeys.map(k => timeMap[k].label);
+            const data = sortedKeys.map(k => timeMap[k].count);
+
+            const ctx = document.getElementById('chart-timeline');
+            if (!ctx) return;
+
+            timelineChartInstance = new Chart(ctx.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Activations',
+                        data: data,
+                        borderColor: '#22c55e', // Green
+                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#22c55e'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    onClick: (e, elements) => {
+                        if (!elements || elements.length === 0) return;
+                        const index = elements[0].index;
+                        const label = labels[index];
+                        // Find data point
+                        const sortedTimeKeys = Object.keys(timeMap).sort((a, b) => a - b);
+                        const dataKey = sortedTimeKeys[index];
+                        const questsForDay = timeMap[dataKey].quests;
+
+                        if (questsForDay && questsForDay.length > 0) {
+                            // Open the first quest for now
+                            openModal(questsForDay[0].id);
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const index = context.dataIndex;
+                                    const sortedTimeKeys = Object.keys(timeMap).sort((a, b) => a - b);
+                                    const dataKey = sortedTimeKeys[index];
+                                    const questsForDay = timeMap[dataKey].quests;
+
+                                    const lines = [];
+                                    lines.push(`${context.parsed.y.toLocaleString()} Activations`);
+                                    if (questsForDay) {
+                                        questsForDay.forEach(q => lines.push(`• ${q.title}`));
+                                    }
+                                    return lines;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#9ca3af' }, grid: { display: false } },
+                        y: { ticks: { color: '#9ca3af' }, grid: { color: '#262626' }, beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+        // --- Overview Sync Charts ---
+        function renderOverviewCharts(sortedEnvs, quests) {
+            // Fallback: Compute sortedEnvs if not provided
+            if (!sortedEnvs && quests) {
+                const envCounts = quests.reduce((acc, q) => {
+                    const env = q.environment || 'Unknown';
+                    acc[env] = (acc[env] || 0) + 1;
+                    return acc;
+                }, {});
+                sortedEnvs = Object.entries(envCounts).sort((a, b) => b[1] - a[1]);
+            }
+
+            // 1. Distribution Chart
+            if (overviewDistChartInstance) overviewDistChartInstance.destroy();
+            const distCtx = document.getElementById('chart-overview-dist');
+            if (distCtx) {
+                overviewDistChartInstance = new Chart(distCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: sortedEnvs.map(x => x[0]),
+                        datasets: [{
+                            data: sortedEnvs.map(x => x[1]),
+                            backgroundColor: '#a855f7',
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: { display: false },
+                            y: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // 2. Timeline Mirror (Independent Calculation)
+            if (overviewTimelineChartInstance) overviewTimelineChartInstance.destroy();
+            const timelineCtx = document.getElementById('chart-overview-timeline');
+            if (timelineCtx && quests) {
+                // Re-calculate data to avoid dependency on analytics chart
+                const timeMap = {};
+                quests.forEach(q => {
+                    if (!q.date) return;
+                    const d = new Date(q.date);
+                    if (isNaN(d)) return;
+
+                    const dayStart = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+
+                    if (!timeMap[dayStart]) {
+                        timeMap[dayStart] = {
+                            label: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+                            count: 0,
+                            quests: []
+                        };
+                    }
+                    timeMap[dayStart].count += (q.activations || 0);
+                    timeMap[dayStart].quests.push(q);
+                });
+
+                const sortedKeys = Object.keys(timeMap).sort((a, b) => a - b);
+                const labels = sortedKeys.map(k => timeMap[k].label);
+                const data = sortedKeys.map(k => timeMap[k].count);
+
+                overviewTimelineChartInstance = new Chart(timelineCtx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: data,
+                            borderColor: '#8b5cf6',
+                            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 0,
+                            hoverPointRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        onClick: (e, elements) => {
+                            if (!elements || elements.length === 0) return;
+                            const index = elements[0].index;
+                            const sortedTimeKeys = Object.keys(timeMap).sort((a, b) => a - b);
+                            const dataKey = sortedTimeKeys[index];
+                            const questsForDay = timeMap[dataKey].quests;
+                            if (questsForDay && questsForDay.length > 0) openModal(questsForDay[0].id);
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        const index = context.dataIndex;
+                                        const sortedTimeKeys = Object.keys(timeMap).sort((a, b) => a - b);
+                                        const dataKey = sortedTimeKeys[index];
+                                        const questsForDay = timeMap[dataKey].quests;
+
+                                        const lines = [];
+                                        lines.push(`${context.parsed.y.toLocaleString()} Activations`);
+                                        if (questsForDay) questsForDay.forEach(q => lines.push(`• ${q.title}`));
+                                        return lines;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { ticks: { color: '#9ca3af' }, grid: { display: false } },
+                            y: { display: false }
+                        }
+                    }
+                });
+            }
+
+            // 3. Populate Overview Table
+            const ovTableBody = document.getElementById('ov-analytics-table-body');
+            if (ovTableBody) {
+                const topQuests = [...quests].sort((a, b) => (b.activations || 0) - (a.activations || 0)).slice(0, 5);
+                ovTableBody.innerHTML = topQuests.map((q) => `
+                    <tr class="hover:bg-neutral-800/30 transition-colors">
+                        <td class="px-6 py-4 font-medium text-white flex items-center gap-3">
+                            ${q.title}
+                        </td>
+                        <td class="px-6 py-4"><span class="px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-300 border border-neutral-700/50">${q.theme}</span></td>
+                        <td class="px-6 py-4 text-neutral-400">${q.environment}</td>
+                        <td class="px-6 py-4 text-right font-mono text-emerald-400">${q.activations ? q.activations.toLocaleString() : '-'}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function handleEnvChartClick(event, elements, chart) {
+            if (!elements || elements.length === 0) return;
+
+            const index = elements[0].index;
+            const label = chart.data.labels[index];
+
+            // Toggle Selection (Multi-select)
+            if (analyticsSelectedEnvs.includes(label)) {
+                analyticsSelectedEnvs = analyticsSelectedEnvs.filter(e => e !== label);
+            } else {
+                analyticsSelectedEnvs.push(label);
+            }
+
+            updateAnalyticsState();
+        }
+
+        function clearAnalyticsEnvSelection() {
+            analyticsSelectedEnvs = []; // Reset
+            updateAnalyticsState();
+        }
+
+
+        // Helper to update chart colors and table based on selection
+        function updateAnalyticsState() {
+            const chart = window.envChart;
+            if (!chart) return;
+
+            const btn = document.getElementById('btn-clear-analytics-env');
+
+            // Update Button Visibility
+            if (btn) {
+                if (analyticsSelectedEnvs.length > 0) {
+                    btn.classList.remove('hidden');
+                } else {
+                    btn.classList.add('hidden');
+                }
+            }
+
+
+            // Update Chart Colors: Selected = Purple (#a855f7), Unselected = Dark Grey (#525252)
+            // If NO selection, ALL are Purple.
+            const newDataColors = chart.data.labels.map(label => {
+                if (analyticsSelectedEnvs.length === 0) return '#a855f7'; // Default all purple
+                if (analyticsSelectedEnvs.includes(label)) return '#a855f7'; // Selected
+                return '#525252'; // Greyed out
+            });
+
+            chart.data.datasets[0].backgroundColor = newDataColors;
+            chart.update();
+
+            // Update Table
+            const quests = window.quests;
+            const filtered = analyticsSelectedEnvs.length === 0
+                ? quests
+                : quests.filter(q => analyticsSelectedEnvs.includes(q.environment || 'Unknown'));
+
+            renderAnalyticsTable(filtered);
+        }
+
+        // --- HELPER: Render Analytics Table ---
+        function renderAnalyticsTable(questsToRender) {
+            const allSortedQuests = [...questsToRender].sort((a, b) => (b.activations || 0) - (a.activations || 0));
+            const tbody = document.getElementById('analytics-table-body');
+            tbody.innerHTML = allSortedQuests.map(q => `
+                <tr onclick="openModal('${q.id}')" class="hover:bg-neutral-800/50 transition-colors group cursor-pointer border-l-2 border-transparent hover:border-purple-500">
+                    <td class="px-6 py-4 font-medium text-white group-hover:text-purple-400 transition-colors flex items-center gap-3">
+                        ${q.title}
+                        <i data-lucide="external-link" class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </td>
+                    <td class="px-6 py-4 font-mono">${(q.activations || 0).toLocaleString()}</td>
+                    <td class="px-6 py-4">
+                        <span class="px-2 py-1 rounded text-xs bg-neutral-800 text-neutral-400 border border-neutral-700">${q.environment || q.expertise || 'N/A'}</span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <span class="text-neutral-400 text-xs font-mono border border-neutral-800 px-2 py-1 rounded">${q.date || 'N/A'}</span>
+                    </td>
+                </tr>
+            `).join('');
+            lucide.createIcons();
+        }
+
+
+        function filterQuests() {
+            renderQuests();
+        }
+
+        function renderQuests() {
+            const grid = document.getElementById('quest-grid');
+            const counter = document.getElementById('count-display');
+            const themeFilter = document.getElementById('type-filter').value;
+            // selectedEnvs from global state
+
+            const filtered = window.quests.filter(q => {
+                // Filter by THEME logic
+                const matchesTheme = themeFilter === 'all' || (q.theme === themeFilter);
+
+                // Filter by ENVIRONMENT (Array Logic)
+                // If selectedEnvs is empty, count as "All"
+                const matchesEnv = selectedEnvs.length === 0 || selectedEnvs.includes(q.environment || 'Unknown');
+
+                const matchesSearch = q.title.toLowerCase().includes(searchQuery) ||
+                    q.project.toLowerCase().includes(searchQuery) ||
+                    (q.description && q.description.toLowerCase().includes(searchQuery));
+                return matchesTheme && matchesEnv && matchesSearch;
+            });
+
+            counter.innerText = `${filtered.length} Quests`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-20">
+                        <i data-lucide="search-x" class="w-12 h-12 text-neutral-600 mx-auto mb-4"></i>
+                        <p class="text-neutral-500 text-lg">No quests found matching your criteria.</p>
+                        <button onclick="clearAndReset()" class="mt-4 text-purple-400 hover:text-purple-300 underline">Clear Filters</button>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+            // ... rest of rendering ...
+            // Render Cards with Lazy Load Classes
+            grid.innerHTML = filtered.map(quest => {
+                const bgStyle = quest.image ? `background-image: url('${quest.image}'); background-size: cover; background-position: center;` : '';
+                const bgClass = quest.image ? '' : 'bg-gradient-to-br from-neutral-800 to-neutral-900';
+                const overlay = quest.image ? '<div class="absolute inset-0 bg-black/50 transition-opacity group-hover:bg-black/40"></div>' : '<div class="absolute inset-0 bg-[url(\'https://grainy-gradients.vercel.app/noise.svg\')] opacity-20"></div>';
+                const titleColor = quest.image ? 'text-white' : 'text-neutral-700';
+
+                return `
+                <div onclick="openModal('${quest.id}')" class="card group bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden cursor-pointer relative flex flex-col h-full opacity-0 translate-y-8 transition-all duration-700">
+                    <div class="h-40 ${bgClass} relative overflow-hidden" style="${bgStyle}">
+                        ${overlay}
+                        <!-- Project Name: Top Left -->
+                        <h3 class="text-2xl font-bold ${titleColor} select-none group-hover:text-purple-500/80 transition-colors duration-500 absolute top-4 left-4 z-20 drop-shadow-md pr-16 leading-tight">${quest.project}</h3>
+                        
+                        <!-- Tags: Bottom Right -->
+                        <div class="absolute bottom-3 right-3 flex flex-wrap gap-1 justify-end max-w-[70%] z-20">
+                            ${(quest.types || [quest.type]).slice(0, 2).map(t =>
+                    `<span class="bg-black/60 backdrop-blur-md border border-white/10 px-2 py-0.5 rounded text-[10px] uppercase tracking-wider text-neutral-300 font-semibold truncate">${t}</span>`
+                ).join('')}
+                            ${(quest.types || [quest.type]).length > 2 ? `<span class="bg-black/60 px-1 py-0.5 rounded text-[10px] text-neutral-500">+${(quest.types || [quest.type]).length - 2}</span>` : ''}
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-1 rounded">
+                                ${(quest.activations || 0).toLocaleString()} Activations
+                            </span>
+                             <div class="flex gap-1">
+                                <span class="text-xs text-neutral-500 border border-neutral-800 px-2 py-1 rounded">
+                                    ${quest.environment || 'Env'}
+                                </span>
+                                <span class="text-xs text-neutral-500 border border-neutral-800 px-2 py-1 rounded">
+                                    ${quest.expertise || 'Beginner'}
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="text-xl font-bold mb-2 text-neutral-100 group-hover:text-purple-400 transition-colors">
+                            ${quest.title}
+                        </h2>
+                        
+                        <p class="text-sm text-neutral-400 line-clamp-2 mb-4 flex-1">
+                            ${quest.description || "Interactive web3 campaign."}
+                        </p>
+
+                        <div class="pt-4 border-t border-neutral-800 flex items-center text-sm text-neutral-500 group-hover:text-neutral-300 transition-colors">
+                            <span>View Details</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+            `;
+            }).join('');
+
+            // attach observer to new elements
+            document.querySelectorAll('#quest-grid .card').forEach(el => observer.observe(el));
+
+            lucide.createIcons();
+        }
+
+        // --- MODAL LOGIC---
+        function openModal(questId) {
+            const quest = window.quests.find(q => q.id === questId);
+            if (!quest) return;
+
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+
+            // --- Helper: Render Badges ---
+            const renderBadge = (label, colorClass) => {
+                if (!label || label === 'N/A') return '';
+                return `<span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider border ${colorClass}">${label}</span>`;
+            };
+
+            // Banner Image Logic
+            const bannerStyle = quest.image
+                ? `background-image: url('${quest.image}'); background-size: cover; background-position: center;`
+                : 'background: linear-gradient(to right, #2d1b69, #1a1a1a);';
+
+            // Activities HTML
+            const activitiesHtml = (quest.activities || []).map(a => `
+                <div class="flex items-center gap-3 p-3 bg-neutral-800/50 border border-neutral-800 rounded-lg">
+                    <div class="w-5 h-5 rounded-full border border-purple-500/50 flex items-center justify-center text-purple-400">
+                        <i data-lucide="check" class="w-3 h-3"></i>
+                    </div>
+                    <span class="text-neutral-300 text-sm">${a}</span>
+                </div>
+            `).join('');
+
+            // Tags HTML
+            const tagsHtml = (quest.tags || []).map(t =>
+                `<span class="px-3 py-1 bg-neutral-800 border border-neutral-700 rounded-full text-xs text-neutral-400">${t}</span>`
+            ).join('');
+
+            // --- Main Content Injection ---
+            content.innerHTML = `
+                <!-- Close Button -->
+                <button onclick="closeModal()" class="absolute top-4 right-4 p-2 text-neutral-400 hover:text-white bg-neutral-800 hover:bg-neutral-700 rounded-full transition-colors z-20 border border-neutral-700">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+
+                <div class="flex flex-col h-full bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden max-h-[90vh] shadow-2xl">
+                    
+                    <!-- 1. Banner Header (Inset & Rounded) -->
+                    <div class="p-2 pb-0">
+                        <div class="relative h-48 shrink-0 group rounded-xl overflow-hidden">
+                            <div class="absolute inset-0 transition-transform duration-700 group-hover:scale-105" style="${bannerStyle}"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-8 right-8">
+                                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight drop-shadow-lg">${quest.project}</h2>
+                                 ${quest.title ? `<p class="text-neutral-300/90 text-sm font-medium drop-shadow-md hidden md:block">${quest.title}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Content Scroll Area -->
+                    <div class="flex-1 overflow-y-auto custom-scrollbar">
+                        <div class="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            
+                            <!-- LEFT COLUMN (Main Info) -->
+                            <div class="lg:col-span-2 space-y-8">
+                                
+                                <!-- Meta Row -->
+                                <div class="flex flex-wrap items-center gap-3">
+                                    <div class="px-3 py-1.5 bg-neutral-800 rounded text-neutral-300 text-sm font-medium border border-neutral-700">
+                                        ${quest.project}
+                                    </div>
+                                    ${renderBadge(quest.type, 'bg-purple-500/10 text-purple-400 border-purple-500/20')}
+                                    ${renderBadge(quest.network, 'bg-blue-500/10 text-blue-400 border-blue-500/20')}
+                                    ${quest.date ? `<div class="flex items-center gap-2 px-3 py-1.5 border border-neutral-800 rounded text-xs text-neutral-500 uppercase tracking-wider"><i data-lucide="calendar" class="w-3 h-3"></i> ${quest.date}</div>` : ''}
+                                    ${renderBadge(quest.difficulty, 'bg-neutral-800 text-neutral-500 border-neutral-700')}
+                                </div>
+
+                                <!-- Description -->
+                                <div>
+                                    <p class="text-neutral-300 text-lg leading-relaxed">
+                                        ${quest.description || 'No description available.'}
+                                    </p>
+                                </div>
+
+                                <!-- Quest Activities -->
+                                ${activitiesHtml ? `
+                                    <div>
+                                        <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-4">Quest Activities</h3>
+                                        <div class="space-y-2">
+                                            ${activitiesHtml}
+                                        </div>
+                                    </div>
+                                ` : ''}
+
+                                <!-- Tags -->
+                                ${tagsHtml ? `
+                                    <div>
+                                        <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-4">Tags</h3>
+                                        <div class="flex flex-wrap gap-2">
+                                            ${tagsHtml}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+
+                            <!-- RIGHT COLUMN (Sidebar) -->
+                            <div class="space-y-6">
+                                
+                                <!-- Activations Card -->
+                                <div class="bg-neutral-950 border border-neutral-800 rounded-xl p-6 text-center shadow-inner">
+                                    <div class="text-xs text-neutral-500 uppercase tracking-widest mb-2">Total Activations</div>
+                                    <div class="text-4xl font-bold text-white font-mono tracking-tight">
+                                        ${(quest.activations || 0).toLocaleString()}
+                                    </div>
+                                </div>
+
+                                <!-- CTA -->
+                                <a href="${quest.url}" target="_blank" class="block w-full py-4 bg-[#8b5cf6] hover:bg-[#7c3aed] text-white text-center rounded-xl font-bold transition-all hover:scale-[1.02] shadow-lg shadow-purple-900/20 flex items-center justify-center gap-2">
+                                    <span>Open Quest</span>
+                                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                                </a>
+
+                                <!-- Links Stack -->
+                                <div class="space-y-2">
+                                    ${renderSidebarLink(quest.links.website, 'globe', 'Website')}
+                                    ${renderSidebarLink(quest.links.quest_doc, 'file-text', 'Quest Documentation')}
+                                    ${renderSidebarLink(quest.links.documentation, 'book', 'Project Docs')}
+                                    ${renderSidebarLink(quest.links.referral, 'gift', 'Referral Link')}
+                                </div>
+
+                                <!-- Socials -->
+                                <div>
+                                    <h4 class="text-xs font-bold text-neutral-600 uppercase tracking-widest mb-3">Socials</h4>
+                                    <div class="flex gap-2">
+                                        ${renderSocialBtn(quest.links.x, 'twitter')}
+                                        ${renderSocialBtn(quest.links.discord, 'message-square')}
+                                        ${renderSocialBtn(quest.links.telegram, 'send')}
+                                        ${renderSocialBtn(quest.links.github, 'github')}
+                                        ${renderSocialBtn(quest.links.linkedin, 'linkedin')}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+
+            lucide.createIcons();
+        }
+
+        // Helper for Sidebar Links
+        function renderSidebarLink(url, icon, label) {
+            if (!url || url === 'N/A') return '';
+            return `
+                <a href="${url}" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-800/40 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 rounded-lg text-neutral-400 hover:text-white transition-all group">
+                    <i data-lucide="${icon}" class="w-4 h-4 group-hover:text-purple-400 transition-colors"></i>
+                    <span class="text-sm font-medium">${label}</span>
+                </a>
+            `;
+        }
+
+        // Helper for Social Buttons
+        function renderSocialBtn(url, icon) {
+            if (!url || url === 'N/A') return '';
+            return `
+                <a href="${url}" target="_blank" class="p-2.5 bg-neutral-800/40 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 rounded-lg text-neutral-500 hover:text-white transition-all">
+                    <i data-lucide="${icon}" class="w-4 h-4"></i>
+                </a>
+            `;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function renderLink(url, icon, label) {
+            if (!url || url === 'N/A') return '';
+            return `
+                <a href="${url}" target="_blank" class="flex items-center gap-3 p-3 bg-neutral-800 rounded-lg hover:bg-neutral-700 hover:text-white text-neutral-400 transition-colors border border-neutral-700/50">
+                    <i data-lucide="${icon}" class="w-4 h-4"></i>
+                    <span class="text-sm font-medium">${label}</span>
+                </a>
+            `;
+        }
+
+        function renderSocial(url, iconOverride) {
+            if (!url || url === 'N/A') return '';
+            const icon = iconOverride || 'link';
+            return `
+                <a href="${url}" target="_blank" class="p-3 bg-neutral-800 rounded-lg hover:bg-neutral-700 hover:text-white text-neutral-400 transition-colors border border-neutral-700/50">
+                    <i data-lucide="${icon}" class="w-4 h-4"></i>
+                </a>
+            `;
+        }
+
+
+        document.addEventListener('DOMContentLoaded', init);
+
+        // Close on clicking outside
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') closeModal();
+        });
+    </script>
+</body>
+
+</html>

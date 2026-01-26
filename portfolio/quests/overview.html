@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview | Taylor's Quest Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scroll-mt-24 {
+            scroll-margin-top: 6rem;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-6 md:p-12 relative">
+    <!-- Global Layout -->
+    <script src="../../assets/js/layout.js"></script>
+    <script src="../../quests_data.js"></script>
+
+    <!-- Header -->
+    <header class="mb-12 text-center relative z-10 flex flex-col items-center mt-24">
+        <h1
+            class="text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+            Quest Portfolio
+        </h1>
+        <p class="text-neutral-400 max-w-2xl mx-auto text-lg mb-8">
+            Discover 40+ on-chain activations and growth campaigns designed to drive engagement.
+        </p>
+
+        <!-- View Toggle (Navigation) -->
+        <div class="bg-neutral-900 border border-neutral-800 p-1 rounded-full flex gap-1 relative z-20">
+            <a href="index.html"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Portfolio</a>
+            <a href="overview.html"
+                class="px-6 py-2 rounded-full text-sm font-bold bg-neutral-800 text-white shadow-lg transition-all">Overview</a>
+            <a href="analytics.html"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Analytics</a>
+            <a href="resources.html"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Resources</a>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <div id="overview-view" class="w-full max-w-4xl mx-auto pb-12 transition-opacity duration-300 relative z-10">
+        <div id="overview-content" class="space-y-8 animate-fade-in">
+            <!-- Hero / Title Section -->
+            <div class="text-center mb-12">
+                <h1
+                    class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-6 leading-tight">
+                    How I launched 40 quests resulting in 111K activations</h1>
+                <div class="h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="max-w-4xl mx-auto prose prose-invert prose-lg mb-12">
+                <p class="text-gray-300 leading-relaxed text-xl">In Web3, attention is easy to buy. Adoption is not.</p>
+                <p class="text-gray-300 leading-relaxed text-lg">Quests close that gap. They turn “I heard about this
+                    protocol” into
+                    a guided set of actions that prove usage, validate completion, and reward the right behavior.</p>
+                <p class="text-gray-300 leading-relaxed text-lg">Towards the end of last year, I launched 40+ quests
+                    across major
+                    platforms, resulting in 111K+ unique activations. The work was built as a repeatable system, where
+                    each quest is
+                    treated like a mini product launch.</p>
+            </div>
+
+            <!-- KPI / Stats Grid -->
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <!-- Activations -->
+                <div
+                    class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 relative overflow-hidden group hover:border-purple-500/30 transition-all duration-300">
+                    <div
+                        class="absolute right-0 top-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-purple-500/20 transition-colors">
+                    </div>
+                    <h3
+                        class="text-neutral-400 text-sm font-medium uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="users" class="w-4 h-4 text-purple-500"></i> Total Activations
+                    </h3>
+                    <p class="text-4xl md:text-5xl font-bold text-white mb-1" id="kpi-activations">111K+</p>
+                    <div class="text-sm text-purple-400 font-mono">Across all campaigns</div>
+                </div>
+
+                <!-- Quests -->
+                <div
+                    class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/30 transition-all duration-300">
+                    <div
+                        class="absolute right-0 top-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-blue-500/20 transition-colors">
+                    </div>
+                    <h3
+                        class="text-neutral-400 text-sm font-medium uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="target" class="w-4 h-4 text-blue-500"></i> Total Quests
+                    </h3>
+                    <p class="text-4xl md:text-5xl font-bold text-white mb-1" id="kpi-quests">40+</p>
+                    <div class="text-sm text-blue-400 font-mono">Active Projects</div>
+                </div>
+
+                <!-- Top Performer -->
+                <div
+                    class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 relative overflow-hidden group hover:border-pink-500/30 transition-all duration-300">
+                    <div
+                        class="absolute right-0 top-0 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-pink-500/20 transition-colors">
+                    </div>
+                    <h3
+                        class="text-neutral-400 text-sm font-medium uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i data-lucide="trophy" class="w-4 h-4 text-pink-500"></i> Top Performer
+                    </h3>
+                    <p class="text-2xl font-bold text-white mb-1 truncate" id="kpi-top">Layer3</p>
+                    <div class="text-sm text-pink-400 font-mono" id="kpi-top-val">High Engagement</div>
+                </div>
+            </div>
+
+            <!-- Main Blog Content -->
+            <div class="max-w-4xl mx-auto">
+                <!-- Table of Contents -->
+                <div class="bg-neutral-900/30 border border-neutral-800 rounded-xl p-8 mb-12">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <span class="w-1.5 h-8 bg-blue-500 rounded-sm mr-3"></span>Table of Contents
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-lg">
+                        <a href="#resources-overview"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="folder-open" class="w-4 h-4 mr-2 opacity-70"></i>Resources Overview</a>
+                        <a href="#what-are-quests"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="help-circle" class="w-4 h-4 mr-2 opacity-70"></i>What Are Quests</a>
+                        <a href="#types-of-quests"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="list" class="w-4 h-4 mr-2 opacity-70"></i>Types of Quests</a>
+                        <a href="#why-quests-matter"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="heart" class="w-4 h-4 mr-2 opacity-70"></i>Why Quests Matter</a>
+                        <a href="#how-i-build-quests"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="hammer" class="w-4 h-4 mr-2 opacity-70"></i>How I Build Quests</a>
+                        <a href="#conclusion"
+                            class="text-gray-400 hover:text-blue-400 transition-colors flex items-center"><i
+                                data-lucide="check-circle" class="w-4 h-4 mr-2 opacity-70"></i>Conclusion</a>
+                    </div>
+                </div>
+
+                <!-- Content Sections -->
+                <div class="space-y-16 text-gray-300 leading-relaxed text-lg">
+
+                    <!-- Resources Overview -->
+                    <section id="resources-overview" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>Resources
+                            Overview
+                        </h2>
+                        <p class="mb-4">Many resources were generated for the purposes of:</p>
+                        <ul class="space-y-3 mb-6 ml-2">
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span><strong
+                                        class="text-white">Project Discovery</strong> - Find projects to create
+                                    quests</span></li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span><strong
+                                        class="text-white">Quest Enrichment</strong> - Research the project and find
+                                    links and
+                                    information</span></li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span><strong
+                                        class="text-white">Quest Building</strong> - Setup the first draft, use the
+                                    quest builder,
+                                    and get the quest reviewed</span></li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 mt-1.5">●</span><span><strong
+                                        class="text-white">Quest Promotion</strong> - After publishing the quest,
+                                    promoting the
+                                    quest for user adoption</span></li>
+                        </ul>
+                        <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mt-6">
+                            <p class="font-bold text-blue-200 mb-2">Where to find all my resources:</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center text-blue-300"><a href="resources.html"
+                                        class="flex items-center hover:underline"><i data-lucide="link"
+                                            class="w-4 h-4 mr-2"></i>Resources
+                                        tab (Within this portfolio)</a></li>
+                                <li class="flex items-center"><i data-lucide="external-link"
+                                        class="w-4 h-4 mr-2 text-blue-400"></i><a
+                                        href="https://docs.google.com/spreadsheets/d/1xKfrR7PgbR3ZVBgg-VcbNPDM-sW3YG333HIhulw3wko/edit?usp=drive_link"
+                                        target="_blank"
+                                        class="text-blue-400 hover:text-blue-300 underline underline-offset-4">All
+                                        Quest Portfolio Resources (Google Sheet)</a></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- What Are Quests -->
+                    <section id="what-are-quests" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>What
+                            Are Quests?
+                        </h2>
+
+                        <h3 class="text-2xl font-semibold text-blue-300 mt-8 mb-4">Intro</h3>
+                        <p class="mb-4">A quest is an interactive onboarding and growth campaign that blends on-chain
+                            actions,
+                            off-chain actions, and verification with rewards.</p>
+                        <p class="mb-4">Think of it as a <strong class="text-white">structured user journey</strong>.
+                        </p>
+                        <p class="mb-4">Instead of asking someone to “go try the product,” you give them a clear path to
+                            the first
+                            meaningful outcome.</p>
+                        <p class="mb-4">Quests are new incentive-based user experience which incentivize users and use
+                            gamification
+                            for them to experience your product. Often involving several audiences and with many
+                            variations, quests
+                            provide a unique way to engage with platforms and websites.</p>
+
+                        <h3 class="text-2xl font-semibold text-blue-300 mt-8 mb-4">Quest Journey Overview</h3>
+                        <p class="mb-4">Just as the nature of technology is to evolve, so does the user. Quests are also
+                            always in a
+                            state of evolution because users are constantly seeking out new and novel experiences.</p>
+                        <p class="mb-6">The best quests give users quests of varying sophistication and actions. Why?
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-bold text-white mb-2">Experience Levels</h4>
+                                <p class="text-sm text-gray-400">Inexperienced users vs experienced degens</p>
+                            </div>
+                            <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-bold text-white mb-2">Repetition</h4>
+                                <p class="text-sm text-gray-400">Too many of the same quests = users leave</p>
+                            </div>
+                            <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-bold text-white mb-2">Novelty</h4>
+                                <p class="text-sm text-gray-400">Narrative or novelty keeps people engaged</p>
+                            </div>
+                            <div class="bg-neutral-800/50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-bold text-white mb-2">Scoreboard</h4>
+                                <p class="text-sm text-gray-400">Dashboards to compete and watch points grow</p>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-bold text-white mt-6 mb-3">Quest Start to Finish</h4>
+                        <ol class="list-decimal list-inside space-y-2 mb-6 ml-2 marker:text-blue-500">
+                            <li>Find a quest on a quest platform</li>
+                            <li>User opens the quest</li>
+                            <li>User completes actions (On-Chain and Off-Chain)</li>
+                            <li>Rewards unlock upon completion</li>
+                        </ol>
+
+                        <div class="mt-6 flex items-center gap-2 p-3 bg-neutral-800 rounded-lg">
+                            <i data-lucide="info" class="w-5 h-5 text-gray-400"></i>
+                            <span class="text-sm">There are many different quest platforms: <a
+                                    href="https://docs.google.com/spreadsheets/d/1Qg_e5j7zhJsEsfh6cvQA-Vf5dbsfNxUKg-BNNkwa3m4/"
+                                    target="_blank" class="text-blue-400 hover:text-white underline">Quest Platforms -
+                                    Project
+                                    Discovery [Sheet]</a></span>
+                        </div>
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- Types of Quests -->
+                    <section id="types-of-quests" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>Types
+                            of Quests
+                        </h2>
+                        <p class="mb-6">Usually quests I build come in a few variations of quest “types”</p>
+
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-xl font-bold text-white border-b border-gray-700 pb-2 mb-3">On-Chain
+                                    Activity <span class="text-gray-500 text-base font-normal ml-2">- Sign Up and
+                                        Complete a transaction</span>
+                                </h3>
+                                <p class="mb-3">Certain types of projects such as dexes, per dexes, lending protocols,
+                                    etc want
+                                    users to interact with the smart contract to show user participation (swap, add
+                                    liquidity, mint,
+                                    lend, borrow, etc).</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Haiku</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Cables
+                                        Finance</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Loopscale</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold text-white border-b border-gray-700 pb-2 mb-3">Campaign
+                                    Quests <span class="text-gray-500 text-base font-normal ml-2">- Sign Up and
+                                        Participate</span></h3>
+                                <p class="mb-3">Native quest setups built out of an onboarding process with gamified
+                                    elements such
+                                    as points, levels, multipliers, and expiring initiatives.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Ducate</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">ZenChain</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Syntekika</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold text-white border-b border-gray-700 pb-2 mb-3">Creator
+                                    Platforms <span class="text-gray-500 text-base font-normal ml-2">- Sign Up and
+                                        Create</span></h3>
+                                <p class="mb-3">Platforms rewarding users for publishing content. Users are encouraged
+                                    to join and
+                                    promote a specific campaign or make something original.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">ScribbleDao</span>
+                                    <span
+                                        class="px-3 py-1 bg-neutral-800 rounded-full text-sm border border-neutral-700">Zoop</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 bg-neutral-800/30 p-6 rounded-xl border border-neutral-700/50">
+                            <h3 class="text-xl font-bold text-white mb-4">Quest Actions Breakdown</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-blue-400 mb-2">On-chain</h4>
+                                    <p class="text-sm text-gray-400">Swap, Deposit, Provide liquidity, Stake, Lend,
+                                        Borrow, Bridge,
+                                        Mint, Vote</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-purple-400 mb-2">Off-chain</h4>
+                                    <p class="text-sm text-gray-400">Open Link, Read docs, Watch tutorial, Quiz, Follow
+                                        socials,
+                                        Join community</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- Why Quests Matter -->
+                    <section id="why-quests-matter" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>Why
+                            Quests Matter
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-neutral-900 border border-neutral-800 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center"><i
+                                        data-lucide="user-check" class="w-5 h-5 mr-2"></i>Why Users LOVE Quests</h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>Reduce
+                                        confusion and
+                                        increase confidence</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>Learn by
+                                        doing (guided
+                                        on-chain experience)</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>Less fear of
+                                        mistakes
+                                    </li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">✓</span>Progress
+                                        feels measurable
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-neutral-900 border border-neutral-800 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold text-orange-400 mb-4 flex items-center"><i
+                                        data-lucide="briefcase" class="w-5 h-5 mr-2"></i>Why Projects LOVE Quests</h3>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">✓</span>Performance
+                                        channel
+                                        built around outcomes</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">✓</span>Higher
+                                        intent users
+                                        (real liquidity)</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">✓</span>Cleaner
+                                        attribution
+                                        signals</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">✓</span>Community
+                                        flywheel
+                                        effects</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h3 class="text-2xl font-bold text-white mb-4">Why I LOVE Quests</h3>
+                            <p
+                                class="text-lg italic text-gray-400 border-l-4 border-blue-500 pl-4 py-2 bg-neutral-800/20 rounded-r-lg">
+                                "My motivation is simple: quests are where growth, product, and community meet. I like
+                                work that is
+                                measurable, user-first, and hard to fake."
+                            </p>
+                            <div class="my-8 rounded-xl overflow-hidden shadow-2xl border border-white/10 group">
+                                <img src="../../assets/overview/overview_image_1.png" alt="Quest Activations"
+                                    class="w-full h-auto transform group-hover:scale-[1.01] transition-transform duration-700">
+                                <p class="text-center text-sm text-gray-500 mt-2 bg-black/50 py-1">Quest Activations on
+                                    Layer3</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- How I Build Quests -->
+                    <section id="how-i-build-quests" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-8 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>How
+                            I Build Quests
+                        </h2>
+
+                        <!-- Step 1 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                1</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Project Discovery</h3>
+                            <p class="mb-4">I source projects where quests can create meaningful first use, not just
+                                clicks. Finding
+                                new projects is a game of speed.</p>
+                            <div class="bg-neutral-800/50 p-4 rounded-lg mb-6">
+                                <h4 class="font-bold text-gray-200 mb-2 text-sm uppercase tracking-wide">Discovery
+                                    Channels</h4>
+                                <div class="flex flex-wrap gap-2 text-sm text-blue-400">
+                                    <span class="bg-black/30 px-2 py-1 rounded">Airdrop Clean Trackers</span>
+                                    <span class="bg-black/30 px-2 py-1 rounded">Funded Lists</span>
+                                    <span class="bg-black/30 px-2 py-1 rounded">Accelerator Cohorts</span>
+                                    <span class="bg-black/30 px-2 py-1 rounded">Hackathons</span>
+                                </div>
+                            </div>
+                            <div class="my-6 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_2.png" alt="Quest Collection Sheet"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                2</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Project Enrichment</h3>
+                            <p class="mb-4">Before writing a single task, I map the protocol like a marketer and test it
+                                like a
+                                user.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                                <div class="bg-neutral-800 p-3 rounded">
+                                    <h5 class="text-blue-400 font-bold text-sm">Web URLs</h5>
+                                    <p class="text-xs text-gray-400">Homepage, Docs, Whitepaper, Blog</p>
+                                </div>
+                                <div class="bg-neutral-800 p-3 rounded">
+                                    <h5 class="text-blue-400 font-bold text-sm">Socials</h5>
+                                    <p class="text-xs text-gray-400">X/Twitter, Discord, Telegram</p>
+                                </div>
+                            </div>
+                            <p class="text-sm mb-2 text-gray-400">Example: Using Perplexity to enrich projects</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_3.png" alt="Project Enrichment"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                3</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Referral Setup</h3>
+                            <p class="mb-4">Referral links create attribution and allow me to track my incentive
+                                structure for
+                                sustained promotion.</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_4.png" alt="Referral Setup"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                4</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Functional Testing</h3>
+                            <p class="mb-4">Testing is where good quests stand out. I complete every step exactly as a
+                                new user
+                                would.</p>
+                            <ul class="list-disc list-inside text-sm text-gray-400 space-y-1 mb-6">
+                                <li>Does it work (On-Chain)?</li>
+                                <li>Is it easy (Beginner - Medium)?</li>
+                                <li>What is the minimum viable transaction?</li>
+                                <li>Confirm positive result (Points/Rewards)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                5</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Quest Doc Build</h3>
+                            <p class="mb-4">Building the quest in a Google Doc with all resources, links, and clear
+                                instructions.
+                            </p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_5.png" alt="Quest Doc Build"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                6</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Quest Preview Image</h3>
+                            <p class="mb-4">Consistent quest creative using a clean template system.</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_6.png" alt="Quest Preview Image"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 7 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                7</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Native Quest Builder</h3>
+                            <p class="mb-4">Implementing the quest in the platform builder (e.g. Layer3). Configuring
+                                chain, tasks,
+                                and verification.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <img src="../../assets/overview/overview_image_7.png" alt="Quest Overview"
+                                    class="rounded-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_8.png" alt="Card Sequencing"
+                                    class="rounded-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_9.png" alt="Onchain Activity"
+                                    class="rounded-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_10.png" alt="Offchain Activity"
+                                    class="rounded-lg border border-white/5">
+                            </div>
+                        </div>
+
+                        <!-- Step 8 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                8</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Review and Approval</h3>
+                            <p class="mb-4">Submitting for review and getting feedback from moderators.</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_11.png" alt="Review and Approval"
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 9 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-12 last:pb-0">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                9</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Promotion</h3>
+                            <p class="mb-4">Amplifying reach: Posting on X, joining communities, and creating tickets.
+                            </p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_12.png" alt="Promotion" class="w-full h-auto">
+                            </div>
+                        </div>
+
+                        <!-- Step 10 -->
+                        <div class="relative pl-8 border-l border-blue-500/30 pb-4">
+                            <div
+                                class="absolute -left-3 top-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                                10</div>
+                            <h3 class="text-2xl font-bold text-white mb-4 -mt-1">Monitoring</h3>
+                            <p class="mb-4">Checking referrals and future airdrops.</p>
+                            <div class="my-4 rounded-xl overflow-hidden shadow-lg border border-white/5">
+                                <img src="../../assets/overview/overview_image_13.png" alt="Monitoring" class="w-full h-auto">
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <hr class="border-neutral-800">
+
+                    <!-- Conclusion -->
+                    <section id="conclusion" class="scroll-mt-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center group">
+                            <span
+                                class="w-2 h-8 bg-blue-500 rounded-sm mr-4 group-hover:h-10 transition-all duration-300"></span>Conclusion
+                        </h2>
+                        <p class="mb-4">The 111K+ activations did not come from guesswork. They came from a launch
+                            system designed
+                            to remove friction, protect proof quality, and make completion feel obvious.</p>
+
+                        <div class="bg-green-500/10 border border-green-500/20 rounded-xl p-6 mt-8">
+                            <h3 class="text-xl font-bold text-green-400 mb-4">My Method Works</h3>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Faster
+                                    onboarding - First to value</li>
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Stronger
+                                    verification - Fewer farmers</li>
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Better
+                                    completion - Clarity</li>
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Campaigns
+                                    built - Real usage</li>
+                                <li class="flex items-center"><span
+                                        class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Launch
+                                    process - Scalable</li>
+                            </ul>
+                        </div>
+
+                        <p class="mt-8 text-xl font-medium text-white text-center">
+                            If you want onboarding that feels crisp, measurable, and genuinely useful to users, quests
+                            are one of
+                            the best tools Web3 has.
+                            <br><span class="text-blue-400">The difference is execution. That’s the part I’ve
+                                systematized.</span>
+                        </p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

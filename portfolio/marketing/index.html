@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Hub | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen flex flex-col">
+    <script src="../../assets/js/layout.js"></script>
+    <!-- Data Source -->
+    <script src="../../assets/js/marketing_full_data.js"></script>
+
+    <div class="flex-1 flex pt-20 h-screen overflow-hidden">
+
+        <!-- Sidebar -->
+        <aside
+            class="w-64 border-r border-white/10 bg-black/50 backdrop-blur-xl flex-shrink-0 flex flex-col hidden md:flex">
+            <div class="p-6 border-b border-white/5">
+                <h2 class="font-bold text-white text-lg tracking-tight flex items-center gap-2">
+                    <i data-lucide="layout-dashboard" class="text-green-400"></i> Marketing Hub
+                </h2>
+                <div class="text-xs text-neutral-500 mt-1 uppercase tracking-wider font-bold">Project Center</div>
+            </div>
+
+            <nav class="flex-1 overflow-y-auto p-4 space-y-2">
+                <button onclick="switchTab('overview')" id="nav-overview"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-white bg-white/10">
+                    <i data-lucide="home" class="w-5 h-5"></i> Overview
+                </button>
+
+                <div class="pt-4 pb-2 px-4 text-xs font-bold text-neutral-600 uppercase tracking-widest">Active Projects
+                </div>
+
+                <button onclick="window.location.href='content_creator.html'" id="nav-content-creator"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-neutral-400 hover:text-white hover:bg-white/5 transition-all">
+                    <i data-lucide="users" class="w-5 h-5 text-purple-400"></i> Content Creator
+                </button>
+                <button onclick="window.location.href='email_outreach.html'" id="nav-email-outreach"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-neutral-400 hover:text-white hover:bg-white/5 transition-all">
+                    <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i> Email Outreach
+                </button>
+                <button onclick="window.location.href='affiliates.html'" id="nav-affiliates"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-neutral-400 hover:text-white hover:bg-white/5 transition-all">
+                    <i data-lucide="share-2" class="w-5 h-5 text-orange-400"></i> Affiliate Program
+                </button>
+                <button onclick="window.location.href='case_studies.html'" id="nav-case-studies"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-neutral-400 hover:text-white hover:bg-white/5 transition-all">
+                    <i data-lucide="file-text" class="w-5 h-5 text-yellow-400"></i> Case Studies
+                </button>
+                <button onclick="window.location.href='testimonials.html'" id="nav-testimonials"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-neutral-400 hover:text-white hover:bg-white/5 transition-all">
+                    <i data-lucide="message-square-quote" class="w-5 h-5 text-pink-400"></i> Testimonials
+                </button>
+            </nav>
+
+            <div class="p-4 border-t border-white/5">
+                <div class="bg-neutral-900 rounded-xl p-4 border border-neutral-800">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span class="text-xs font-bold text-neutral-400">System Status</span>
+                    </div>
+                    <div class="text-sm text-white font-mono" id="total-resources-count">0 Resources</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto relative bg-neutral-950/50">
+
+            <!-- Mobile Header -->
+            <div
+                class="md:hidden flex items-center justify-between p-4 border-b border-white/10 bg-black/80 backdrop-blur sticky top-0 z-20">
+                <span class="font-bold text-white">Marketing Hub</span>
+                <button
+                    onclick="document.querySelector('aside').classList.toggle('hidden'); document.querySelector('aside').classList.toggle('absolute'); document.querySelector('aside').classList.toggle('z-50'); document.querySelector('aside').classList.toggle('h-full');"
+                    class="p-2 text-white">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+
+            <!-- Views -->
+            <div id="content-area" class="p-6 md:p-12 max-w-7xl mx-auto min-h-full">
+                <!-- Injected via JS -->
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // State
+        let currentTab = 'overview';
+        let searchQuery = '';
+
+        // Metadata for each project
+        const PROJECTS = {
+            'overview': {
+                title: 'Marketing Overview',
+                description: 'Strategic growth initiatives driving revenue through content, outreach, and partnerships.',
+                icon: 'home',
+                color: 'text-green-400'
+            },
+            'content-creator': {
+                title: 'Content Creator Program',
+                description: 'Scalable recruitment and enablement system for brand advocates.',
+                category: 'Content Creator',
+                icon: 'users',
+                color: 'text-purple-400',
+                stats: { revenue: '$500K+', growth: '120%' }
+            },
+            'email-outreach': {
+                title: 'Outbound Email Campaigns',
+                description: 'High-volume, automated cold email infrastructure and templates.',
+                category: 'Email Outreach',
+                icon: 'mail',
+                color: 'text-blue-400',
+                stats: { open_rate: '45%+', reply_rate: '12%' }
+            },
+            'affiliates': {
+                title: 'Affiliate Program',
+                description: 'Partner network management and commission structures.',
+                category: 'Affiliates',
+                icon: 'share-2',
+                color: 'text-orange-400',
+                stats: { partners: '50+', active: '85%' }
+            },
+            'case-studies': {
+                title: 'Case Study Creation',
+                description: 'Proof-of-value documentation and customer success stories.',
+                category: 'Case Studies',
+                icon: 'file-text',
+                color: 'text-yellow-400',
+                stats: { published: '25+', pipeline: '10' }
+            },
+            'testimonials': {
+                title: 'Testimonial Creation',
+                description: 'Social proof aggregation and formatting.',
+                category: 'Testimonials',
+                icon: 'message-square-quote',
+                color: 'text-pink-400',
+                stats: { videos: '15', stars: '5.0' }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            updateTotalCount();
+            renderView();
+        });
+
+        function switchTab(tab) {
+            currentTab = tab;
+            // Update Sidebar
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.className = "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-neutral-400 hover:text-white hover:bg-white/5 transition-all";
+            });
+            const activeBtn = document.getElementById(`nav-${tab}`);
+            if (activeBtn) activeBtn.className = "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-white bg-white/10";
+
+            // Render
+            searchQuery = ''; // Reset search on tab switch
+            renderView();
+        }
+
+        function updateTotalCount() {
+            if (typeof MARKETING_FULL_DATA !== 'undefined') {
+                document.getElementById('total-resources-count').textContent = `${MARKETING_FULL_DATA.length} Resources`;
+            }
+        }
+
+        function renderView() {
+            const container = document.getElementById('content-area');
+            const project = PROJECTS[currentTab];
+
+            // Header
+            let html = `
+                <div class="mb-8 animate-fade-in">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 bg-neutral-900 rounded-xl border border-white/10 ${project.color}">
+                            <i data-lucide="${project.icon}" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-4xl font-bold text-white">${project.title}</h1>
+                            <p class="text-neutral-400">${project.description}</p>
+                        </div>
+                    </div>
+            `;
+
+            if (currentTab === 'overview') {
+                html += renderOverview();
+            } else {
+                html += renderProjectView(project);
+            }
+
+            html += `</div>`;
+            container.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function renderOverview() {
+            // Summary cards of all projects
+            return `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+                     ${Object.entries(PROJECTS).filter(([k]) => k !== 'overview').map(([k, p]) => `
+                        <button onclick="window.location.href='${k.replace('-', '_')}.html'" class="bg-neutral-900/50 border border-white/5 p-6 rounded-2xl hover:border-${p.color.split('-')[1]}/50 transition-all text-left group flex flex-col h-full">
+                            <div class="mb-4 ${p.color} p-3 bg-white/5 rounded-lg w-fit group-hover:scale-110 transition-transform">
+                                <i data-lucide="${p.icon}" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">${p.title}</h3>
+                            <p class="text-sm text-neutral-400 mb-6 flex-1">${p.description}</p>
+                            
+                            <div class="flex items-center text-sm font-bold text-neutral-500 group-hover:text-white transition-colors mt-auto">
+                                View Project <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                            </div>
+                        </button>
+                     `).join('')}
+                </div>
+            `;
+        }
+
+        function renderProjectView(project) {
+            if (typeof MARKETING_FULL_DATA === 'undefined') {
+                return `<div class="p-8 text-center text-red-400 bg-red-900/10 rounded-xl border border-red-900/20">Data failed to load.</div>`;
+            }
+
+            // Filter data
+            const data = MARKETING_FULL_DATA.filter(item => {
+                const matchCat = item.category === project.category;
+                const matchSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    item.description.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchCat && matchSearch;
+            });
+
+            // Stats
+            const stats = project.stats || {};
+
+            return `
+                <!-- Stats Row -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                    <div class="bg-neutral-900 border border-white/5 p-4 rounded-xl">
+                        <span class="text-xs font-bold text-neutral-500 uppercase">Resources</span>
+                        <div class="text-2xl font-bold text-white mt-1">${data.length}</div>
+                    </div>
+                    ${Object.entries(stats).map(([k, v]) => `
+                    <div class="bg-neutral-900 border border-white/5 p-4 rounded-xl">
+                        <span class="text-xs font-bold text-neutral-500 uppercase">${k.replace('_', ' ')}</span>
+                        <div class="text-2xl font-bold text-white mt-1">${v}</div>
+                    </div>
+                    `).join('')}
+                </div>
+
+                <!-- Controls -->
+                <div class="flex flex-col md:flex-row gap-4 mb-8 bg-neutral-900/50 p-2 rounded-xl border border-white/5">
+                    <div class="relative flex-1">
+                        <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
+                        <input type="text" placeholder="Search ${project.title}..." value="${searchQuery}"
+                            oninput="searchQuery = this.value; renderView()"
+                            class="w-full bg-transparent border-none text-white text-sm px-10 py-2 focus:ring-0 focus:outline-none">
+                    </div>
+                    <div class="flex items-center gap-2 px-4 border-l border-white/10 text-xs font-mono text-neutral-500">
+                        ${data.length} Results
+                    </div>
+                </div>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    ${data.length > 0 ? data.map(item => `
+                        <div class="bg-neutral-900 border border-white/5 p-6 rounded-xl hover:border-white/20 transition-all group flex flex-col relative">
+                            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <a href="${item.url || '#'}" target="_blank" class="p-2 bg-neutral-800 rounded-lg text-white hover:bg-neutral-700 transition-colors block">
+                                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <span class="px-2 py-1 bg-white/5 text-neutral-400 rounded text-[10px] font-bold uppercase tracking-wider border border-white/5">${item.type}</span>
+                            </div>
+
+                            <h3 class="text-lg font-bold text-white mb-2 pr-8 leading-tight">${item.title}</h3>
+                            <p class="text-neutral-400 text-sm mb-4 line-clamp-3 flex-1">${item.description}</p>
+                            
+                            ${item.url ? `
+                            <div class="mt-auto pt-4 border-t border-white/5">
+                                <a href="${item.url}" target="_blank" class="text-xs font-bold ${project.color} hover:text-white transition-colors flex items-center gap-2">
+                                    Open Resource <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                                </a>
+                            </div>
+                            ` : ''}
+                        </div>
+                    `).join('') : `
+                        <div class="col-span-full py-20 text-center text-neutral-500 italic">
+                            No resources found matching "${searchQuery}"
+                        </div>
+                    `}
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>

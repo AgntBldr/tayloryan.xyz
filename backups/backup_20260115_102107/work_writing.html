@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="assets/data_writing.js"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen">
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+
+        <!-- Header -->
+        <div class="mb-16">
+            <span class="text-green-400 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Writing & Content</h1>
+            <p class="text-neutral-400 text-xl max-w-3xl leading-relaxed">
+                Articles, guides, and thought leadership across Fintech, Blockchain, Support, and Growth.
+                <br>Currently displaying <span id="count-display" class="text-white font-bold">...</span> articles.
+            </p>
+        </div>
+
+        <!-- Filters -->
+        <div
+            class="flex flex-wrap items-center gap-2 mb-12 sticky top-24 z-30 bg-black/80 backdrop-blur pb-4 pt-2 -mx-4 px-4 border-b border-white/5">
+            <button onclick="filterArticles('all')"
+                class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-white text-black transition-all shadow-lg shadow-white/10"
+                data-filter="all">All</button>
+            <button onclick="filterArticles('Start-ups / Entrepreneurship')"
+                class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Start-ups / Entrepreneurship">Startups</button>
+            <button onclick="filterArticles('Fintech, Blockchain, Crypto')"
+                class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Fintech, Blockchain, Crypto">Web3 & Crypto</button>
+            <button onclick="filterArticles('Digital Marketing / Growth-Hacking')"
+                class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Digital Marketing / Growth-Hacking">Growth</button>
+            <button onclick="filterArticles('Innovation')"
+                class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Innovation">Innovation</button>
+            <button onclick="filterArticles('Investment')"
+                class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Investment">Investment</button>
+            <button onclick="filterArticles('Leadership')"
+                class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800 transition-all"
+                data-filter="Leadership">Leadership</button>
+        </div>
+
+        <!-- Grid -->
+        <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Injected via JS -->
+        </div>
+
+    </main>
+
+    <script src="assets/js/layout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof WRITING_DATA === 'undefined') {
+                document.getElementById('articles-grid').innerHTML = '<p class="text-neutral-500">No data found.</p>';
+                return;
+            }
+
+            renderArticles(WRITING_DATA);
+            document.getElementById('count-display').innerText = WRITING_DATA.length;
+        });
+
+        function renderArticles(data) {
+            const container = document.getElementById('articles-grid');
+            if (data.length === 0) {
+                container.innerHTML = '<p class="text-neutral-500 col-span-3 text-center py-20">No articles found for this category.</p>';
+                return;
+            }
+
+            container.innerHTML = data.map(article => {
+                const isLive = article.status.toLowerCase() === 'live';
+                const statusColor = isLive ? 'bg-green-500' : 'bg-red-500';
+
+                // Truncate title
+                const title = article.title.length > 60 ? article.title.substring(0, 60) + '...' : article.title;
+                const desc = article.description.length > 100 ? article.description.substring(0, 100) + '...' : article.description;
+
+                return `
+                <div class="group flex flex-col h-full bg-neutral-900 border border-neutral-800 hover:border-green-500/50 rounded-2xl p-6 transition-all hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 bg-neutral-800 rounded text-[10px] uppercase font-bold tracking-wider text-neutral-400 border border-neutral-700 truncate max-w-[150px]">${article.theme}</span>
+                        <div class="w-2 h-2 rounded-full ${statusColor} shadow-[0_0_8px] shadow-${isLive ? 'green' : 'red'}-500/50"></div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">${title}</h3>
+                    <p class="text-sm text-neutral-400 mb-6 line-clamp-3 flex-1">${desc}</p>
+                    
+                    <div class="mt-auto pt-4 border-t border-neutral-800 flex items-center justify-between">
+                         <span class="text-xs text-neutral-600 font-mono">${article.date}</span>
+                         <div class="flex gap-2">
+                            ${article.url ? `
+                            <a href="${article.url}" target="_blank" class="w-8 h-8 rounded-full bg-green-500/10 hover:bg-green-500 hover:text-white text-green-500 flex items-center justify-center transition-all">
+                                <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>` : ''}
+                         </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        window.filterArticles = function (category) {
+            // Update active state
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.remove('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
+                    btn.classList.add('bg-white', 'text-black');
+                } else {
+                    btn.classList.add('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
+                    btn.classList.remove('bg-white', 'text-black');
+                }
+            });
+
+            if (category === 'all') {
+                renderArticles(WRITING_DATA);
+            } else {
+                const filtered = WRITING_DATA.filter(item => {
+                    // Loose matching for mapped categories or exact match
+                    return item.theme && item.theme.includes(category);
+                });
+                renderArticles(filtered);
+            }
+        }
+    </script>
+</body>
+
+</html>

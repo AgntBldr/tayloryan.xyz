@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Taylor's Quest Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/assets/resources_data.js"></script>
+    <script src="/quests_data.js"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+    </style>
+    <link rel="canonical" href="https://taylorryan.xyz/portfolio/quests/resources/">
+    <meta property="og:url" content="https://taylorryan.xyz/portfolio/quests/resources/">
+</head>
+
+<body class="min-h-screen p-6 md:p-12 relative">
+    <!-- Global Layout -->
+    <script src="/assets/js/layout.js"></script>
+
+    <!-- Header -->
+    <header class="mb-12 text-center relative z-10 flex flex-col items-center mt-24">
+        <h1
+            class="text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+            Quest Portfolio
+        </h1>
+        <p class="text-neutral-400 max-w-2xl mx-auto text-lg mb-8">
+            Discover 40+ on-chain activations and growth campaigns designed to drive engagement.
+        </p>
+
+        <!-- View Toggle (Navigation) -->
+        <div class="bg-neutral-900 border border-neutral-800 p-1 rounded-full flex gap-1 relative z-20">
+            <a href="/portfolio/quests/"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Portfolio</a>
+            <a href="/portfolio/quests/overview/"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Overview</a>
+            <a href="/portfolio/quests/analytics/"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Analytics</a>
+            <a href="/portfolio/quests/resources/"
+                class="px-6 py-2 rounded-full text-sm font-bold bg-neutral-800 text-white shadow-lg transition-all">Resources</a>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div id="resources-view" class="w-full max-w-7xl mx-auto pb-12 transition-opacity duration-300 relative z-10">
+        <!-- Breadcrumbs -->
+        <nav id="res-breadcrumbs" class="mb-8 flex items-center gap-2 text-sm text-neutral-500 font-mono">
+            <span class="hover:text-white cursor-pointer transition-colors" onclick="renderResources()">Resources</span>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div id="res-content-area">
+            <!-- Content injected via JS -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderResources();
+            lucide.createIcons();
+        });
+
+        // Icon Mapping
+        const RESOURCE_ICONS = {
+            'Databases': { icon: 'database', color: 'text-blue-500', label: 'Data Source' },
+            'Discovery': { icon: 'compass', color: 'text-purple-500', label: 'Research' },
+            'Templates': { icon: 'layout-template', color: 'text-green-500', label: 'Blueprints' },
+            'Tutorials': { icon: 'youtube', color: 'text-red-500', label: 'Video Guide' },
+            'Legal': { icon: 'scale', color: 'text-yellow-500', label: 'Compliance' }
+        };
+
+        let currentView = 'card'; // 'card' or 'row'
+
+        function renderResources() {
+            const container = document.getElementById('res-content-area');
+            const breadcrumbs = document.getElementById('res-breadcrumbs');
+
+            // Reset Breadcrumbs with Toggle
+            breadcrumbs.innerHTML = `
+                <div class="flex items-center justify-between w-full border-b border-neutral-800 pb-4 mb-6">
+                    <span class="text-white font-bold text-xl">Resources Library</span>
+                    
+                    <!-- View Toggle -->
+                    <div class="flex items-center gap-2 bg-neutral-900 p-1 rounded-lg border border-neutral-800">
+                        <button onclick="toggleView('card')" class="p-2 rounded-md transition-all ${currentView === 'card' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}">
+                            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="toggleView('row')" class="p-2 rounded-md transition-all ${currentView === 'row' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}">
+                            <i data-lucide="list" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            if (typeof RESOURCES_DB === 'undefined') {
+                container.innerHTML = '<p class="text-center text-neutral-500">Loading resources...</p>';
+                return;
+            }
+
+            const categories = Object.keys(RESOURCES_DB);
+
+            const contentHtml = categories.map(cat => {
+                const resources = RESOURCES_DB[cat];
+                const { icon, color } = RESOURCE_ICONS[cat] || { icon: 'folder', color: 'text-gray-500' };
+
+                const resourcesHtml = resources.map((res, index) => {
+                    // Item Icon
+                    let typeIcon = 'file-text';
+                    let typeColor = 'text-neutral-500';
+                    let typeLabel = res.type;
+
+                    if (res.type === 'Sheet') { typeIcon = 'table'; typeColor = 'text-green-400'; }
+                    if (res.type === 'Video') { typeIcon = 'play-circle'; typeColor = 'text-red-400'; }
+                    if (res.type === 'Template') { typeIcon = 'file-box'; typeColor = 'text-blue-400'; }
+
+                    const openOnlineBtn = res.external_url ? `
+                        <a href="/portfolio/quests/${res.external_url}" target="_blank" onclick="event.stopPropagation()" class="px-3 py-1 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-xs rounded-lg border border-purple-500/20 transition-colors flex items-center gap-1 whitespace-nowrap">
+                            Open Online <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    ` : '';
+
+                    // CARD VIEW
+                    if (currentView === 'card') {
+                        return `
+                        <div onclick="openResourceDetail('${cat}', ${index})" class="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden hover:border-neutral-600 transition-all cursor-pointer group flex flex-col h-full">
+                            <div class="h-40 bg-neutral-800/50 relative overflow-hidden flex items-center justify-center group-hover:bg-neutral-800 transition-colors shrink-0">
+                                <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+                                <i data-lucide="${typeIcon}" class="w-12 h-12 ${typeColor} opacity-50 group-hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col">
+                                <div class="flex justify-between items-start mb-2 gap-2">
+                                    <h4 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors line-clamp-2">${res.title}</h4>
+                                </div>
+                                <p class="text-xs text-neutral-400 font-medium mb-3 line-clamp-2">${res.description || 'No description available.'}</p>
+                                <div class="mt-auto flex items-center justify-between pt-4 border-t border-neutral-800/50">
+                                    <div class="text-sm text-neutral-500 group-hover:text-neutral-300 flex items-center">
+                                        View Content <i data-lucide="eye" class="w-3 h-3 ml-2"></i>
+                                    </div>
+                                    ${openOnlineBtn}
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    }
+                    // ROW VIEW
+                    else {
+                        return `
+                        <div onclick="openResourceDetail('${cat}', ${index})" class="bg-neutral-900 border border-neutral-800 rounded-xl p-4 hover:border-neutral-600 transition-all cursor-pointer group flex items-center gap-6">
+                            <!-- Icon -->
+                            <div class="w-12 h-12 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0 border border-neutral-700">
+                                <i data-lucide="${typeIcon}" class="w-6 h-6 ${typeColor}"></i>
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-base font-bold text-white group-hover:text-purple-400 transition-colors truncate">${res.title}</h4>
+                                <p class="text-xs text-neutral-400 truncate">${res.description || 'No description available.'}</p>
+                            </div>
+
+                            <!-- Meta / Actions -->
+                            <div class="flex items-center gap-4 shrink-0">
+                                <span class="hidden md:inline-block px-2 py-1 bg-neutral-800 rounded text-xs text-neutral-500 font-mono border border-neutral-700">${res.type}</span>
+                                <div class="text-sm text-neutral-500 group-hover:text-neutral-300 hidden sm:flex items-center">
+                                    View <i data-lucide="eye" class="w-3 h-3 ml-1"></i>
+                                </div>
+                                ${openOnlineBtn}
+                            </div>
+                        </div>
+                        `;
+                    }
+                }).join('');
+
+                const gridClass = currentView === 'card'
+                    ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
+                    : 'flex flex-col gap-3';
+
+                return `
+                <div class="mb-12">
+                     <div class="flex items-center gap-4 mb-6">
+                        <div class="w-8 h-8 bg-neutral-800 rounded-lg flex items-center justify-center border border-neutral-700">
+                            <i data-lucide="${icon}" class="w-4 h-4 text-purple-400"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-white">${cat}</h2>
+                        <span class="text-neutral-500 font-mono text-xs bg-neutral-900 px-2 py-1 rounded border border-neutral-800">${resources.length} items</span>
+                     </div>
+                     <div class="${gridClass}">
+                        ${resourcesHtml}
+                     </div>
+                </div>
+                `;
+            }).join('');
+
+            container.innerHTML = `<div class="animate-fade-in">${contentHtml}</div>`;
+            lucide.createIcons();
+        }
+
+        function toggleView(view) {
+            currentView = view;
+            renderResources();
+        }
+
+        function openResourceDetail(categoryKey, index) {
+            const resource = RESOURCES_DB[categoryKey][index];
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+
+            const linkify = (text) => {
+                if (!text) return '';
+                // Fix: Do not prepend path to absolute URLs
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                return text.replace(urlRegex, '<a href="$1" target="_blank" class="text-purple-400 hover:text-purple-300 underline">$1</a>');
+            };
+
+            let contentHtml = '';
+            // Generate Content (Sheet or Text)
+            if (resource.type === 'Sheet') {
+                const sheetNames = Object.keys(resource.content);
+                const tabsHtml = sheetNames.map((name, i) => `
+                    <button onclick="switchResourceTab(this, '${name.replace(/[^a-zA-Z0-9]/g, '')}')" class="px-4 py-2 text-sm font-medium rounded-t-lg transition-colors ${i === 0 ? 'bg-neutral-800 text-white border-t border-x border-neutral-700' : 'text-neutral-500 hover:text-neutral-300'}">
+                        ${name}
+                    </button>
+                `).join('');
+
+                const tablesHtml = sheetNames.map((name, i) => {
+                    const rows = resource.content[name];
+                    const safeName = name.replace(/[^a-zA-Z0-9]/g, '');
+                    if (!rows || rows.length === 0) return `<div id="res-tab-${safeName}" class="${i === 0 ? '' : 'hidden'} p-8 text-neutral-500 text-center">Empty Sheet</div>`;
+                    const headers = Object.keys(rows[0]);
+                    return `
+                    <div id="res-tab-${safeName}" class="${i === 0 ? '' : 'hidden'} overflow-x-auto custom-scrollbar bg-neutral-900 rounded-b-xl border border-neutral-700 max-h-[60vh]">
+                        <table class="w-full text-left text-sm whitespace-nowrap">
+                            <thead class="bg-neutral-900 text-neutral-400 font-medium border-b border-neutral-700 sticky top-0 z-10">
+                                <tr>${headers.map(h => `<th class="px-6 py-3 bg-neutral-900">${h}</th>`).join('')}</tr>
+                            </thead>
+                            <tbody class="divide-y divide-neutral-800">
+                                ${rows.map(row => `
+                                    <tr class="hover:bg-neutral-800 transition-colors">
+                                        ${headers.map(h => `<td class="px-6 py-3 text-neutral-300 border-r border-neutral-800 last:border-0">${linkify(String(row[h] || '').substring(0, 500))}</td>`).join('')}
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>`;
+                }).join('');
+
+                contentHtml = `<div class="space-y-4"><div class="flex border-b border-neutral-800 gap-1 overflow-x-auto scrollbar-hide">${tabsHtml}</div><div>${tablesHtml}</div></div>`;
+            } else {
+                contentHtml = `
+                    <div class="bg-neutral-900 rounded-xl border border-neutral-800 p-8 prose prose-invert max-w-none">
+                        <pre class="whitespace-pre-wrap font-sans text-neutral-300 leading-relaxed">${linkify(resource.content)}</pre>
+                    </div>
+                `;
+            }
+
+            // Inject into Modal
+            modalContent.innerHTML = `
+                <div class="relative">
+                    <!-- Close Button -->
+                    <button onclick="document.getElementById('modal').classList.add('hidden')" class="absolute top-4 right-4 p-2 text-neutral-400 hover:text-white bg-neutral-800 rounded-full transition-colors z-20">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+
+                    <div class="p-8">
+                        <div class="mb-6 pr-12">
+                            <h2 class="text-3xl font-bold text-white mb-2">${resource.title}</h2>
+                            <p class="text-neutral-400">${resource.description || ''}</p>
+                            ${resource.external_url ? `
+                                <a href="${resource.external_url}" target="_blank" class="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-medium transition-colors">
+                                    Open External Resource <i data-lucide="external-link" class="w-4 h-4"></i>
+                                </a>
+                            ` : ''}
+                        </div>
+                        ${contentHtml}
+                    </div>
+                </div>
+            `;
+
+            // Show Modal
+            modal.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        window.switchResourceTab = function (btn, tabId) {
+            const parent = btn.parentElement;
+            Array.from(parent.children).forEach(child => child.className = 'px-4 py-2 text-sm font-medium rounded-t-lg transition-colors text-neutral-500 hover:text-neutral-300');
+            btn.className = 'px-4 py-2 text-sm font-medium rounded-t-lg transition-colors bg-neutral-800 text-white border-t border-x border-neutral-700';
+            const container = parent.nextElementSibling;
+            Array.from(container.children).forEach(child => child.classList.add('hidden'));
+            document.getElementById(`res-tab-${tabId}`).classList.remove('hidden');
+        };
+    </script>
+</body>
+
+</html>
