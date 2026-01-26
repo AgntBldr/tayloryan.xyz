@@ -36,7 +36,7 @@ function renderMarketingSidebar(activePage) {
     const totalResources = typeof MARKETING_FULL_DATA !== 'undefined' ? MARKETING_FULL_DATA.length : '...';
 
     const menuItems = [
-        { id: 'overview', label: 'Overview', icon: 'home', url: '/portfolio/marketing/overview/' },
+        { id: 'overview', label: 'Overview', icon: 'home', url: '/portfolio/marketing/' },
         { id: 'content-creator', label: 'Content Creator', icon: 'users', url: '/portfolio/marketing/content_creator/', color: 'text-purple-400' },
         { id: 'email-outreach', label: 'Email Outreach', icon: 'mail', url: '/portfolio/marketing/email_outreach/', color: 'text-blue-400' },
         { id: 'affiliates', label: 'Affiliate Program', icon: 'share-2', url: '/portfolio/marketing/affiliates/', color: 'text-orange-400' },

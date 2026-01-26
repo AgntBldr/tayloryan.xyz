@@ -9,7 +9,7 @@ SOURCE_DIR = os.getcwd() # Assumes running from project root or checks relative
 if 'execution' in SOURCE_DIR:
     SOURCE_DIR = os.path.dirname(SOURCE_DIR)
 
-DEPLOY_DIR = os.path.join(SOURCE_DIR, 'DEPLOY_CLOUDFLARE')
+DEPLOY_DIR = os.path.join(SOURCE_DIR, 'DEPLOY_CLOUDFLARE', 'tayloryan.xyz')
 PUBLIC_DIR = os.path.join(DEPLOY_DIR, 'DEPLOY_PUBLIC')
 FUNCTIONS_DIR = os.path.join(DEPLOY_DIR, 'functions')
 DOMAIN = "https://taylorryan.xyz"
@@ -22,14 +22,23 @@ def handle_remove_readonly(func, path, exc_info):
     func(path)
 
 # Clean Setup
+# BE CAREFUL: Do not delete .git folder if we are deploying directly to repo location
 if os.path.exists(DEPLOY_DIR):
-    print(f"Cleaning existing directory: {DEPLOY_DIR}")
-    try:
-        shutil.rmtree(DEPLOY_DIR, onerror=handle_remove_readonly)
-    except Exception as e:
-        print(f"Error removing directory: {e}")
-        # Try finding the process? No, just continue if possible or fail hard
-        raise
+    print(f"Cleaning existing directory: {DEPLOY_DIR} (preserving .git)")
+    # Instead of removing the whole tree, remove subdirectories except .git
+    for item in os.listdir(DEPLOY_DIR):
+        if item == '.git':
+            continue
+        item_path = os.path.join(DEPLOY_DIR, item)
+        try:
+            if os.path.isfile(item_path) or os.path.islink(item_path):
+                os.unlink(item_path)
+            elif os.path.isdir(item_path):
+                shutil.rmtree(item_path, onerror=handle_remove_readonly)
+        except Exception as e:
+            print(f"Error removing {item_path}: {e}")
+else:
+    os.makedirs(DEPLOY_DIR)
 os.makedirs(os.path.join(PUBLIC_DIR, 'assets'))
 os.makedirs(os.path.join(FUNCTIONS_DIR, 'api'))
 
@@ -63,22 +72,8 @@ if os.path.exists(layout_js_path):
     # Since it's a bit long, we might just replace the function definition if we can match it securely.
     # The current one uses mailto. We want to use fetch.
     
-    # 1.5.1 Patch NAV_LINKS in layout.js to use absolute paths for Deployment
-    # The source uses relative paths with PATH_PREFIX. We want solid /about/, /work/ links.
-    # We replace: { label: 'About', href: 'about.html', path: '/about' }
-    # ...
-    # And the template: <a href="${PATH_PREFIX}${link.href}"
-    # to: <a href="${link.path}"
-    
-    print("Patching layout.js for Absolute Navigation Links...")
-    # 1. Replace the template literal usage
-    # Search for: href="${PATH_PREFIX}${link.href}"
-    # Replace with: href="${link.path}"
-    if 'href="${PATH_PREFIX}${link.href}"' in js_content:
-        js_content = js_content.replace('href="${PATH_PREFIX}${link.href}"', 'href="${link.path}"')
-        print("Updated navigation links template to use absolute paths.")
-    else:
-        print("WARNING: Could not find nav link template in layout.js")
+    # 1.5.1 Logic Removed: Absolute navigation links are now hardcoded in source layout.js
+    print("Skipping layout.js NAV_LINKS patch (Source already updated)")
 
     # 1.5.2 Patch Contact Form (Existing Logic)
     new_handler = r"""
@@ -261,8 +256,8 @@ for file_path in html_files:
     def link_replacer(match):
         url = match.group(1)
         
-        # Ignore external links, anchors, mailto
-        if url.startswith(('http', '//', 'mailto:', '#', 'javascript:')):
+        # Ignore external links, anchors, mailto, OR JS template literals
+        if url.startswith(('http', '//', 'mailto:', '#', 'javascript:')) or '${' in url:
             return f'href="{url}"'
         
         # Normalize relative paths to root-relative
@@ -310,10 +305,14 @@ for file_path in html_files:
                 
                 if normalized_path.endswith('index.html'):
                     # "portfolio/marketing/index.html" -> "/portfolio/marketing/"
-                    new_link = '/' + normalized_path.replace('index.html', '')
+                    new_link = normalized_path.replace('index.html', '')
                 else:
                     # "about.html" -> "/about/"
-                    new_link = '/' + normalized_path.replace('.html', '/')
+                    new_link = normalized_path.replace('.html', '/')
+                
+                # Ensure start with /
+                if not new_link.startswith('/'):
+                    new_link = '/' + new_link
                 
                 # Clean up double slashes if any
                 new_link = new_link.replace('//', '/')
@@ -321,32 +320,38 @@ for file_path in html_files:
             
             else:
                 # Not .html (assets, css, etc)
-                # Resolve ../assets/css... to /assets/css...
                 current_dir = os.path.dirname(rel_path)
                 joined = os.path.join(current_dir, url)
                 normalized_path = os.path.normpath(joined).replace('\\', '/')
-                new_link = '/' + normalized_path
-                return f'href="{new_link}"'
+                
+                if not normalized_path.startswith('/'):
+                    normalized_path = '/' + normalized_path
+                    
+                normalized_path = normalized_path.replace('//', '/')
+                return f'href="{normalized_path}"'
 
     # Run replacements
-    # href="([^"]+)" capturing group 1
     content = re.sub(r'href="([^"]+)"', link_replacer, content)
     
     # 2. Fix src attributes for assets (root relative)
     def src_replacer(match):
         url = match.group(1)
-        if url.startswith(('http', '//', 'data:')):
+        if url.startswith(('http', '//', 'data:')) or '${' in url:
             return f'src="{url}"'
             
         current_dir = os.path.dirname(rel_path)
         joined = os.path.join(current_dir, url)
         normalized_path = os.path.normpath(joined).replace('\\', '/')
-        new_link = '/' + normalized_path
-        return f'src="{new_link}"'
+        
+        if not normalized_path.startswith('/'):
+            normalized_path = '/' + normalized_path
+            
+        normalized_path = normalized_path.replace('//', '/')
+        return f'src="{normalized_path}"'
         
     content = re.sub(r'src="([^"]+)"', src_replacer, content)
 
-    # 2.5 Fix CSS url('...') patterns (e.g. Tailwind bg-[url('assets/...')] or style="background-image: url(...)")
+    # 2.5 Fix CSS url('...') patterns
     def css_url_replacer(match):
         url = match.group(1)
         if url.startswith(('http', '//', 'data:')):
@@ -355,12 +360,13 @@ for file_path in html_files:
         current_dir = os.path.dirname(rel_path)
         joined = os.path.join(current_dir, url)
         normalized_path = os.path.normpath(joined).replace('\\', '/')
-        new_link = '/' + normalized_path
-        return f"url('{new_link}')"
+        
+        if not normalized_path.startswith('/'):
+            normalized_path = '/' + normalized_path
+            
+        normalized_path = normalized_path.replace('//', '/')
+        return f"url('{normalized_path}')"
 
-    # Regex handles url('...') or url("...") or url(...)
-    # We simplify to mainly catch the Tailwind style: bg-[url('...')] which usually has quotes.
-    # Group 1 is the content inside quotes.
     content = re.sub(r"url\(['\"]?([^'\")]+)['\"]?\)", css_url_replacer, content)
 
     # 3. Canonical Tag
@@ -391,7 +397,7 @@ for file_path in html_files:
     # og:image - Ensure absolute
     def og_image_replacer(match):
         url = match.group(1)
-        if url.startswith('http'):
+        if url.startswith('http') or '${' in url:
             return f'content="{url}"'
         # resolve relative
         current_dir = os.path.dirname(rel_path)
@@ -433,7 +439,7 @@ headers_content = """/*
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerate=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; worker-src 'self' blob:;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; img-src 'self' data: https: https://*.google.com https://*.githubusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; frame-src 'self' https://www.youtube.com https://www.google.com; worker-src 'self' blob:;
 """
 with open(os.path.join(PUBLIC_DIR, '_headers'), 'w') as f:
     f.write(headers_content)

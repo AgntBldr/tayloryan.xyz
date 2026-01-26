@@ -72,10 +72,10 @@ function injectLayout() {
                 <div>
                     <h4 class="font-bold text-white mb-6">Work</h4>
                     <ul class="space-y-4 text-sm text-neutral-500">
-                        <li><a href="${PATH_PREFIX}portfolio/quests/index.html" class="hover:text-white transition-colors">Quests</a></li>
-                        <li><a href="${PATH_PREFIX}work_speaker.html" class="hover:text-blue-400 transition-colors">Keynotes</a></li>
-                        <li><a href="${PATH_PREFIX}work_writing.html" class="hover:text-green-400 transition-colors">Writing</a></li>
-                        <li><a href="${PATH_PREFIX}work_projects.html" class="hover:text-orange-400 transition-colors">Projects</a></li>
+                        <li><a href="/portfolio/quests/" class="hover:text-white transition-colors">Quests</a></li>
+                        <li><a href="/work_speaker/" class="hover:text-blue-400 transition-colors">Keynotes</a></li>
+                        <li><a href="/work_writing/" class="hover:text-green-400 transition-colors">Writing</a></li>
+                        <li><a href="/work_projects/" class="hover:text-orange-400 transition-colors">Projects</a></li>
                     </ul>
                 </div>
 
@@ -235,18 +235,35 @@ function isActive(href) {
     // If inside a sub-directory managed by PATH_PREFIX, strict homepage matching should fail
     if (PATH_PREFIX !== '' && href === 'index.html') return false;
 
-    // Normalizing current path: remove trailing slash for comparison if needed, or better, match bases.
+    // Normalizing current path: remove trailing slash for comparison
     let currentPath = window.location.pathname;
+    // Normalize /foo/ to /foo
     if (currentPath.length > 1 && currentPath.endsWith('/')) {
         currentPath = currentPath.slice(0, -1);
     }
 
-    // Map href to folder name for comparison
-    // index.html -> /
-    // work.html -> /work
-    let targetPath = href === 'index.html' ? '/' : '/' + href.replace('.html', '');
+    let targetPath = href;
 
-    return currentPath === targetPath || currentPath === targetPath + '/';
+    // Handle index.html special case
+    if (targetPath === 'index.html') return currentPath === '/';
+
+    // Remove .html extension
+    if (targetPath.endsWith('.html')) {
+        targetPath = targetPath.replace('.html', '');
+    }
+
+    // Ensure it starts with / if it doesn't already
+    if (!targetPath.startsWith('/')) {
+        targetPath = '/' + targetPath;
+    }
+
+    // Normalize target /foo/ to /foo
+    if (targetPath.length > 1 && targetPath.endsWith('/')) {
+        targetPath = targetPath.slice(0, -1);
+    }
+
+    // Compare
+    return currentPath === targetPath;
 }
 
 // Auto-run if DOM is ready, else wait

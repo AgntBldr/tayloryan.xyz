@@ -7,8 +7,8 @@
     <title>Resources | Taylor's Quest Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="../../assets/resources_data.js"></script>
-    <script src="../../quests_data.js"></script>
+    <script src="/assets/resources_data.js"></script>
+    <script src="/quests_data.js"></script>
     <style>
         body {
             background-color: #0a0a0a;
@@ -30,12 +30,20 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
     </style>
+    <link rel="canonical" href="https://taylorryan.xyz/portfolio/quests/resources/">
+    <meta property="og:url" content="https://taylorryan.xyz/portfolio/quests/resources/">
 </head>
 
 <body class="min-h-screen p-6 md:p-12 relative">
     <!-- Global Layout -->
-    <script src="../../assets/js/layout.js"></script>
+    <script src="/assets/js/layout.js"></script>
 
     <!-- Header -->
     <header class="mb-12 text-center relative z-10 flex flex-col items-center mt-24">
@@ -49,29 +57,117 @@
 
         <!-- View Toggle (Navigation) -->
         <div class="bg-neutral-900 border border-neutral-800 p-1 rounded-full flex gap-1 relative z-20">
-            <a href="index.html"
+            <a href="/portfolio/quests/"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Portfolio</a>
-            <a href="overview.html"
+            <a href="/portfolio/quests/overview/"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Overview</a>
-            <a href="analytics.html"
+            <a href="/portfolio/quests/analytics/"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Analytics</a>
-            <a href="resources.html"
+            <a href="/portfolio/quests/resources/"
                 class="px-6 py-2 rounded-full text-sm font-bold bg-neutral-800 text-white shadow-lg transition-all">Resources</a>
         </div>
     </header>
 
     <!-- CONTENT -->
     <div id="resources-view" class="w-full max-w-7xl mx-auto pb-12 transition-opacity duration-300 relative z-10">
-        <!-- Breadcrumbs -->
-        <nav id="res-breadcrumbs" class="mb-8 flex items-center gap-2 text-sm text-neutral-500 font-mono">
-            <span class="hover:text-white cursor-pointer transition-colors" onclick="renderResources()">Resources</span>
-        </nav>
+        <!-- Breadcrumbs (Header for Grid) -->
+        <div id="res-breadcrumbs" class="mb-8">
+            <!-- Injected by JS -->
+        </div>
 
         <!-- Main Content Area -->
         <div id="res-content-area">
             <!-- Content injected via JS -->
         </div>
     </div>
+
+    <!-- Resource Modal (Matches email_outreach.html style) -->
+    <div id="resource-modal" onclick="closeModal()"
+        class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4">
+        <div onclick="event.stopPropagation()"
+            class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-200"
+            id="modal-content">
+
+            <!-- Close Button -->
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
+            </button>
+
+            <!-- Header Banner -->
+            <div class="bg-gradient-to-r from-blue-900/20 to-neutral-900 p-8 border-b border-white/5">
+                <div class="flex items-start gap-4">
+                    <div id="modal-icon-container"
+                        class="p-4 bg-neutral-800 rounded-xl border border-white/10 text-blue-400 shadow-xl">
+                        <!-- Icon injected -->
+                        <i id="modal-icon" data-lucide="file-text" class="w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center gap-2 mb-3">
+                            <span id="modal-resource-type"
+                                class="px-2 py-1 bg-white/5 rounded text-[10px] font-bold text-neutral-400 uppercase tracking-wider border border-white/5">Resource</span>
+                            <span id="modal-category-badge"
+                                class="px-2 py-1 bg-blue-500/10 text-blue-400 rounded text-[10px] font-bold uppercase tracking-wider border border-blue-500/20">Category</span>
+                        </div>
+                        <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                            Resource Title</h2>
+                        <div class="flex items-center gap-2 text-sm text-neutral-400">
+                            <span class="w-1 h-1 rounded-full bg-neutral-600"></span>
+                            <span id="modal-subtitle">Quest Portfolio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-8">
+
+                <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-2">Description</h3>
+                <p id="modal-desc" class="text-neutral-300 text-base leading-relaxed mb-6 whitespace-pre-wrap">
+                    Description goes here...</p>
+
+                <!-- Metadata Grid -->
+                <!-- Only show if data exists, handled by JS -->
+                <div id="modal-meta-grid"
+                    class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-neutral-800/20 p-4 rounded-xl border border-white/5">
+                    <div>
+                        <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Type</span>
+                        <div id="meta-type" class="text-sm font-semibold text-white">-</div>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Category</span>
+                        <div id="meta-category" class="text-sm font-semibold text-white">-</div>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Access</span>
+                        <div id="meta-access" class="text-sm font-semibold text-white">Full</div>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-neutral-500 uppercase mb-1">Cost</span>
+                        <div id="meta-cost" class="text-sm font-semibold text-white">Free</div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (e.g. Sheets) -->
+                <div id="modal-dynamic-content" class="mb-8">
+                    <!-- Injected -->
+                </div>
+
+                <div
+                    class="flex justify-between items-center pt-6 border-t border-white/10 sticky bottom-0 bg-neutral-900 pb-2">
+                    <button onclick="closeModal()"
+                        class="px-6 py-3 rounded-xl font-bold text-neutral-400 hover:text-white hover:bg-white/5 transition-all">Close</button>
+                    <a id="modal-link" href="#" target="_blank"
+                        class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-lg shadow-blue-900/20 transition-all flex items-center gap-2 group">
+                        Open Resource <i data-lucide="external-link"
+                            class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deployment Timestamp: 2026-01-26 16:38 -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -94,7 +190,7 @@
             const container = document.getElementById('res-content-area');
             const breadcrumbs = document.getElementById('res-breadcrumbs');
 
-            // Reset Breadcrumbs with Toggle
+            // Reset Header/Toggle
             breadcrumbs.innerHTML = `
                 <div class="flex items-center justify-between w-full border-b border-neutral-800 pb-4 mb-6">
                     <span class="text-white font-bold text-xl">Resources Library</span>
@@ -141,7 +237,7 @@
                     // CARD VIEW
                     if (currentView === 'card') {
                         return `
-                        <div onclick="openResourceDetail('${cat}', ${index})" class="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden hover:border-neutral-600 transition-all cursor-pointer group flex flex-col h-full">
+                        <div onclick="openModal('${cat}', ${index})" class="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden hover:border-neutral-600 transition-all cursor-pointer group flex flex-col h-full">
                             <div class="h-40 bg-neutral-800/50 relative overflow-hidden flex items-center justify-center group-hover:bg-neutral-800 transition-colors shrink-0">
                                 <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
                                 <i data-lucide="${typeIcon}" class="w-12 h-12 ${typeColor} opacity-50 group-hover:scale-110 transition-transform"></i>
@@ -164,7 +260,7 @@
                     // ROW VIEW
                     else {
                         return `
-                        <div onclick="openResourceDetail('${cat}', ${index})" class="bg-neutral-900 border border-neutral-800 rounded-xl p-4 hover:border-neutral-600 transition-all cursor-pointer group flex items-center gap-6">
+                        <div onclick="openModal('${cat}', ${index})" class="bg-neutral-900 border border-neutral-800 rounded-xl p-4 hover:border-neutral-600 transition-all cursor-pointer group flex items-center gap-6">
                             <!-- Icon -->
                             <div class="w-12 h-12 bg-neutral-800 rounded-lg flex items-center justify-center shrink-0 border border-neutral-700">
                                 <i data-lucide="${typeIcon}" class="w-6 h-6 ${typeColor}"></i>
@@ -218,17 +314,38 @@
             renderResources();
         }
 
-        function openResourceDetail(categoryKey, index) {
+        function openModal(categoryKey, index) {
             const resource = RESOURCES_DB[categoryKey][index];
-            const container = document.getElementById('res-content-area');
-            const breadcrumbs = document.getElementById('res-breadcrumbs');
+            const modal = document.getElementById('resource-modal');
+            const content = document.getElementById('modal-content');
 
-            // Update Breadcrumbs
-            breadcrumbs.innerHTML = `
-                <span class="hover:text-white cursor-pointer transition-colors" onclick="renderResources()">Resources</span>
-                <i data-lucide="chevron-right" class="w-3 h-3"></i>
-                <span class="text-purple-400 font-bold max-w-[200px] truncate">${resource.title}</span>
-            `;
+            // 1. Populate Header
+            document.getElementById('modal-title').textContent = resource.title;
+            document.getElementById('modal-desc').textContent = resource.description || "No description provided.";
+            document.getElementById('modal-resource-type').textContent = resource.type;
+            document.getElementById('modal-category-badge').textContent = categoryKey;
+
+            const btn = document.getElementById('modal-link');
+            if (resource.external_url) {
+                btn.href = resource.external_url;
+                btn.classList.remove('hidden');
+                btn.classList.add('flex');
+            } else {
+                btn.classList.add('hidden');
+                btn.classList.remove('flex');
+            }
+
+            // Populate Metadata
+            document.getElementById('meta-type').textContent = resource.type;
+            document.getElementById('meta-category').textContent = categoryKey;
+            //  Default placeholders since DB doesn't have these fields yet
+            //  But we show the grid anyway for structure
+            document.getElementById('modal-meta-grid').classList.remove('hidden');
+
+
+            // 2. Dynamic Content (Sheets logic)
+            const dynamicContainer = document.getElementById('modal-dynamic-content');
+            dynamicContainer.innerHTML = ''; // Reset
 
             const linkify = (text) => {
                 if (!text) return '';
@@ -236,8 +353,7 @@
                 return text.replace(urlRegex, '<a href="$1" target="_blank" class="text-purple-400 hover:text-purple-300 underline">$1</a>');
             };
 
-            let contentHtml = '';
-            if (resource.type === 'Sheet') {
+            if (resource.type === 'Sheet' && resource.content) {
                 const sheetNames = Object.keys(resource.content);
                 const tabsHtml = sheetNames.map((name, i) => `
                     <button onclick="switchResourceTab(this, '${name.replace(/[^a-zA-Z0-9]/g, '')}')" class="px-4 py-2 text-sm font-medium rounded-t-lg transition-colors ${i === 0 ? 'bg-neutral-800 text-white border-t border-x border-neutral-700' : 'text-neutral-500 hover:text-neutral-300'}">
@@ -266,31 +382,40 @@
                         </table>
                     </div>`;
                 }).join('');
-
-                contentHtml = `<div class="space-y-4"><div class="flex border-b border-neutral-800 gap-1 overflow-x-auto scrollbar-hide">${tabsHtml}</div><div>${tablesHtml}</div></div>`;
-            } else {
-                contentHtml = `
+                dynamicContainer.innerHTML = `<div class="space-y-4"><div class="flex border-b border-neutral-800 gap-1 overflow-x-auto scrollbar-hide">${tabsHtml}</div><div>${tablesHtml}</div></div>`;
+            } else if (resource.content) {
+                // Generic Text
+                dynamicContainer.innerHTML = `
                     <div class="bg-neutral-800 rounded-xl border border-neutral-700 p-8 md:p-12 prose prose-invert max-w-none">
                         <pre class="whitespace-pre-wrap font-sans text-neutral-300 leading-relaxed">${linkify(resource.content)}</pre>
                     </div>
                 `;
             }
 
-            container.innerHTML = `
-                <div class="animate-fade-in space-y-6">
-                    <div class="flex items-center justify-between">
-                         <div>
-                            <h2 class="text-3xl font-bold text-white mb-2">${resource.title}</h2>
-                            <p class="text-neutral-400 max-w-2xl">${resource.description || ''}</p>
-                         </div>
-                         <button onclick="renderResources()" class="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
-                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back
-                         </button>
-                    </div>
-                    ${contentHtml}
-                </div>
-            `;
+            // 3. Open Modal
+            modal.classList.remove('hidden');
+            // Force Reflow
+            void modal.offsetWidth;
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+
+            document.body.style.overflow = 'hidden';
             lucide.createIcons();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('resource-modal');
+            const content = document.getElementById('modal-content');
+
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
         }
 
         window.switchResourceTab = function (btn, tabId) {
