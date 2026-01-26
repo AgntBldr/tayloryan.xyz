@@ -5,18 +5,13 @@
 
 // 0. Determine Path Prefix based on depth (Case Insensitive)
 let PATH_PREFIX = '';
-if (window.location.pathname.toLowerCase().includes('/portfolio/quests/') ||
-    window.location.pathname.toLowerCase().includes('/portfolio/marketing/')) {
-    PATH_PREFIX = '../../';
-}
-
 const NAV_LINKS = [
-    { label: 'Home', href: 'index.html', path: '/' },
-    { label: 'Work', href: 'work.html', path: '/work/' },
-    { label: 'Testimonials', href: 'testimonials.html', path: '/testimonials/' },
-    { label: 'About', href: 'about.html', path: '/about/' },
-    { label: 'Now', href: 'now.html', path: '/now/' },
-    { label: 'Contact', href: 'contact.html', path: '/contact/' }
+    { label: 'Home', href: '/', path: '/' },
+    { label: 'Work', href: '/work/', path: '/work/' },
+    { label: 'Testimonials', href: '/testimonials/', path: '/testimonials/' },
+    { label: 'About', href: '/about/', path: '/about/' },
+    { label: 'Now', href: '/now/', path: '/now/' },
+    { label: 'Contact', href: '/contact/', path: '/contact/' }
 ];
 
 function injectLayout() {
@@ -25,7 +20,7 @@ function injectLayout() {
     header.className = "fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5";
     header.innerHTML = `
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="${PATH_PREFIX}index.html" class="flex items-center gap-3 group">
+            <a href="/" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform shadow-lg shadow-purple-500/20">
                     TR
                 </div>
@@ -37,7 +32,7 @@ function injectLayout() {
 
             <nav class="hidden md:flex items-center gap-1 p-1 bg-white/5 rounded-full border border-white/5 backdrop-blur-sm">
                 ${NAV_LINKS.map(link => `
-                    <a href="${PATH_PREFIX}${link.href}" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive(link.href) ? 'bg-white text-black shadow-lg' : 'text-neutral-400 hover:text-white hover:bg-white/5'}">
+                    <a href="${link.path}" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive(link.path) ? 'bg-white text-black shadow-lg' : 'text-neutral-400 hover:text-white hover:bg-white/5'}">
                         ${link.label}
                     </a>
                 `).join('')}

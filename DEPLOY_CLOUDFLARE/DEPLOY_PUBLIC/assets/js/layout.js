@@ -11,12 +11,12 @@ if (window.location.pathname.toLowerCase().includes('/portfolio/quests/') ||
 }
 
 const NAV_LINKS = [
-    { label: 'Home', href: 'index.html', path: '/' },
-    { label: 'Work', href: 'work.html', path: '/work/' },
-    { label: 'Testimonials', href: 'testimonials.html', path: '/testimonials/' },
-    { label: 'About', href: 'about.html', path: '/about/' },
-    { label: 'Now', href: 'now.html', path: '/now/' },
-    { label: 'Contact', href: 'contact.html', path: '/contact/' }
+    { label: 'Home', href: '/', path: '/' },
+    { label: 'Work', href: '/work/', path: '/work/' },
+    { label: 'Testimonials', href: '/testimonials/', path: '/testimonials/' },
+    { label: 'About', href: '/about/', path: '/about/' },
+    { label: 'Now', href: '/now/', path: '/now/' },
+    { label: 'Contact', href: '/contact/', path: '/contact/' }
 ];
 
 function injectLayout() {
@@ -37,7 +37,7 @@ function injectLayout() {
 
             <nav class="hidden md:flex items-center gap-1 p-1 bg-white/5 rounded-full border border-white/5 backdrop-blur-sm">
                 ${NAV_LINKS.map(link => `
-                    <a href="${link.path}" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive(link.href) ? 'bg-white text-black shadow-lg' : 'text-neutral-400 hover:text-white hover:bg-white/5'}">
+                    <a href="${link.path}" class="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive(link.path) ? 'bg-white text-black shadow-lg' : 'text-neutral-400 hover:text-white hover:bg-white/5'}">
                         ${link.label}
                     </a>
                 `).join('')}
@@ -213,7 +213,7 @@ window.handleContactSubmit = async function (e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
     const originalText = btn.innerHTML;
-    
+
     // Loading State
     btn.innerHTML = 'Sending... <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>';
     btn.disabled = true;
