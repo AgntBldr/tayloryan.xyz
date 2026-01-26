@@ -528,7 +528,7 @@
         }
 
         function renderListView(container, items) {
-            container.className = "space-y-16 mb-24 min-h-[400px]"; // Reset to List classes
+            container.className = "space-y-12 mb-24 min-h-[400px]";
             const years = [...new Set(items.map(d => d.year))].sort((a, b) => b - a);
 
             years.forEach(year => {
@@ -536,46 +536,58 @@
                 const section = document.createElement('div');
                 section.className = "animate-fade-in";
                 section.innerHTML = `
-                    <div class="flex items-center gap-4 mb-8">
-                        <h2 class="text-3xl md:text-3xl font-bold text-neutral-500">${year}</h2>
-                        <div class="h-[1px] bg-neutral-800 flex-1"></div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <h2 class="text-2xl font-bold text-neutral-400 border-b border-neutral-800 pb-2 flex-1">${year}</h2>
                     </div>
-                    <div class="grid grid-cols-1 gap-3"></div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="text-xs font-bold text-neutral-500 uppercase tracking-wider border-b border-neutral-800">
+                                    <th class="py-4 pr-6 w-32">Date</th>
+                                    <th class="py-4 pr-6">Event</th>
+                                    <th class="py-4 pr-6 hidden md:table-cell">Location</th>
+                                    <th class="py-4 pr-6 hidden md:table-cell">Type</th>
+                                    <th class="py-4 text-right w-16"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-neutral-800/50">
+                                ${yearEvents.map(event => `
+                                <tr class="group hover:bg-neutral-900/50 transition-colors cursor-pointer" onclick="openEventModalFromMap('${event["Date (DD/MM/YY)"]}', '${event["Event Name"].replace(/'/g, "\\'")}')">
+                                    <td class="py-4 pr-6 align-top">
+                                        <div class="font-medium text-white group-hover:text-blue-400 transition-colors">${event.month} ${event.dateObj.getDate()}</div>
+                                        <div class="text-[10px] text-neutral-600 uppercase font-bold md:hidden">${event.year}</div>
+                                    </td>
+                                    <td class="py-4 pr-6 align-top">
+                                        <div class="font-bold text-lg text-neutral-200 group-hover:text-blue-400 transition-colors mb-1">
+                                            ${event["Title"] || event["Event Name"]}
+                                        </div>
+                                        <div class="text-sm text-neutral-500 font-medium">${event["Event Name"]}</div>
+                                        <div class="md:hidden mt-2 flex gap-2 text-xs text-neutral-500">
+                                            <span><i data-lucide="map-pin" class="w-3 h-3 inline"></i> ${event["City, Country"] || 'Online'}</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 pr-6 align-top hidden md:table-cell">
+                                        <div class="text-sm text-neutral-400 flex items-center gap-2">
+                                            <i data-lucide="map-pin" class="w-3 h-3 text-neutral-600"></i>
+                                            ${event["City, Country"] || 'Online'}
+                                        </div>
+                                    </td>
+                                    <td class="py-4 pr-6 align-top hidden md:table-cell">
+                                        <span class="inline-flex items-center px-2 py-1 rounded bg-neutral-800 border border-neutral-700 text-xs font-medium text-neutral-400">
+                                            ${event["Event Type"]}
+                                        </span>
+                                    </td>
+                                    <td class="py-4 align-top text-right">
+                                        <button class="text-neutral-600 group-hover:text-white transition-colors">
+                                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
                 `;
-                const grid = section.querySelector('.grid');
-                yearEvents.forEach(event => {
-                    const card = document.createElement('div');
-                    card.className = "group bg-neutral-900/50 border border-neutral-800 hover:border-blue-500/50 rounded-xl p-5 transition-all hover:bg-neutral-800 cursor-pointer";
-                    card.onclick = () => openEventModal(event);
-
-                    card.innerHTML = `
-                        <div class="flex flex-col md:flex-row gap-4 md:items-center">
-                            <!-- Date -->
-                            <div class="shrink-0 w-16 text-left md:text-center">
-                                <span class="block text-xl font-bold text-neutral-300 group-hover:text-blue-400 transition-colors">${event.dateObj.getDate()}</span>
-                                <span class="text-[10px] text-neutral-500 uppercase font-bold tracking-wider">${event.month}</span>
-                            </div>
-                            
-                            <!-- Main Info -->
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors mb-2 leading-tight">
-                                    ${event["Title"] || event["Event Name"]}
-                                </h3>
-                                <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-400">
-                                    <span class="font-medium text-neutral-300">${event["Event Name"]}</span>
-                                    <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3 h-3 text-neutral-600"></i> ${event["City, Country"] || 'Online'}</span>
-                                    <span class="flex items-center gap-1.5"><i data-lucide="tag" class="w-3 h-3 text-neutral-600"></i> ${event["Event Type"]}</span>
-                                </div>
-                            </div>
-
-                            <!-- Arrow -->
-                            <div class="hidden md:block text-neutral-600 group-hover:text-white transition-colors">
-                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                            </div>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
                 container.appendChild(section);
             });
         }
