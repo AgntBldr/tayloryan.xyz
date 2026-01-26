@@ -355,28 +355,34 @@
         }
 
         function loadSpeakerData() {
-            // Visual indicator on stats if they are visible but waiting (optional)
-
-            const script = document.createElement('script');
-            script.src = '/assets/js/speaker_data.js';
-            script.onload = () => {
-                dataLoaded = true;
-                initData();
-            };
-            script.onerror = () => {
-                document.getElementById('speaker-list').innerHTML = `<div class="text-center py-20 text-red-500">
-                    Error loading data. Please check connection.
-                 </div>`;
-            };
-            document.body.appendChild(script);
+            fetch('/assets/js/speaker_data.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    dataLoaded = true;
+                    initData(data);
+                })
+                .catch(error => {
+                    console.error('Error loading speaker data:', error);
+                    const container = document.getElementById('speaker-list');
+                    if (container) {
+                        container.innerHTML = `
+                            <div class="text-center py-20 text-red-500">
+                                <p class="mb-4">Failed to load engagement data.</p>
+                                <button onclick="loadSpeakerData()" class="px-4 py-2 bg-neutral-800 text-white rounded hover:bg-neutral-700 transition-colors">
+                                    Retry
+                                </button>
+                            </div>`;
+                    }
+                });
         }
 
-        function initData() {
-            if (typeof SPEAKER_ENGAGEMENTS === 'undefined') {
-                return;
-            }
+        function initData(data) {
+            if (!data) return;
 
-            processedData = SPEAKER_ENGAGEMENTS
+            processedData = data
                 .filter(item => item["Date (DD/MM/YY)"] && item["Event Name"])
                 .map(item => {
                     const dateStr = item["Date (DD/MM/YY)"];
