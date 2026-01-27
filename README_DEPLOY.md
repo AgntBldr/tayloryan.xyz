@@ -14,6 +14,14 @@
 3. Commit and push changes to GitHub.
 4. Cloudflare Pages detects the push and deploys from `DEPLOY_PUBLIC`.
 
+## Deployment Protocol (Standardized)
+**ALWAYS run the sync script before pushing changes.**
+This ensures assets are synced and `work.html` is correctly transformed for sub-directory routing.
+```powershell
+./deploy_sync.ps1
+```
+
 ## Archives
 Old or duplicate folders have been moved to `__ARCHIVE_NOT_USED_FOR_DEPLOY__`.
 Do not mistakenly use these for deployment.
+
