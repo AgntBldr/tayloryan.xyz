@@ -81,4 +81,21 @@ $WorkDestAlt = "$DeployRoot\work.html"
 [System.IO.File]::WriteAllText($WorkDestAlt, $content, [System.Text.Encoding]::UTF8)
 Write-Host "work.html Transported and Transformed to DEPLOY_PUBLIC/work.html" -ForegroundColor Green
 
+# 4. Global Cache Busting (All HTML files in DEPLOY_PUBLIC)
+Write-Host "Applying Global Cache Busting..." -ForegroundColor Yellow
+$HtmlFiles = Get-ChildItem -Path "$DeployRoot" -Filter *.html -Recurse
+foreach ($file in $HtmlFiles) {
+    if ($file.FullName -eq $WorkDest -or $file.FullName -eq $WorkDestAlt) {
+        continue # Already processed
+    }
+    
+    $content = Get-Content $file.FullName -Raw
+    if ($content -match 'layout.js') {
+        $content = $content -replace 'layout.js', "layout.js?v=$dateStr"
+        [System.IO.File]::WriteAllText($file.FullName, $content, [System.Text.Encoding]::UTF8)
+        Write-Host "  Busted cache in: $($file.Name)" -ForegroundColor Gray
+    }
+}
+Write-Host "Global Cache Busting Complete." -ForegroundColor Green
+
 Write-Host "Deployment Sync Complete." -ForegroundColor Cyan

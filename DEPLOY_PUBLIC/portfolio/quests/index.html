@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -45,9 +45,15 @@
     </style>
 </head>
 
-<body class="min-h-screen p-6 md:p-12 relative">
+<body class="min-h-screen p-6 md:p-12 relative md:pl-72">
     <!-- Global Layout -->
-    <script src="../../assets/js/layout.js"></script>
+    <script src="../../assets/js/layout.js?v=20260127-1518"></script>
+    <script src="../../assets/js/work_sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderWorkSidebar === 'function') renderWorkSidebar('quests');
+        });
+    </script>
 
     <!-- Header -->
     <header class="mb-12 text-center relative z-10 flex flex-col items-center mt-24">
@@ -467,7 +473,4 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', init);
-    </script>
-</body>
-
-</html>
+    </script>
