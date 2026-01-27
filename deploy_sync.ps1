@@ -23,6 +23,27 @@ Write-Host "Syncing Portfolio..." -ForegroundColor Yellow
 Copy-Item -Path "$SourceRoot\portfolio" -Destination "$DeployRoot" -Recurse -Force
 Write-Host "Portfolio Synced." -ForegroundColor Green
 
+# 1.6. Transform skills.html -> skills/index.html
+Write-Host "Processing skills.html -> skills/index.html..." -ForegroundColor Yellow
+$SkillsSource = "$SourceRoot\skills.html"
+$SkillsDestDir = "$DeployRoot\skills"
+$SkillsDest = "$SkillsDestDir\index.html"
+
+if (-not (Test-Path $SkillsDestDir)) {
+    New-Item -ItemType Directory -Force -Path $SkillsDestDir | Out-Null
+}
+
+$skillsContent = Get-Content $SkillsSource -Raw
+# Fix internal links for nested depth
+$skillsContent = $skillsContent -replace 'src="assets/', 'src="../assets/'
+$skillsContent = $skillsContent -replace 'href="assets/', 'href="../assets/'
+$skillsContent = $skillsContent -replace 'href="index.html"', 'href="../"'
+$skillsContent = $skillsContent -replace 'href="work.html"', 'href="../work/"'
+$skillsContent = $skillsContent -replace 'href="contact.html"', 'href="../contact/"'
+
+[System.IO.File]::WriteAllText($SkillsDest, $skillsContent, [System.Text.Encoding]::UTF8)
+Write-Host "skills.html Transported and Transformed to skills/index.html" -ForegroundColor Green
+
 # 2. Transform work.html
 Write-Host "Processing work.html -> work/index.html..." -ForegroundColor Yellow
 $WorkSource = "$SourceRoot\work.html"
