@@ -184,12 +184,14 @@
             }
 
             container.innerHTML = SECTIONS.map(section => {
-                // Get top 3 items for this category
-                // Use looser matching for "Email Outreach" vs "Email" etc if needed
-                const items = MARKETING_FULL_DATA.filter(item =>
+                // Get all items for this category to count them
+                const allItems = MARKETING_FULL_DATA.filter(item =>
                     item.category === section.category ||
                     (section.category === 'Email Outreach' && item.category === 'Email') // Fallback if categories vary
-                ).slice(0, 3); // Top 3
+                );
+
+                const totalCount = allItems.length;
+                const items = allItems.slice(0, 3); // Top 3
 
                 return `
                     <section>
@@ -207,7 +209,7 @@
                             <div class="shrink-0">
                                 <a href="${section.url}" 
                                     class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-${section.color.split('-')[1]}-500 transition-all block text-center">
-                                    See All Project
+                                    See All Projects (${totalCount})
                                 </a>
                             </div>
                         </div>
