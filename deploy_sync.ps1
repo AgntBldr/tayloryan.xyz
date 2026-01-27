@@ -18,6 +18,11 @@ Write-Host "Syncing Assets..." -ForegroundColor Yellow
 Copy-Item -Path "$SourceRoot\assets" -Destination "$DeployRoot" -Recurse -Force
 Write-Host "Assets Synced." -ForegroundColor Green
 
+# 1.5. Sync Portfolio
+Write-Host "Syncing Portfolio..." -ForegroundColor Yellow
+Copy-Item -Path "$SourceRoot\portfolio" -Destination "$DeployRoot" -Recurse -Force
+Write-Host "Portfolio Synced." -ForegroundColor Green
+
 # 2. Transform work.html
 Write-Host "Processing work.html -> work/index.html..." -ForegroundColor Yellow
 $WorkSource = "$SourceRoot\work.html"
