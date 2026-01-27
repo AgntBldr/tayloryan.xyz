@@ -38,9 +38,9 @@ function injectLayout() {
                 `).join('')}
             </nav>
 
-            <button onclick="openContactModal()" class="hidden md:flex items-center gap-2 px-5 py-2 bg-white text-black rounded-full font-bold text-sm hover:bg-purple-400 hover:text-white transition-all shadow-lg hover:shadow-purple-500/25">
+            <a href="/contact/" class="hidden md:flex items-center gap-2 px-5 py-2 bg-white text-black rounded-full font-bold text-sm hover:bg-purple-400 hover:text-white transition-all shadow-lg hover:shadow-purple-500/25">
                 Let's Talk <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
+            </a>
 
             <!-- Mobile Menu Button -->
             <button class="md:hidden text-white p-2">
@@ -208,7 +208,7 @@ window.handleContactSubmit = async function (e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
     const originalText = btn.innerHTML;
-    
+
     // Loading State
     btn.innerHTML = 'Sending... <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>';
     btn.disabled = true;
