@@ -78,17 +78,6 @@ function renderMarketingSidebar(activePage) {
                     `;
     }).join('')}
             </nav>
-            
-            <!-- Bottom Navigation -->
-            <div class="p-4 border-t border-white/5">
-                <a href="/work_projects/" class="sidebar-link group hover:bg-white/5 text-neutral-400 hover:text-white">
-                    <div class="p-1 rounded bg-neutral-800 text-neutral-400 group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
-                        <i data-lucide="layout-grid" class="sidebar-icon w-4 h-4"></i>
-                    </div>
-                    Projects Hub
-                    <i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50"></i>
-                </a>
-            </div>
 
             <!-- System Status -->
             <div class="p-4 border-t border-white/5 bg-neutral-900/50">
