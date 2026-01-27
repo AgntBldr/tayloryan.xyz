@@ -43,7 +43,7 @@
 
 <body class="min-h-screen p-6 md:p-12 relative">
     <!-- Global Layout -->
-    <script src="/assets/js/layout.js?v=20260127-2"></script>
+    <script src="/assets/js/layout.js"></script>
 
     <!-- Header -->
     <header class="mb-12 text-center relative z-10 flex flex-col items-center mt-24">
@@ -350,7 +350,7 @@
             const linkify = (text) => {
                 if (!text) return '';
                 const urlRegex = /(https?:\/\/[^\s]+)/g;
-                return text.replace(urlRegex, '<a href="/portfolio/quests/$1" target="_blank" class="text-purple-400 hover:text-purple-300 underline">$1</a>');
+                return text.replace(urlRegex, '<a href="$1" target="_blank" class="text-purple-400 hover:text-purple-300 underline">$1</a>');
             };
 
             if (resource.type === 'Sheet' && resource.content) {

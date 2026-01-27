@@ -64,7 +64,13 @@
                         <i data-lucide="code-2" class="text-blue-400"></i> Vibecoding
                     </a>
                 </h2>
-                <a href="/work_vibecoding/"
+                </h2>
+                <p class="text-neutral-400 mb-6 max-w-2xl text-sm">
+                    Experimental AI-powered coding projects and voice-controlled development workflows.
+                </p>
+            </div>
+            <div class="flex justify-end mb-8 -mt-20">
+                <a href="/work_vibecoding/" id="btn-vibecoding"
                     class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-blue-500 transition-all">
                     See All Projects
                 </a>
@@ -83,7 +89,13 @@
                         <i data-lucide="sword" class="text-purple-400"></i> Quests
                     </a>
                 </h2>
-                <a href="/portfolio/quests/"
+                </h2>
+                <p class="text-neutral-400 mb-6 max-w-2xl text-sm">
+                    Gamified learning paths and interactive challenges to master new skills.
+                </p>
+            </div>
+            <div class="flex justify-end mb-8 -mt-20">
+                <a href="/portfolio/quests/" id="btn-quests"
                     class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-purple-500 transition-all">
                     See All Quests
                 </a>
@@ -101,7 +113,13 @@
                         <i data-lucide="mic-2" class="text-pink-400"></i> Public Speaking
                     </a>
                 </h2>
-                <a href="/work_speaker/"
+                </h2>
+                <p class="text-neutral-400 mb-6 max-w-2xl text-sm">
+                    Keynote speeches, panels, and workshops on AI, marketing, and technology.
+                </p>
+            </div>
+            <div class="flex justify-end mb-8 -mt-20">
+                <a href="/work_speaker/" id="btn-speaker"
                     class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-pink-500 transition-all">
                     See All Speaking
                 </a>
@@ -119,7 +137,13 @@
                         <i data-lucide="headphones" class="text-yellow-400"></i> Podcasts
                     </a>
                 </h2>
-                <a href="/work_podcasts/"
+                </h2>
+                <p class="text-neutral-400 mb-6 max-w-2xl text-sm">
+                    In-depth conversations on the future of tech, AI, and growth strategies.
+                </p>
+            </div>
+            <div class="flex justify-end mb-8 -mt-20">
+                <a href="/work_podcasts/" id="btn-podcasts"
                     class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-yellow-500 transition-all">
                     See All Podcasts
                 </a>
@@ -137,7 +161,13 @@
                         <i data-lucide="pen-tool" class="text-emerald-400"></i> Writing
                     </a>
                 </h2>
-                <a href="/work_writing/"
+                </h2>
+                <p class="text-neutral-400 mb-6 max-w-2xl text-sm">
+                    Articles and essays covering technical guides, industry insights, and thought leadership.
+                </p>
+            </div>
+            <div class="flex justify-end mb-8 -mt-20">
+                <a href="/work_writing/" id="btn-writing"
                     class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-emerald-500 transition-all">
                     See All Articles
                 </a>
@@ -155,7 +185,13 @@
                         <i data-lucide="graduation-cap" class="text-orange-400"></i> Courses
                     </a>
                 </h2>
-                <a href="/work_courses/"
+                </h2>
+                <p class="text-neutral-400 mb-6 max-w-2xl text-sm">
+                    Comprehensive educational material for mastering modern tools and frameworks.
+                </p>
+            </div>
+            <div class="flex justify-end mb-8 -mt-20">
+                <a href="/work_courses/" id="btn-courses"
                     class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-orange-500 transition-all">
                     See All Courses
                 </a>
@@ -173,7 +209,13 @@
                         <i data-lucide="video" class="text-red-400"></i> Tutorials
                     </a>
                 </h2>
-                <a href="/work_tutorials/"
+                </h2>
+                <p class="text-neutral-400 mb-6 max-w-2xl text-sm">
+                    Step-by-step video guides for implementing specific features and tools.
+                </p>
+            </div>
+            <div class="flex justify-end mb-8 -mt-20">
+                <a href="/work_tutorials/" id="btn-tutorials"
                     class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-red-500 transition-all">
                     See All Tutorials
                 </a>
@@ -185,11 +227,14 @@
 
         <!-- Section: Marketing Projects -->
         <section class="mb-32">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+            <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
                 <a href="/portfolio/marketing/" class="flex items-center gap-3 hover:text-green-400 transition-colors">
                     <i data-lucide="megaphone" class="text-green-400"></i> Marketing Infrastructure
                 </a>
             </h2>
+            <p class="text-neutral-400 mb-8 max-w-2xl text-sm">
+                Centralized hubs for content creation, outreach, affiliates, and more.
+            </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- Content Creator Program -->
@@ -744,6 +789,10 @@
                 return;
             }
 
+            // Update CTA count
+            const btn = document.getElementById('btn-quests');
+            if (btn) btn.innerText = `See All ${quests.length} Quests`;
+
             // Limit to top 2
             const top2 = quests.slice(0, 2);
 
@@ -775,8 +824,13 @@
                 grid.innerHTML = '<div class="col-span-full text-red-500">Error: Writing Data not loaded.</div>';
                 return;
             }
-            const top4 = WRITING_DATA.slice(1, 5);
-            grid.innerHTML = top4.map(item => `
+
+            // Update CTA count
+            const btn = document.getElementById('btn-writing');
+            if (btn) btn.innerText = `See All ${WRITING_DATA.length} Articles`;
+
+            const top6 = WRITING_DATA.slice(1, 7);
+            grid.innerHTML = top6.map(item => `
                 <a href="${item.URL}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
                     <div class="flex justify-between items-start mb-4">
                         <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase rounded border border-emerald-500/20">${item['Article Format'] || 'Article'}</span>
@@ -797,8 +851,13 @@
                 grid.innerHTML = '<div class="col-span-full text-red-500">Error: Podcast Data not loaded.</div>';
                 return;
             }
-            const top4 = PODCAST_DATA.slice(0, 4);
-            grid.innerHTML = top4.map(item => `
+
+            // Update CTA count
+            const btn = document.getElementById('btn-podcasts');
+            if (btn) btn.innerText = `See All ${PODCAST_DATA.length} Podcasts`;
+
+            const top3 = PODCAST_DATA.slice(0, 3);
+            grid.innerHTML = top3.map(item => `
                 <a href="${item.url}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-yellow-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
                     <div class="flex justify-between items-start mb-4">
                         <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-bold uppercase rounded border border-yellow-500/20">${item.media}</span>
@@ -819,8 +878,13 @@
                 grid.innerHTML = '<div class="col-span-full text-red-500">Error: Tutorial Data not loaded.</div>';
                 return;
             }
-            const top2 = TUTORIALS_DATA.slice(0, 2);
-            grid.innerHTML = top2.map(item => {
+
+            // Update CTA count
+            const btn = document.getElementById('btn-tutorials');
+            if (btn) btn.innerText = `See All ${TUTORIALS_DATA.length} Tutorials`;
+
+            const top3 = TUTORIALS_DATA.slice(0, 3);
+            grid.innerHTML = top3.map(item => {
                 const videoId = item.url.split('v=')[1];
                 const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
                 return `
@@ -852,8 +916,13 @@
                 grid.innerHTML = '<div class="col-span-full text-red-500">Error: Speaker Data not loaded.</div>';
                 return;
             }
-            const top4 = SPEAKER_ENGAGEMENTS.slice(0, 4);
-            grid.innerHTML = top4.map(item => `
+
+            // Update CTA count
+            const btn = document.getElementById('btn-speaker');
+            if (btn) btn.innerText = `See All ${SPEAKER_ENGAGEMENTS.length} Speaking Engagements`;
+
+            const top6 = SPEAKER_ENGAGEMENTS.slice(0, 6);
+            grid.innerHTML = top6.map(item => `
                  <a href="${item['Program URL'] || item['Organization URL'] || '/work_speaker/'}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-pink-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
                     <div class="flex justify-between items-start mb-4">
                         <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold uppercase rounded border border-pink-500/20">${item['Event Type'] || 'Event'}</span>

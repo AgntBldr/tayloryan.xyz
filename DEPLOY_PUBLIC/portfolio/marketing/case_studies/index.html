@@ -36,14 +36,12 @@
             scrollbar-width: none;
         }
     </style>
-    <link rel="canonical" href="https://taylorryan.xyz/portfolio/marketing/case_studies/">
-    <meta property="og:url" content="https://taylorryan.xyz/portfolio/marketing/case_studies/">
 </head>
 
 <body class="bg-black min-h-screen mb-20">
-    <script src="/assets/js/layout.js?v=20260127-2"></script>
-    <script src="/assets/js/marketing_full_data.js"></script>
-    <script src="/assets/js/marketing_sidebar.js"></script>
+    <script src="../../assets/js/layout.js"></script>
+    <script src="../../assets/js/marketing_full_data.js"></script>
+    <script src="../../assets/js/marketing_sidebar.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -351,8 +349,7 @@
             Object.keys(sections).forEach(secName => {
                 html += `
             <div class="mb-12">
-                ${secName !== 'General' ? `<h3 class="text-xl font-bold text-yellow-400 mb-6 flex items-center gap-2"><i
-                        data-lucide="layers" class="w-5 h-5"></i> ${secName}</h3>` : ''}
+                ${secName !== 'General' ? `<h3 class="text-xl font-bold text-yellow-400 mb-6 flex items-center gap-2"><i data-lucide="layers" class="w-5 h-5"></i> ${secName} <span class="text-neutral-500 text-sm font-normal ml-2">(${sections[secName].length})</span></h3>` : ''}
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     ${sections[secName].map(item => createCard(item)).join('')}
                 </div>

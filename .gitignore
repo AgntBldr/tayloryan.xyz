@@ -1,0 +1,13 @@
+# Deploy Archives
+__BACKUP_DUPLICATES__/
+__ARCHIVE_NOT_USED_FOR_DEPLOY__/
+
+# System & Deps
+node_modules/
+.env
+.env*
+*.log
+.DS_Store
+Thumbs.db
+.tmp/
+.gemini/
