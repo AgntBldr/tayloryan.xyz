@@ -1,5 +1,25 @@
 const PROJECTS_DATA = [
   {
+    "id": "taylorryan-xyz",
+    "project": "TaylorRyan.xyz",
+    "image": "/assets/images/projects/taylorryan-xyz.png",
+    "type": "Web App",
+    "tags": ["Portfolio", "Cloudflare"],
+    "url": "https://TaylorRyan.xyz",
+    "github": "https://github.com/KlintMarketing/tayloryan.xyz",
+    "environment": "Cloudflare Pages",
+    "description": "Public portfolio website with browsable sections and shareable pages. A central hub for partners to review work, share speaking portfolio with event organizers, and send a single proof-of-work link to recruiters.",
+    "vibecode_prompt": "Vibecode - Portfolio Hub",
+    "integrations": "Gemini, Google Docs, Sheets",
+    "inputs": "Markdown content, JSON data, Static Assets",
+    "output": "Live Portfolio Site",
+    "use_cases": "Recruitment proof-of-work, Event organizer showcase, Partner review hub",
+    "target_users": "Recruiters, founders, conference organizers, partners",
+    "differentiators": "Quest-first structure, deploy-ready public folder, /api serverless endpoints, long-form archive consolidation",
+    "tech_stack": "HTML, Vanilla JavaScript, Cloudflare Pages, Pages Functions",
+    "what_it_proves": "Information architecture for large portfolios, shipping a deployable site with edge-style endpoints"
+  },
+  {
     "id": "yt-thumbnail-generator",
     "project": "YT Thumbnail-Generator",
     "image": "/assets/images/projects/yt-thumbnail-generator.png",
