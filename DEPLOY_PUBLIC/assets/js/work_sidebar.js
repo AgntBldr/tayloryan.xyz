@@ -38,14 +38,15 @@ function renderWorkSidebar(activePage) {
 
     // Standard Work Menu
     menuItems = [
-        { id: 'projects', label: 'Projects', icon: 'briefcase', href: '/work_projects/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
-        { id: 'vibecoding', label: 'Vibecoding', icon: 'code-2', href: '/work_vibecoding/', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
-        { id: 'quests', label: 'Quests', icon: 'sword', href: '/portfolio/quests/', color: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20' },
-        { id: 'speaker', label: 'Public Speaking', icon: 'mic-2', href: '/work_speaker/', color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20' },
-        { id: 'podcasts', label: 'Podcasts', icon: 'headphones', href: '/work_podcasts/', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
+        { id: 'vibecoding', label: 'Vibecoding', icon: 'code-2', href: '/work_vibecoding/', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
+        { id: 'projects', label: 'Projects Hub', icon: 'briefcase', href: '/work_projects/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+        { id: 'quests', label: 'Quests', icon: 'sword', href: '/portfolio/quests/', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
+        { id: 'speaker', label: 'Public Speaking', icon: 'mic-2', href: '/work_speaker/', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
+        { id: 'podcasts', label: 'Podcasts', icon: 'headphones', href: '/work_podcasts/', color: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20' },
         { id: 'writing', label: 'Writing', icon: 'pen-tool', href: '/work_writing/', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
         { id: 'courses', label: 'Courses', icon: 'graduation-cap', href: '/work_courses/', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
-        { id: 'tutorials', label: 'Tutorials', icon: 'video', href: '/work_tutorials/', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' }
+        { id: 'tutorials', label: 'Tutorials', icon: 'video', href: '/work_tutorials/', color: 'text-red-500', bg: 'bg-red-500/10', border: 'border-red-500/20' },
+        { id: 'marketing', label: 'Marketing Hub', icon: 'megaphone', href: '/portfolio/marketing/', color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/20' }
     ];
 
     const sidebarHTML = `
