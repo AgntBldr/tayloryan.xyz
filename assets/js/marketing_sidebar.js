@@ -36,7 +36,7 @@ function renderMarketingSidebar(activePage) {
     const totalResources = typeof MARKETING_FULL_DATA !== 'undefined' ? MARKETING_FULL_DATA.length : '...';
 
     const menuItems = [
-        { id: 'overview', label: 'Overview', icon: 'home', url: '/portfolio/marketing/' },
+        { id: 'overview', label: 'Marketing Hub', icon: 'home', url: '/portfolio/marketing/' },
         { id: 'content-creator', label: 'Content Creator', icon: 'users', url: '/portfolio/marketing/content_creator/', color: 'text-purple-400' },
         { id: 'email-outreach', label: 'Email Outreach', icon: 'mail', url: '/portfolio/marketing/email_outreach/', color: 'text-blue-400' },
         { id: 'affiliates', label: 'Affiliate Program', icon: 'share-2', url: '/portfolio/marketing/affiliates/', color: 'text-orange-400' },
@@ -81,6 +81,16 @@ function renderMarketingSidebar(activePage) {
 
             <!-- System Status -->
             <div class="p-4 border-t border-white/5 bg-neutral-900/50">
+                <a href="/work_projects/" class="flex items-center gap-3 p-3 rounded-lg bg-neutral-900 border border-white/5 hover:border-purple-500/50 transition-all mb-4 group">
+                    <div class="p-2 bg-purple-500/20 rounded-lg text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <i data-lucide="folder-kanban" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-white text-sm">Projects Hub</div>
+                        <div class="text-[10px] text-neutral-500 uppercase tracking-widest">Back to Main</div>
+                    </div>
+                </a>
+
                 <div class="bg-neutral-900 border border-white/5 rounded-xl p-4">
                     <div class="flex items-center gap-2 mb-2">
                         <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
