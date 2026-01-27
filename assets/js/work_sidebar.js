@@ -184,6 +184,68 @@ function renderSpeakerSidebar(activePage) {
     }
 }
 
+function renderAboutSidebar(activePage) {
+    const menuItems = [
+        { id: 'skills', label: 'Skills Matrix', icon: 'zap', href: '/skills/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+        { id: 'skills_detailed', label: 'Detailed Breakdown', icon: 'list', href: '/skills_detailed/', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
+        { id: 'awards', label: 'Awards & Honors', icon: 'trophy', href: '/work_awards/', color: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20' },
+        { id: 'testimonials', label: 'Testimonials', icon: 'message-circle', href: '/testimonials/', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
+        { id: 'about', label: 'About Me', icon: 'user', href: '/about.html', color: 'text-neutral-400', bg: 'bg-neutral-500/10', border: 'border-neutral-500/20' }
+    ];
+
+    const sidebarHTML = `
+    <div id="work-sidebar" class="fixed top-0 left-0 h-full w-64 bg-black border-r border-neutral-800 z-40 transform -translate-x-full md:translate-x-0 overflow-y-auto">
+        <div class="p-6">
+            <a href="/" class="block mb-8">
+                <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400">About Hub</span>
+            </a>
+
+            <nav class="space-y-2">
+                ${menuItems.map(item => {
+        const isActive = activePage === item.id;
+        const activeClass = isActive
+            ? `${item.bg} ${item.color} border ${item.border}`
+            : 'text-neutral-400 hover:text-white hover:bg-neutral-900 border border-transparent';
+
+        return `
+                    <a href="${item.href}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${activeClass}">
+                        <i data-lucide="${item.icon}" class="w-5 h-5 ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
+                        <span class="font-medium text-sm">${item.label}</span>
+                        ${isActive ? '<i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50"></i>' : ''}
+                    </a>
+                    `;
+    }).join('')}
+            </nav>
+            
+             <div class="mt-8 pt-8 border-t border-neutral-800">
+                <a href="/work.html" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                    <i data-lucide="briefcase" class="w-4 h-4 text-neutral-500 opacity-70 group-hover:opacity-100"></i>
+                    <span class="font-medium text-sm">View Work Portfolio</span>
+                </a>
+             </div>
+             
+             <button class="p-2 text-neutral-400 absolute top-4 right-4 md:hidden" onclick="toggleSidebar()">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+    
+     <!-- Mobile Toggle Button (Fixed) -->
+    <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-50 bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+    `;
+
+    const container = document.createElement('div');
+    container.innerHTML = sidebarHTML;
+    document.body.prepend(container);
+
+    // Initialize icons if lucide is available
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
 // Global Toggle (Mobile)
 function toggleSidebar() {
     const sidebar = document.getElementById('work-sidebar');

@@ -44,6 +44,48 @@ $skillsContent = $skillsContent -replace 'href="contact.html"', 'href="../contac
 [System.IO.File]::WriteAllText($SkillsDest, $skillsContent, [System.Text.Encoding]::UTF8)
 Write-Host "skills.html Transported and Transformed to skills/index.html" -ForegroundColor Green
 
+# 1.7. Transform skills_detailed.html -> skills_detailed/index.html
+Write-Host "Processing skills_detailed.html -> skills_detailed/index.html..." -ForegroundColor Yellow
+$SDSource = "$SourceRoot\skills_detailed.html"
+$SDDestDir = "$DeployRoot\skills_detailed"
+$SDDest = "$SDDestDir\index.html"
+if (-not (Test-Path $SDDestDir)) { New-Item -ItemType Directory -Force -Path $SDDestDir | Out-Null }
+$sdContent = Get-Content $SDSource -Raw
+$sdContent = $sdContent -replace 'src="assets/', 'src="../assets/'
+$sdContent = $sdContent -replace 'href="assets/', 'href="../assets/'
+$sdContent = $sdContent -replace 'href="index.html"', 'href="../"'
+$sdContent = $sdContent -replace 'href="work.html"', 'href="../work/"'
+$sdContent = $sdContent -replace 'href="contact.html"', 'href="../contact/"'
+[System.IO.File]::WriteAllText($SDDest, $sdContent, [System.Text.Encoding]::UTF8)
+
+# 1.8. Transform work_awards.html -> work_awards/index.html
+Write-Host "Processing work_awards.html -> work_awards/index.html..." -ForegroundColor Yellow
+$AwardsSource = "$SourceRoot\work_awards.html"
+$AwardsDestDir = "$DeployRoot\work_awards"
+$AwardsDest = "$AwardsDestDir\index.html"
+if (-not (Test-Path $AwardsDestDir)) { New-Item -ItemType Directory -Force -Path $AwardsDestDir | Out-Null }
+$awardsContent = Get-Content $AwardsSource -Raw
+$awardsContent = $awardsContent -replace 'src="assets/', 'src="../assets/'
+$awardsContent = $awardsContent -replace 'href="assets/', 'href="../assets/'
+$awardsContent = $awardsContent -replace 'href="index.html"', 'href="../"'
+$awardsContent = $awardsContent -replace 'href="work.html"', 'href="../work/"'
+$awardsContent = $awardsContent -replace 'href="contact.html"', 'href="../contact/"'
+[System.IO.File]::WriteAllText($AwardsDest, $awardsContent, [System.Text.Encoding]::UTF8)
+
+# 1.9. Transform testimonials.html -> testimonials/index.html
+Write-Host "Processing testimonials.html -> testimonials/index.html..." -ForegroundColor Yellow
+$TestSource = "$SourceRoot\testimonials.html"
+$TestDestDir = "$DeployRoot\testimonials"
+$TestDest = "$TestDestDir\index.html"
+if (-not (Test-Path $TestDestDir)) { New-Item -ItemType Directory -Force -Path $TestDestDir | Out-Null }
+$testContent = Get-Content $TestSource -Raw
+$testContent = $testContent -replace 'src="assets/', 'src="../assets/'
+$testContent = $testContent -replace 'href="assets/', 'href="../assets/'
+$testContent = $testContent -replace 'href="index.html"', 'href="../"'
+$testContent = $testContent -replace 'href="work.html"', 'href="../work/"'
+$testContent = $testContent -replace 'href="contact.html"', 'href="../contact/"'
+[System.IO.File]::WriteAllText($TestDest, $testContent, [System.Text.Encoding]::UTF8)
+
 # 2. Transform work.html
 Write-Host "Processing work.html -> work/index.html..." -ForegroundColor Yellow
 $WorkSource = "$SourceRoot\work.html"

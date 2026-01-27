@@ -78,9 +78,15 @@
 <body class="min-h-screen relative overflow-x-hidden">
     <!-- Global Layout -->
     <script src="assets/js/layout.js"></script>
+    <script src="assets/js/work_sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderAboutSidebar === 'function') renderAboutSidebar('testimonials');
+        });
+    </script>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-6 py-24 relative z-10">
+    <main class="max-w-7xl mx-auto px-6 py-24 relative z-10 md:pl-72">
 
         <!-- Header Section -->
         <div class="text-center mb-16">

@@ -7,7 +7,7 @@
     <title>Testimonials | Taylor Ryan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="/assets/js/testimonials_data.js"></script>
+    <script src="../assets/js/testimonials_data.js"></script>
     <style>
         body {
             background-color: #0a0a0a;
@@ -73,16 +73,20 @@
             animation: fadeIn 0.4s ease-out forwards;
         }
     </style>
-    <link rel="canonical" href="https://taylorryan.xyz/testimonials/">
-    <meta property="og:url" content="https://taylorryan.xyz/testimonials/">
 </head>
 
 <body class="min-h-screen relative overflow-x-hidden">
     <!-- Global Layout -->
-    <script src="/assets/js/layout.js?v=20260127-1519?v=20260127-1518?v=20260127-2"></script>
+    <script src="../assets/js/layout.js?v=20260127-1521"></script>
+    <script src="../assets/js/work_sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderAboutSidebar === 'function') renderAboutSidebar('testimonials');
+        });
+    </script>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-6 py-24 relative z-10">
+    <main class="max-w-7xl mx-auto px-6 py-24 relative z-10 md:pl-72">
 
         <!-- Header Section -->
         <div class="text-center mb-16">
@@ -108,12 +112,12 @@
                 <i data-lucide="star" class="w-4 h-4 text-yellow-500 group-hover:scale-110 transition-transform"></i>
                 <span class="whitespace-nowrap">70+ Page Testimonials Deck</span>
             </a>
-            <a href="/work_speaker_topics/"
+            <a href="work_speaker_topics.html"
                 class="px-6 py-3 bg-neutral-900 border border-neutral-700 hover:border-blue-500/50 rounded-full text-white font-medium transition-all flex items-center gap-2 group hover:-translate-y-0.5 shadow-lg shadow-black/20">
                 <i data-lucide="mic-2" class="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform"></i>
                 <span class="whitespace-nowrap">Speaker Topics</span>
             </a>
-            <a href="/work_speaker.html#engagements"
+            <a href="work_speaker.html#engagements"
                 class="px-6 py-3 bg-neutral-900 border border-neutral-700 hover:border-purple-500/50 rounded-full text-white font-medium transition-all flex items-center gap-2 group hover:-translate-y-0.5 shadow-lg shadow-black/20">
                 <i data-lucide="map-pin" class="w-4 h-4 text-purple-500 group-hover:scale-110 transition-transform"></i>
                 <span class="whitespace-nowrap">Past Engagements</span>
