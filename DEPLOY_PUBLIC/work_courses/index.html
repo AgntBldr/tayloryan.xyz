@@ -37,8 +37,15 @@
 
 <body class="bg-black min-h-screen">
     <script src="/assets/js/layout.js?v=20260127-2"></script>
+    <script src="/assets/js/work_sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderWorkSidebar('courses');
+            lucide.createIcons();
+        });
+    </script>
 
-    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6 md:ml-64 transition-all">
 
         <!-- Header -->
         <div class="mb-16">
@@ -54,6 +61,52 @@
             <div id="courses-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Courses injected via JS -->
                 <div class="col-span-full text-center text-neutral-500 py-12">Loading Courses...</div>
+            </div>
+        </section>
+
+        <!-- Section: More Projects -->
+        <section class="mb-32 border-t border-white/10 pt-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-bold text-white">More Projects</h2>
+                <a href="/work_projects/"
+                    class="text-sm font-bold text-neutral-400 hover:text-white transition-colors flex items-center gap-2">
+                    See All Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Sidebar Previews -->
+
+                <!-- Projects (Hub) -->
+                <a href="/work_projects/"
+                    class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-blue-500/50 transition-all group">
+                    <div class="mb-4 inline-flex p-3 rounded-xl bg-blue-500/10 text-blue-400">
+                        <i data-lucide="briefcase" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Projects Hub</h3>
+                    <p class="text-neutral-400 text-sm">Main overview of all work.</p>
+                </a>
+
+                <!-- Quests -->
+                <a href="/portfolio/quests/"
+                    class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-purple-500/50 transition-all group">
+                    <div class="mb-4 inline-flex p-3 rounded-xl bg-purple-500/10 text-purple-400">
+                        <i data-lucide="sword" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Quests</h3>
+                    <p class="text-neutral-400 text-sm">Side quests and mini-projects.</p>
+                </a>
+
+                <!-- Vibecoding -->
+                <a href="/work_vibecoding/"
+                    class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-orange-500/50 transition-all group">
+                    <div class="mb-4 inline-flex p-3 rounded-xl bg-orange-500/10 text-orange-400">
+                        <i data-lucide="code-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Vibecoding</h3>
+                    <p class="text-neutral-400 text-sm">Automated agents and flows.</p>
+                </a>
+
             </div>
         </section>
 

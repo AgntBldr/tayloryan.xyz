@@ -37,37 +37,71 @@
 
 <body class="bg-black min-h-screen">
     <script src="/assets/js/layout.js?v=20260127-2"></script>
+    <script src="/assets/js/work_sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderWorkSidebar('projects');
+            lucide.createIcons();
+        });
+    </script>
 
-    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6 md:ml-64 transition-all">
 
         <!-- Header -->
         <div class="mb-16">
-            <span class="text-orange-400 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
+            <span class="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
             <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Builds & Projects</h1>
             <p class="text-neutral-400 text-xl max-w-3xl leading-relaxed">
                 Automated agents, AI workflows, educational courses, and marketing infrastructure.
             </p>
         </div>
 
+        <!-- Section: Quests (NEW) -->
+        <section class="mb-32">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i data-lucide="sword" class="text-purple-400"></i> Quests
+                </h2>
+                <a href="/portfolio/quests/"
+                    class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-purple-500 transition-all">
+                    See All Quests
+                </a>
+            </div>
+            <div id="quests-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+
         <!-- Section: Vibecoding -->
         <section class="mb-32">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                <i data-lucide="code-2" class="text-orange-400"></i> Vibecoding
-            </h2>
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i data-lucide="code-2" class="text-blue-400"></i> Vibecoding
+                </h2>
+                <a href="/work_vibecoding/"
+                    class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-blue-500 transition-all">
+                    See All Projects
+                </a>
+            </div>
             <div id="vibecoding-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Projects injected via JS -->
-                <div class="col-span-full text-center text-neutral-500 py-12">Loading Projects...</div>
+                <!-- Projects injected via JS (Limited to 2) -->
             </div>
         </section>
 
         <!-- Section: Courses -->
         <section class="mb-32">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                <i data-lucide="graduation-cap" class="text-blue-400"></i> Courses
-            </h2>
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i data-lucide="graduation-cap" class="text-orange-400"></i> Courses
+                </h2>
+                <a href="/work_courses/"
+                    class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-orange-500 transition-all">
+                    See All Courses
+                </a>
+            </div>
             <div id="courses-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Courses injected via JS -->
-                <div class="col-span-full text-center text-neutral-500 py-12">Loading Courses...</div>
+                <!-- Courses injected via JS (Limited to 2) -->
             </div>
         </section>
 
@@ -186,12 +220,13 @@
     <!-- Data & Scripts -->
     <script src="/assets/js/layout.js?v=20260127-2"></script>
     <script src="/assets/js/projects_data.js?v=20260127-2"></script>
+    <script src="/quests_data.js"></script>
     <script src="/assets/js/email_outreach_data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             renderProjects();
             renderCourses();
-            renderEmailOutreach();
+            renderQuests(); // New function
             lucide.createIcons();
         });
 
@@ -202,8 +237,11 @@
                 return;
             }
 
-            grid.innerHTML = PROJECTS_DATA.map(p => `
-                <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group h-full flex flex-col" onclick="openModal('${p.id}')">
+            // Limit to top 2
+            const top2 = PROJECTS_DATA.slice(0, 2);
+
+            grid.innerHTML = top2.map(p => `
+                <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all cursor-pointer group h-full flex flex-col" onclick="openModal('${p.id}')">
                     
                     ${p.image ? `
                     <div class="h-48 w-full overflow-hidden relative border-b border-white/5">
@@ -258,7 +296,10 @@
                 return;
             }
 
-            grid.innerHTML = COURSES_DATA.map(c => {
+            // Limit to top 2
+            const top2 = COURSES_DATA.slice(0, 2);
+
+            grid.innerHTML = top2.map(c => {
                 // Determine stats to show
                 let statsHtml = '';
                 if (c.hours) {
@@ -606,112 +647,39 @@
             }, 300);
         }
 
-        let emailViewMode = 'grid';
 
-        function renderEmailOutreach() {
-            const grid = document.getElementById('email-outreach-grid');
-            if (typeof EMAIL_OUTREACH_DATA === 'undefined') {
-                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Email Outreach Data not loaded.</div>';
+
+        function renderQuests() {
+            const grid = document.getElementById('quests-grid');
+            if (typeof quests === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Quests Data not loaded.</div>';
                 return;
             }
 
-            // Get Fillters
-            const search = document.getElementById('eo-search').value.toLowerCase();
-            const typeFilter = document.getElementById('eo-type-filter').value;
+            // Limit to top 2
+            const top2 = quests.slice(0, 2);
 
-            // Populate Types Dropdown if empty (only once)
-            const typeSelect = document.getElementById('eo-type-filter');
-            if (typeSelect.options.length === 1) {
-                const types = [...new Set(EMAIL_OUTREACH_DATA.map(d => d.type).filter(t => t && t !== 'Resource'))].sort();
-                types.forEach(t => {
-                    const opt = document.createElement('option');
-                    opt.value = t;
-                    opt.textContent = t;
-                    typeSelect.appendChild(opt);
-                });
-            }
-
-            // Filter Data
-            const filtered = EMAIL_OUTREACH_DATA.filter(item => {
-                const matchSearch = (item.title || '').toLowerCase().includes(search) ||
-                    (item.description || '').toLowerCase().includes(search) ||
-                    (item.tags || []).some(t => t.toLowerCase().includes(search));
-                const matchType = typeFilter === 'all' || item.type === typeFilter;
-                return matchSearch && matchType;
-            });
-
-            // Update Count? optional
-
-            // Render
-            if (filtered.length === 0) {
-                grid.innerHTML = '<div class="col-span-full text-center text-neutral-500 py-12">No resources found matching criteria.</div>';
-                return;
-            }
-
-            if (emailViewMode === 'grid') {
-                grid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
-                grid.innerHTML = filtered.map(item => `
-                    <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-purple-500/50 transition-all group flex flex-col relative h-full">
-                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                            <a href="${getLink(item)}" target="_blank" class="p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 text-white block border border-neutral-700 shadow-xl" title="Open Resource">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-
-                        <div class="mb-4">
-                            <span class="px-2 py-1 bg-purple-500/10 text-purple-400 rounded text-[10px] font-bold uppercase tracking-wider border border-purple-500/20">${item.type}</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold text-white mb-2 leading-tight pr-8">${item.title}</h3>
-                        <p class="text-neutral-400 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">${item.description}</p>
-                        
-                        <div class="mt-auto pt-4 border-t border-neutral-800/50 flex flex-wrap gap-2">
-                             ${(item.tags || []).slice(0, 3).map(t => `<span class="text-xs text-neutral-500">#${t}</span>`).join('')}
+            grid.innerHTML = top2.map(q => `
+                <a href="/portfolio/quests/" class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all cursor-pointer group h-full flex flex-col">
+                    <div class="h-48 w-full overflow-hidden relative border-b border-white/5">
+                        <img src="${(q.image && q.image.startsWith('assets/')) ? '../' + q.image : q.image}" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 z-10">
+                            <span class="px-2 py-1 bg-black/60 backdrop-blur text-white text-[10px] font-bold uppercase tracking-wider border border-white/10 rounded">${q.environment}</span>
                         </div>
                     </div>
-                `).join('');
-            } else {
-                grid.className = "flex flex-col gap-3";
-                grid.innerHTML = filtered.map(item => `
-                    <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-4 hover:border-purple-500/50 transition-all group flex items-center gap-4">
-                        <div class="shrink-0 p-3 bg-neutral-800 rounded-lg">
-                            <i data-lucide="${getIconForType(item.type)}" class="w-5 h-5 text-neutral-400 group-hover:text-purple-400 transition-colors"></i>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">${q.project}</h3>
+                        <p class="text-neutral-400 mb-4 text-sm line-clamp-2">${q.description}</p>
+                        <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-500">
+                             <span>${q.theme}</span>
+                             <span class="flex items-center gap-1 text-green-400"><i data-lucide="check-circle-2" class="w-3 h-3"></i> ${q.activations} Activations</span>
                         </div>
-                        <div class="flex-1 min-w-0">
-                             <div class="flex items-center gap-3 mb-1">
-                                <h3 class="text-base font-bold text-white truncate">${item.title}</h3>
-                                <span class="px-2 py-0.5 bg-neutral-800 text-neutral-500 text-[10px] uppercase font-bold tracking-wider border border-neutral-700 shrink-0">${item.type}</span>
-                             </div>
-                             <p class="text-neutral-500 text-xs truncate max-w-2xl">${item.description}</p>
-                        </div>
-                        <a href="${getLink(item)}" target="_blank" class="p-2 text-neutral-500 hover:text-white transition-colors">
-                            <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
                     </div>
-                 `).join('');
-            }
+                </a>
+            `).join('');
 
             lucide.createIcons();
-        }
-
-        function switchEmailView(mode) {
-            emailViewMode = mode;
-            document.getElementById('eo-btn-grid').className = mode === 'grid' ? "p-1.5 rounded text-white bg-neutral-700 shadow-sm" : "p-1.5 rounded text-neutral-500 hover:text-white";
-            document.getElementById('eo-btn-list').className = mode === 'list' ? "p-1.5 rounded text-white bg-neutral-700 shadow-sm" : "p-1.5 rounded text-neutral-500 hover:text-white";
-            renderEmailOutreach();
-        }
-
-        function getLink(item) {
-            return item.url && item.url.startsWith('http') ? item.url : '#';
-        }
-
-        function getIconForType(type) {
-            type = type.toLowerCase();
-            if (type.includes('template')) return 'file-text';
-            if (type.includes('prompt')) return 'terminal';
-            if (type.includes('list') || type.includes('sheet')) return 'table';
-            if (type.includes('tool')) return 'wrench';
-            return 'file';
         }
     </script>
 </body>

@@ -7,7 +7,7 @@ const PROJECTS_DATA = [
     "tags": ["Portfolio", "Cloudflare"],
     "url": "https://TaylorRyan.xyz",
     "github": "https://github.com/KlintMarketing/tayloryan.xyz",
-    "environment": "GitHub, Cloudflare Pages, Pages Functions",
+    "environment": "GitHub, Cloudflare Pages, Pages Functions, Antigravity",
     "description": "Public portfolio website with browsable sections and shareable pages. A central hub for partners to review work, share speaking portfolio with event organizers, and send a single proof-of-work link to recruiters.",
     "vibecode_prompt": "Vibecode - Portfolio Hub",
     "integrations": "Antigravity, Gemini, Google Docs, Google Sheets, Cursor",
