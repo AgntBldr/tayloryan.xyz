@@ -45,7 +45,7 @@
         });
     </script>
 
-    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6 md:ml-64 transition-all">
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6 transition-all">
 
         <!-- Header -->
         <div class="mb-16">
@@ -200,6 +200,70 @@
             </div>
         </section>
 
+        <!-- Section: Writing -->
+        <section class="mb-32">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i data-lucide="pen-tool" class="text-pink-400"></i> Writing
+                </h2>
+                <a href="/work_writing/"
+                    class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-pink-500 transition-all">
+                    See All Articles
+                </a>
+            </div>
+            <div id="writing-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Section: Podcasts -->
+        <section class="mb-32">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i data-lucide="mic" class="text-yellow-400"></i> Podcasts
+                </h2>
+                <a href="/work_podcasts/"
+                    class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-yellow-500 transition-all">
+                    See All Podcasts
+                </a>
+            </div>
+            <div id="podcast-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Section: Tutorials -->
+        <section class="mb-32">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i data-lucide="video" class="text-red-400"></i> Tutorials
+                </h2>
+                <a href="/work_tutorials/"
+                    class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-red-500 transition-all">
+                    See All Tutorials
+                </a>
+            </div>
+            <div id="tutorials-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Section: Speaker -->
+        <section class="mb-32">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-bold text-white flex items-center gap-3">
+                    <i data-lucide="mic-2" class="text-blue-400"></i> Speaker Public
+                </h2>
+                <a href="/work_speaker/"
+                    class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-blue-500 transition-all">
+                    See All Speaking
+                </a>
+            </div>
+            <div id="speaker-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
     </main>
 
     <!-- Modal -->
@@ -222,11 +286,19 @@
     <script src="/assets/js/projects_data.js?v=20260127-2"></script>
     <script src="/quests_data.js"></script>
     <script src="/assets/js/email_outreach_data.js"></script>
+    <script src="/assets/js/writing_data.js"></script>
+    <script src="/assets/js/podcast_data.js"></script>
+    <script src="/assets/js/speaker_data.js"></script>
+    <script src="/assets/data_tutorials.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             renderProjects();
             renderCourses();
-            renderQuests(); // New function
+            renderQuests();
+            renderWriting();
+            renderPodcasts();
+            renderTutorials();
+            renderSpeaker();
             lucide.createIcons();
         });
 
@@ -680,6 +752,95 @@
             `).join('');
 
             lucide.createIcons();
+        }
+        function renderWriting() {
+            const grid = document.getElementById('writing-grid');
+            if (typeof WRITING_DATA === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Writing Data not loaded.</div>';
+                return;
+            }
+            const top3 = WRITING_DATA.slice(0, 3);
+            grid.innerHTML = top3.map(item => `
+                <a href="${item.URL}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-pink-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold uppercase rounded border border-pink-500/20">${item['Article Format'] || 'Article'}</span>
+                        <span class="text-xs text-neutral-500 font-mono">${item['Date']}</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-pink-400 transition-colors line-clamp-2">${item['Article Title']}</h3>
+                    <p class="text-sm text-neutral-400 mb-4 line-clamp-3 overflow-hidden text-ellipsis flex-1">${item['Description']}</p>
+                    <div class="mt-auto flex items-center gap-2 text-xs font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        Read Article <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function renderPodcasts() {
+            const grid = document.getElementById('podcast-grid');
+            if (typeof PODCAST_DATA === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Podcast Data not loaded.</div>';
+                return;
+            }
+            const top3 = PODCAST_DATA.slice(0, 3);
+            grid.innerHTML = top3.map(item => `
+                <a href="${item.url}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-yellow-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-bold uppercase rounded border border-yellow-500/20">${item.media}</span>
+                        <span class="text-xs text-neutral-500 font-mono">${item.date}</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors line-clamp-2">${item.title}</h3>
+                    <p class="text-sm text-neutral-400 mb-4 line-clamp-3 overflow-hidden text-ellipsis flex-1">${item.description}</p>
+                    <div class="mt-auto flex items-center gap-2 text-xs font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        Listen Now <i data-lucide="play-circle" class="w-3 h-3"></i>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function renderTutorials() {
+            const grid = document.getElementById('tutorials-grid');
+            if (typeof TUTORIALS_DATA === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Tutorial Data not loaded.</div>';
+                return;
+            }
+            const top3 = TUTORIALS_DATA.slice(0, 3);
+            grid.innerHTML = top3.map(item => `
+                <a href="${item.url}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-red-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 bg-red-500/10 text-red-400 text-xs font-bold uppercase rounded border border-red-500/20">${item.project || 'Tutorial'}</span>
+                        <span class="text-xs text-neutral-500 font-mono">${item.date}</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-red-500 transition-colors line-clamp-2">${item.title}</h3>
+                    <p class="text-sm text-neutral-400 mb-4 line-clamp-3 overflow-hidden text-ellipsis flex-1">${item.description}</p>
+                    <div class="mt-auto flex items-center gap-2 text-xs font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        Watch Video <i data-lucide="youtube" class="w-3 h-3"></i>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function renderSpeaker() {
+            const grid = document.getElementById('speaker-grid');
+            if (typeof SPEAKER_ENGAGEMENTS === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Speaker Data not loaded.</div>';
+                return;
+            }
+            const top3 = SPEAKER_ENGAGEMENTS.slice(0, 3);
+            grid.innerHTML = top3.map(item => `
+                 <div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase rounded border border-blue-500/20">${item['Event Type'] || 'Event'}</span>
+                        <span class="text-xs text-neutral-500 font-mono">${item['Date (DD/MM/YY)'] || item.Date}</span>
+                    </div>
+                    <div class="mb-2">
+                        <span class="text-xs text-neutral-400 block mb-1 uppercase tracking-wider">${item['Event Name']}</span>
+                        <h3 class="text-lg font-bold text-white leading-tight">${item.Title}</h3>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-neutral-800 flex items-center gap-2 text-xs text-neutral-500">
+                        <i data-lucide="map-pin" class="w-3 h-3"></i> ${item['City, Country'] || 'TBD'}
+                    </div>
+                </div>
+            `).join('');
         }
     </script>
 </body>
