@@ -69,6 +69,11 @@ $dateStr = Get-Date -Format "yyyyMMdd-HHmm"
 $content = $content -replace 'layout.js', "layout.js?v=$dateStr"
 
 [System.IO.File]::WriteAllText($WorkDest, $content, [System.Text.Encoding]::UTF8)
-Write-Host "work.html Transported and Transformed." -ForegroundColor Green
+Write-Host "work.html Transported and Transformed to work/index.html" -ForegroundColor Green
+
+# 3b. Also update DEPLOY_PUBLIC/work.html to match (Safety Net)
+$WorkDestAlt = "$DeployRoot\work.html"
+[System.IO.File]::WriteAllText($WorkDestAlt, $content, [System.Text.Encoding]::UTF8)
+Write-Host "work.html Transported and Transformed to DEPLOY_PUBLIC/work.html" -ForegroundColor Green
 
 Write-Host "Deployment Sync Complete." -ForegroundColor Cyan
