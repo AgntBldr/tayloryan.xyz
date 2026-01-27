@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://taylorryan.xyz/sitemap.xml

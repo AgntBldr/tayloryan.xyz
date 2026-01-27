@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | Taylor's Quest Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/quests_data.js"></script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <link rel="canonical" href="https://taylorryan.xyz/portfolio/quests/analytics/">
+    <meta property="og:url" content="https://taylorryan.xyz/portfolio/quests/analytics/">
+</head>
+
+<body class="min-h-screen p-6 md:p-12 relative">
+    <!-- Global Layout -->
+    <script src="/assets/js/layout.js"></script>
+
+    <!-- Header -->
+    <header class="mb-12 text-center relative z-10 flex flex-col items-center mt-24">
+        <h1
+            class="text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+            Quest Portfolio
+        </h1>
+        <p class="text-neutral-400 max-w-2xl mx-auto text-lg mb-8">
+            Discover 40+ on-chain activations and growth campaigns designed to drive engagement.
+        </p>
+
+        <!-- View Toggle (Navigation) -->
+        <div class="bg-neutral-900 border border-neutral-800 p-1 rounded-full flex gap-1 relative z-20">
+            <a href="/portfolio/quests/"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Portfolio</a>
+            <a href="/portfolio/quests/overview/"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Overview</a>
+            <a href="/portfolio/quests/analytics/"
+                class="px-6 py-2 rounded-full text-sm font-bold bg-neutral-800 text-white shadow-lg transition-all">Analytics</a>
+            <a href="/portfolio/quests/resources/"
+                class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Resources</a>
+        </div>
+    </header>
+
+    <!-- ANALYTICS VIEW -->
+    <div id="analytics-view" class="w-full max-w-7xl mx-auto pb-12 transition-opacity duration-300 relative z-10">
+        <div class="p-8 bg-neutral-900 border border-neutral-800 rounded-xl">
+            <h2 class="text-3xl font-bold text-white mb-6">Analytics Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- KPI Cards -->
+                <div class="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                    <h3 class="text-neutral-400 text-sm uppercase tracking-wider mb-2">Total Quests</h3>
+                    <p class="text-4xl font-bold text-white" id="kpi-quests">-</p>
+                </div>
+                <div class="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                    <h3 class="text-neutral-400 text-sm uppercase tracking-wider mb-2">Total Activations</h3>
+                    <p class="text-4xl font-bold text-white" id="kpi-activations">-</p>
+                </div>
+                <div class="bg-neutral-800/50 p-6 rounded-lg border border-neutral-700">
+                    <h3 class="text-neutral-400 text-sm uppercase tracking-wider mb-2">Top Performer</h3>
+                    <p class="text-xl font-bold text-white truncate" id="kpi-top">-</p>
+                    <p class="text-xs text-green-400 mt-1" id="kpi-top-val">-</p>
+                </div>
+            </div>
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800 relative">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i data-lucide="layout-grid" class="w-4 h-4 text-purple-500"></i> Quests by Environment
+                        </h3>
+                        <button id="btn-clear-analytics-env" onclick="clearAnalyticsEnvSelection()"
+                            class="hidden text-xs text-red-400 hover:text-red-300 border border-red-500/30 bg-red-500/10 px-2 py-1 rounded transition-colors cursor-pointer z-10">
+                            Clear Selection
+                        </button>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="chart-environment"></canvas>
+                    </div>
+                    <p class="text-xs text-neutral-500 mt-2 text-center">Click bars to filter the table below</p>
+                </div>
+                <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="pie-chart" class="w-4 h-4 text-blue-500"></i> Distribution by Theme
+                    </h3>
+                    <div class="h-64 relative">
+                        <canvas id="chart-theme"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Chart (Full Width) -->
+            <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800 mb-8">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="activity" class="w-4 h-4 text-green-500"></i> Publishing Activity
+                </h3>
+                <div class="h-64 relative">
+                    <canvas id="chart-timeline"></canvas>
+                </div>
+            </div>
+
+            <!-- Top Quests Table -->
+            <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-800 overflow-hidden">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="trophy" class="w-4 h-4 text-yellow-500"></i> Active Quests
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-gray-400">
+                        <thead class="bg-neutral-900 text-xs uppercase font-medium text-gray-500 tracking-wider">
+                            <tr>
+                                <th class="px-6 py-4 rounded-l-lg">Project</th>
+                                <th class="px-6 py-4">Theme</th>
+                                <th class="px-6 py-4">Environment</th>
+                                <th class="px-6 py-4 text-right rounded-r-lg">Activations</th>
+                            </tr>
+                        </thead>
+                        <tbody id="analytics-table-body" class="divide-y divide-neutral-800/50">
+                            <!-- Rows injected via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal (Copied from Index for Consistency if rows are clickable) -->
+    <div id="modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4">
+        <!-- Re-use modal implementation from index or shared layout if desired. For now, simple link to main page or simplified modal.
+             The original file allowed clicking rows to open the modal. I should duplicate the modal logic here or make it a shared component.
+             For speed, I'll copy the modal logic.
+        -->
+        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl"
+            id="modal-content"></div>
+    </div>
+
+    <script>
+        // Copying Analytics Logic
+        let envChartInstance = null;
+        let themeChartInstance = null;
+        let timelineChartInstance = null;
+        let analyticsSelectedEnvs = [];
+
+        function initAnalytics() {
+            if (!window.quests) return;
+            renderAnalytics(window.quests);
+            lucide.createIcons();
+        }
+
+        function renderAnalytics(quests) {
+            updateKPIs(quests);
+
+            // 2. Data Prep
+            const envCounts = quests.reduce((acc, q) => {
+                const env = q.environment || 'Unknown';
+                acc[env] = (acc[env] || 0) + 1;
+                return acc;
+            }, {});
+            const sortedEnvs = Object.entries(envCounts).sort((a, b) => b[1] - a[1]);
+
+            const themeCounts = quests.reduce((acc, q) => {
+                const theme = q.theme || 'Uncategorized';
+                acc[theme] = (acc[theme] || 0) + 1;
+                return acc;
+            }, {});
+            const sortedThemes = Object.entries(themeCounts).sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+            // 3. Render ENV Chart
+            if (envChartInstance) envChartInstance.destroy();
+            const envCtx = document.getElementById('chart-environment').getContext('2d');
+            envChartInstance = new Chart(envCtx, {
+                type: 'bar',
+                data: {
+                    labels: sortedEnvs.map(x => x[0]),
+                    datasets: [{
+                        label: 'Quests',
+                        data: sortedEnvs.map(x => x[1]),
+                        backgroundColor: sortedEnvs.map(x => analyticsSelectedEnvs.includes(x[0]) ? '#a855f7' : '#a855f7'),
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    onClick: (e, elements) => handleEnvChartClick(e, elements, envChartInstance),
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#9ca3af' }, grid: { color: '#262626' } },
+                        y: { ticks: { color: '#9ca3af' }, grid: { color: '#262626' }, beginAtZero: true }
+                    }
+                }
+            });
+
+            // 4. Render Theme Chart
+            if (themeChartInstance) themeChartInstance.destroy();
+            const themeCtx = document.getElementById('chart-theme').getContext('2d');
+            themeChartInstance = new Chart(themeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: sortedThemes.map(x => x[0]),
+                    datasets: [{
+                        data: sortedThemes.map(x => x[1]),
+                        backgroundColor: ['#3b82f6', '#ec4899', '#10b981', '#f59e0b', '#8b5cf6', '#6b7280'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#e5e7eb', usePointStyle: true } }
+                    }
+                }
+            });
+
+            // 5. Timeline
+            renderTimeline(quests);
+
+            // 6. Table
+            updateAnalyticsState();
+        }
+
+        function updateKPIs(quests) {
+            const totalQuests = quests.length;
+            const totalActivations = quests.reduce((sum, q) => sum + (q.activations || 0), 0);
+            const topQuest = [...quests].sort((a, b) => (b.activations || 0) - (a.activations || 0))[0];
+
+            document.getElementById('kpi-quests').innerText = totalQuests;
+            document.getElementById('kpi-activations').innerText = totalActivations.toLocaleString();
+            if (topQuest) {
+                document.getElementById('kpi-top').innerText = topQuest.project;
+                document.getElementById('kpi-top-val').innerText = `${topQuest.activations.toLocaleString()} Activations`;
+            }
+        }
+
+        function renderTimeline(quests) {
+            const timeMap = {};
+            quests.forEach(q => {
+                if (!q.date) return;
+                const d = new Date(q.date);
+                if (isNaN(d)) return;
+                const dayStart = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+                if (!timeMap[dayStart]) timeMap[dayStart] = { label: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }), count: 0 };
+                timeMap[dayStart].count += (q.activations || 0);
+            });
+            const sortedKeys = Object.keys(timeMap).sort((a, b) => a - b);
+
+            if (timelineChartInstance) timelineChartInstance.destroy();
+            timelineChartInstance = new Chart(document.getElementById('chart-timeline'), {
+                type: 'line',
+                data: {
+                    labels: sortedKeys.map(k => timeMap[k].label),
+                    datasets: [{
+                        label: 'Activations',
+                        data: sortedKeys.map(k => timeMap[k].count),
+                        borderColor: '#22c55e',
+                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { ticks: { color: '#9ca3af' }, grid: { display: false } },
+                        y: { ticks: { color: '#9ca3af' }, grid: { color: '#262626' } }
+                    }
+                }
+            });
+        }
+
+        function handleEnvChartClick(event, elements, chart) {
+            if (!elements || elements.length === 0) return;
+            const index = elements[0].index;
+            const label = chart.data.labels[index];
+            if (analyticsSelectedEnvs.includes(label)) {
+                analyticsSelectedEnvs = analyticsSelectedEnvs.filter(e => e !== label);
+            } else {
+                analyticsSelectedEnvs.push(label);
+            }
+            updateAnalyticsState();
+        }
+
+        function clearAnalyticsEnvSelection() {
+            analyticsSelectedEnvs = [];
+            updateAnalyticsState();
+        }
+
+        function updateAnalyticsState() {
+            const chart = envChartInstance;
+            if (chart) {
+                chart.data.datasets[0].backgroundColor = chart.data.labels.map(l =>
+                    (analyticsSelectedEnvs.length === 0 || analyticsSelectedEnvs.includes(l)) ? '#a855f7' : '#525252'
+                );
+                chart.update();
+            }
+
+            const btn = document.getElementById('btn-clear-analytics-env');
+            if (btn) btn.classList.toggle('hidden', analyticsSelectedEnvs.length === 0);
+
+            const filtered = analyticsSelectedEnvs.length === 0
+                ? window.quests
+                : window.quests.filter(q => analyticsSelectedEnvs.includes(q.environment));
+
+            renderTable(filtered);
+        }
+
+        function renderTable(quests) {
+            const tbody = document.getElementById('analytics-table-body');
+            quests.sort((a, b) => (b.activations || 0) - (a.activations || 0));
+            tbody.innerHTML = quests.map(q => `
+                <tr class="hover:bg-neutral-800/50 transition-colors border-l-2 border-transparent hover:border-purple-500">
+                    <td class="px-6 py-4 font-medium text-white">${q.title}</td>
+                    <td class="px-6 py-4 text-xs text-neutral-400">${q.theme}</td>
+                    <td class="px-6 py-4 text-xs text-neutral-400">${q.environment}</td>
+                    <td class="px-6 py-4 text-right font-mono text-emerald-400">${(q.activations || 0).toLocaleString()}</td>
+                </tr>
+             `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', initAnalytics);
+    </script>
+</body>
+
+</html>
