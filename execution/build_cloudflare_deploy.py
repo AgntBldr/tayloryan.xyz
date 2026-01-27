@@ -36,11 +36,11 @@ if os.path.exists(DEPLOY_DIR):
             elif os.path.isdir(item_path):
                 shutil.rmtree(item_path, onerror=handle_remove_readonly)
         except Exception as e:
-            print(f"Error removing {item_path}: {e}")
+            print(f"Warning: Could not remove {item_path}: {e}")
 else:
-    os.makedirs(DEPLOY_DIR)
-os.makedirs(os.path.join(PUBLIC_DIR, 'assets'))
-os.makedirs(os.path.join(FUNCTIONS_DIR, 'api'))
+    os.makedirs(DEPLOY_DIR, exist_ok=True)
+os.makedirs(os.path.join(PUBLIC_DIR, 'assets'), exist_ok=True)
+os.makedirs(os.path.join(FUNCTIONS_DIR, 'api'), exist_ok=True)
 
 print(f"Build started at {DEPLOY_DIR}")
 
@@ -260,75 +260,36 @@ for file_path in html_files:
         if url.startswith(('http', '//', 'mailto:', '#', 'javascript:')) or '${' in url:
             return f'href="{url}"'
         
-        # Normalize relative paths to root-relative
-        # We need to resolve relative paths based on current file location
-        # But user requested "Convert ALL links ... to root-relative"
-        
-        # If it's absolute path (starts with /), just fix extension
+        # 1. Normalize to root-relative path
         if url.startswith('/'):
-            normalized = url
+            normalized_path = url
         else:
             # Resolve relative to current file's directory
-            # rel_dir is relative to project root
-            rel_dir = os.path.dirname(rel_path)
-            # Combine
-            # However, simpler approach: Most links in this project seem to be direct `href="work.html"` or `href="portfolio/..."`
-            # Let's try to make them root relative.
+            current_dir = os.path.dirname(rel_path)
+            joined = os.path.join(current_dir, url)
+            normalized_path = os.path.normpath(joined).replace('\\', '/')
             
-            # Special case: purely purely relative ./ or ../
-            # We can use os.path.normpath logic if we assume valid structure
-            
-            # Actually, robust way:
-            if url.endswith('.html'):
-                # Check if it maps to a known file? 
-                # Or just blind conversion:
-                # remove .html, ensure start with /
-                
-                # Handling logic:
-                # 1. Remove .html
-                # 2. Add / at end
-                # 3. Add / at start if missing (assuming references are from root or we fix them)
-                
-                # WAIT. If I am in `portfolio/marketing/index.html` and link is `../../about.html`, straightforward removal of .html might break logic if not resolved.
-                # BUT user said "Use /about/, /work/ ... No ../ paths".
-                # So I should resolve them to absolute paths.
-                
-                # Let's try to resolve:
-                # current relative dir
-                current_dir = os.path.dirname(rel_path)
-                # join
-                joined = os.path.join(current_dir, url)
-                # normpath
-                normalized_path = os.path.normpath(joined).replace('\\', '/')
-                
-                # Now we have proper path relative to root, e.g. "about.html" or "portfolio/marketing/index.html"
-                
-                if normalized_path.endswith('index.html'):
-                    # "portfolio/marketing/index.html" -> "/portfolio/marketing/"
-                    new_link = normalized_path.replace('index.html', '')
-                else:
-                    # "about.html" -> "/about/"
-                    new_link = normalized_path.replace('.html', '/')
-                
-                # Ensure start with /
-                if not new_link.startswith('/'):
-                    new_link = '/' + new_link
-                
-                # Clean up double slashes if any
-                new_link = new_link.replace('//', '/')
-                return f'href="{new_link}"'
-            
-            else:
-                # Not .html (assets, css, etc)
-                current_dir = os.path.dirname(rel_path)
-                joined = os.path.join(current_dir, url)
-                normalized_path = os.path.normpath(joined).replace('\\', '/')
-                
-                if not normalized_path.startswith('/'):
-                    normalized_path = '/' + normalized_path
-                    
-                normalized_path = normalized_path.replace('//', '/')
-                return f'href="{normalized_path}"'
+            if not normalized_path.startswith('/'):
+                normalized_path = '/' + normalized_path
+        
+        # Fix double slashes
+        normalized_path = normalized_path.replace('//', '/')
+
+        # 2. Apply Transformations (Pretty URLs)
+        if normalized_path.endswith('index.html'):
+            # "portfolio/marketing/index.html" -> "/portfolio/marketing/"
+            new_link = normalized_path.replace('index.html', '')
+        elif normalized_path.endswith('.html'):
+            # "about.html" -> "/about/"
+            new_link = normalized_path.replace('.html', '/')
+        else:
+            new_link = normalized_path
+
+        # Ensure start with /
+        if not new_link.startswith('/'):
+            new_link = '/' + new_link
+        
+        return f'href="{new_link}"'
 
     # Run replacements
     content = re.sub(r'href="([^"]+)"', link_replacer, content)
