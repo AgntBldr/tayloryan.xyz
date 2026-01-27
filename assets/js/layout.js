@@ -183,6 +183,13 @@ function injectLayout() {
     `;
     document.body.appendChild(modal);
 
+    // 4. Inject Analytics (Rybbit)
+    const analyticsScript = document.createElement('script');
+    analyticsScript.src = "https://app.rybbit.io/api/script.js";
+    analyticsScript.setAttribute('data-site-id', '44fc6b55ff2c');
+    analyticsScript.defer = true;
+    document.head.appendChild(analyticsScript);
+
     // Initialize Icons
     if (window.lucide) lucide.createIcons();
 }
