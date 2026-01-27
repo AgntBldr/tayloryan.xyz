@@ -127,11 +127,48 @@ function renderSpeakerSidebar(activePage) {
     }).join('')}
             </nav>
 
+            </nav>
+
              <div class="mt-8 pt-8 border-t border-neutral-800">
-                <a href="/work_projects/" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-neutral-500 hover:text-white group">
-                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                    <span class="font-medium text-sm">Back to Projects</span>
-                </a>
+                <span class="px-4 text-[10px] font-bold text-neutral-600 uppercase tracking-widest block mb-2">Portfolio</span>
+                <nav class="space-y-1">
+                    <a href="/work_projects/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="layout-grid" class="w-4 h-4 text-blue-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Projects Hub</span>
+                    </a>
+                    <a href="/work_vibecoding/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="code-2" class="w-4 h-4 text-cyan-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Vibecoding</span>
+                    </a>
+                    <a href="/portfolio/quests/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="sword" class="w-4 h-4 text-purple-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Quests</span>
+                    </a>
+                    <a href="/work_speaker/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-pink-400 bg-pink-500/10 border border-pink-500/20 group">
+                        <i data-lucide="mic-2" class="w-4 h-4 text-pink-400 opacity-100"></i>
+                        <span class="font-medium text-sm">Public Speaking</span>
+                    </a>
+                    <a href="/work_podcasts/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="headphones" class="w-4 h-4 text-yellow-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Podcasts</span>
+                    </a>
+                     <a href="/work_writing/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="pen-tool" class="w-4 h-4 text-emerald-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Writing</span>
+                    </a>
+                    <a href="/work_courses/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-orange-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Courses</span>
+                    </a>
+                    <a href="/work_tutorials/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="video" class="w-4 h-4 text-red-500 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Tutorials</span>
+                    </a>
+                     <a href="/portfolio/marketing/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="megaphone" class="w-4 h-4 text-green-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Marketing Hub</span>
+                    </a>
+                </nav>
             </div>
              <button class="p-2 text-neutral-400" onclick="document.querySelector('aside').classList.toggle('hidden'); document.querySelector('aside').classList.toggle('md:flex')">
                 <i data-lucide="menu" class="w-6 h-6"></i>
