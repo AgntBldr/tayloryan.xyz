@@ -38,8 +38,8 @@ function renderWorkSidebar(activePage) {
 
     // Standard Work Menu
     menuItems = [
-        { id: 'vibecoding', label: 'Vibecoding', icon: 'code-2', href: '/work_vibecoding/', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
         { id: 'projects', label: 'Projects Hub', icon: 'briefcase', href: '/work_projects/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+        { id: 'vibecoding', label: 'Vibecoding', icon: 'code-2', href: '/work_vibecoding/', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
         { id: 'quests', label: 'Quests', icon: 'sword', href: '/portfolio/quests/', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
         { id: 'speaker', label: 'Public Speaking', icon: 'mic-2', href: '/work_speaker/', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
         { id: 'podcasts', label: 'Podcasts', icon: 'headphones', href: '/work_podcasts/', color: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20' },
@@ -58,16 +58,22 @@ function renderWorkSidebar(activePage) {
 
             <nav class="space-y-2">
                 ${menuItems.map(item => {
-        const isActive = activePage === item.id;
+        // Fix active reasoning to catch sub-paths (e.g. /work_vibecoding/something)
+        const isActive = (item.href === '/' && window.location.pathname === '/') ||
+            (item.href !== '/' && window.location.pathname.startsWith(item.href));
+
+        // Colors: Always apply text color for icon. Background/Border only on active.
         const activeClass = isActive
-            ? `\${item.bg} \${item.color} border \${item.border}`
-            : 'text-neutral-400 hover:text-white hover:bg-neutral-900 border border-transparent';
+            ? `${item.bg} border ${item.border}`
+            : 'hover:bg-neutral-900 border border-transparent';
+
+        const labelClass = isActive ? 'text-white' : 'text-neutral-400 group-hover:text-white';
 
         return `
                     <a href="${item.href}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${activeClass}">
-                        <i data-lucide="${item.icon}" class="w-5 h-5 ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
-                        <span class="font-medium text-sm">${item.label}</span>
-                        ${isActive ? '<i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50"></i>' : ''}
+                        <i data-lucide="${item.icon}" class="w-5 h-5 ${item.color} ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
+                        <span class="font-medium text-sm ${labelClass}">${item.label}</span>
+                        ${isActive ? '<i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50 text-neutral-500"></i>' : ''}
                     </a>
                     `;
     }).join('')}
