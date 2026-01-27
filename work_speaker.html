@@ -361,7 +361,7 @@
 
         function loadSpeakerData() {
             // Priority 1: Fetch V2 JSON
-            fetch('/assets/js/speaker_data_v2.json')
+            fetch('/assets/js/speaker_data_v2.json?v=20260127')
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
