@@ -55,7 +55,16 @@
 
 <body class="min-h-screen relative overflow-x-hidden">
     <!-- Global Layout -->
-    <script src="../assets/js/layout.js?v=20260128-0749"></script>
+    <script src="../assets/js/layout.js?v=20260128-0754"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260128-0754"></script>
+    <script src="../assets/js/work_scroll.js?v=20260128-0754"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!document.getElementById('work-sidebar')) {
+                renderWorkSidebar('writing');
+            }
+        });
+    </script>
 
     <!-- Modal Container -->
     <div id="modal-container" class="fixed inset-0 z-[60] hidden">

@@ -56,8 +56,8 @@ function renderMarketingSidebar(activePage) {
                     <i data-lucide="layout-grid" class="w-5 h-5"></i>
                 </div>
                 <div>
-                    <h1 class="font-bold text-white text-lg leading-none">Marketing Hub</h1>
-                    <span class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Project Center</span>
+                    <h1 class="font-bold text-white text-lg leading-none sidebar-label">Marketing Hub</h1>
+                    <span class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest sidebar-label">Project Center</span>
                 </div>
             </div>
 
@@ -71,7 +71,7 @@ function renderMarketingSidebar(activePage) {
                         ${separator}
                         <a href="${item.url}" class="sidebar-link ${activeClass}">
                             <i data-lucide="${item.icon}" class="sidebar-icon ${item.color || ''}"></i>
-                            ${item.label}
+                            <span class="sidebar-label">${item.label}</span>
                         </a>
                     `;
     }).join('')}
@@ -88,9 +88,15 @@ function renderMarketingSidebar(activePage) {
                 </div>
             </div>
             
-             <!-- Mobile Close Button -->
+            <!-- Mobile Close Button -->
             <button onclick="toggleSidebar()" class="md:hidden absolute top-4 right-4 text-neutral-400">
                 <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Desktop Collapse Button -->
+            <button onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
+                <i data-lucide="chevron-left" class="w-5 h-5 transition-transform" id="collapse-icon"></i>
+                <span class="ml-3 font-medium text-sm sidebar-label">Collapse</span>
             </button>
         </div>
     </div>

@@ -71,12 +71,19 @@ function renderWorkSidebar(activePage) {
         return `
                     <a href="${item.href}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${activeClass}">
                         <i data-lucide="${item.icon}" class="w-5 h-5 ${item.color} ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
-                        <span class="font-medium text-sm ${labelClass}">${item.label}</span>
+                        <span class="font-medium text-sm ${labelClass} sidebar-label">${item.label}</span>
                         ${isActive ? '<i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50 text-neutral-500"></i>' : ''}
                     </a>
                     `;
     }).join('')}
             </nav>
+            </nav>
+            
+             <!-- Desktop Collapse Button -->
+            <button onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
+                <i data-lucide="chevron-left" class="w-5 h-5 transition-transform" id="collapse-icon"></i>
+                <span class="ml-3 font-medium text-sm sidebar-label">Collapse</span>
+            </button>
         </div>
         
         <!-- Mobile Close Button -->
@@ -121,7 +128,7 @@ function renderSpeakerSidebar(activePage) {
         return `
                     <a href="${item.href}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${activeClass}">
                         <i data-lucide="${item.icon}" class="w-5 h-5 ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
-                        <span class="font-medium text-sm">${item.label}</span>
+                        <span class="font-medium text-sm sidebar-label">${item.label}</span>
                         ${isActive ? '<i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50"></i>' : ''}
                     </a>
                     `;
@@ -227,6 +234,12 @@ function renderAboutSidebar(activePage) {
              
              <button class="p-2 text-neutral-400 absolute top-4 right-4 md:hidden" onclick="toggleSidebar()">
                 <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <!-- Desktop Collapse Button -->
+            <button onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
+                <i data-lucide="chevron-left" class="w-5 h-5 transition-transform" id="collapse-icon"></i>
+                <span class="ml-3 font-medium text-sm sidebar-label">Collapse</span>
             </button>
         </div>
     </div>

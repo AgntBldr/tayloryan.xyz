@@ -40,6 +40,15 @@
 <body class="min-h-screen relative overflow-x-hidden">
     <!-- Global Layout -->
     <script src="assets/js/layout.js"></script>
+    <script src="assets/js/work_sidebar.js"></script>
+    <script src="assets/js/work_scroll.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!document.getElementById('work-sidebar')) {
+                renderWorkSidebar('podcasts');
+            }
+        });
+    </script>
 
     <!-- Modal Container -->
     <div id="modal-container" class="fixed inset-0 z-[60] hidden">
