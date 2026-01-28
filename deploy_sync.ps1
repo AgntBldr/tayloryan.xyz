@@ -23,6 +23,10 @@ Write-Host "Syncing Portfolio..." -ForegroundColor Yellow
 Copy-Item -Path "$SourceRoot\portfolio" -Destination "$DeployRoot" -Recurse -Force
 Write-Host "Portfolio Synced." -ForegroundColor Green
 
+# 1.5.1 Sync Headers (CSP)
+Copy-Item -Path "$SourceRoot\_headers" -Destination "$DeployRoot" -Force
+Write-Host "Headers Synced." -ForegroundColor Green
+
 # 1.6. Transform skills.html -> skills/index.html
 Write-Host "Processing skills.html -> skills/index.html..." -ForegroundColor Yellow
 $SkillsSource = "$SourceRoot\skills.html"
@@ -86,6 +90,58 @@ $testContent = $testContent -replace 'href="work.html"', 'href="../work/"'
 $testContent = $testContent -replace 'href="contact.html"', 'href="../contact/"'
 [System.IO.File]::WriteAllText($TestDest, $testContent, [System.Text.Encoding]::UTF8)
 
+# 1.10. Transform work_podcasts.html -> work_podcasts/index.html
+Write-Host "Processing work_podcasts.html -> work_podcasts/index.html..." -ForegroundColor Yellow
+$PodSource = "$SourceRoot\work_podcasts.html"
+$PodDestDir = "$DeployRoot\work_podcasts"
+$PodDest = "$PodDestDir\index.html"
+if (-not (Test-Path $PodDestDir)) { New-Item -ItemType Directory -Force -Path $PodDestDir | Out-Null }
+$podContent = Get-Content $PodSource -Raw
+$podContent = $podContent -replace 'src="assets/', 'src="../assets/'
+$podContent = $podContent -replace 'href="assets/', 'href="../assets/'
+$podContent = $podContent -replace 'href="index.html"', 'href="../"'
+$podContent = $podContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($PodDest, $podContent, [System.Text.Encoding]::UTF8)
+
+# 1.11. Transform work_writing.html -> work_writing/index.html
+Write-Host "Processing work_writing.html -> work_writing/index.html..." -ForegroundColor Yellow
+$WritingSource = "$SourceRoot\work_writing.html"
+$WritingDestDir = "$DeployRoot\work_writing"
+$WritingDest = "$WritingDestDir\index.html"
+if (-not (Test-Path $WritingDestDir)) { New-Item -ItemType Directory -Force -Path $WritingDestDir | Out-Null }
+$writingContent = Get-Content $WritingSource -Raw
+$writingContent = $writingContent -replace 'src="assets/', 'src="../assets/'
+$writingContent = $writingContent -replace 'href="assets/', 'href="../assets/'
+$writingContent = $writingContent -replace 'href="index.html"', 'href="../"'
+$writingContent = $writingContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($WritingDest, $writingContent, [System.Text.Encoding]::UTF8)
+
+# 1.12. Transform work_tutorials.html -> work_tutorials/index.html
+Write-Host "Processing work_tutorials.html -> work_tutorials/index.html..." -ForegroundColor Yellow
+$TutSource = "$SourceRoot\work_tutorials.html"
+$TutDestDir = "$DeployRoot\work_tutorials"
+$TutDest = "$TutDestDir\index.html"
+if (-not (Test-Path $TutDestDir)) { New-Item -ItemType Directory -Force -Path $TutDestDir | Out-Null }
+$tutContent = Get-Content $TutSource -Raw
+$tutContent = $tutContent -replace 'src="assets/', 'src="../assets/'
+$tutContent = $tutContent -replace 'href="assets/', 'href="../assets/'
+$tutContent = $tutContent -replace 'href="index.html"', 'href="../"'
+$tutContent = $tutContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($TutDest, $tutContent, [System.Text.Encoding]::UTF8)
+
+# 1.13. Transform work_courses.html -> work_courses/index.html
+Write-Host "Processing work_courses.html -> work_courses/index.html..." -ForegroundColor Yellow
+$CourseSource = "$SourceRoot\work_courses.html"
+$CourseDestDir = "$DeployRoot\work_courses"
+$CourseDest = "$CourseDestDir\index.html"
+if (-not (Test-Path $CourseDestDir)) { New-Item -ItemType Directory -Force -Path $CourseDestDir | Out-Null }
+$courseContent = Get-Content $CourseSource -Raw
+$courseContent = $courseContent -replace 'src="assets/', 'src="../assets/'
+$courseContent = $courseContent -replace 'href="assets/', 'href="../assets/'
+$courseContent = $courseContent -replace 'href="index.html"', 'href="../"'
+$courseContent = $courseContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($CourseDest, $courseContent, [System.Text.Encoding]::UTF8)
+
 # 2. Transform work.html
 Write-Host "Processing work.html -> work/index.html..." -ForegroundColor Yellow
 $WorkSource = "$SourceRoot\work.html"
@@ -135,6 +191,9 @@ $content = $content -replace 'href="portfolio/marketing/testimonials.html"', 'hr
 # 3. Cache Busting (Dynamic Date)
 $dateStr = Get-Date -Format "yyyyMMdd-HHmm"
 $content = $content -replace 'layout.js', "layout.js?v=$dateStr"
+$content = $content -replace 'work_scroll.js', "work_scroll.js?v=$dateStr"
+$content = $content -replace 'work_sidebar.js', "work_sidebar.js?v=$dateStr"
+$content = $content -replace 'marketing_sidebar.js', "marketing_sidebar.js?v=$dateStr"
 
 [System.IO.File]::WriteAllText($WorkDest, $content, [System.Text.Encoding]::UTF8)
 Write-Host "work.html Transported and Transformed to work/index.html" -ForegroundColor Green
@@ -153,8 +212,26 @@ foreach ($file in $HtmlFiles) {
     }
     
     $content = Get-Content $file.FullName -Raw
+    $modified = $false
+    
     if ($content -match 'layout.js') {
         $content = $content -replace 'layout.js', "layout.js?v=$dateStr"
+        $modified = $true
+    }
+    if ($content -match 'work_scroll.js') {
+        $content = $content -replace 'work_scroll.js', "work_scroll.js?v=$dateStr"
+        $modified = $true
+    }
+    if ($content -match 'work_sidebar.js') {
+        $content = $content -replace 'work_sidebar.js', "work_sidebar.js?v=$dateStr"
+        $modified = $true
+    }
+    if ($content -match 'marketing_sidebar.js') {
+        $content = $content -replace 'marketing_sidebar.js', "marketing_sidebar.js?v=$dateStr"
+        $modified = $true
+    }
+    
+    if ($modified) {
         [System.IO.File]::WriteAllText($file.FullName, $content, [System.Text.Encoding]::UTF8)
         Write-Host "  Busted cache in: $($file.Name)" -ForegroundColor Gray
     }

@@ -1,9 +1,9 @@
-
 function renderWorkSidebar(activePage) {
     // Ensure styles for sidebar are present if not already
-    if (!document.getElementById('sidebar-styles')) {
+    // Use unique ID work-sidebar-styles
+    if (!document.getElementById('work-sidebar-styles')) {
         const style = document.createElement('style');
-        style.id = 'sidebar-styles';
+        style.id = 'work-sidebar-styles';
         style.textContent = `
             .sidebar-link {
                 display: flex;
@@ -14,9 +14,9 @@ function renderWorkSidebar(activePage) {
                 color: #a3a3a3;
                 transition: all 0.2s;
                 font-weight: 500;
+            }
             /* Sidebar transitions */
             #work-sidebar { transition: transform 0.3s ease-in-out; }
-            @media (min-width: 768px) { #work-sidebar { transform: translateX(0) !important; } }
         `;
         document.head.appendChild(style);
     }
@@ -25,9 +25,8 @@ function renderWorkSidebar(activePage) {
     let menuItems = [];
     let isSpeakerPage = activePage === 'speaker' || activePage === 'testimonials' || activePage === 'speaker_topics' || activePage === 'contact';
 
-    if (activePage === 'speaker' || window.location.pathname.includes('work_speaker')) {
+    if (activePage === 'speaker' || window.location.pathname.includes('work_speaker') || window.location.pathname.includes('testimonials')) {
         // Special Speaker Menu
-        // Ensure we catch "work_speaker" as the active page correctly if passed specifically
         isSpeakerPage = true;
     }
 
@@ -50,7 +49,7 @@ function renderWorkSidebar(activePage) {
     ];
 
     const sidebarHTML = `
-    <div id="work-sidebar" class="fixed top-0 left-0 h-full w-64 bg-black border-r border-neutral-800 z-40 transform -translate-x-full md:translate-x-0 overflow-y-auto">
+    <div id="work-sidebar" class="fixed top-0 left-0 h-full w-64 bg-black border-r border-neutral-800 z-[100] transform -translate-x-full md:translate-x-0 overflow-y-auto transition-transform duration-300">
         <div class="p-6">
             <a href="/" class="block mb-8">
                 <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neutral-100 to-neutral-400">Taylor Ryan</span>
@@ -87,12 +86,14 @@ function renderWorkSidebar(activePage) {
     </div>
 
     <!-- Mobile Toggle Button (Fixed) -->
-    <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-50 bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
+    <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-[100] bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
         <i data-lucide="menu" class="w-6 h-6"></i>
     </button>
     `;
 
     document.body.insertAdjacentHTML('afterbegin', sidebarHTML);
+    // Initialize icons
+    if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 function renderSpeakerSidebar(activePage) {
@@ -104,7 +105,7 @@ function renderSpeakerSidebar(activePage) {
     ];
 
     const sidebarHTML = `
-    <div id="work-sidebar" class="fixed top-0 left-0 h-full w-64 bg-black border-r border-neutral-800 z-40 transform -translate-x-full md:translate-x-0 overflow-y-auto">
+    <div id="work-sidebar" class="fixed top-0 left-0 h-full w-64 bg-black border-r border-neutral-800 z-40 transform -translate-x-full md:translate-x-0 overflow-y-auto transition-transform duration-300">
         <div class="p-6">
             <a href="/" class="block mb-8">
                 <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Speaker Hub</span>
@@ -172,16 +173,16 @@ function renderSpeakerSidebar(activePage) {
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
+    </div>
+    
+    <!-- Mobile Toggle Button (Fixed) -->
+    <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-50 bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
     `;
 
-    const container = document.createElement('div');
-    container.innerHTML = sidebarHTML;
-    document.body.prepend(container);
-
-    // Initialize icons if lucide is available
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    document.body.insertAdjacentHTML('afterbegin', sidebarHTML);
+    if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 function renderAboutSidebar(activePage) {
@@ -194,7 +195,7 @@ function renderAboutSidebar(activePage) {
     ];
 
     const sidebarHTML = `
-    <div id="work-sidebar" class="fixed top-0 left-0 h-full w-64 bg-black border-r border-neutral-800 z-40 transform -translate-x-full md:translate-x-0 overflow-y-auto">
+    <div id="work-sidebar" class="fixed top-0 left-0 h-full w-64 bg-black border-r border-neutral-800 z-40 transform -translate-x-full md:translate-x-0 overflow-y-auto transition-transform duration-300">
         <div class="p-6">
             <a href="/" class="block mb-8">
                 <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400">About Hub</span>
@@ -236,20 +237,9 @@ function renderAboutSidebar(activePage) {
     </button>
     `;
 
-    const container = document.createElement('div');
-    container.innerHTML = sidebarHTML;
-    document.body.prepend(container);
-
-    // Initialize icons if lucide is available
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    document.body.insertAdjacentHTML('afterbegin', sidebarHTML);
+    // Initialize icons
+    if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
-// Global Toggle (Mobile)
-function toggleSidebar() {
-    const sidebar = document.getElementById('work-sidebar');
-    if (sidebar) {
-        sidebar.classList.toggle('-translate-x-full');
-    }
-}
+// Global Toggle logic is now handled in work_scroll.js to support all sidebars

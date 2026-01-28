@@ -1,5 +1,4 @@
 const PODCAST_DATA = [
-
   {
     "media": "Trigify",
     "title": "How To Master Online Growth Hacking",
@@ -390,13 +389,68 @@ const PODCAST_DATA = [
     "url2": "https://podcasts.apple.com/us/podcast/the-breakout-growth-podcast/id1483574236?i=1000459393478"
   },
   {
-    "media": "Linkedin Live",
-    "title": "",
-    "url": "",
-    "description": "",
-    "category": "Podcasts",
-    "industry": "",
-    "date": ""
+    "media": "Crush Your Quota",
+    "title": "Marketing with Bootstrapped Methodologies in Quarantine w/ Taylor Ryan",
+    "url": "https://youtu.be/d-aMPIFp7DY",
+    "description": "Bootstrapped growth when everything changed, ruthless prioritization, fast tests, and scrappy channels that still moved the needle during quarantine.",
+    "category": "Podcast",
+    "industry": "startups, digital marketing, SaaS, entrepreneurship, sales",
+    "date": "09-10-2021"
+  },
+  {
+    "media": "Built With Ecom Podcast",
+    "title": "Taylor Ryan Growth Marketing",
+    "url": "https://www.listennotes.com/e/22d34fc29b0b4bfabda7cc9f292d5a44/",
+    "description": "Growth marketing systems for ecommerce, what actually scales, how to think in experiments, and where teams waste budget when they skip fundamentals.",
+    "category": "Podcast",
+    "industry": "ecommerce, digital marketing, startups, DTC, SaaS",
+    "date": "2020-06-24"
+  },
+  {
+    "media": "Startup Club (Clubhouse)",
+    "title": "Marketing for Digital Startups",
+    "url": "https://www.joinclubhouse.com/event/MEpA2NE3",
+    "description": "Live, tactical discussion on getting early traction, building a repeatable acquisition loop, and avoiding the classic startup marketing traps.",
+    "category": "Podcast",
+    "industry": "startups, digital marketing, entrepreneurship, community, SaaS",
+    "date": "N/A"
+  },
+  {
+    "media": "Love the Problem",
+    "title": "15: Taylor Ryan, Barreling Towards Growth Marketing",
+    "url": "https://creators.spotify.com/pod/show/love-the-problem/episodes/15---Taylor-Ryan-and-barreling-towards-growth-marketing-e5mpk3",
+    "description": "Career story meets practical growth, how to build momentum with limited resources, and why speed and focus beat \u201cperfect\u201d every time.",
+    "category": "Podcast",
+    "industry": "startups, digital marketing, entrepreneurship, SaaS, media",
+    "date": "2019-09-30",
+    "url2": "https://open.spotify.com/episode/06EYOe0P7uOdtnsWzFTF2w"
+  },
+  {
+    "media": "Inside Outside Innovation",
+    "title": "Taylor Ryan on Startup-Corporate Matchmaking Through Data & Crowdsourcing",
+    "url": "https://insideoutside.io/podcast/ep-155-valuer-ais-taylor-ryan-on-startup-corporate-matchmaking-through-data-crowdsourcing/",
+    "description": "Crowdsourced intelligence to match startups with corporates, what makes partnerships actually work, and how Valuer.ai approached innovation with data.",
+    "category": "Podcast",
+    "industry": "corporate innovation, startups, venture, SaaS, enterprise innovation",
+    "date": "2019-07-09"
+  },
+  {
+    "media": "A History of Architecture, the Fundamental Process Podcast",
+    "title": "057: With Taylor Ryan About the Future of Design",
+    "url": "https://podcasts.apple.com/us/podcast/057-with-taylor-ryan-about-the-future-of-design/id959437457?i=1000431567449",
+    "description": "Design thinking, user experience, and where product and architecture collide, plus a forward-looking take on how \u201cgood design\u201d evolves.",
+    "category": "Podcast",
+    "industry": "architecture, design, UX, education, product",
+    "date": "2019-02-11"
+  },
+  {
+    "media": "The Compassionate Capitalist",
+    "title": "Yet Another Way AI Is Making Business More Efficient",
+    "url": "https://www.podomatic.com/podcasts/kugarand/episodes/2019-02-19T19_00_00+00_00",
+    "description": "AI as a force-multiplier for ops, marketing, and decision-making, what \u201cefficiency\u201d really means in practice, and where leaders should lean in first.",
+    "category": "Podcast",
+    "industry": "investing, entrepreneurship, AI, business, startups",
+    "date": "2019-02-19"
   },
   {
     "media": "LinkedIn Live",
@@ -405,7 +459,7 @@ const PODCAST_DATA = [
     "description": "Sit-down with Shanon Marks on why TikTok became a breakout channel, plus how to spot and exploit new platforms before they get saturated.",
     "category": "Linkedin Live",
     "industry": "Social Media, Digital Marketing, Creator Economy, Consumer Apps",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -414,7 +468,7 @@ const PODCAST_DATA = [
     "description": "Live panel on how startups keep moving during uncertainty, the future of work, and how AI-driven knowledge sharing changes how teams execute.",
     "category": "Linkedin Live",
     "industry": "Innovation, Future of Work, HR Tech, Startups, AI",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -423,7 +477,7 @@ const PODCAST_DATA = [
     "description": "Rapid experimentation session with Really Good Innovation, focused on faster test cycles, learning loops, and building innovation muscle when priorities shift mid-stream.",
     "category": "Linkedin Live",
     "industry": "Innovation, Product, Corporate Strategy, R&D",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -432,7 +486,7 @@ const PODCAST_DATA = [
     "description": "Lessons and case studies from the 2008 downturn, what to cut, what to double down on, and how bootstrapped execution can move you from underdog to market leader.",
     "category": "Linkedin Live",
     "industry": "Business Strategy, Entrepreneurship, Finance, Startups",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -441,7 +495,7 @@ const PODCAST_DATA = [
     "description": "Breakdown of recession winners and pivots, where to keep spending, how to unlock new revenue streams, and why marketing turns into offense (not overhead) during chaos.",
     "category": "Linkedin Live",
     "industry": "Marketing, Business Strategy, Entrepreneurship, Startups",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -450,7 +504,7 @@ const PODCAST_DATA = [
     "description": "Real talk career story: getting experience without the perfect job, learning a craft, surviving mistakes, and building momentum during a tough economy using growth-hacking thinking.",
     "category": "Linkedin Live",
     "industry": "Digital Marketing, Career Development, Entrepreneurship, Education",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -459,7 +513,7 @@ const PODCAST_DATA = [
     "description": "Interview with conversion expert Pedro Cort\u00e9s on landing pages vs homepages, copy that converts, keyword analysis, and experimentation tools for UX insight.",
     "category": "Linkedin Live",
     "industry": "UX, Conversion Optimization, Digital Marketing, SaaS",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -468,7 +522,7 @@ const PODCAST_DATA = [
     "description": "Tactical session on staying aggressive during COVID, using free tools, growth hacks, and momentum plays while competitors pull back.",
     "category": "Linkedin Live",
     "industry": "Digital Marketing, Startups, Crisis Management, Tools",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -477,7 +531,7 @@ const PODCAST_DATA = [
     "description": "Conversation with Tamara Ghandour (Go to Launch Street) on human-centric innovation, how industries change in a new economy, and when to defend the core vs chase new growth models.",
     "category": "Linkedin Live",
     "industry": "Innovation, Leadership, Strategy, Consulting",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -486,7 +540,7 @@ const PODCAST_DATA = [
     "description": "Where the best tactics actually come from: the communities, sites, and forums that feed your next experiments, plus the mindset of never being \u201cdone learning.\u201d",
     "category": "Linkedin Live",
     "industry": "Marketing, Community, Professional Development, Tools",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -495,7 +549,7 @@ const PODCAST_DATA = [
     "description": "Quick-hit SEO session on what\u2019s driving recent wins, and how to stack small changes into a noticeable organic traffic spike.",
     "category": "Linkedin Live",
     "industry": "SEO, Content Marketing, Digital Marketing",
-    "date": ""
+    "date": "N/A"
   },
   {
     "media": "LinkedIn Live",
@@ -504,6 +558,56 @@ const PODCAST_DATA = [
     "description": "Practical startup advice for tech teams, covering execution habits, prioritization, and the operating rhythm that keeps growth compounding.",
     "category": "Linkedin Live",
     "industry": "Startups, Technology, Entrepreneurship, Management",
-    "date": ""
+    "date": "N/A"
+  },
+  {
+    "media": "LinkedIn Live",
+    "title": "Startup Advice: How has my workflow changed?",
+    "url": "https://www.linkedin.com/posts/taylorryan_startup-advice-for-tech-startups-and-beyond-activity-6702512752889528320-07Wj",
+    "description": "How the workflow evolved under pressure, what got simplified, what got automated, and the habits that kept execution fast without burning out.",
+    "category": "Linkedin Live",
+    "industry": "startups, leadership, operations, digital marketing, productivity",
+    "date": "2020-08-21",
+    "url2": "Fabian B\u00f6ck + Klint"
+  },
+  {
+    "media": "LinkedIn Live",
+    "title": "Landing Page Optimization and UX with Pedro Cort\u00e9s",
+    "url": "https://www.linkedin.com/posts/taylorryan_growth-hacking-and-landing-pages-growth-activity-6653231843858616320-coBd",
+    "description": "Landing pages that convert, the UX mistakes that kill signups, and how to test messaging and layout without \u201credesigning the whole world.\u201d",
+    "category": "Linkedin Live",
+    "industry": "digital marketing, conversion optimization, SaaS, startups, ecommerce",
+    "date": "2020-04-07",
+    "url2": "Pedro Cort\u00e9s + Klint"
+  },
+  {
+    "media": "LinkedIn Live",
+    "title": "Innovation vs Innovation Theater with Shannon Marks",
+    "url": "https://www.linkedin.com/posts/taylorryan_exploding-growth-on-new-platforms-tiktok-activity-6706595647061073920-fGZP",
+    "description": "Calling out performative innovation, what real innovation signals look like, and how teams can ship outcomes instead of slide decks.",
+    "category": "Linkedin Live",
+    "industry": "corporate innovation, startups, leadership, digital marketing, product",
+    "date": "2020-09-01",
+    "url2": "Shannon Marks + Klint"
+  },
+  {
+    "media": "LinkedIn Live",
+    "title": "Start-ups and Growth During Uncertain Times",
+    "url": "https://www.linkedin.com/posts/taylorryan_live-with-max-elsterceo-office-at-starmind-activity-6663870772756520960-UD1-",
+    "description": "How startups kept growing in uncertainty, what leaders did differently, and where decision-making got sharper when resources got tight.",
+    "category": "Linkedin Live",
+    "industry": "startups, leadership, SaaS, entrepreneurship, venture",
+    "date": "2020-05-06",
+    "url2": "CEO of Starmind + Founder of Blair"
+  },
+  {
+    "media": "LinkedIn Live",
+    "title": "Really Good Innovation: Webinar to LinkedIn",
+    "url": "https://www.linkedin.com/posts/taylorryan_rapid-experimentation-rgi-activity-6734880668616130562-L9Lx",
+    "description": "Rapid experimentation, tighter feedback loops, and how innovation teams can validate ideas faster with fewer meetings and clearer gates.",
+    "category": "Linkedin Live",
+    "industry": "corporate innovation, startups, leadership, product, operations",
+    "date": "2020-11-18",
+    "url2": "RGI - Really Good Innovation Summit"
   }
 ];
