@@ -42,6 +42,7 @@ function renderMarketingSidebar(activePage) {
         { id: 'overview', label: 'Marketing Hub', icon: 'home', url: '/portfolio/marketing/index.html' },
         { id: 'content-creator', label: 'Content Creator', icon: 'users', url: '/portfolio/marketing/content_creator.html', color: 'text-purple-400' },
         { id: 'email-outreach', label: 'Email Outreach', icon: 'mail', url: '/portfolio/marketing/email_outreach.html', color: 'text-blue-400' },
+        { id: 'social-media', label: 'Social Media', icon: 'share-2', url: '/portfolio/marketing/social_media/index.html', color: 'text-cyan-400' },
         { id: 'affiliates', label: 'Affiliate Program', icon: 'share-2', url: '/portfolio/marketing/affiliates.html', color: 'text-orange-400' },
         { id: 'case-studies', label: 'Case Studies', icon: 'file-text', url: '/portfolio/marketing/case_studies.html', color: 'text-yellow-400' },
         { id: 'testimonials', label: 'Testimonials', icon: 'message-square', url: '/portfolio/marketing/testimonials.html', color: 'text-pink-400' },
