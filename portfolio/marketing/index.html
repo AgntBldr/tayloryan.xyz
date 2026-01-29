@@ -33,6 +33,23 @@
     <script src="../../assets/js/marketing_full_data.js"></script>
     <!-- Sidebar -->
     <script src="../../assets/js/marketing_sidebar.js"></script>
+    <script src="../../assets/js/social_media_data.js"></script>
+    <script>
+        // Merge Social Media Data into Marketing Full Data on the fly
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof SOCIAL_MEDIA_DATA !== 'undefined' && typeof MARKETING_FULL_DATA !== 'undefined') {
+                const mappedSocial = SOCIAL_MEDIA_DATA.map(item => ({
+                    title: item.resource,
+                    description: item.description,
+                    url: (item.url && typeof item.url === 'string' && item.url.startsWith('http')) ? item.url : null,
+                    category: item.category, // Content Strategy, Content Creation, Content Publishing
+                    type: item.type
+                }));
+                // Prepend or concat? Concat is fine.
+                MARKETING_FULL_DATA = MARKETING_FULL_DATA.concat(mappedSocial);
+            }
+        });
+    </script>
 
     <div class="flex-1 flex pt-20 h-screen overflow-hidden">
 
@@ -198,6 +215,7 @@
                 // Get all items for this category to count them
                 const allItems = MARKETING_FULL_DATA.filter(item =>
                     item.category === section.category ||
+                    (section.id === 'social-media' && ['Content Strategy', 'Content Creation', 'Content Publishing'].includes(item.category)) ||
                     (section.category === 'Email Outreach' && item.category === 'Email') // Fallback if categories vary
                 );
 
