@@ -1,4 +1,4 @@
-const SKILLS_DATA = {
+﻿const SKILLS_DATA = {
     "themes": [
         {
             "title": "Strategic Brand Development",

@@ -45,6 +45,8 @@ function renderWorkSidebar(activePage) {
         { id: 'writing', label: 'Writing', icon: 'pen-tool', href: '/work_writing/', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
         { id: 'courses', label: 'Courses', icon: 'graduation-cap', href: '/work_courses/', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
         { id: 'tutorials', label: 'Tutorials', icon: 'video', href: '/work_tutorials/', color: 'text-red-500', bg: 'bg-red-500/10', border: 'border-red-500/20' },
+        { id: 'video', label: 'Video Work', icon: 'play-circle', href: '/work_video/', color: 'text-orange-500', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
+        { id: 'some', label: 'SoMe Work', icon: 'share-2', href: '/work_some/', color: 'text-pink-500', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
         { id: 'marketing', label: 'Marketing Hub', icon: 'megaphone', href: '/portfolio/marketing/', color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/20' }
     ];
 

@@ -1,4 +1,4 @@
-const PODCAST_DATA = [
+﻿const PODCAST_DATA = [
   {
     "media": "Trigify",
     "title": "How To Master Online Growth Hacking",

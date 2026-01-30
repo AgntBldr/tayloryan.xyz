@@ -1,4 +1,4 @@
-window.MARKETING_FULL_DATA = [
+﻿window.MARKETING_FULL_DATA = [
   {
     "id": "content-creator-internal-resources---content-creators-sheet",
     "category": "Content Creator",

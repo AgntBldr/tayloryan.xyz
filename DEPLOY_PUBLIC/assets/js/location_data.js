@@ -1,4 +1,4 @@
-const LOCATION_DATA = {
+﻿const LOCATION_DATA = {
     "Aarhus, Denmark": [56.1629, 10.2039],
     "Altrincham, United Kingdom": [53.3838, -2.3547],
     "Amsterdam, Netherlands": [52.3676, 4.9041],
@@ -6,7 +6,7 @@ const LOCATION_DATA = {
     "Atlanta, United States": [33.7490, -84.3880],
     "Augsburg, Germany": [48.3705, 10.8978],
     "Austin, United States": [30.2672, -97.7431],
-    "Bagsværd, Denmark": [55.7667, 12.4500],
+    "BagsvÃ¦rd, Denmark": [55.7667, 12.4500],
     "Ballerup, Denmark": [55.7333, 12.3667],
     "Belgrade, Serbia": [44.7866, 20.4489],
     "Bengaluru, India": [12.9716, 77.5946],
@@ -35,10 +35,10 @@ const LOCATION_DATA = {
     "Lisbon, Portugal": [38.7223, -9.1393],
     "London, United Kingdom": [51.5074, -0.1278],
     "Luxembourg, Luxembourg": [49.6116, 6.1319],
-    "Malmö, Sweden": [55.6049, 13.0038],
+    "MalmÃ¶, Sweden": [55.6049, 13.0038],
     "Milan, Italy": [45.4642, 9.1900],
     "Mumbai, India": [19.0760, 72.8777],
-    "Neustadt an der Weinstraße, Germany": [49.3506, 8.1360],
+    "Neustadt an der WeinstraÃŸe, Germany": [49.3506, 8.1360],
     "New York, United States": [40.7128, -74.0060],
     "Norwalk, United States": [41.1176, -73.4078],
     "Palo Alto, United States": [37.4419, -122.1430],

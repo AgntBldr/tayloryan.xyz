@@ -1,4 +1,4 @@
-const TESTIMONIALS_DATA = [
+﻿const TESTIMONIALS_DATA = [
     {
         "quote": "This was by far the best 1 hour of my time that I have spent in a long time.",
         "name": "Anonymous",

@@ -1,4 +1,4 @@
-const PROJECTS_DATA = [
+﻿const PROJECTS_DATA = [
   {
     "id": "vibecode-portfolio",
     "project": "Vibecode Project Portfolio",

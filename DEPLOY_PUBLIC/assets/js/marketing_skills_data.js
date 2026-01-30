@@ -1,4 +1,4 @@
-const MARKETING_SKILLS_DATA = {
+﻿const MARKETING_SKILLS_DATA = {
     "Content": [
         {
             "project": "Website Information Architecture Map",

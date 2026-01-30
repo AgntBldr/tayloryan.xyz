@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoMe Work | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="../assets/js/some_work_data.js"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .glass-panel {
+            background: rgba(23, 23, 23, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen">
+    <script src="../assets/js/layout.js?v=20260130-1136"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260130-1136"></script>
+    <script src="../assets/js/work_scroll.js?v=20260130-1136"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render Sidebar (will need to update work_sidebar.js?v=20260130-1136 to handle 'some')
+            if (!document.getElementById('work-sidebar')) {
+                // Temporary fallback or assume work_sidebar.js?v=20260130-1136 will be updated
+                if (typeof renderWorkSidebar === 'function') renderWorkSidebar('some');
+            }
+            renderResources();
+            lucide.createIcons();
+        });
+    </script>
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6 md:pl-72 transition-all">
+        <!-- Header -->
+        <div class="mb-12">
+            <span class="text-pink-500 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6">SoMe Content</h1>
+            <p class="text-xl text-neutral-400 max-w-3xl">
+                A collection of social media posts, articles, and content strategies.
+            </p>
+        </div>
+
+        <div id="resources-container">
+            <!-- Injected via JS -->
+            <div class="text-center py-20">
+                <i data-lucide="loader" class="w-8 h-8 text-pink-500 animate-spin mx-auto mb-4"></i>
+                <p class="text-neutral-500">Loading resources...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feature-Rich Resource Modal (Vibecoding Style) -->
+    <div id="resource-modal" onclick="closeModal()"
+        class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4">
+        <div onclick="event.stopPropagation()"
+            class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-200 scrollbar-hide"
+            id="modal-content">
+
+            <!-- Close Button -->
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
+            </button>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-12 p-8 md:p-12">
+                <!-- Left Column: Visuals & Context -->
+                <div class="space-y-8">
+
+                    <!-- Icon / Visual Placeholder -->
+                    <div
+                        class="bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl border border-white/5 p-12 flex items-center justify-center relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div id="modal-icon-large"
+                            class="text-pink-400 transform group-hover:scale-110 transition-transform duration-500">
+                            <!-- Large Icon Injected Here -->
+                        </div>
+                    </div>
+
+                    <!-- Metadata Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-neutral-800/30 p-4 rounded-xl border border-neutral-700">
+                            <span class="block text-xs text-neutral-500 uppercase tracking-wider mb-2">Category</span>
+                            <div id="modal-category-badge" class="font-mono text-pink-400 font-bold text-sm">
+                                Category</div>
+                        </div>
+                        <div class="bg-neutral-800/30 p-4 rounded-xl border border-neutral-700">
+                            <span class="block text-xs text-neutral-500 uppercase tracking-wider mb-2">Type</span>
+                            <div id="modal-type-badge" class="font-bold text-white text-sm">Type</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Details & Actions -->
+                <div class="space-y-8 flex flex-col">
+                    <div>
+                        <h2 id="modal-title-main"
+                            class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">Title</h2>
+                        <p id="modal-desc-main" class="text-neutral-300 text-lg leading-relaxed whitespace-pre-wrap">
+                            Description...</p>
+                    </div>
+
+                    <!-- Action Button Container -->
+                    <div id="modal-actions-container" class="pt-8 border-t border-neutral-800 mt-auto">
+                        <!-- Buttons injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let searchQuery = '';
+        let activeFilter = 'All';
+
+        function renderResources() {
+            const container = document.getElementById('resources-container');
+
+            if (typeof SOME_WORK_DATA === 'undefined') {
+                container.innerHTML = '<div class="text-center text-red-500">Error: Data not loaded</div>';
+                return;
+            }
+
+            // 1. Filter Logic
+            let data = SOME_WORK_DATA;
+
+            if (activeFilter !== 'All') {
+                data = data.filter(item => item.category === activeFilter);
+            }
+
+            if (searchQuery) {
+                const lowerQuery = searchQuery.toLowerCase();
+                data = data.filter(item =>
+                    item.title.toLowerCase().includes(lowerQuery) ||
+                    (item.description && item.description.toLowerCase().includes(lowerQuery)) ||
+                    (item.post_text && item.post_text.toLowerCase().includes(lowerQuery))
+                );
+            }
+
+            // Collect Unique Categories
+            const allCategories = ['All', ...new Set(SOME_WORK_DATA.map(i => i.category).filter(c => c))];
+
+            let html = `
+                <!-- Search & Filters -->
+                <div class="flex flex-col gap-6 mb-12">
+                    <!-- Search Bar -->
+                    <div class="flex flex-col md:flex-row gap-4 bg-neutral-900/50 p-4 rounded-2xl border border-white/5 items-center">
+                        <div class="relative flex-1 w-full">
+                            <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"></i>
+                            <input type="text" placeholder="Search SoMe resources..." value="${searchQuery}" 
+                                oninput="searchQuery = this.value; renderResources()"
+                                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 focus:outline-none transition-all placeholder:text-neutral-600">
+                        </div>
+                        <div class="px-4 py-3 bg-pink-500/10 rounded-xl border border-pink-500/20 text-pink-400 text-sm font-bold whitespace-nowrap">
+                            ${data.length} Resources
+                        </div>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap gap-2">
+                         ${allCategories.map(cat => `
+                            <button onclick="activeFilter = '${cat.replace(/'/g, "\\'")}'; renderResources()" 
+                                class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider border transition-all ${activeFilter === cat ? 'bg-pink-500 text-white border-pink-500' : 'bg-neutral-900 text-neutral-400 border-neutral-700 hover:border-neutral-500 hover:text-white'}">
+                                ${cat}
+                            </button>
+                         `).join('')}
+                    </div>
+                </div>
+            `;
+
+            if (data.length === 0) {
+                html += `
+                    <div class="text-center py-20">
+                        <div class="bg-neutral-900/50 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 border border-white/5">
+                            <i data-lucide="search-x" class="w-8 h-8 text-neutral-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">No resources found</h3>
+                        <button onclick="searchQuery = ''; activeFilter = 'All'; renderResources()" class="mt-4 text-pink-400 hover:text-pink-300 font-bold text-sm">Clear Filters</button>
+                    </div>
+                `;
+                container.innerHTML = html;
+                lucide.createIcons();
+                return;
+            }
+
+            // Render Grid
+            html += '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">';
+            html += data.map(item => createCard(item)).join('');
+            html += '</div>';
+
+            container.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function createCard(item) {
+            let icon = 'file-text';
+            const lowerTitle = item.title.toLowerCase();
+            if (lowerTitle.includes('sheet') || lowerTitle.includes('data')) icon = 'table';
+            if (lowerTitle.includes('template') || lowerTitle.includes('script')) icon = 'copy';
+            if (lowerTitle.includes('video') || lowerTitle.includes('recording')) icon = 'video';
+            if (lowerTitle.includes('tool') || lowerTitle.includes('software')) icon = 'wrench';
+
+            const safeTitle = item.title.replace(/'/g, "\\'");
+            const safeCat = item.category ? item.category.substring(0, 20) : 'General';
+            // Use post_text excerpt or description for card
+            const desc = item.post_text ? item.post_text.substring(0, 100) + '...' : (item.description || '');
+
+            return `
+            <div onclick="openModal('${safeTitle}')"
+                class="bg-neutral-900 border border-white/5 p-6 rounded-2xl hover:border-pink-500/50 hover:bg-neutral-800/50 transition-all group cursor-pointer h-full flex flex-col relative">
+                
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-neutral-800 rounded-lg text-neutral-400 group-hover:text-pink-400 group-hover:bg-pink-500/10 transition-colors">
+                        <i data-lucide="${icon}" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-neutral-600 uppercase tracking-wider border border-white/5 px-2 py-1 rounded bg-black/20 h-fit max-w-[60%] truncate text-right">${safeCat}</span>
+                </div>
+
+                <h4 class="text-lg font-bold text-white mb-2 leading-tight group-hover:text-pink-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+                    ${item.title}</h4>
+                <p class="text-sm text-neutral-400 line-clamp-3 mb-4 flex-1">${desc}</p>
+                
+                <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-500">
+                    <span>View Data</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform text-pink-500"></i>
+                </div>
+            </div>
+            `;
+        }
+
+        function openModal(title) {
+            const item = SOME_WORK_DATA.find(i => i.title === title);
+            if (!item) return;
+
+            document.getElementById('modal-title-main').textContent = item.title;
+
+            // Rich Text Logic
+            let textContent = item.post_text || item.summary || item.description || "No details provided.";
+            const descEl = document.getElementById('modal-desc-main');
+            descEl.textContent = textContent;
+
+            document.getElementById('modal-category-badge').textContent = item.category || 'General';
+            document.getElementById('modal-type-badge').textContent = item.platform || item.type || 'Resource';
+
+            // Multiple Links Logic
+            const actionContainer = document.getElementById('modal-actions-container');
+            actionContainer.innerHTML = '';
+
+            if (item.links && item.links.length > 0) {
+                const buttons = item.links.map(linkObj => `
+                    <a href="${linkObj.url}" target="_blank"
+                        class="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-pink-400 hover:text-white transition-all transform hover:scale-[1.02] shadow-xl hover:shadow-pink-500/20 mb-3">
+                        View ${linkObj.label} <i data-lucide="external-link" class="w-5 h-5"></i>
+                    </a>
+                `).join('');
+                actionContainer.innerHTML = buttons;
+            } else if (item.url && item.url.startsWith('http')) {
+                // Fallback to single URL
+                actionContainer.innerHTML = `
+                    <a href="${item.url}" target="_blank"
+                        class="flex items-center justify-center gap-2 w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-pink-400 hover:text-white transition-all transform hover:scale-[1.02] shadow-xl hover:shadow-pink-500/20">
+                        View Live Post <i data-lucide="external-link" class="w-5 h-5"></i>
+                    </a>
+                `;
+            } else {
+                actionContainer.innerHTML = '<span class="text-neutral-500 italic block text-center py-4">No public link available</span>';
+            }
+
+            // Icon Logic
+            const iconContainer = document.getElementById('modal-icon-large');
+            let iconName = 'file-text';
+            const lowerTitle = item.title.toLowerCase();
+            const lowerPlatform = (item.platform || '').toLowerCase();
+
+            if (lowerPlatform.includes('linkedin')) iconName = 'linkedin';
+            else if (lowerPlatform.includes('twitter') || lowerPlatform.includes('x')) iconName = 'twitter';
+            else if (lowerPlatform.includes('instagram')) iconName = 'instagram';
+            else if (lowerPlatform.includes('youtube')) iconName = 'youtube';
+            else if (lowerTitle.includes('sheet') || lowerTitle.includes('data')) iconName = 'table';
+            else if (lowerTitle.includes('video')) iconName = 'video';
+            else if (lowerTitle.includes('tool')) iconName = 'wrench';
+
+            iconContainer.innerHTML = `<i data-lucide="${iconName}" class="w-24 h-24 stroke-[1px]"></i>`;
+
+            // Visual Container Style
+            const visualContainer = iconContainer.parentElement;
+            visualContainer.className = "bg-neutral-900 rounded-2xl border border-white/5 p-12 flex items-center justify-center relative overflow-hidden group";
+
+            // Show Modal
+            const modal = document.getElementById('resource-modal');
+            const content = document.getElementById('modal-content');
+            lucide.createIcons();
+
+            modal.classList.remove('hidden');
+            void modal.offsetWidth; // force reflow
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('resource-modal');
+            const content = document.getElementById('modal-content');
+
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 200);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-const SOCIAL_MEDIA_DATA = [
+﻿const SOCIAL_MEDIA_DATA = [
     // --- CONTENT STRATEGY ---
     {
         section: "Content Strategy",

@@ -1,4 +1,4 @@
-window.SPEAKER_ENGAGEMENTS = [
+﻿window.SPEAKER_ENGAGEMENTS = [
   {
     "Event Name": "JetBrains Global Tech Leads Off-Site",
     "Date (DD/MM/YY)": "Jan 19, 2026",

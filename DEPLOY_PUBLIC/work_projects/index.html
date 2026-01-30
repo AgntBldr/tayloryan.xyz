@@ -4,22 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Taylor Ryan</title>
+    <title>Builds & Projects | Taylor Ryan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #000;
-            color: #fff;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        /* Modal Styles */
-        .modal-overlay {
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
         }
 
         .scrollbar-hide::-webkit-scrollbar {
@@ -31,54 +25,44 @@
             scrollbar-width: none;
         }
     </style>
-    <link rel="canonical" href="https://taylorryan.xyz/work_projects/">
-    <meta property="og:url" content="https://taylorryan.xyz/work_projects/">
 </head>
 
-<body class="bg-black min-h-screen">
-    <script src="/assets/js/layout.js?v=20260129-1434?v=20260129-1433?v=20260129-1430?v=20260129-1402?v=20260129-1352?v=20260129-1343?v=20260129-1314?v=20260128-0754?v=20260128-0749?v=20260128-0740?v=20260127-2208?v=20260127-2207?v=20260127-1855?v=20260127-1852?v=20260127-1801?v=20260127-1756?v=20260127-1721?v=20260127-1546?v=20260127-1537?v=20260127-1521?v=20260127-1521?v=20260127-1519?v=20260127-1518?v=20260127-2"></script>
-    <script src="/assets/js/work_sidebar.js?v=20260129-1434?v=20260129-1433?v=20260129-1430?v=20260129-1402?v=20260129-1352?v=20260129-1343?v=20260129-1314?v=20260128-0754?v=20260128-0749?v=20260128-0740?v=20260127-2208?v=20260127-2207?v=20260127-1855?v=20260127-1852?v=20260127-1801"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            renderWorkSidebar('projects');
-            lucide.createIcons();
-        });
-    </script>
+<body class="bg-[#050505] min-h-screen">
 
-    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6 transition-all">
+    <!-- Sidebar (Injected) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <main class="md:ml-20 transition-all duration-300 p-6 md:p-12 max-w-7xl mx-auto">
 
         <!-- Header -->
-        <div class="mb-16">
-            <span class="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Builds & Projects</h1>
-            <p class="text-neutral-400 text-xl max-w-3xl leading-relaxed">
-                Automated agents, AI workflows, educational courses, and marketing infrastructure.
+        <header class="mb-20 pt-8">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-400 mb-6">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Active Portfolio
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 p-2">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-neutral-500">Builds
+                    & Projects</span>
+            </h1>
+            <p class="text-xl text-neutral-400 max-w-2xl leading-relaxed">
+                A curated collection of workflows, mini-tools, courses, and marketing infrastructure.
             </p>
-        </div>
+        </header>
 
         <!-- Section: Vibecoding -->
         <section class="mb-32">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-                <div>
-                    <h2 class="text-3xl font-bold text-white flex items-center gap-3 mb-3">
-                        <a href="/work_vibecoding/"
-                            class="flex items-center gap-3 hover:text-blue-400 transition-colors">
-                            <i data-lucide="code-2" class="text-blue-400"></i> Vibecoding
-                        </a>
-                    </h2>
-                    <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
-                        Experimental AI-powered coding projects and voice-controlled development workflows.
-                    </p>
-                </div>
-                <div class="shrink-0">
-                    <a href="/work_vibecoding/" id="btn-vibecoding"
-                        class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-blue-500 transition-all block text-center">
-                        See All Projects
-                    </a>
-                </div>
-            </div>
+            <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+                <a href="/work_vibecoding/" class="flex items-center gap-3 hover:text-blue-400 transition-colors">
+                    <i data-lucide="code-2" class="text-blue-400"></i> Vibecoding
+                </a>
+            </h2>
+            <p class="text-neutral-400 mb-8 max-w-2xl text-sm">
+                Function over form. AI-generated workflows and rapid development prototypes.
+            </p>
             <div id="vibecoding-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Projects injected via JS (Limited to 2) -->
+                <!-- Injected via JS -->
             </div>
         </section>
 
@@ -93,7 +77,7 @@
                         </a>
                     </h2>
                     <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
-                        Gamified learning paths and interactive challenges to master new skills.
+                        Complex, multi-step projects and strategic initiatives.
                     </p>
                 </div>
                 <div class="shrink-0">
@@ -103,12 +87,12 @@
                     </a>
                 </div>
             </div>
-            <div id="quests-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div id="quests-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Injected via JS -->
             </div>
         </section>
 
-        <!-- Section: Speaker -->
+        <!-- Section: Public Speaking -->
         <section class="mb-32">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <div>
@@ -118,13 +102,13 @@
                         </a>
                     </h2>
                     <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
-                        Keynote speeches, panels, and workshops on AI, marketing, and technology.
+                        Keynotes, panels, and workshops on growth, AI, and innovation.
                     </p>
                 </div>
                 <div class="shrink-0">
                     <a href="/work_speaker/" id="btn-speaker"
                         class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-pink-500 transition-all block text-center">
-                        See All Speaking
+                        See All Engagements
                     </a>
                 </div>
             </div>
@@ -144,7 +128,7 @@
                         </a>
                     </h2>
                     <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
-                        In-depth conversations on the future of tech, AI, and growth strategies.
+                        Guest appearances and interviews on technology and entrepreneurship.
                     </p>
                 </div>
                 <div class="shrink-0">
@@ -333,6 +317,40 @@
                     </div>
                 </a>
 
+                <!-- SoMe Work (Added) -->
+                <a href="/work_some/"
+                    class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-pink-500/50 transition-all group flex flex-col">
+                    <div
+                        class="mb-6 inline-flex p-3 rounded-xl bg-pink-500/10 text-pink-400 group-hover:bg-pink-500/20 transition-colors w-fit">
+                        <i data-lucide="share-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">
+                        SoMe Work</h3>
+                    <p class="text-neutral-400 mb-6 leading-relaxed text-sm flex-1">Social media content strategy and
+                        collection.</p>
+                    <div
+                        class="mt-auto flex items-center gap-2 text-sm font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Video Work (Added) -->
+                <a href="/work_video/"
+                    class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-red-500/50 transition-all group flex flex-col">
+                    <div
+                        class="mb-6 inline-flex p-3 rounded-xl bg-red-500/10 text-red-500 group-hover:bg-red-500/20 transition-colors w-fit">
+                        <i data-lucide="play-circle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors">
+                        Video Work</h3>
+                    <p class="text-neutral-400 mb-6 leading-relaxed text-sm flex-1">Video workshop and tutorial library.
+                    </p>
+                    <div
+                        class="mt-auto flex items-center gap-2 text-sm font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
             </div>
         </section>
 
@@ -354,16 +372,20 @@
     </div>
 
     <!-- Data & Scripts -->
-    <script src="/assets/js/layout.js?v=20260129-1434?v=20260129-1433?v=20260129-1430?v=20260129-1402?v=20260129-1352?v=20260129-1343?v=20260129-1314?v=20260128-0754?v=20260128-0749?v=20260128-0740?v=20260127-2208?v=20260127-2207?v=20260127-1855?v=20260127-1852?v=20260127-1801?v=20260127-1756?v=20260127-1721?v=20260127-1546?v=20260127-1537?v=20260127-1521?v=20260127-1521?v=20260127-1519?v=20260127-1518?v=20260127-2"></script>
-    <script src="/assets/js/projects_data.js?v=20260127-2"></script>
-    <script src="/quests_data.js"></script>
-    <script src="/assets/js/email_outreach_data.js"></script>
-    <script src="/assets/js/writing_data.js"></script>
-    <script src="/assets/js/podcast_data.js"></script>
-    <script src="/assets/js/speaker_data.js"></script>
-    <script src="/assets/data_tutorials.js"></script>
+    <script src="../assets/js/layout.js?v=20260130-1136"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260130-1136"></script>
+    <script src="../assets/js/projects_data.js"></script>
+    <script src="../assets/js/quests_data.js"></script>
+    <script src="../assets/js/email_outreach_data.js"></script>
+    <script src="../assets/js/writing_data.js"></script>
+    <script src="../assets/js/podcast_data.js"></script>
+    <script src="../assets/js/speaker_data.js"></script>
+    <script src="../assets/data_tutorials.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderWorkSidebar === 'function') {
+                renderWorkSidebar('projects');
+            }
             renderProjects();
             renderCourses();
             renderQuests();
@@ -374,6 +396,14 @@
             lucide.createIcons();
         });
 
+        // ... existing JS functions (renderProjects, renderCourses, openModal, etc.) ...
+        // Note: I will just include the rest of the JS from the DEPLOY_PUBLIC file here, assuming it's correct. 
+        // For brevity in this tool call, I'm only including the updated HTML structure. 
+        // Realistically, I need to copy the *entire* content.
+        // I will trust the user to have the JS. 
+        // Wait, I am overwriting the file. I MUST include the scripts.
+        // I'll grab the scripts from the view_file output I just got.
+
         function renderProjects() {
             const grid = document.getElementById('vibecoding-grid');
             if (typeof PROJECTS_DATA === 'undefined') {
@@ -381,8 +411,11 @@
                 return;
             }
 
+            // Filter items without URL
+            const validProjects = PROJECTS_DATA.filter(p => p.url);
+
             // Limit to top 2
-            const top2 = PROJECTS_DATA.slice(0, 2);
+            const top2 = validProjects.slice(0, 2);
 
             grid.innerHTML = top2.map(p => `
                 <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all cursor-pointer group h-full flex flex-col" onclick="openModal('${p.id}')">
@@ -440,8 +473,11 @@
                 return;
             }
 
+            // Filter items without URL (website or udemy_link)
+            const validCourses = COURSES_DATA.filter(c => c.website || c.udemy_link);
+
             // Limit to top 2
-            const top2 = COURSES_DATA.slice(0, 2);
+            const top2 = validCourses.slice(0, 2);
 
             grid.innerHTML = top2.map(c => {
                 // Determine stats to show
@@ -800,12 +836,15 @@
                 return;
             }
 
+            // Filter items without URL
+            const validQuests = quests.filter(q => q.url);
+
             // Update CTA count
             const btn = document.getElementById('btn-quests');
-            if (btn) btn.innerText = `See All ${quests.length} Quests`;
+            if (btn) btn.innerText = `See All ${validQuests.length} Quests`;
 
             // Limit to top 2
-            const top2 = quests.slice(0, 2);
+            const top2 = validQuests.slice(0, 2);
 
             grid.innerHTML = top2.map(q => `
                 <a href="/portfolio/quests/" class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all cursor-pointer group h-full flex flex-col">
@@ -836,11 +875,14 @@
                 return;
             }
 
+            // Filter items without URL
+            const validWriting = WRITING_DATA.filter(item => item.URL);
+
             // Update CTA count
             const btn = document.getElementById('btn-writing');
-            if (btn) btn.innerText = `See All ${WRITING_DATA.length} Articles`;
+            if (btn) btn.innerText = `See All ${validWriting.length} Articles`;
 
-            const top6 = WRITING_DATA.slice(1, 7);
+            const top6 = validWriting.slice(1, 7);
             grid.innerHTML = top6.map(item => `
                 <a href="${item.URL}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
                     <div class="flex justify-between items-start mb-4">
@@ -863,11 +905,14 @@
                 return;
             }
 
+            // Filter items without URL
+            const validPodcasts = PODCAST_DATA.filter(item => item.url);
+
             // Update CTA count
             const btn = document.getElementById('btn-podcasts');
-            if (btn) btn.innerText = `See All ${PODCAST_DATA.length} Podcasts`;
+            if (btn) btn.innerText = `See All ${validPodcasts.length} Podcasts`;
 
-            const top3 = PODCAST_DATA.slice(0, 3);
+            const top3 = validPodcasts.slice(0, 3);
             grid.innerHTML = top3.map(item => `
                 <a href="${item.url}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-yellow-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
                     <div class="flex justify-between items-start mb-4">
@@ -890,11 +935,14 @@
                 return;
             }
 
+            // Filter items without URL
+            const validTutorials = TUTORIALS_DATA.filter(item => item.url);
+
             // Update CTA count
             const btn = document.getElementById('btn-tutorials');
-            if (btn) btn.innerText = `See All ${TUTORIALS_DATA.length} Tutorials`;
+            if (btn) btn.innerText = `See All ${validTutorials.length} Tutorials`;
 
-            const top3 = TUTORIALS_DATA.slice(0, 3);
+            const top3 = validTutorials.slice(0, 3);
             grid.innerHTML = top3.map(item => {
                 const videoId = item.url.split('v=')[1];
                 const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
@@ -928,13 +976,16 @@
                 return;
             }
 
+            // Filter items without URL (Program URL or Organization URL)
+            const validSpeaker = SPEAKER_ENGAGEMENTS.filter(item => item['Program URL'] || item['Organization URL']);
+
             // Update CTA count
             const btn = document.getElementById('btn-speaker');
-            if (btn) btn.innerText = `See All ${SPEAKER_ENGAGEMENTS.length} Speaking Engagements`;
+            if (btn) btn.innerText = `See All ${validSpeaker.length} Speaking Engagements`;
 
-            const top6 = SPEAKER_ENGAGEMENTS.slice(0, 6);
+            const top6 = validSpeaker.slice(0, 6);
             grid.innerHTML = top6.map(item => `
-                 <a href="${item['Program URL'] || item['Organization URL'] || '/work_speaker/'}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-pink-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
+                 <a href="${item['Program URL'] || item['Organization URL']}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-pink-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
                     <div class="flex justify-between items-start mb-4">
                         <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold uppercase rounded border border-pink-500/20">${item['Event Type'] || 'Event'}</span>
                         <span class="text-xs text-neutral-500 font-mono">${item['Date (DD/MM/YY)'] || item.Date}</span>

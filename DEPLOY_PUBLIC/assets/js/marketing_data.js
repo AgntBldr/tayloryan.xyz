@@ -1,4 +1,4 @@
-window.MARKETING_ANALYTICS = [
+﻿window.MARKETING_ANALYTICS = [
   {
     "October": "Posts",
     "#": 21,

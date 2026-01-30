@@ -4,22 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Taylor Ryan</title>
+    <title>Builds & Projects | Taylor Ryan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #000;
-            color: #fff;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        /* Modal Styles */
-        .modal-overlay {
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
         }
 
         .scrollbar-hide::-webkit-scrollbar {
@@ -33,51 +27,213 @@
     </style>
 </head>
 
-<body class="bg-black min-h-screen">
-    <script src="assets/js/layout.js"></script>
+<body class="bg-[#050505] min-h-screen">
 
-    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
+    <!-- Sidebar (Injected) -->
+    <div id="sidebar-container"></div>
+
+    <!-- Main Content -->
+    <main class="md:ml-20 transition-all duration-300 p-6 md:p-12 max-w-7xl mx-auto">
 
         <!-- Header -->
-        <div class="mb-16">
-            <span class="text-orange-400 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Builds & Projects</h1>
-            <p class="text-neutral-400 text-xl max-w-3xl leading-relaxed">
-                Automated agents, AI workflows, educational courses, and marketing infrastructure.
+        <header class="mb-20 pt-8">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-400 mb-6">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Active Portfolio
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 p-2">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-neutral-500">Builds
+                    & Projects</span>
+            </h1>
+            <p class="text-xl text-neutral-400 max-w-2xl leading-relaxed">
+                A curated collection of workflows, mini-tools, courses, and marketing infrastructure.
             </p>
-        </div>
+        </header>
 
         <!-- Section: Vibecoding -->
         <section class="mb-32">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                <i data-lucide="code-2" class="text-orange-400"></i> Vibecoding
+            <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+                <a href="/work_vibecoding/" class="flex items-center gap-3 hover:text-blue-400 transition-colors">
+                    <i data-lucide="code-2" class="text-blue-400"></i> Vibecoding
+                </a>
             </h2>
+            <p class="text-neutral-400 mb-8 max-w-2xl text-sm">
+                Function over form. AI-generated workflows and rapid development prototypes.
+            </p>
             <div id="vibecoding-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Projects injected via JS -->
-                <div class="col-span-full text-center text-neutral-500 py-12">Loading Projects...</div>
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Section: Quests -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white flex items-center gap-3 mb-3">
+                        <a href="/portfolio/quests/"
+                            class="flex items-center gap-3 hover:text-purple-400 transition-colors">
+                            <i data-lucide="sword" class="text-purple-400"></i> Quests
+                        </a>
+                    </h2>
+                    <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
+                        Complex, multi-step projects and strategic initiatives.
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <a href="/portfolio/quests/" id="btn-quests"
+                        class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-purple-500 transition-all block text-center">
+                        See All Quests
+                    </a>
+                </div>
+            </div>
+            <div id="quests-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Section: Public Speaking -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white flex items-center gap-3 mb-3">
+                        <a href="/work_speaker/" class="flex items-center gap-3 hover:text-pink-400 transition-colors">
+                            <i data-lucide="mic-2" class="text-pink-400"></i> Public Speaking
+                        </a>
+                    </h2>
+                    <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
+                        Keynotes, panels, and workshops on growth, AI, and innovation.
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <a href="/work_speaker/" id="btn-speaker"
+                        class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-pink-500 transition-all block text-center">
+                        See All Engagements
+                    </a>
+                </div>
+            </div>
+            <div id="speaker-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Section: Podcasts -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white flex items-center gap-3 mb-3">
+                        <a href="/work_podcasts/"
+                            class="flex items-center gap-3 hover:text-yellow-400 transition-colors">
+                            <i data-lucide="headphones" class="text-yellow-400"></i> Podcasts
+                        </a>
+                    </h2>
+                    <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
+                        Guest appearances and interviews on technology and entrepreneurship.
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <a href="/work_podcasts/" id="btn-podcasts"
+                        class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-yellow-500 transition-all block text-center">
+                        See All Podcasts
+                    </a>
+                </div>
+            </div>
+            <div id="podcast-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Section: Writing -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white flex items-center gap-3 mb-3">
+                        <a href="/work_writing/"
+                            class="flex items-center gap-3 hover:text-emerald-400 transition-colors">
+                            <i data-lucide="pen-tool" class="text-emerald-400"></i> Writing
+                        </a>
+                    </h2>
+                    <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
+                        Articles and essays covering technical guides, industry insights, and thought leadership.
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <a href="/work_writing/" id="btn-writing"
+                        class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-emerald-500 transition-all block text-center">
+                        See All Articles
+                    </a>
+                </div>
+            </div>
+            <div id="writing-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
             </div>
         </section>
 
         <!-- Section: Courses -->
         <section class="mb-32">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                <i data-lucide="graduation-cap" class="text-blue-400"></i> Courses
-            </h2>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white flex items-center gap-3 mb-3">
+                        <a href="/work_courses/"
+                            class="flex items-center gap-3 hover:text-orange-400 transition-colors">
+                            <i data-lucide="graduation-cap" class="text-orange-400"></i> Courses
+                        </a>
+                    </h2>
+                    <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
+                        Comprehensive educational material for mastering modern tools and frameworks.
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <a href="/work_courses/" id="btn-courses"
+                        class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-orange-500 transition-all block text-center">
+                        See All Courses
+                    </a>
+                </div>
+            </div>
             <div id="courses-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Courses injected via JS -->
-                <div class="col-span-full text-center text-neutral-500 py-12">Loading Courses...</div>
+                <!-- Courses injected via JS (Limited to 2) -->
+            </div>
+        </section>
+
+        <!-- Section: Tutorials -->
+        <section class="mb-32">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white flex items-center gap-3 mb-3">
+                        <a href="/work_tutorials/" class="flex items-center gap-3 hover:text-red-400 transition-colors">
+                            <i data-lucide="video" class="text-red-400"></i> Tutorials
+                        </a>
+                    </h2>
+                    <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
+                        Step-by-step video guides for implementing specific features and tools.
+                    </p>
+                </div>
+                <div class="shrink-0">
+                    <a href="/work_tutorials/" id="btn-tutorials"
+                        class="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-bold text-neutral-400 hover:text-white hover:border-red-500 transition-all block text-center">
+                        See All Tutorials
+                    </a>
+                </div>
+            </div>
+            <div id="tutorials-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JS -->
             </div>
         </section>
 
         <!-- Section: Marketing Projects -->
         <section class="mb-32">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
-                <i data-lucide="megaphone" class="text-green-400"></i> Marketing Infrastructure
+            <h2 class="text-3xl font-bold text-white mb-2 flex items-center gap-3">
+                <a href="/portfolio/marketing/" class="flex items-center gap-3 hover:text-green-400 transition-colors">
+                    <i data-lucide="megaphone" class="text-green-400"></i> Marketing Infrastructure
+                </a>
             </h2>
+            <p class="text-neutral-400 mb-8 max-w-2xl text-sm">
+                Centralized hubs for content creation, outreach, affiliates, and more.
+            </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- Content Creator Program -->
-                <a href="portfolio/marketing/content_creator.html"
+                <a href="/portfolio/marketing/content_creator/"
                     class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-purple-500/50 transition-all group flex flex-col">
                     <div
                         class="mb-6 inline-flex p-3 rounded-xl bg-purple-500/10 text-purple-400 group-hover:bg-purple-500/20 transition-colors w-fit">
@@ -94,7 +250,7 @@
                 </a>
 
                 <!-- Outbound Email Campaigns -->
-                <a href="portfolio/marketing/email_outreach.html"
+                <a href="/portfolio/marketing/email_outreach/"
                     class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all group flex flex-col">
                     <div
                         class="mb-6 inline-flex p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors w-fit">
@@ -111,7 +267,7 @@
                 </a>
 
                 <!-- Affiliate Program -->
-                <a href="portfolio/marketing/affiliates.html"
+                <a href="/portfolio/marketing/affiliates/"
                     class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-orange-500/50 transition-all group flex flex-col">
                     <div
                         class="mb-6 inline-flex p-3 rounded-xl bg-orange-500/10 text-orange-400 group-hover:bg-orange-500/20 transition-colors w-fit">
@@ -128,7 +284,7 @@
                 </a>
 
                 <!-- Case Study Creation -->
-                <a href="portfolio/marketing/case_studies.html"
+                <a href="/portfolio/marketing/case_studies/"
                     class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-yellow-500/50 transition-all group flex flex-col">
                     <div
                         class="mb-6 inline-flex p-3 rounded-xl bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500/20 transition-colors w-fit">
@@ -145,7 +301,7 @@
                 </a>
 
                 <!-- Testimonial Creation -->
-                <a href="portfolio/marketing/testimonials.html"
+                <a href="/portfolio/marketing/testimonials/"
                     class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-pink-500/50 transition-all group flex flex-col">
                     <div
                         class="mb-6 inline-flex p-3 rounded-xl bg-pink-500/10 text-pink-400 group-hover:bg-pink-500/20 transition-colors w-fit">
@@ -155,6 +311,40 @@
                         Testimonial Creation</h3>
                     <p class="text-neutral-400 mb-6 leading-relaxed text-sm flex-1">Social proof aggregation and
                         formatting.</p>
+                    <div
+                        class="mt-auto flex items-center gap-2 text-sm font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- SoMe Work (Added) -->
+                <a href="/work_some/"
+                    class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-pink-500/50 transition-all group flex flex-col">
+                    <div
+                        class="mb-6 inline-flex p-3 rounded-xl bg-pink-500/10 text-pink-400 group-hover:bg-pink-500/20 transition-colors w-fit">
+                        <i data-lucide="share-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">
+                        SoMe Work</h3>
+                    <p class="text-neutral-400 mb-6 leading-relaxed text-sm flex-1">Social media content strategy and
+                        collection.</p>
+                    <div
+                        class="mt-auto flex items-center gap-2 text-sm font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Video Work (Added) -->
+                <a href="/work_video/"
+                    class="bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-red-500/50 transition-all group flex flex-col">
+                    <div
+                        class="mb-6 inline-flex p-3 rounded-xl bg-red-500/10 text-red-500 group-hover:bg-red-500/20 transition-colors w-fit">
+                        <i data-lucide="play-circle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors">
+                        Video Work</h3>
+                    <p class="text-neutral-400 mb-6 leading-relaxed text-sm flex-1">Video workshop and tutorial library.
+                    </p>
                     <div
                         class="mt-auto flex items-center gap-2 text-sm font-bold text-neutral-500 group-hover:text-white transition-colors">
                         View Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -183,15 +373,36 @@
 
     <!-- Data & Scripts -->
     <script src="assets/js/layout.js"></script>
+    <script src="assets/js/work_sidebar.js"></script>
     <script src="assets/js/projects_data.js"></script>
+    <script src="assets/js/quests_data.js"></script>
     <script src="assets/js/email_outreach_data.js"></script>
+    <script src="assets/js/writing_data.js"></script>
+    <script src="assets/js/podcast_data.js"></script>
+    <script src="assets/js/speaker_data.js"></script>
+    <script src="assets/data_tutorials.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderWorkSidebar === 'function') {
+                renderWorkSidebar('projects');
+            }
             renderProjects();
             renderCourses();
-            renderEmailOutreach();
+            renderQuests();
+            renderWriting();
+            renderPodcasts();
+            renderTutorials();
+            renderSpeaker();
             lucide.createIcons();
         });
+
+        // ... existing JS functions (renderProjects, renderCourses, openModal, etc.) ...
+        // Note: I will just include the rest of the JS from the DEPLOY_PUBLIC file here, assuming it's correct. 
+        // For brevity in this tool call, I'm only including the updated HTML structure. 
+        // Realistically, I need to copy the *entire* content.
+        // I will trust the user to have the JS. 
+        // Wait, I am overwriting the file. I MUST include the scripts.
+        // I'll grab the scripts from the view_file output I just got.
 
         function renderProjects() {
             const grid = document.getElementById('vibecoding-grid');
@@ -200,8 +411,14 @@
                 return;
             }
 
-            grid.innerHTML = PROJECTS_DATA.map(p => `
-                <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group h-full flex flex-col" onclick="openModal('${p.id}')">
+            // Filter items without URL
+            const validProjects = PROJECTS_DATA.filter(p => p.url);
+
+            // Limit to top 2
+            const top2 = validProjects.slice(0, 2);
+
+            grid.innerHTML = top2.map(p => `
+                <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all cursor-pointer group h-full flex flex-col" onclick="openModal('${p.id}')">
                     
                     ${p.image ? `
                     <div class="h-48 w-full overflow-hidden relative border-b border-white/5">
@@ -256,7 +473,13 @@
                 return;
             }
 
-            grid.innerHTML = COURSES_DATA.map(c => {
+            // Filter items without URL (website or udemy_link)
+            const validCourses = COURSES_DATA.filter(c => c.website || c.udemy_link);
+
+            // Limit to top 2
+            const top2 = validCourses.slice(0, 2);
+
+            grid.innerHTML = top2.map(c => {
                 // Determine stats to show
                 let statsHtml = '';
                 if (c.hours) {
@@ -604,112 +827,178 @@
             }, 300);
         }
 
-        let emailViewMode = 'grid';
 
-        function renderEmailOutreach() {
-            const grid = document.getElementById('email-outreach-grid');
-            if (typeof EMAIL_OUTREACH_DATA === 'undefined') {
-                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Email Outreach Data not loaded.</div>';
+
+        function renderQuests() {
+            const grid = document.getElementById('quests-grid');
+            if (typeof quests === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Quests Data not loaded.</div>';
                 return;
             }
 
-            // Get Fillters
-            const search = document.getElementById('eo-search').value.toLowerCase();
-            const typeFilter = document.getElementById('eo-type-filter').value;
+            // Filter items without URL
+            const validQuests = quests.filter(q => q.url);
 
-            // Populate Types Dropdown if empty (only once)
-            const typeSelect = document.getElementById('eo-type-filter');
-            if (typeSelect.options.length === 1) {
-                const types = [...new Set(EMAIL_OUTREACH_DATA.map(d => d.type).filter(t => t && t !== 'Resource'))].sort();
-                types.forEach(t => {
-                    const opt = document.createElement('option');
-                    opt.value = t;
-                    opt.textContent = t;
-                    typeSelect.appendChild(opt);
-                });
-            }
+            // Update CTA count
+            const btn = document.getElementById('btn-quests');
+            if (btn) btn.innerText = `See All ${validQuests.length} Quests`;
 
-            // Filter Data
-            const filtered = EMAIL_OUTREACH_DATA.filter(item => {
-                const matchSearch = (item.title || '').toLowerCase().includes(search) ||
-                    (item.description || '').toLowerCase().includes(search) ||
-                    (item.tags || []).some(t => t.toLowerCase().includes(search));
-                const matchType = typeFilter === 'all' || item.type === typeFilter;
-                return matchSearch && matchType;
-            });
+            // Limit to top 2
+            const top2 = validQuests.slice(0, 2);
 
-            // Update Count? optional
-
-            // Render
-            if (filtered.length === 0) {
-                grid.innerHTML = '<div class="col-span-full text-center text-neutral-500 py-12">No resources found matching criteria.</div>';
-                return;
-            }
-
-            if (emailViewMode === 'grid') {
-                grid.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
-                grid.innerHTML = filtered.map(item => `
-                    <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-purple-500/50 transition-all group flex flex-col relative h-full">
-                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                            <a href="${getLink(item)}" target="_blank" class="p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 text-white block border border-neutral-700 shadow-xl" title="Open Resource">
-                                <i data-lucide="external-link" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-
-                        <div class="mb-4">
-                            <span class="px-2 py-1 bg-purple-500/10 text-purple-400 rounded text-[10px] font-bold uppercase tracking-wider border border-purple-500/20">${item.type}</span>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold text-white mb-2 leading-tight pr-8">${item.title}</h3>
-                        <p class="text-neutral-400 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">${item.description}</p>
-                        
-                        <div class="mt-auto pt-4 border-t border-neutral-800/50 flex flex-wrap gap-2">
-                             ${(item.tags || []).slice(0, 3).map(t => `<span class="text-xs text-neutral-500">#${t}</span>`).join('')}
+            grid.innerHTML = top2.map(q => `
+                <a href="/portfolio/quests/" class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all cursor-pointer group h-full flex flex-col">
+                    <div class="h-48 w-full overflow-hidden relative border-b border-white/5">
+                        <img src="${(q.image && q.image.startsWith('assets/')) ? '../' + q.image : q.image}" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 right-4 z-10">
+                            <span class="px-2 py-1 bg-black/60 backdrop-blur text-white text-[10px] font-bold uppercase tracking-wider border border-white/10 rounded">${q.environment}</span>
                         </div>
                     </div>
-                `).join('');
-            } else {
-                grid.className = "flex flex-col gap-3";
-                grid.innerHTML = filtered.map(item => `
-                    <div class="bg-neutral-900 border border-neutral-800 rounded-xl p-4 hover:border-purple-500/50 transition-all group flex items-center gap-4">
-                        <div class="shrink-0 p-3 bg-neutral-800 rounded-lg">
-                            <i data-lucide="${getIconForType(item.type)}" class="w-5 h-5 text-neutral-400 group-hover:text-purple-400 transition-colors"></i>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">${q.project}</h3>
+                        <p class="text-neutral-400 mb-4 text-sm line-clamp-2">${q.description}</p>
+                        <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-500">
+                             <span>${q.theme}</span>
+                             <span class="flex items-center gap-1 text-green-400"><i data-lucide="check-circle-2" class="w-3 h-3"></i> ${q.activations} Activations</span>
                         </div>
-                        <div class="flex-1 min-w-0">
-                             <div class="flex items-center gap-3 mb-1">
-                                <h3 class="text-base font-bold text-white truncate">${item.title}</h3>
-                                <span class="px-2 py-0.5 bg-neutral-800 text-neutral-500 text-[10px] uppercase font-bold tracking-wider border border-neutral-700 shrink-0">${item.type}</span>
-                             </div>
-                             <p class="text-neutral-500 text-xs truncate max-w-2xl">${item.description}</p>
-                        </div>
-                        <a href="${getLink(item)}" target="_blank" class="p-2 text-neutral-500 hover:text-white transition-colors">
-                            <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
                     </div>
-                 `).join('');
-            }
+                </a>
+            `).join('');
 
             lucide.createIcons();
         }
+        function renderWriting() {
+            const grid = document.getElementById('writing-grid');
+            if (typeof WRITING_DATA === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Writing Data not loaded.</div>';
+                return;
+            }
 
-        function switchEmailView(mode) {
-            emailViewMode = mode;
-            document.getElementById('eo-btn-grid').className = mode === 'grid' ? "p-1.5 rounded text-white bg-neutral-700 shadow-sm" : "p-1.5 rounded text-neutral-500 hover:text-white";
-            document.getElementById('eo-btn-list').className = mode === 'list' ? "p-1.5 rounded text-white bg-neutral-700 shadow-sm" : "p-1.5 rounded text-neutral-500 hover:text-white";
-            renderEmailOutreach();
+            // Filter items without URL
+            const validWriting = WRITING_DATA.filter(item => item.URL);
+
+            // Update CTA count
+            const btn = document.getElementById('btn-writing');
+            if (btn) btn.innerText = `See All ${validWriting.length} Articles`;
+
+            const top6 = validWriting.slice(1, 7);
+            grid.innerHTML = top6.map(item => `
+                <a href="${item.URL}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-emerald-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase rounded border border-emerald-500/20">${item['Article Format'] || 'Article'}</span>
+                        <span class="text-xs text-neutral-500 font-mono">${item['Date']}</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors line-clamp-2">${item['Article Title']}</h3>
+                    <p class="text-sm text-neutral-400 mb-4 line-clamp-3 overflow-hidden text-ellipsis flex-1">${item['Description']}</p>
+                    <div class="mt-auto flex items-center gap-2 text-xs font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        Read Article <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </div>
+                </a>
+            `).join('');
         }
 
-        function getLink(item) {
-            return item.url && item.url.startsWith('http') ? item.url : '#';
+        function renderPodcasts() {
+            const grid = document.getElementById('podcast-grid');
+            if (typeof PODCAST_DATA === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Podcast Data not loaded.</div>';
+                return;
+            }
+
+            // Filter items without URL
+            const validPodcasts = PODCAST_DATA.filter(item => item.url);
+
+            // Update CTA count
+            const btn = document.getElementById('btn-podcasts');
+            if (btn) btn.innerText = `See All ${validPodcasts.length} Podcasts`;
+
+            const top3 = validPodcasts.slice(0, 3);
+            grid.innerHTML = top3.map(item => `
+                <a href="${item.url}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-yellow-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-bold uppercase rounded border border-yellow-500/20">${item.media}</span>
+                        <span class="text-xs text-neutral-500 font-mono">${item.date}</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors line-clamp-2">${item.title}</h3>
+                    <p class="text-sm text-neutral-400 mb-4 line-clamp-3 overflow-hidden text-ellipsis flex-1">${item.description}</p>
+                    <div class="mt-auto flex items-center gap-2 text-xs font-bold text-neutral-500 group-hover:text-white transition-colors">
+                        Listen Now <i data-lucide="play-circle" class="w-3 h-3"></i>
+                    </div>
+                </a>
+            `).join('');
         }
 
-        function getIconForType(type) {
-            type = type.toLowerCase();
-            if (type.includes('template')) return 'file-text';
-            if (type.includes('prompt')) return 'terminal';
-            if (type.includes('list') || type.includes('sheet')) return 'table';
-            if (type.includes('tool')) return 'wrench';
-            return 'file';
+        function renderTutorials() {
+            const grid = document.getElementById('tutorials-grid');
+            if (typeof TUTORIALS_DATA === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Tutorial Data not loaded.</div>';
+                return;
+            }
+
+            // Filter items without URL
+            const validTutorials = TUTORIALS_DATA.filter(item => item.url);
+
+            // Update CTA count
+            const btn = document.getElementById('btn-tutorials');
+            if (btn) btn.innerText = `See All ${validTutorials.length} Tutorials`;
+
+            const top3 = validTutorials.slice(0, 3);
+            grid.innerHTML = top3.map(item => {
+                const videoId = item.url.split('v=')[1];
+                const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                return `
+                <a href="${item.url}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-red-500/50 rounded-2xl transition-all group h-full flex flex-col overflow-hidden">
+                    <div class="w-full h-48 overflow-hidden relative">
+                         <img src="${thumbnail}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                         <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i data-lucide="play-circle" class="w-12 h-12 text-white"></i>
+                         </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2 py-1 bg-red-500/10 text-red-400 text-xs font-bold uppercase rounded border border-red-500/20">${item.project || 'Tutorial'}</span>
+                            <span class="text-xs text-neutral-500 font-mono">${item.date}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-red-500 transition-colors line-clamp-2">${item.title}</h3>
+                        <p class="text-sm text-neutral-400 mb-4 line-clamp-2 overflow-hidden text-ellipsis flex-1">${item.description}</p>
+                        <div class="mt-auto flex items-center gap-2 text-xs font-bold text-neutral-500 group-hover:text-white transition-colors">
+                            Watch Video <i data-lucide="youtube" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+                </a>
+            `}).join('');
+        }
+
+        function renderSpeaker() {
+            const grid = document.getElementById('speaker-grid');
+            if (typeof SPEAKER_ENGAGEMENTS === 'undefined') {
+                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Speaker Data not loaded.</div>';
+                return;
+            }
+
+            // Filter items without URL (Program URL or Organization URL)
+            const validSpeaker = SPEAKER_ENGAGEMENTS.filter(item => item['Program URL'] || item['Organization URL']);
+
+            // Update CTA count
+            const btn = document.getElementById('btn-speaker');
+            if (btn) btn.innerText = `See All ${validSpeaker.length} Speaking Engagements`;
+
+            const top6 = validSpeaker.slice(0, 6);
+            grid.innerHTML = top6.map(item => `
+                 <a href="${item['Program URL'] || item['Organization URL']}" target="_blank" class="block bg-neutral-900 border border-neutral-800 hover:border-pink-500/50 p-6 rounded-2xl transition-all group h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-2 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold uppercase rounded border border-pink-500/20">${item['Event Type'] || 'Event'}</span>
+                        <span class="text-xs text-neutral-500 font-mono">${item['Date (DD/MM/YY)'] || item.Date}</span>
+                    </div>
+                    <div class="mb-2">
+                        <span class="text-xs text-neutral-400 block mb-1 uppercase tracking-wider line-clamp-1">${item['Event Name']}</span>
+                        <h3 class="text-lg font-bold text-white leading-tight group-hover:text-pink-400 transition-colors line-clamp-2">${item.Title}</h3>
+                    </div>
+                    <div class="mt-auto pt-4 border-t border-neutral-800 flex items-center gap-2 text-xs text-neutral-500 group-hover:text-white transition-colors">
+                        <i data-lucide="map-pin" class="w-3 h-3"></i> ${item['City, Country'] || 'TBD'}
+                    </div>
+                </a>
+            `).join('');
         }
     </script>
 </body>
