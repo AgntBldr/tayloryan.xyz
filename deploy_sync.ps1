@@ -305,20 +305,21 @@ foreach ($file in $HtmlFiles) {
     $content = Get-Content $file.FullName -Raw
     $modified = $false
     
+    
     if ($content -match 'layout.js') {
-        $content = $content -replace 'layout.js', "layout.js?v=$dateStr"
+        $content = $content -replace 'layout\.js(\?v=[0-9\-]+)?', "layout.js?v=$dateStr"
         $modified = $true
     }
     if ($content -match 'work_scroll.js') {
-        $content = $content -replace 'work_scroll.js', "work_scroll.js?v=$dateStr"
+        $content = $content -replace 'work_scroll\.js(\?v=[0-9\-]+)?', "work_scroll.js?v=$dateStr"
         $modified = $true
     }
     if ($content -match 'work_sidebar.js') {
-        $content = $content -replace 'work_sidebar.js', "work_sidebar.js?v=$dateStr"
+        $content = $content -replace 'work_sidebar\.js(\?v=[0-9\-]+)?', "work_sidebar.js?v=$dateStr"
         $modified = $true
     }
     if ($content -match 'marketing_sidebar.js') {
-        $content = $content -replace 'marketing_sidebar.js', "marketing_sidebar.js?v=$dateStr"
+        $content = $content -replace 'marketing_sidebar\.js(\?v=[0-9\-]+)?', "marketing_sidebar.js?v=$dateStr"
         $modified = $true
     }
     
