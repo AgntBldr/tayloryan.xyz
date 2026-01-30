@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -36,14 +36,12 @@
             scrollbar-width: none;
         }
     </style>
-    <link rel="canonical" href="https://taylorryan.xyz/portfolio/marketing/email_outreach/">
-    <meta property="og:url" content="https://taylorryan.xyz/portfolio/marketing/email_outreach/">
 </head>
 
 <body class="bg-black min-h-screen mb-20">
-    <script src="/assets/js/layout.js?v=20260127-2"></script>
+    <script src="/assets/js/layout.js?v=20260130-1207?v=20260130-1201?v=20260130-1148?v=20260130-1136?v=20260130-1113?v=20260130-1111?v=20260130-1042?v=20260130-1032?v=20260130-1030?v=20260130-1026?v=20260130-1002?v=20260130-1001?v=20260130-0934?v=20260129-1743?v=20260129-1708?v=20260129-1434?v=20260129-1433?v=20260129-1430?v=20260129-1402?v=20260129-1352?v=20260129-1343?v=20260129-1314?v=20260128-0754?v=20260128-0749?v=20260128-0740?v=20260127-2208?v=20260127-2207?v=20260127-1855?v=20260127-1852?v=20260127-1801?v=20260127-1756?v=20260127-1721?v=20260127-1546?v=20260127-1537?v=20260127-1521?v=20260127-1521?v=20260127-1519?v=20260127-1518"></script>
     <script src="/assets/js/marketing_full_data.js"></script>
-    <script src="/assets/js/marketing_sidebar.js"></script>
+    <script src="/assets/js/marketing_sidebar.js?v=20260130-1207?v=20260130-1201?v=20260130-1148?v=20260130-1136?v=20260130-1113?v=20260130-1111?v=20260130-1042?v=20260130-1032?v=20260130-1030?v=20260130-1026?v=20260130-1002?v=20260130-1001?v=20260130-0934?v=20260129-1743?v=20260129-1708?v=20260129-1434?v=20260129-1433?v=20260129-1430?v=20260129-1402?v=20260129-1352?v=20260129-1343?v=20260129-1314?v=20260128-0754?v=20260128-0749?v=20260128-0740?v=20260127-2208?v=20260127-2207?v=20260127-1855?v=20260127-1852?v=20260127-1801"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -100,16 +98,16 @@
             <!-- Tab Navigation -->
             <div class="flex flex-wrap items-center gap-4 mb-8 border-b border-white/10 pb-1 overflow-x-auto">
                 <a href="/portfolio/marketing/email_outreach/" id="tab-all"
-                    class="px-4 py-2 text-sm font-bold text-white border-b-2 border-blue-500 transition-all whitespace-nowrap">
-                    All Outreach Resources
+                    class="px-4 py-2 text-sm font-medium text-white border-b-2 border-blue-500 transition-colors whitespace-nowrap">
+                    All Campaigns
                 </a>
-                <a href="/portfolio/marketing/email_outreach_templates/" id="tab-templates"
-                    class="px-4 py-2 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:border-white/20 transition-all whitespace-nowrap">
+                <a href="/portfolio/marketing/email_outreach/templates/" id="tab-templates"
+                    class="px-4 py-2 text-sm font-medium text-neutral-400 hover:text-white transition-colors whitespace-nowrap">
                     Templates
                 </a>
-                <a href="/portfolio/marketing/email_outreach_video/" id="tab-workflows"
-                    class="px-4 py-2 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:border-white/20 transition-all whitespace-nowrap">
-                    Video Outreach
+                <a href="/portfolio/marketing/email_outreach/video/" id="tab-video"
+                    class="px-4 py-2 text-sm font-medium text-neutral-400 hover:text-white transition-colors whitespace-nowrap">
+                    Video Personalization
                 </a>
             </div>
 
@@ -311,8 +309,7 @@
                 Object.keys(sections).forEach(secName => {
                     html += `
                     <div class="mb-12">
-                        ${secName !== 'General' ? `<h3 class="text-xl font-bold text-blue-400 mb-6 flex items-center gap-2"><i
-                                data-lucide="layers" class="w-5 h-5"></i> ${secName}</h3>` : ''}
+                        ${secName !== 'General' ? `<h3 class="text-xl font-bold text-blue-400 mb-6 flex items-center gap-2"><i data-lucide="layers" class="w-5 h-5"></i> ${secName} <span class="text-neutral-500 text-sm font-normal ml-2">(${sections[secName].length})</span></h3>` : ''}
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             ${sections[secName].map(item => createCard(item)).join('')}
                         </div>

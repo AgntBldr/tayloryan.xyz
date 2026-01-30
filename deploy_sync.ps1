@@ -24,8 +24,34 @@ Copy-Item -Path "$SourceRoot\portfolio" -Destination "$DeployRoot" -Recurse -For
 Write-Host "Portfolio Synced." -ForegroundColor Green
 
 # 1.5.1 Sync Headers (CSP)
-Copy-Item -Path "$SourceRoot\_headers" -Destination "$DeployRoot" -Force
-Write-Host "Headers Synced." -ForegroundColor Green
+if (Test-Path "$SourceRoot\_headers") {
+    Copy-Item -Path "$SourceRoot\_headers" -Destination "$DeployRoot" -Force
+    Write-Host "Headers Synced." -ForegroundColor Green
+}
+else {
+    Write-Warning "No _headers file found."
+}
+
+# 1.5.2 Sync JS Data Files with Path Corrections
+# This is critical for data files loaded from subdirectories
+Write-Host "Processing JS Data Files for Path corrections..." -ForegroundColor Yellow
+$JsDataFiles = Get-ChildItem -Path "$SourceRoot\assets\js" -Filter "*_data.js"
+if (-not (Test-Path "$DeployRoot\assets\js")) { New-Item -ItemType Directory -Force -Path "$DeployRoot\assets\js" | Out-Null }
+
+foreach ($file in $JsDataFiles) {
+    $content = Get-Content $file.FullName -Raw
+    # Convert absolute-looking relative paths like "assets/images" to absolute "/assets/images"
+    # This ensures they work from any depth (root or subfolder)
+    # ONLY if they start with assets/ and NOT /assets/ or http
+    # Using regex to catch "image": "assets/..."
+    $content = $content -replace '"image":\s*"assets/', '"image": "/assets/'
+    $content = $content -replace '"image":\s*''assets/', '"image": ''/assets/'
+    # Also fix explicit src="assets/ usage within strings if any
+    $content = $content -replace 'src=\\"assets/', 'src=\\"/assets/'
+    
+    [System.IO.File]::WriteAllText("$DeployRoot\assets\js\$($file.Name)", $content, [System.Text.Encoding]::UTF8)
+    Write-Host "  Processed $($file.Name)" -ForegroundColor Gray
+}
 
 # 1.6. Transform skills.html -> skills/index.html
 Write-Host "Processing skills.html -> skills/index.html..." -ForegroundColor Yellow
@@ -142,6 +168,71 @@ $courseContent = $courseContent -replace 'href="index.html"', 'href="../"'
 $courseContent = $courseContent -replace 'href="work.html"', 'href="../work/"'
 [System.IO.File]::WriteAllText($CourseDest, $courseContent, [System.Text.Encoding]::UTF8)
 
+# 1.14. Transform work_some.html -> work_some/index.html
+Write-Host "Processing work_some.html -> work_some/index.html..." -ForegroundColor Yellow
+$SoMeSource = "$SourceRoot\work_some.html"
+$SoMeDestDir = "$DeployRoot\work_some"
+$SoMeDest = "$SoMeDestDir\index.html"
+if (-not (Test-Path $SoMeDestDir)) { New-Item -ItemType Directory -Force -Path $SoMeDestDir | Out-Null }
+$someContent = Get-Content $SoMeSource -Raw
+$someContent = $someContent -replace 'src="assets/', 'src="../assets/'
+$someContent = $someContent -replace 'href="assets/', 'href="../assets/'
+$someContent = $someContent -replace 'href="index.html"', 'href="../"'
+$someContent = $someContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($SoMeDest, $someContent, [System.Text.Encoding]::UTF8)
+
+# 1.15. Transform work_video.html -> work_video/index.html
+Write-Host "Processing work_video.html -> work_video/index.html..." -ForegroundColor Yellow
+$VideoSource = "$SourceRoot\work_video.html"
+$VideoDestDir = "$DeployRoot\work_video"
+$VideoDest = "$VideoDestDir\index.html"
+if (-not (Test-Path $VideoDestDir)) { New-Item -ItemType Directory -Force -Path $VideoDestDir | Out-Null }
+$videoContent = Get-Content $VideoSource -Raw
+$videoContent = $videoContent -replace 'src="assets/', 'src="../assets/'
+$videoContent = $videoContent -replace 'href="assets/', 'href="../assets/'
+$videoContent = $videoContent -replace 'href="index.html"', 'href="../"'
+$videoContent = $videoContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($VideoDest, $videoContent, [System.Text.Encoding]::UTF8)
+
+# 1.16. Transform work_projects.html -> work_projects/index.html
+Write-Host "Processing work_projects.html -> work_projects/index.html..." -ForegroundColor Yellow
+$ProjectsSource = "$SourceRoot\work_projects.html"
+$ProjectsDestDir = "$DeployRoot\work_projects"
+$ProjectsDest = "$ProjectsDestDir\index.html"
+if (-not (Test-Path $ProjectsDestDir)) { New-Item -ItemType Directory -Force -Path $ProjectsDestDir | Out-Null }
+$projectsContent = Get-Content $ProjectsSource -Raw
+$projectsContent = $projectsContent -replace 'src="assets/', 'src="../assets/'
+$projectsContent = $projectsContent -replace 'href="assets/', 'href="../assets/'
+$projectsContent = $projectsContent -replace 'href="index.html"', 'href="../"'
+$projectsContent = $projectsContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($ProjectsDest, $projectsContent, [System.Text.Encoding]::UTF8)
+
+# 1.17. Transform work_vibecoding.html -> work_vibecoding/index.html
+Write-Host "Processing work_vibecoding.html -> work_vibecoding/index.html..." -ForegroundColor Yellow
+$VibeSource = "$SourceRoot\work_vibecoding.html"
+$VibeDestDir = "$DeployRoot\work_vibecoding"
+$VibeDest = "$VibeDestDir\index.html"
+if (-not (Test-Path $VibeDestDir)) { New-Item -ItemType Directory -Force -Path $VibeDestDir | Out-Null }
+$vibeContent = Get-Content $VibeSource -Raw
+$vibeContent = $vibeContent -replace 'src="assets/', 'src="../assets/'
+$vibeContent = $vibeContent -replace 'href="assets/', 'href="../assets/'
+$vibeContent = $vibeContent -replace 'href="index.html"', 'href="../"'
+$vibeContent = $vibeContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($VibeDest, $vibeContent, [System.Text.Encoding]::UTF8)
+
+# 1.18. Transform work_speaker.html -> work_speaker/index.html
+Write-Host "Processing work_speaker.html -> work_speaker/index.html..." -ForegroundColor Yellow
+$SpeakerSource = "$SourceRoot\work_speaker.html"
+$SpeakerDestDir = "$DeployRoot\work_speaker"
+$SpeakerDest = "$SpeakerDestDir\index.html"
+if (-not (Test-Path $SpeakerDestDir)) { New-Item -ItemType Directory -Force -Path $SpeakerDestDir | Out-Null }
+$speakerContent = Get-Content $SpeakerSource -Raw
+$speakerContent = $speakerContent -replace 'src="assets/', 'src="../assets/'
+$speakerContent = $speakerContent -replace 'href="assets/', 'href="../assets/'
+$speakerContent = $speakerContent -replace 'href="index.html"', 'href="../"'
+$speakerContent = $speakerContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($SpeakerDest, $speakerContent, [System.Text.Encoding]::UTF8)
+
 # 2. Transform work.html
 Write-Host "Processing work.html -> work/index.html..." -ForegroundColor Yellow
 $WorkSource = "$SourceRoot\work.html"
@@ -239,3 +330,11 @@ foreach ($file in $HtmlFiles) {
 Write-Host "Global Cache Busting Complete." -ForegroundColor Green
 
 Write-Host "Deployment Sync Complete." -ForegroundColor Cyan
+
+# Sync to Cloudflare Deploy Folder
+$CloudflareDest = "$PSScriptRoot\DEPLOY_CLOUDFLARE\tayloryan.xyz\DEPLOY_PUBLIC"
+if (Test-Path $CloudflareDest) {
+    Write-Host "Syncing to Cloudflare Dest: $CloudflareDest" -ForegroundColor Yellow
+    Copy-Item -Path "$DeployRoot\*" -Destination $CloudflareDest -Recurse -Force
+    Write-Host "Cloudflare Sync Complete." -ForegroundColor Green
+}

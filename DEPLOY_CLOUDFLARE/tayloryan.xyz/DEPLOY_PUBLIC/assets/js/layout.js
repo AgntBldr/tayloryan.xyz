@@ -16,6 +16,28 @@ const NAV_LINKS = [
 
 function injectLayout() {
     // 1. Inject Header
+    /* Mobile Menu Overlay (Global) */
+    const mobileMenu = document.createElement('div');
+    mobileMenu.id = 'global-mobile-menu';
+    mobileMenu.className = "fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8";
+    mobileMenu.innerHTML = `
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-neutral-400 hover:text-white p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <nav class="flex flex-col items-center gap-6 text-lg font-bold">
+            ${NAV_LINKS.map(link => `
+                <a href="${link.path}" class="text-neutral-400 hover:text-white transition-colors ${isActive(link.path) ? 'text-white' : ''}">
+                    ${link.label}
+                </a>
+            `).join('')}
+            <a href="/contact/" class="px-8 py-3 bg-white text-black rounded-full font-bold mt-4 hover:bg-neutral-200 transition-colors">
+                Let's Talk
+            </a>
+        </nav>
+    `;
+    document.body.prepend(mobileMenu);
+
+    // 1. Inject Header
     const header = document.createElement('header');
     header.className = "fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5";
     header.innerHTML = `
@@ -43,7 +65,7 @@ function injectLayout() {
             </a>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white p-2">
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
@@ -183,8 +205,27 @@ function injectLayout() {
     `;
     document.body.appendChild(modal);
 
+    // 4. Inject Analytics (Rybbit)
+    const analyticsScript = document.createElement('script');
+    analyticsScript.src = "https://app.rybbit.io/api/script.js";
+    analyticsScript.setAttribute('data-site-id', '44fc6b55ff2c');
+    analyticsScript.defer = true;
+    document.head.appendChild(analyticsScript);
+
     // Initialize Icons
-    if (window.lucide) lucide.createIcons();
+    if (window.lucide) {
+        lucide.createIcons();
+    } else {
+        // Retry if script is late
+        const checkLucide = setInterval(() => {
+            if (window.lucide) {
+                lucide.createIcons();
+                clearInterval(checkLucide);
+            }
+        }, 100);
+        // Fallback cleanup
+        setTimeout(() => clearInterval(checkLucide), 5000);
+    }
 }
 
 // Global Modal Functions
@@ -204,48 +245,46 @@ window.closeContactModal = function () {
     }
 };
 
-window.handleContactSubmit = async function (e) {
+// Global Mobile Menu Toggle
+window.toggleMobileMenu = function () {
+    const menu = document.getElementById('global-mobile-menu');
+    if (menu) {
+        const isClosed = menu.classList.contains('translate-x-full');
+        if (isClosed) {
+            menu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        } else {
+            menu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
+    }
+};
+
+window.handleContactSubmit = function (e) {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+
+    // Construct Mailto
+    const mailtoLink = `mailto:taylor@klintmarketing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Taylor,\n\n${message}\n\nBest,\n${name}`)}`;
+
+    // Open Mail Client
+    window.location.href = mailtoLink;
+
+    // Optional: Show feedback
     const btn = e.target.querySelector('button');
     const originalText = btn.innerHTML;
+    btn.innerHTML = 'Client Opened <i data-lucide="check" class="w-4 h-4"></i>';
+    btn.classList.add('bg-green-500', 'text-white');
 
-    // Loading State
-    btn.innerHTML = 'Sending... <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>';
-    btn.disabled = true;
-
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-            btn.innerHTML = 'Sent! <i data-lucide="check" class="w-4 h-4"></i>';
-            btn.classList.add('bg-green-500', 'text-white');
-            setTimeout(() => {
-                closeContactModal();
-                btn.innerHTML = originalText;
-                btn.classList.remove('bg-green-500', 'text-white');
-                btn.disabled = false;
-                e.target.reset();
-            }, 2000);
-        } else {
-            alert('Error: ' + (result.error || 'Failed to send message'));
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        }
-    } catch (err) {
-        console.error(err);
-        alert('Network error. Please try again.');
+    setTimeout(() => {
+        closeContactModal();
         btn.innerHTML = originalText;
-        btn.disabled = false;
-    }
+        btn.classList.remove('bg-green-500', 'text-white');
+        e.target.reset();
+    }, 2000);
 };
 
 function isActive(href) {

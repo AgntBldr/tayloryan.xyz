@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -36,14 +36,12 @@
             scrollbar-width: none;
         }
     </style>
-    <link rel="canonical" href="https://taylorryan.xyz/portfolio/marketing/case_studies/">
-    <meta property="og:url" content="https://taylorryan.xyz/portfolio/marketing/case_studies/">
 </head>
 
 <body class="bg-black min-h-screen mb-20">
-    <script src="/assets/js/layout.js?v=20260127-2"></script>
+    <script src="/assets/js/layout.js?v=20260130-1207?v=20260130-1201?v=20260130-1148?v=20260130-1136?v=20260130-1113?v=20260130-1111?v=20260130-1042?v=20260130-1032?v=20260130-1030?v=20260130-1026?v=20260130-1002?v=20260130-1001?v=20260130-0934?v=20260129-1743?v=20260129-1708?v=20260129-1434?v=20260129-1433?v=20260129-1430?v=20260129-1402?v=20260129-1352?v=20260129-1343?v=20260129-1314?v=20260128-0754?v=20260128-0749?v=20260128-0740?v=20260127-2208?v=20260127-2207?v=20260127-1855?v=20260127-1852?v=20260127-1801?v=20260127-1756?v=20260127-1721?v=20260127-1546?v=20260127-1537?v=20260127-1521?v=20260127-1521?v=20260127-1519?v=20260127-1518"></script>
     <script src="/assets/js/marketing_full_data.js"></script>
-    <script src="/assets/js/marketing_sidebar.js"></script>
+    <script src="/assets/js/marketing_sidebar.js?v=20260130-1207?v=20260130-1201?v=20260130-1148?v=20260130-1136?v=20260130-1113?v=20260130-1111?v=20260130-1042?v=20260130-1032?v=20260130-1030?v=20260130-1026?v=20260130-1002?v=20260130-1001?v=20260130-0934?v=20260129-1743?v=20260129-1708?v=20260129-1434?v=20260129-1433?v=20260129-1430?v=20260129-1402?v=20260129-1352?v=20260129-1343?v=20260129-1314?v=20260128-0754?v=20260128-0749?v=20260128-0740?v=20260127-2208?v=20260127-2207?v=20260127-1855?v=20260127-1852?v=20260127-1801"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -106,12 +104,12 @@
         <main class="px-6 max-w-7xl mx-auto">
 
             <!-- Tab Navigation -->
-            <div class="flex flex-wrap items-center gap-4 mb-8 border-b border-white/10 pb-1 overflow-x-auto">
-                <a href="#creation" id="tab-creation"
+            <div class="flex flex-wrap items-center gap-4 mb-8 border-b border-white/10 pb-1">
+                <a href="/portfolio/marketing/case_studies/" id="tab-creation"
                     class="px-4 py-2 text-sm font-bold text-white border-b-2 border-yellow-500 transition-all whitespace-nowrap">
                     Creation Resources
                 </a>
-                <a href="#examples" id="tab-examples"
+                <a href="/portfolio/marketing/case_studies/examples/" id="tab-examples"
                     class="px-4 py-2 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:border-white/20 transition-all whitespace-nowrap">
                     Examples & Library
                 </a>
@@ -229,46 +227,16 @@
         let searchQuery = '';
         let sectionFilter = 'All';
 
-        // Tab Config
-        const TAB_MAPPING = {
-            '#creation': 'Case Study Creation Resources',
-            '#examples': 'Klint Case Studies'
-        };
-
         document.addEventListener('DOMContentLoaded', () => {
-            handleHashChange();
-            window.addEventListener('hashchange', handleHashChange);
-        });
-
-        function handleHashChange() {
-            const hash = window.location.hash || '#creation';
-            if (TAB_MAPPING[hash]) {
-                currentSource = TAB_MAPPING[hash];
-            } else {
-                currentSource = TAB_MAPPING['#creation'];
-            }
+            renderMarketingSidebar('case-studies');
             renderResources();
-        }
+            lucide.createIcons();
+        });
 
         function renderResources() {
             const container = document.getElementById('resources-container');
 
-            // Update Tabs UI
-            const tabs = [
-                { id: 'tab-creation', hash: '#creation' },
-                { id: 'tab-examples', hash: '#examples' }
-            ];
-
-            tabs.forEach(tab => {
-                const btn = document.getElementById(tab.id);
-                if (btn) {
-                    if (window.location.hash === tab.hash || (window.location.hash === '' && tab.hash === '#creation')) {
-                        btn.className = "px-4 py-2 text-sm font-bold text-white border-b-2 border-yellow-500 transition-all whitespace-nowrap";
-                    } else {
-                        btn.className = "px-4 py-2 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:border-white/20 transition-all whitespace-nowrap";
-                    }
-                }
-            });
+            // Tab configuration handles by direct links now
 
             if (typeof MARKETING_FULL_DATA === 'undefined') {
                 container.innerHTML = '<div class="text-center text-red-500">Error: Data not loaded</div>';
@@ -296,7 +264,8 @@
             }
 
             // Get Unique Sections
-            const allSections = ['All', ...new Set(MARKETING_FULL_DATA.filter(item => item.category === 'Case Studies' && item.source_file === currentSource).map(item => item.section || 'General'))];
+            const allSections = ['All', ...new Set(MARKETING_FULL_DATA.filter(item => item.category === 'Case Studies' &&
+                item.source_file === currentSource).map(item => item.section || 'General'))];
 
             // Group by Section
             const sections = {};
@@ -307,41 +276,46 @@
             });
 
             let html = `
-            <!-- Search & Filters -->
-            <div class="flex flex-col md:flex-row gap-4 mb-12 bg-neutral-900/50 p-4 rounded-2xl border border-white/5 items-center">
-                <!-- Search -->
-                <div class="relative flex-1 w-full">
-                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"></i>
-                    <input type="text" placeholder="Search resources..." value="${searchQuery}"
-                        oninput="searchQuery = this.value; renderResources()"
-                        class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 focus:outline-none transition-all placeholder:text-neutral-600">
-                </div>
-                
-                <!-- Filter -->
-                <div class="relative w-full md:w-64">
-                    <i data-lucide="filter" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
-                    <select onchange="sectionFilter = this.value; renderResources()"
-                        class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white pl-10 pr-8 py-3 appearance-none focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 focus:outline-none cursor-pointer">
-                        ${allSections.map(sec => `<option value="${sec}" ${sectionFilter === sec ? 'selected' : ''}>${sec}</option>`).join('')}
-                    </select>
-                    <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 pointer-events-none"></i>
-                </div>
+    <!-- Search & Filters -->
+    <div
+        class="flex flex-col md:flex-row gap-4 mb-12 bg-neutral-900/50 p-4 rounded-2xl border border-white/5 items-center">
+        <!-- Search -->
+        <div class="relative flex-1 w-full">
+            <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"></i>
+            <input type="text" placeholder="Search resources..." value="${searchQuery}"
+                oninput="searchQuery = this.value; renderResources()"
+                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 focus:outline-none transition-all placeholder:text-neutral-600">
+        </div>
 
-                <!-- Results Count Pill -->
-                <div class="px-4 py-3 bg-yellow-500/10 rounded-xl border border-yellow-500/20 text-yellow-400 text-sm font-bold whitespace-nowrap">
-                    ${data.length} Results
-                </div>
-            </div>
+        <!-- Filter -->
+        <div class="relative w-full md:w-64">
+            <i data-lucide="filter" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
+            <select onchange="sectionFilter = this.value; renderResources()"
+                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white pl-10 pr-8 py-3 appearance-none focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 focus:outline-none cursor-pointer">
+                ${allSections.map(sec => `<option value="${sec}" ${sectionFilter === sec ? 'selected' : ''}>${sec}
+                </option>`).join('')}
+            </select>
+            <i data-lucide="chevron-down"
+                class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500 pointer-events-none"></i>
+        </div>
 
-            <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
-                 <div>
-                    <h2 class="text-2xl font-bold text-white uppercase tracking-widest">${currentSource}</h2>
-                 </div>
-                 <a href="#" class="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 border border-white/5">
-                    <i data-lucide="external-link" class="w-3 h-3"></i> Open Source
-                 </a>
-            </div>
-            `;
+        <!-- Results Count Pill -->
+        <div
+            class="px-4 py-3 bg-yellow-500/10 rounded-xl border border-yellow-500/20 text-yellow-400 text-sm font-bold whitespace-nowrap">
+            ${data.length} Results
+        </div>
+    </div>
+
+    <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+        <div>
+            <h2 class="text-2xl font-bold text-white uppercase tracking-widest">${currentSource}</h2>
+        </div>
+        <a href="#"
+            class="px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 border border-white/5">
+            <i data-lucide="external-link" class="w-3 h-3"></i> Open Source
+        </a>
+    </div>
+    `;
 
             if (data.length === 0) {
                 html += `<div class="p-8 text-center text-neutral-500">No resources found for this section.</div>`;
@@ -350,14 +324,15 @@
             // Render Sections
             Object.keys(sections).forEach(secName => {
                 html += `
-            <div class="mb-12">
-                ${secName !== 'General' ? `<h3 class="text-xl font-bold text-yellow-400 mb-6 flex items-center gap-2"><i
-                        data-lucide="layers" class="w-5 h-5"></i> ${secName}</h3>` : ''}
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${sections[secName].map(item => createCard(item)).join('')}
-                </div>
-            </div>
-            `;
+    <div class="mb-12">
+        ${secName !== 'General' ? `<h3 class="text-xl font-bold text-yellow-400 mb-6 flex items-center gap-2"><i
+                data-lucide="layers" class="w-5 h-5"></i> ${secName} <span
+                class="text-neutral-500 text-sm font-normal ml-2">(${sections[secName].length})</span></h3>` : ''}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${sections[secName].map(item => createCard(item)).join('')}
+        </div>
+    </div>
+    `;
             });
 
             container.innerHTML = html;
@@ -375,28 +350,29 @@
             else if (lowerTitle.includes('metrics')) icon = 'bar-chart';
 
             return `
-            <div onclick="openModal('${item.id}')"
-                class="bg-neutral-900 border border-white/5 p-6 rounded-2xl hover:border-yellow-500/50 hover:bg-neutral-800/50 transition-all group cursor-pointer h-full flex flex-col relative">
-                <div class="flex justify-between items-start mb-4">
-                    <div
-                        class="p-3 bg-neutral-800 rounded-lg text-neutral-400 group-hover:text-yellow-400 group-hover:bg-yellow-500/10 transition-colors">
-                        <i data-lucide="${icon}" class="w-6 h-6"></i>
-                    </div>
-                    <span
-                        class="text-[10px] font-bold text-neutral-600 uppercase tracking-wider border border-white/5 px-2 py-1 rounded bg-black/20 h-fit">${item.type}</span>
-                </div>
-
-                <h4 class="text-lg font-bold text-white mb-2 leading-tight group-hover:text-yellow-400 transition-colors line-clamp-2 min-h-[3.5rem]">
-                    ${item.title}</h4>
-                <p class="text-sm text-neutral-400 line-clamp-2 mb-4 flex-1">${item.description}</p>
-
-                <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-500">
-                    <span>View Details</span>
-                    <i data-lucide="arrow-right"
-                        class="w-4 h-4 group-hover:translate-x-1 transition-transform text-yellow-500"></i>
-                </div>
+    <div onclick="openModal('${item.id}')"
+        class="bg-neutral-900 border border-white/5 p-6 rounded-2xl hover:border-yellow-500/50 hover:bg-neutral-800/50 transition-all group cursor-pointer h-full flex flex-col relative">
+        <div class="flex justify-between items-start mb-4">
+            <div
+                class="p-3 bg-neutral-800 rounded-lg text-neutral-400 group-hover:text-yellow-400 group-hover:bg-yellow-500/10 transition-colors">
+                <i data-lucide="${icon}" class="w-6 h-6"></i>
             </div>
-            `;
+            <span
+                class="text-[10px] font-bold text-neutral-600 uppercase tracking-wider border border-white/5 px-2 py-1 rounded bg-black/20 h-fit">${item.type}</span>
+        </div>
+
+        <h4
+            class="text-lg font-bold text-white mb-2 leading-tight group-hover:text-yellow-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+            ${item.title}</h4>
+        <p class="text-sm text-neutral-400 line-clamp-2 mb-4 flex-1">${item.description}</p>
+
+        <div class="mt-auto pt-4 border-t border-white/5 flex items-center justify-between text-xs text-neutral-500">
+            <span>View Details</span>
+            <i data-lucide="arrow-right"
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform text-yellow-500"></i>
+        </div>
+    </div>
+    `;
         }
 
         function openModal(id) {

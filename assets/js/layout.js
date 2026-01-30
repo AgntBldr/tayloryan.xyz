@@ -16,6 +16,28 @@ const NAV_LINKS = [
 
 function injectLayout() {
     // 1. Inject Header
+    /* Mobile Menu Overlay (Global) */
+    const mobileMenu = document.createElement('div');
+    mobileMenu.id = 'global-mobile-menu';
+    mobileMenu.className = "fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8";
+    mobileMenu.innerHTML = `
+        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-neutral-400 hover:text-white p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <nav class="flex flex-col items-center gap-6 text-lg font-bold">
+            ${NAV_LINKS.map(link => `
+                <a href="${link.path}" class="text-neutral-400 hover:text-white transition-colors ${isActive(link.path) ? 'text-white' : ''}">
+                    ${link.label}
+                </a>
+            `).join('')}
+            <a href="/contact/" class="px-8 py-3 bg-white text-black rounded-full font-bold mt-4 hover:bg-neutral-200 transition-colors">
+                Let's Talk
+            </a>
+        </nav>
+    `;
+    document.body.prepend(mobileMenu);
+
+    // 1. Inject Header
     const header = document.createElement('header');
     header.className = "fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5";
     header.innerHTML = `
@@ -43,7 +65,7 @@ function injectLayout() {
             </a>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white p-2">
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
@@ -191,7 +213,19 @@ function injectLayout() {
     document.head.appendChild(analyticsScript);
 
     // Initialize Icons
-    if (window.lucide) lucide.createIcons();
+    if (window.lucide) {
+        lucide.createIcons();
+    } else {
+        // Retry if script is late
+        const checkLucide = setInterval(() => {
+            if (window.lucide) {
+                lucide.createIcons();
+                clearInterval(checkLucide);
+            }
+        }, 100);
+        // Fallback cleanup
+        setTimeout(() => clearInterval(checkLucide), 5000);
+    }
 }
 
 // Global Modal Functions
@@ -208,6 +242,21 @@ window.closeContactModal = function () {
     if (modal) {
         modal.classList.add('hidden');
         document.body.style.overflow = '';
+    }
+};
+
+// Global Mobile Menu Toggle
+window.toggleMobileMenu = function () {
+    const menu = document.getElementById('global-mobile-menu');
+    if (menu) {
+        const isClosed = menu.classList.contains('translate-x-full');
+        if (isClosed) {
+            menu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        } else {
+            menu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        }
     }
 };
 

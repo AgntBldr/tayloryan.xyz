@@ -213,7 +213,19 @@ function injectLayout() {
     document.head.appendChild(analyticsScript);
 
     // Initialize Icons
-    if (window.lucide) lucide.createIcons();
+    if (window.lucide) {
+        lucide.createIcons();
+    } else {
+        // Retry if script is late
+        const checkLucide = setInterval(() => {
+            if (window.lucide) {
+                lucide.createIcons();
+                clearInterval(checkLucide);
+            }
+        }, 100);
+        // Fallback cleanup
+        setTimeout(() => clearInterval(checkLucide), 5000);
+    }
 }
 
 // Global Modal Functions

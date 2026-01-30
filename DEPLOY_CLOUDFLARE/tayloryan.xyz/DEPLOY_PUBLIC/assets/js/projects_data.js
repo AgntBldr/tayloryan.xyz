@@ -1,23 +1,23 @@
-const PROJECTS_DATA = [
+﻿const PROJECTS_DATA = [
   {
-    "id": "taylorryan-xyz",
-    "project": "TaylorRyan.xyz",
+    "id": "vibecode-portfolio",
+    "project": "Vibecode Project Portfolio",
     "image": "/assets/images/projects/taylorryan-xyz.png",
     "type": "Web App",
-    "tags": ["Portfolio", "Cloudflare"],
-    "url": "https://TaylorRyan.xyz",
-    "github": "https://github.com/KlintMarketing/tayloryan.xyz",
+    "tags": ["Software Engineering"],
+    "url": "https://taylorryan.xyz/work_projects/",
+    "github": "",
     "environment": "Cloudflare Pages",
-    "description": "Public portfolio website with browsable sections and shareable pages. A central hub for partners to review work, share speaking portfolio with event organizers, and send a single proof-of-work link to recruiters.",
-    "vibecode_prompt": "Vibecode - Portfolio Hub",
-    "integrations": "Gemini, Google Docs, Sheets",
-    "inputs": "Markdown content, JSON data, Static Assets",
-    "output": "Live Portfolio Site",
-    "use_cases": "Recruitment proof-of-work, Event organizer showcase, Partner review hub",
+    "description": "Public portfolio website with browsable sections and shareable pages.",
+    "vibecode_prompt": "Quest-first structure, deploy-ready public folder, /api serverless endpoints, long-form archive consolidation.",
+    "integrations": "",
+    "inputs": "Project archive, quest writeups, speaking history, links",
+    "output": "Public portfolio website with browsable sections and shareable pages",
+    "use_cases": "Share speaking portfolio with event organizers, send a single proof-of-work link to recruiters, central hub for partners to review work",
     "target_users": "Recruiters, founders, conference organizers, partners",
-    "differentiators": "Quest-first structure, deploy-ready public folder, /api serverless endpoints, long-form archive consolidation",
-    "tech_stack": "HTML, Vanilla JavaScript, Cloudflare Pages, Pages Functions",
-    "what_it_proves": "Information architecture for large portfolios, shipping a deployable site with edge-style endpoints"
+    "differentiators": "",
+    "tech_stack": "HTML, Vanilla JavaScript, Cloudflare Pages, Pages Functions (functions/api), GitHub",
+    "what_it_proves": "Information architecture for large portfolios, plus shipping a deployable site with edge-style endpoints."
   },
   {
     "id": "yt-thumbnail-generator",

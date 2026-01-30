@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,9 +7,9 @@
     <title>Portfolio | Taylor's Quest Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="/assets/resources_data.js"></script>
-    <script src="/quests_data.js"></script>
-    <!-- Note: quests_data.js path might need verification if it was at root or assets. The original file had <script src="/portfolio/quests/quests_data.js"> implies it was at root. I should move it to assets/js/ or reference it correctly. I'll check file location later, assuming ../../quests_data.js for now if it's at root. -->
+    <script src="../../assets/resources_data.js"></script>
+    <script src="../../assets/js/quests_data.js"></script>
+    <!-- Note: quests_data.js path might need verification if it was at root or assets. The original file had <script src="quests_data.js"> implies it was at root. I should move it to assets/js/ or reference it correctly. I'll check file location later, assuming ../../quests_data.js for now if it's at root. -->
     <style>
         body {
             background-color: #0a0a0a;
@@ -43,13 +43,17 @@
             background-size: 1em;
         }
     </style>
-    <link rel="canonical" href="https://taylorryan.xyz/portfolio/quests/">
-    <meta property="og:url" content="https://taylorryan.xyz/portfolio/quests/">
 </head>
 
-<body class="min-h-screen p-6 md:p-12 relative">
+<body class="min-h-screen p-6 md:p-12 relative md:pl-72">
     <!-- Global Layout -->
-    <script src="/assets/js/layout.js?v=20260127-2"></script>
+    <script src="../../assets/js/layout.js?v=20260130-1207"></script>
+    <script src="../../assets/js/work_sidebar.js?v=20260130-1207"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderWorkSidebar === 'function') renderWorkSidebar('quests');
+        });
+    </script>
 
     <!-- Header -->
     <header class="mb-12 text-center relative z-10 flex flex-col items-center mt-24">
@@ -63,13 +67,13 @@
 
         <!-- View Toggle (Navigation) -->
         <div class="bg-neutral-900 border border-neutral-800 p-1 rounded-full flex gap-1 relative z-20">
-            <a href="/portfolio/quests/"
+            <a href="index.html"
                 class="px-6 py-2 rounded-full text-sm font-bold transition-all bg-neutral-800 text-white shadow-lg">Portfolio</a>
-            <a href="/portfolio/quests/overview/"
+            <a href="overview.html"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Overview</a>
-            <a href="/portfolio/quests/analytics/"
+            <a href="analytics.html"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Analytics</a>
-            <a href="/portfolio/quests/resources/"
+            <a href="resources.html"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Resources</a>
         </div>
     </header>
@@ -130,7 +134,7 @@
     </div>
 
     <!-- Data Loader -->
-    <script src="/quests_data.js"></script>
+    <script src="../../assets/js/quests_data.js"></script>
 
     <!-- Modal (unchanged) -->
     <div id="modal"

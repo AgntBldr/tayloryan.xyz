@@ -1,4 +1,4 @@
-window.EMAIL_OUTREACH_DATA = [
+﻿window.EMAIL_OUTREACH_DATA = [
   {
     "id": "burner-domain-and-email",
     "title": "Burner Domain and Email",
