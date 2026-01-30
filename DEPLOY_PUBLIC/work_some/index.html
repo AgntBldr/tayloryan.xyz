@@ -40,15 +40,15 @@
 </head>
 
 <body class="bg-black min-h-screen">
-    <script src="../assets/js/layout.js?v=20260130-2117"></script>
-    <script src="../assets/js/work_sidebar.js?v=20260130-2117"></script>
-    <script src="../assets/js/work_scroll.js?v=20260130-2117"></script>
+    <script src="../assets/js/layout.js?v=20260130-2121"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260130-2121"></script>
+    <script src="../assets/js/work_scroll.js?v=20260130-2121"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Render Sidebar (will need to update work_sidebar.js?v=20260130-2117 to handle 'some')
+            // Render Sidebar (will need to update work_sidebar.js?v=20260130-2121 to handle 'some')
             if (!document.getElementById('work-sidebar')) {
-                // Temporary fallback or assume work_sidebar.js?v=20260130-2117 will be updated
+                // Temporary fallback or assume work_sidebar.js?v=20260130-2121 will be updated
                 if (typeof renderWorkSidebar === 'function') renderWorkSidebar('some');
             }
             renderResources();
@@ -174,12 +174,12 @@
                     <div class="flex flex-col md:flex-row gap-4 bg-neutral-900/50 p-4 rounded-2xl border border-white/5 items-center">
                         <div class="relative flex-1 w-full">
                             <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"></i>
-                            <input type="text" placeholder="Search SoMe resources..." value="${searchQuery}" 
+                            <input type="text" placeholder="Search Social Media Posts..." value="${searchQuery}" 
                                 oninput="searchQuery = this.value; renderResources()"
                                 class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 focus:outline-none transition-all placeholder:text-neutral-600">
                         </div>
                         <div class="px-4 py-3 bg-pink-500/10 rounded-xl border border-pink-500/20 text-pink-400 text-sm font-bold whitespace-nowrap">
-                            ${data.length} Resources
+                            ${data.length} Social Media Posts
                         </div>
                     </div>
 
@@ -201,7 +201,7 @@
                         <div class="bg-neutral-900/50 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 border border-white/5">
                             <i data-lucide="search-x" class="w-8 h-8 text-neutral-600"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2">No resources found</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">No posts found</h3>
                         <button onclick="searchQuery = ''; activeFilter = 'All'; renderResources()" class="mt-4 text-pink-400 hover:text-pink-300 font-bold text-sm">Clear Filters</button>
                     </div>
                 `;
