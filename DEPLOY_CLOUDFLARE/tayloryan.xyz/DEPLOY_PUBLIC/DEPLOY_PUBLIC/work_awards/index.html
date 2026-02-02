@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="/DEPLOY_PUBLIC/assets/data_awards.js"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+    <link rel="canonical" href="https://taylorryan.xyz/DEPLOY_PUBLIC/work_awards/">
+    <meta property="og:url" content="https://taylorryan.xyz/DEPLOY_PUBLIC/work_awards/">
+</head>
+
+<body class="bg-black min-h-screen">
+    <script src="/DEPLOY_PUBLIC/assets/js/layout.js?v=20260202-1325"></script>
+    <script src="/DEPLOY_PUBLIC/assets/js/work_sidebar.js?v=20260202-1325"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderAboutSidebar === 'function') renderAboutSidebar('awards');
+        });
+    </script>
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-6 md:pl-72">
+
+        <!-- Header -->
+        <div class="mb-16">
+            <span class="text-yellow-400 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Awards & Honors</h1>
+            <p class="text-neutral-400 text-xl max-w-3xl leading-relaxed">
+                Recognition for work in digital marketing, growth, and entrepreneurship.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div id="awards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Injected via JS -->
+        </div>
+
+    </main>
+
+    <script src="/DEPLOY_PUBLIC/assets/js/layout.js?v=20260202-1325"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof AWARDS_DATA === 'undefined') {
+                document.getElementById('awards-grid').innerHTML = '<p class="text-neutral-500">No data found.</p>';
+                return;
+            }
+
+            renderAwards(AWARDS_DATA);
+        });
+
+        function renderAwards(data) {
+            const container = document.getElementById('awards-grid');
+            if (data.length === 0) {
+                container.innerHTML = '<p class="text-neutral-500 col-span-3 text-center py-20">No awards found.</p>';
+                return;
+            }
+
+            container.innerHTML = data.map(item => {
+                return `
+                <div class="group flex flex-col bg-neutral-900 border border-neutral-800 hover:border-yellow-500/50 rounded-2xl p-6 transition-all hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs font-bold uppercase tracking-wider border border-yellow-500/20">${item.year}</span>
+                        <div class="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center group-hover:bg-yellow-500 group-hover:text-black transition-colors">
+                            <i data-lucide="trophy" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">${item.title}</h3>
+
+                    <div class="mt-auto pt-4 space-y-2">
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-neutral-500">Organization</span>
+                            <span class="text-white font-medium">${item.organization}</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-neutral-500">Placement</span>
+                            <span class="text-white font-medium">${item.placement}</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-neutral-500">Recipient</span>
+                            <span class="text-neutral-400">${item.receiver}</span>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>

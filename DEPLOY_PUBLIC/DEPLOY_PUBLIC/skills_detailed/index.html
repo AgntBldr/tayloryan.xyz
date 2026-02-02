@@ -1,0 +1,554 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Skills | Taylor Ryan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/DEPLOY_PUBLIC/assets/js/marketing_skills_data.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Hide scrollbar for tabs */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .tab-btn.active {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+    </style>
+    <link rel="canonical" href="https://taylorryan.xyz/DEPLOY_PUBLIC/skills_detailed/">
+    <meta property="og:url" content="https://taylorryan.xyz/DEPLOY_PUBLIC/skills_detailed/">
+</head>
+
+<body class="bg-black min-h-screen flex flex-col relative overflow-x-hidden md:pl-72">
+    <!-- Global Layout -->
+    <script src="/DEPLOY_PUBLIC/assets/js/layout.js?v=20260202-1325"></script>
+    <script src="/DEPLOY_PUBLIC/assets/js/work_sidebar.js?v=20260202-1325"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderAboutSidebar === 'function') renderAboutSidebar('skills_detailed');
+        });
+    </script>
+
+    <!-- Modal Container -->
+    <div id="modal-container" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-neutral-900 border border-neutral-800 w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-y-auto custom-scrollbar relative shadow-2xl"
+                onclick="event.stopPropagation()">
+                <button onclick="closeModal()"
+                    class="absolute top-4 right-4 p-2 bg-black/50 hover:bg-neutral-800 rounded-full text-white transition-colors z-10 border border-neutral-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <main class="flex-grow pt-32 pb-20 max-w-7xl mx-auto px-6 w-full relative z-10">
+
+        <!-- Header -->
+        <div class="mb-12 text-center">
+            <h1
+                class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-400 mb-6 inline-block">
+                Marketing Projects
+            </h1>
+            <p class="text-xl font-light text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+                Detailed breakdown of <span id="project-count" class="text-white font-bold">0</span> projects across
+                <span id="category-count" class="text-white font-bold">0</span> skill segments.
+            </p>
+        </div>
+
+        <!-- Data Banner -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            <div
+                class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-2xl text-center hover:border-blue-500/30 transition-colors">
+                <div class="text-3xl font-extrabold text-blue-500 mb-1" id="stat-total">0</div>
+                <div class="text-xs text-neutral-400 uppercase tracking-widest">Total Projects</div>
+            </div>
+            <div
+                class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-2xl text-center hover:border-purple-500/30 transition-colors">
+                <div class="text-3xl font-extrabold text-purple-500 mb-1" id="stat-segments">0</div>
+                <div class="text-xs text-neutral-400 uppercase tracking-widest">Skill Segments</div>
+            </div>
+            <div
+                class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-2xl text-center hover:border-green-500/30 transition-colors">
+                <div class="text-3xl font-extrabold text-green-500 mb-1" id="stat-priority">0</div>
+                <div class="text-xs text-neutral-400 uppercase tracking-widest">High Priority</div>
+            </div>
+            <div
+                class="bg-neutral-900/50 border border-neutral-800 p-6 rounded-2xl text-center hover:border-pink-500/30 transition-colors">
+                <div class="text-3xl font-extrabold text-pink-500 mb-1" id="stat-live">0%</div>
+                <div class="text-xs text-neutral-400 uppercase tracking-widest">Live / Active</div>
+            </div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="sticky top-24 z-20 bg-black/90 backdrop-blur-xl py-6 mb-8 border-b border-neutral-800 shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 space-y-6">
+
+                <!-- Top Row: Search & View Options -->
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-96 group">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="search"
+                                class="text-neutral-500 w-4 h-4 group-focus-within:text-blue-500 transition-colors"></i>
+                        </div>
+                        <input type="text" id="project-search"
+                            class="block w-full pl-10 pr-3 py-2.5 bg-neutral-900/50 border border-neutral-800 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500/50 transition-all text-sm"
+                            placeholder="Find projects..." oninput="handleSearch(this.value)">
+                    </div>
+
+                    <!-- View Toggle -->
+                    <div class="flex bg-neutral-900/50 border border-neutral-800 rounded-lg p-1 h-[42px] shrink-0">
+                        <button onclick="switchView('grid')" id="btn-grid"
+                            class="px-4 rounded-md transition-all flex items-center justify-center bg-neutral-800 text-white shadow-sm border border-neutral-700"
+                            title="Grid View">
+                            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="switchView('list')" id="btn-list"
+                            class="px-4 rounded-md transition-all flex items-center justify-center text-neutral-500 hover:text-white"
+                            title="List View">
+                            <i data-lucide="list" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bottom Row: Filters (Wrapped & Centered) -->
+                <div class="relative">
+                    <div id="skill-tabs" class="flex flex-wrap justify-center gap-2">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="animate-fade-in min-h-[400px]">
+            <!-- Populated via JS -->
+        </div>
+
+    </main>
+
+    <script>
+        let currentCategory = '';
+        let currentView = 'grid';
+        let currentSearch = '';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initSkillsPage();
+        });
+
+        function initSkillsPage() {
+            if (typeof MARKETING_SKILLS_DATA === 'undefined') {
+                console.error('Data not loaded');
+                return;
+            }
+
+            const categories = Object.keys(MARKETING_SKILLS_DATA);
+
+            // Calculate Stats
+            const allProjects = Object.values(MARKETING_SKILLS_DATA).flat();
+            const total = allProjects.length;
+            const segments = categories.length;
+            const highPriority = allProjects.filter(p => p.priority === '1').length;
+            const active = allProjects.filter(p => {
+                const s = (p.status || '').toLowerCase();
+                return s.includes('active') || s.includes('live') || s.includes('ongoing');
+            }).length;
+
+            // DOM Updates
+            document.getElementById('project-count').innerText = total;
+            document.getElementById('category-count').innerText = segments;
+
+            document.getElementById('stat-total').innerText = total;
+            document.getElementById('stat-segments').innerText = segments;
+            document.getElementById('stat-priority').innerText = highPriority;
+            document.getElementById('stat-live').innerText = Math.round((active / total) * 100) + '%';
+
+
+            // Render Tabs
+            renderTabs(categories);
+
+            // Select first category by default
+            if (categories.length > 0) {
+                switchCategory(categories[0]);
+            }
+
+            lucide.createIcons();
+        }
+
+        function renderTabs(categories) {
+            const container = document.getElementById('skill-tabs');
+            container.innerHTML = '';
+
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `tab-btn px-4 py-2 rounded-lg border border-neutral-800 text-neutral-400 hover:text-white hover:border-neutral-600 hover:bg-neutral-800/50 transition-all text-xs font-bold uppercase tracking-wide whitespace-nowrap`;
+                btn.innerText = cat;
+                btn.onclick = () => switchCategory(cat);
+                btn.dataset.category = cat;
+                container.appendChild(btn);
+            });
+        }
+
+        function switchCategory(category) {
+            currentCategory = category;
+
+            // Update Tabs UI
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active', 'bg-neutral-100', 'text-black', 'border-transparent', 'shadow-lg', 'shadow-white/10');
+                    btn.classList.remove('bg-neutral-800', 'text-neutral-400', 'border-neutral-800', 'hover:bg-neutral-800/50', 'hover:text-white', 'hover:border-neutral-600');
+                } else {
+                    btn.classList.remove('active', 'bg-neutral-100', 'text-black', 'border-transparent', 'shadow-lg', 'shadow-white/10');
+                    btn.classList.add('border-neutral-800', 'text-neutral-400', 'hover:bg-neutral-800/50', 'hover:text-white', 'hover:border-neutral-600');
+                }
+            });
+
+            renderProjects();
+        }
+
+        function handleSearch(query) {
+            currentSearch = query.toLowerCase();
+            renderProjects();
+        }
+
+        function switchView(mode) {
+            currentView = mode;
+
+            const btnList = document.getElementById('btn-list');
+            const btnGrid = document.getElementById('btn-grid');
+
+            // Reset classes
+            const activeClasses = ['bg-neutral-800', 'text-white', 'shadow-sm', 'border-neutral-700'];
+            const inactiveClasses = ['text-neutral-500', 'hover:text-white', 'border-transparent'];
+
+            if (mode === 'list') {
+                btnList.classList.add(...activeClasses);
+                btnList.classList.remove(...inactiveClasses);
+                btnGrid.classList.remove(...activeClasses);
+                btnGrid.classList.add(...inactiveClasses);
+            } else {
+                btnGrid.classList.add(...activeClasses);
+                btnGrid.classList.remove(...inactiveClasses);
+                btnList.classList.remove(...activeClasses);
+                btnList.classList.add(...inactiveClasses);
+            }
+
+            if (currentCategory) {
+                renderProjects();
+            }
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projects-grid');
+            let projects = MARKETING_SKILLS_DATA[currentCategory] || [];
+
+            // Apply Search Filtering
+            if (currentSearch) {
+                projects = projects.filter(p => {
+                    const text = [
+                        p.project,
+                        p.definition,
+                        p.short_definition,
+                        p.primary_goal,
+                        p.success_metrics
+                    ].join(' ').toLowerCase();
+                    return text.includes(currentSearch);
+                });
+            }
+
+            container.innerHTML = '';
+
+            // Set Container Grid/List Classes
+            if (currentView === 'grid') {
+                container.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in mb-24";
+            } else {
+                container.className = "flex flex-col gap-4 animate-fade-in mb-24";
+            }
+
+            if (projects.length === 0) {
+                container.innerHTML = `<div class="col-span-full py-32 text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-900 text-neutral-600 mb-4">
+                        <i data-lucide="search-x" class="w-8 h-8"></i>
+                    </div>
+                    <p class="text-neutral-500 text-lg">No projects found.</p>
+                </div>`;
+                lucide.createIcons();
+                return;
+            }
+
+            projects.forEach(p => {
+                const card = document.createElement('div');
+                card.onclick = () => openModal(p);
+
+                // Status Color Logic
+                let statusColor = "bg-neutral-800 text-neutral-400";
+                const s = (p.status || '').toLowerCase();
+                let statusText = p.status || 'Planned';
+
+                if (s.includes('active') || s.includes('live') || s.includes('ongoing')) statusColor = "bg-green-500/10 text-green-400 border-green-500/20";
+                if (s.includes('completed') || s.includes('done')) statusColor = "bg-blue-500/10 text-blue-400 border-blue-500/20";
+                if (s.includes('hold') || s.includes('pause')) statusColor = "bg-yellow-500/10 text-yellow-400 border-yellow-500/20";
+                if (statusText === '-') statusText = 'Planned';
+
+                const definition = p.short_definition || p.definition || '';
+                const metrics = p.success_metrics || p.metrics || '';
+
+                if (currentView === 'grid') {
+                    // GRID VIEW CARD
+                    card.className = "group relative bg-neutral-900/50 border border-neutral-800 hover:border-neutral-600 rounded-xl p-6 transition-all hover:bg-neutral-900 hover:shadow-2xl hover:shadow-black/50 cursor-pointer flex flex-col h-full";
+                    card.innerHTML = `
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="inline-block px-2 py-1 rounded border ${statusColor} text-[10px] font-bold uppercase tracking-wider">${statusText}</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-blue-400 transition-colors">${p.project}</h3>
+                        
+                        <div class="flex-grow">
+                            <p class="text-neutral-400 text-sm leading-relaxed line-clamp-3 mb-4">${definition}</p>
+                        </div>
+
+                        ${metrics ? `
+                        <div class="pt-4 border-t border-neutral-800 mt-auto">
+                            <h4 class="text-[10px] font-bold text-neutral-500 uppercase tracking-wider mb-2">Success Metrics</h4>
+                            <p class="text-xs font-mono text-green-400 truncate">${metrics}</p>
+                        </div>
+                        ` : ''}
+
+                        <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center">
+                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // LIST VIEW CARD
+                    card.className = "group relative bg-neutral-900/40 border border-neutral-800 hover:border-neutral-600 rounded-xl p-4 transition-all hover:bg-neutral-900 cursor-pointer flex flex-col md:flex-row gap-4 md:items-center";
+                    card.innerHTML = `
+                         <div class="shrink-0 md:w-32">
+                            <span class="inline-block px-2 py-1 rounded border ${statusColor} text-[10px] font-bold uppercase tracking-wider">${statusText}</span>
+                        </div>
+                        
+                        <div class="flex-grow md:w-1/3">
+                            <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">${p.project}</h3>
+                        </div>
+
+                        <div class="flex-grow md:w-1/3 hidden md:block">
+                            <p class="text-neutral-400 text-sm truncate">${definition}</p>
+                        </div>
+                        
+                        <div class="flex-grow md:w-1/4 hidden md:block text-right">
+                             ${metrics ? `<span class="text-xs font-mono text-green-400">${metrics}</span>` : ''}
+                        </div>
+
+                        <div class="shrink-0 text-neutral-600 group-hover:text-white">
+                             <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </div>
+                    `;
+                }
+
+                container.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        function openModal(p) {
+            const container = document.getElementById('modal-container');
+            const content = document.getElementById('modal-content');
+
+            // Status Logic for Modal
+            let statusColor = "bg-neutral-800 text-neutral-400 border-neutral-700";
+            const s = (p.status || '').toLowerCase();
+            let statusText = p.status || 'Planned';
+            if (statusText === '-') statusText = 'Planned';
+
+            if (s.includes('active') || s.includes('live') || s.includes('ongoing')) statusColor = "bg-green-500/10 text-green-400 border-green-500/20";
+            if (s.includes('completed') || s.includes('done')) statusColor = "bg-blue-500/10 text-blue-400 border-blue-500/20";
+            if (s.includes('hold') || s.includes('pause')) statusColor = "bg-yellow-500/10 text-yellow-400 border-yellow-500/20";
+
+            // Categorize Fields
+            const mainFields = ['short_definition', 'definition', 'primary_goal', 'success_metrics', 'metrics'];
+            const tagFields = ['channel', 'channel_taxonomy', 'types', 'skill_category', 'marketing_team', 'non_team'];
+            const longTextFields = ['notes', 'notes_max_16_words', 'requirements', 'use_cases', 'competitor_signals', 'resources', 'consistent_execution'];
+            const ignoredFields = ['project', 'status', 'priority', 'effort', 'url', 'url_1'];
+
+            let tagsHtml = '';
+            let detailsHtml = '';
+
+            // Process Tag-like fields
+            for (const key of tagFields) {
+                if (p[key] && p[key] !== 'nan') {
+                    const label = key.replace(/_/g, ' ');
+                    const values = p[key].split(',').map(v => v.trim());
+
+                    tagsHtml += `
+                        <div class="mb-4">
+                            <span class="text-[10px] uppercase tracking-wider text-neutral-500 font-bold block mb-2">${label}</span>
+                            <div class="flex flex-wrap gap-2">
+                                ${values.map(v => `<span class="px-2 py-1 bg-neutral-800 text-neutral-300 text-xs rounded border border-neutral-700">${v}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            // Process Long Text fields
+            for (const key of longTextFields) {
+                if (p[key] && p[key] !== 'nan') {
+                    const label = key.replace(/_/g, ' ');
+                    detailsHtml += `
+                        <div class="bg-neutral-900/50 p-5 rounded-lg border border-neutral-800">
+                            <h4 class="text-sm font-bold text-neutral-400 uppercase tracking-wide mb-3 flex items-center gap-2">
+                                <i data-lucide="file-text" class="w-4 h-4"></i> ${label}
+                            </h4>
+                            <div class="text-neutral-300 text-sm leading-relaxed whitespace-pre-wrap">${p[key]}</div>
+                        </div>
+                    `;
+                }
+            }
+
+            // Handle any unexpected fields that aren't categorized
+            for (const [key, value] of Object.entries(p)) {
+                if (!value || value === 'nan') continue;
+                if ([...mainFields, ...tagFields, ...longTextFields, ...ignoredFields].includes(key)) continue;
+
+                const label = key.replace(/_/g, ' ');
+                detailsHtml += `
+                    <div class="bg-neutral-900/50 p-4 rounded-lg border border-neutral-800 opacity-80">
+                        <span class="block text-xs text-neutral-500 uppercase font-bold mb-1">${label}</span>
+                        <div class="text-neutral-300 text-sm leading-relaxed">${value}</div>
+                    </div>
+                `;
+            }
+
+            content.innerHTML = `
+                <!-- Modal Header -->
+                <div class="relative h-48 bg-neutral-900 overflow-hidden border-b border-neutral-800">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-purple-900/20"></div>
+                     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 24px 24px;"></div>
+                    
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-10 z-10">
+                        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white border border-white/20">
+                                         ${currentCategory}
+                                    </span>
+                                    ${p.url ? `<a href="${p.url}" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1"><i data-lucide="external-link" class="w-3 h-3"></i> View Link</a>` : ''}
+                                </div>
+                                <h2 class="text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight shadow-black drop-shadow-lg">${p.project}</h2>
+                            </div>
+                            
+                            <!-- Status Badges (Header) -->
+                            <div class="flex items-center gap-2 shrink-0">
+                                <span class="px-3 py-1 rounded-full border ${statusColor} text-xs font-bold uppercase tracking-wider">${statusText}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="p-6 md:p-10 bg-black min-h-[400px]">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+                        
+                        <!-- Main Content (Left, 2 cols) -->
+                        <div class="lg:col-span-2 space-y-10">
+                            
+                            <!-- Definition -->
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <span class="bg-blue-500/20 text-blue-400 p-1 rounded-md"><i data-lucide="info" class="w-5 h-5"></i></span>
+                                    What is it?
+                                </h3>
+                                <p class="text-lg text-neutral-300 leading-relaxed font-light border-l-2 border-neutral-800 pl-4 py-1">
+                                    ${p.short_definition || p.definition}
+                                </p>
+                            </div>
+
+                            <!-- Goals & Metrics Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                ${p.primary_goal ? `
+                                <div class="bg-neutral-900 border border-neutral-800 p-5 rounded-xl hover:border-neutral-700 transition-colors">
+                                    <h4 class="text-sm font-bold text-neutral-400 uppercase tracking-wide mb-3 flex items-center gap-2">
+                                        <i data-lucide="target" class="w-4 h-4 text-red-500"></i> Primary Goal
+                                    </h4>
+                                    <p class="text-white text-sm leading-relaxed">${p.primary_goal}</p>
+                                </div>` : ''}
+
+                                ${p.success_metrics || p.metrics ? `
+                                <div class="bg-neutral-900 border border-neutral-800 p-5 rounded-xl hover:border-neutral-700 transition-colors">
+                                    <h4 class="text-sm font-bold text-neutral-400 uppercase tracking-wide mb-3 flex items-center gap-2">
+                                        <i data-lucide="bar-chart-2" class="w-4 h-4 text-green-500"></i> Success Metrics
+                                    </h4>
+                                    <p class="text-green-400 font-mono text-xs leading-relaxed break-words">${p.success_metrics || p.metrics}</p>
+                                </div>` : ''}
+                            </div>
+
+                            <!-- Long Text Sections -->
+                            ${detailsHtml ? `<div class="space-y-6 pt-4">${detailsHtml}</div>` : ''}
+                        </div>
+
+                        <!-- Sidebar (Right, 1 col) -->
+                        <div class="space-y-8">
+                            
+                            <!-- Key Stats -->
+                            <div class="bg-neutral-900/80 border border-neutral-800 rounded-xl p-6 backdrop-blur-sm">
+                                <h4 class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-4 pb-2 border-b border-neutral-800">Project Stats</h4>
+                                <div class="grid grid-cols-2 gap-y-6">
+                                    <div>
+                                        <div class="text-xs text-neutral-500 mb-1">Priority</div>
+                                        <div class="text-xl font-bold text-white">${p.priority || '-'}</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-neutral-500 mb-1">Effort</div>
+                                        <div class="text-xl font-bold text-white">${p.effort || '-'}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tags Section -->
+                            ${tagsHtml ? `
+                            <div class="bg-neutral-900/30 border border-neutral-800/50 rounded-xl p-6">
+                                <h4 class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-4 pb-2 border-b border-neutral-800">Classification</h4>
+                                ${tagsHtml}
+                            </div>` : ''}
+
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('modal-container').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body>
+
+</html>

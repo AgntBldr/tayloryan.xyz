@@ -2,150 +2,430 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://taylorryan.xyz/about/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/contact/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/now/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/overview_blog_content/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/overview_content_gen/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/overview_raw/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/overview_toc_gen/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/skills/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/skills_detailed/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/testimonials/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_awards/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_courses/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_podcasts/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_projects/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/work_some/</loc>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_speaker/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_speaker_topics/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_tutorials/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_vibecoding/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/work_video/</loc>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/work_writing/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/404/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/about/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/contact/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/now/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/overview_blog_content/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/overview_content_gen/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/overview_raw/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/overview_toc_gen/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/affiliates/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/analytics/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/case_studies/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/content_creator/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/content_creator_external/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/email_outreach/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/email_outreach_templates/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/email_outreach_video/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/overview/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/resources/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/testimonials/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/affiliates/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/analytics/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/case_studies/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/case_studies/examples/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/content_creator/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/content_creator_external/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/email_outreach/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/email_outreach/templates/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/email_outreach/video/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/email_outreach_templates/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/email_outreach_video/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/overview/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/resources/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/social_media/content_creation/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/social_media/content_publishing/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/social_media/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/marketing/testimonials/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/quests/analytics/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/quests/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/quests/overview/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/quests/resources/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/quests/analytics/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/quests/overview/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/portfolio/quests/resources/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/skills/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/skills_detailed/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/testimonials/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_awards/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_courses/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_podcasts/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_projects/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_some/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_speaker/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_speaker_topics/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_tutorials/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_vibecoding/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_video/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/DEPLOY_PUBLIC/work_writing/</loc>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/affiliates/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/analytics/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/case_studies/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/content_creator/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/content_creator_external/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/email_outreach/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/email_outreach_templates/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/email_outreach_video/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/overview/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/resources/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/marketing/testimonials/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/portfolio/marketing/case_studies/examples/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/portfolio/marketing/email_outreach/templates/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/portfolio/marketing/email_outreach/video/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/portfolio/marketing/social_media/content_creation/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/portfolio/marketing/social_media/content_publishing/</loc>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/portfolio/marketing/social_media/</loc>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/quests/analytics/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/quests/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/quests/overview/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
   </url>
   <url>
     <loc>https://taylorryan.xyz/portfolio/quests/resources/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-02</lastmod>
+  </url>
+  <url>
+    <loc>https://taylorryan.xyz/work/</loc>
+    <lastmod>2026-02-02</lastmod>
   </url>
 </urlset>

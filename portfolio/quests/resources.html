@@ -41,9 +41,15 @@
     <meta property="og:url" content="https://taylorryan.xyz/portfolio/quests/resources/">
 </head>
 
-<body class="min-h-screen p-6 md:p-12 relative">
+<body class="min-h-screen p-6 md:p-12 relative md:pl-72">
     <!-- Global Layout -->
     <script src="/assets/js/layout.js"></script>
+    <script src="../../assets/js/work_sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderWorkSidebar === 'function') renderWorkSidebar('quests');
+        });
+    </script>
 
     <!-- Header -->
     <header class="mb-12 text-center relative z-10 flex flex-col items-center mt-24">
