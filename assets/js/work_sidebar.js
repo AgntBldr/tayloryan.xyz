@@ -23,12 +23,7 @@ function renderWorkSidebar(activePage) {
 
     // Determine Menu Items based on context
     let menuItems = [];
-    let isSpeakerPage = activePage === 'speaker' || activePage === 'testimonials' || activePage === 'speaker_topics' || activePage === 'contact';
-
-    if (activePage === 'speaker' || window.location.pathname.includes('work_speaker') || window.location.pathname.includes('testimonials')) {
-        // Special Speaker Menu
-        isSpeakerPage = true;
-    }
+    let isSpeakerPage = activePage === 'speaker' || activePage === 'speaker_topics';
 
     if (isSpeakerPage) {
         renderSpeakerSidebar(activePage);
@@ -61,7 +56,8 @@ function renderWorkSidebar(activePage) {
                 ${menuItems.map(item => {
         // Fix active reasoning to catch sub-paths (e.g. /work_vibecoding/something)
         const isActive = (item.href === '/' && window.location.pathname === '/') ||
-            (item.href !== '/' && window.location.pathname.startsWith(item.href));
+            (item.href !== '/' && window.location.pathname.startsWith(item.href)) ||
+            activePage === item.id;
 
         // Colors: Always apply text color for icon. Background/Border only on active.
         const activeClass = isActive
@@ -107,10 +103,13 @@ function renderWorkSidebar(activePage) {
 
 function renderSpeakerSidebar(activePage) {
     const menuItems = [
-        { id: 'speaker', label: 'Speaker Overview', icon: 'mic-2', href: '/work_speaker/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
         { id: 'testimonials', label: 'Testimonials', icon: 'message-square', href: '/testimonials/', color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/20' },
         { id: 'speaker_topics', label: 'Speaker Topics', icon: 'list', href: '/work_speaker_topics/', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
-        { id: 'contact', label: 'Contact', icon: 'mail', href: '/contact/', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' }
+        { id: 'about', label: 'About', icon: 'user', href: '/about/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+        { id: 'contact', label: 'Contact', icon: 'mail', href: '/contact/', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
+        // External
+        { id: 'map', label: 'Speaker Map', icon: 'map', href: 'https://www.google.com/maps/d/u/0/edit?mid=1cWfNmEZ-STpCjaQcfr9460LjF5sqV3A&usp=sharing', target: '_blank', color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20' },
+        { id: 'sheet', label: 'Portfolio Sheet', icon: 'table', href: 'https://docs.google.com/spreadsheets/d/1ap9ahRJvg52P2rLBM5n_3csCoOagS06uErSMeFNMXOk/edit', target: '_blank', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' }
     ];
 
     const sidebarHTML = `
@@ -128,8 +127,8 @@ function renderSpeakerSidebar(activePage) {
             : 'text-neutral-400 hover:text-white hover:bg-neutral-900 border border-transparent';
 
         return `
-                    <a href="${item.href}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${activeClass}">
-                        <i data-lucide="${item.icon}" class="w-5 h-5 ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
+                    <a href="${item.href}" ${item.target ? `target="${item.target}"` : ''} class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${activeClass}">
+                        <i data-lucide="${item.icon}" class="w-5 h-5 ${item.color} ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
                         <span class="font-medium text-sm sidebar-label">${item.label}</span>
                         ${isActive ? '<i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50"></i>' : ''}
                     </a>
@@ -138,69 +137,49 @@ function renderSpeakerSidebar(activePage) {
             </nav>
 
              <div class="mt-8 pt-8 border-t border-neutral-800">
-                <span class="px-4 text-[10px] font-bold text-neutral-600 uppercase tracking-widest block mb-2">Portfolio</span>
                 <nav class="space-y-1">
                     <a href="/work_projects/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                        <i data-lucide="layout-grid" class="w-4 h-4 text-blue-400 opacity-70 group-hover:opacity-100"></i>
-                        <span class="font-medium text-sm">Projects Hub</span>
+                        <i data-lucide="folder-kanban" class="w-4 h-4 text-blue-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Builds & Projects</span>
                     </a>
-                    <a href="/work_vibecoding/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                        <i data-lucide="code-2" class="w-4 h-4 text-cyan-400 opacity-70 group-hover:opacity-100"></i>
-                        <span class="font-medium text-sm">Vibecoding</span>
-                    </a>
-                    <a href="/portfolio/quests/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                        <i data-lucide="sword" class="w-4 h-4 text-purple-400 opacity-70 group-hover:opacity-100"></i>
-                        <span class="font-medium text-sm">Quests</span>
-                    </a>
-                    <a href="/work_speaker/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-pink-400 bg-pink-500/10 border border-pink-500/20 group">
-                        <i data-lucide="mic-2" class="w-4 h-4 text-pink-400 opacity-100"></i>
-                        <span class="font-medium text-sm">Public Speaking</span>
-                    </a>
-                    <a href="/work_podcasts/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                        <i data-lucide="headphones" class="w-4 h-4 text-yellow-400 opacity-70 group-hover:opacity-100"></i>
-                        <span class="font-medium text-sm">Podcasts</span>
-                    </a>
-                     <a href="/work_writing/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                        <i data-lucide="pen-tool" class="w-4 h-4 text-emerald-400 opacity-70 group-hover:opacity-100"></i>
-                        <span class="font-medium text-sm">Writing</span>
-                    </a>
-                    <a href="/work_courses/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                        <i data-lucide="graduation-cap" class="w-4 h-4 text-orange-400 opacity-70 group-hover:opacity-100"></i>
-                        <span class="font-medium text-sm">Courses</span>
-                    </a>
-                    <a href="/work_tutorials/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                        <i data-lucide="video" class="w-4 h-4 text-red-500 opacity-70 group-hover:opacity-100"></i>
-                        <span class="font-medium text-sm">Tutorials</span>
-                    </a>
-                     <a href="/portfolio/marketing/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                        <i data-lucide="megaphone" class="w-4 h-4 text-green-400 opacity-70 group-hover:opacity-100"></i>
+                    <a href="/portfolio/marketing/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                         <i data-lucide="megaphone" class="w-4 h-4 text-green-400 opacity-70 group-hover:opacity-100"></i>
                         <span class="font-medium text-sm">Marketing Hub</span>
                     </a>
                 </nav>
             </div>
-             <button class="p-2 text-neutral-400" onclick="document.querySelector('aside').classList.toggle('hidden'); document.querySelector('aside').classList.toggle('md:flex')">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+             
+             <button class="p-2 text-neutral-400 absolute top-4 right-4 md:hidden" onclick="toggleSidebar()">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <!-- Desktop Collapse Button -->
+            <button onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
+                <i data-lucide="chevron-left" class="w-5 h-5 transition-transform" id="collapse-icon"></i>
+                <span class="ml-3 font-medium text-sm sidebar-label">Collapse</span>
             </button>
         </div>
     </div>
     
-    <!-- Mobile Toggle Button (Fixed) -->
+     <!-- Mobile Toggle Button (Fixed) -->
     <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-50 bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
         <i data-lucide="menu" class="w-6 h-6"></i>
     </button>
     `;
 
     document.body.insertAdjacentHTML('afterbegin', sidebarHTML);
+    // Initialize icons
     if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
 function renderAboutSidebar(activePage) {
     const menuItems = [
-        { id: 'skills', label: 'Skills Matrix', icon: 'zap', href: '/skills/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
-        { id: 'skills_detailed', label: 'Detailed Breakdown', icon: 'list', href: '/skills_detailed/', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
+        { id: 'skills_detailed', label: 'Marketing Project List', icon: 'list', href: '/skills_detailed/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+        { id: 'skills', label: 'Skills Matrix', icon: 'zap', href: '/skills/', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
         { id: 'awards', label: 'Awards & Honors', icon: 'trophy', href: '/work_awards/', color: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20' },
         { id: 'testimonials', label: 'Testimonials', icon: 'message-circle', href: '/testimonials/', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
-        { id: 'about', label: 'About Me', icon: 'user', href: '/about.html', color: 'text-neutral-400', bg: 'bg-neutral-500/10', border: 'border-neutral-500/20' }
+        { id: 'about', label: 'About', icon: 'user', href: '/about/', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
+        { id: 'speaker', label: 'Speaker', icon: 'mic-2', href: '/work_speaker/', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' }
     ];
 
     const sidebarHTML = `
@@ -220,7 +199,7 @@ function renderAboutSidebar(activePage) {
         return `
                     <a href="${item.href}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${activeClass}">
                         <i data-lucide="${item.icon}" class="w-5 h-5 ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
-                        <span class="font-medium text-sm">${item.label}</span>
+                        <span class="font-medium text-sm sidebar-label">${item.label}</span>
                         ${isActive ? '<i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50"></i>' : ''}
                     </a>
                     `;
@@ -228,10 +207,16 @@ function renderAboutSidebar(activePage) {
             </nav>
             
              <div class="mt-8 pt-8 border-t border-neutral-800">
-                <a href="/work.html" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
-                    <i data-lucide="briefcase" class="w-4 h-4 text-neutral-500 opacity-70 group-hover:opacity-100"></i>
-                    <span class="font-medium text-sm">View Work Portfolio</span>
-                </a>
+                <nav class="space-y-1">
+                    <a href="/work_projects/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                        <i data-lucide="folder-kanban" class="w-4 h-4 text-blue-400 opacity-70 group-hover:opacity-100"></i>
+                         <span class="font-medium text-sm">Builds & Projects</span>
+                    </a>
+                    <a href="/portfolio/marketing/" class="flex items-center gap-3 px-4 py-2 rounded-xl transition-all text-neutral-500 hover:text-white hover:bg-neutral-900 group">
+                         <i data-lucide="megaphone" class="w-4 h-4 text-green-400 opacity-70 group-hover:opacity-100"></i>
+                        <span class="font-medium text-sm">Marketing Hub</span>
+                    </a>
+                </nav>
              </div>
              
              <button class="p-2 text-neutral-400 absolute top-4 right-4 md:hidden" onclick="toggleSidebar()">
