@@ -233,6 +233,19 @@ $speakerContent = $speakerContent -replace 'href="index.html"', 'href="../"'
 $speakerContent = $speakerContent -replace 'href="work.html"', 'href="../work/"'
 [System.IO.File]::WriteAllText($SpeakerDest, $speakerContent, [System.Text.Encoding]::UTF8)
 
+# 1.19. Transform work_speaker_topics.html -> work_speaker_topics/index.html
+Write-Host "Processing work_speaker_topics.html -> work_speaker_topics/index.html..." -ForegroundColor Yellow
+$TopicsSource = "$SourceRoot\work_speaker_topics.html"
+$TopicsDestDir = "$DeployRoot\work_speaker_topics"
+$TopicsDest = "$TopicsDestDir\index.html"
+if (-not (Test-Path $TopicsDestDir)) { New-Item -ItemType Directory -Force -Path $TopicsDestDir | Out-Null }
+$topicsContent = Get-Content $TopicsSource -Raw
+$topicsContent = $topicsContent -replace 'src="assets/', 'src="../assets/'
+$topicsContent = $topicsContent -replace 'href="assets/', 'href="../assets/'
+$topicsContent = $topicsContent -replace 'href="index.html"', 'href="../"'
+$topicsContent = $topicsContent -replace 'href="work.html"', 'href="../work/"'
+[System.IO.File]::WriteAllText($TopicsDest, $topicsContent, [System.Text.Encoding]::UTF8)
+
 # 2. Transform work.html
 Write-Host "Processing work.html -> work/index.html..." -ForegroundColor Yellow
 $WorkSource = "$SourceRoot\work.html"

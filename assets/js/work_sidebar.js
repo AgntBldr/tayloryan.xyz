@@ -173,6 +173,27 @@ function renderSpeakerSidebar(activePage) {
 }
 
 function renderAboutSidebar(activePage) {
+    // Ensure styles for sidebar are present if not already
+    if (!document.getElementById('work-sidebar-styles')) {
+        const style = document.createElement('style');
+        style.id = 'work-sidebar-styles';
+        style.textContent = `
+            .sidebar-link {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 16px;
+                border-radius: 12px;
+                color: #a3a3a3;
+                transition: all 0.2s;
+                font-weight: 500;
+            }
+            /* Sidebar transitions */
+            #work-sidebar { transition: transform 0.3s ease-in-out; }
+        `;
+        document.head.appendChild(style);
+    }
+
     const menuItems = [
         { id: 'skills_detailed', label: 'Marketing Project List', icon: 'list', href: '/skills_detailed/', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
         { id: 'skills', label: 'Skills Matrix', icon: 'zap', href: '/skills/', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },

@@ -81,7 +81,7 @@
                 <span class="text-2xl font-bold text-white">Rockstart</span>
                 <span class="text-2xl font-bold text-white">TechStars</span>
                 <span class="text-2xl font-bold text-white">Founders Institute</span>
-                <span class="text-2xl font-bold text-white">Vækstfonden</span>
+                <span class="text-2xl font-bold text-white">V&aelig;kstfonden</span>
                 <span class="text-2xl font-bold text-white">Dansk Industri</span>
                 <!-- Duplicate for loop -->
                 <span class="text-2xl font-bold text-white">TechBBQ</span>
@@ -122,8 +122,18 @@
 
             <!-- Filters -->
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-                <div class="flex flex-wrap gap-2" id="theme-filters">
-                    <!-- Injected via JS -->
+                <div class="flex flex-wrap gap-4 w-full md:w-auto">
+                    <!-- Theme Filter -->
+                    <select id="theme-filter" onchange="renderTopics()"
+                        class="bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-500 outline-none max-w-[200px]">
+                        <option value="all">All Themes</option>
+                    </select>
+
+                    <!-- Niche Filter -->
+                    <select id="niche-filter" onchange="renderTopics()"
+                        class="bg-neutral-900 border border-neutral-800 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-blue-500 outline-none max-w-[200px]">
+                        <option value="all">All Niches</option>
+                    </select>
                 </div>
 
                 <div class="flex items-center gap-4 w-full md:w-auto">
@@ -274,7 +284,7 @@
 
     <script>
         let currentView = 'grid'; // 'grid' or 'list'
-        let currentFilter = 'all';
+        let filtersPopulated = false;
         let currentSearch = '';
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -333,36 +343,23 @@
                 return;
             }
 
-            const themes = [...new Set(SPEAKER_TOPICS.map(t => t.theme).filter(Boolean))];
-            const filterContainer = document.getElementById('theme-filters');
-
-            // Build Filters
-            if (themes.length > 0 && filterContainer.innerHTML.trim() === '') {
-                filterContainer.innerHTML = `<button class="filter-btn active px-4 py-2 bg-white text-black rounded-full text-sm font-bold transition-all" data-theme="all">All</button>` +
-                    themes.map(theme => `
-                    <button class="filter-btn px-4 py-2 bg-neutral-900 text-neutral-400 hover:text-white rounded-full text-sm font-bold transition-all border border-neutral-800 hover:border-neutral-600" data-theme="${theme}">${theme}</button>
-                `).join('');
-
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        document.querySelectorAll('.filter-btn').forEach(b => {
-                            b.classList.remove('bg-white', 'text-black');
-                            b.classList.add('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
-                        });
-                        e.target.classList.remove('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
-                        e.target.classList.remove('bg-neutral-900', 'text-neutral-400', 'border-neutral-800');
-                        e.target.classList.add('bg-white', 'text-black');
-                        currentFilter = e.target.dataset.theme;
-                        renderTopics();
-                    });
-                });
+            // Populate Filters Once
+            if (!filtersPopulated) {
+                populateFilters();
+                filtersPopulated = true;
             }
+
+            const themeFilter = document.getElementById('theme-filter').value;
+            const nicheFilter = document.getElementById('niche-filter').value;
 
             // FILTER LOGIC
             const themesToRender = SPEAKER_TOPICS.map((topic, index) => ({ ...topic, originalIndex: index }))
                 .filter(topic => {
                     // 1. Theme Filter
-                    if (currentFilter !== 'all' && topic.theme !== currentFilter) return false;
+                    if (themeFilter !== 'all' && topic.theme !== themeFilter) return false;
+
+                    // 2. Niche Filter
+                    if (nicheFilter !== 'all' && topic.niche !== nicheFilter) return false;
 
                     // 2. Search Filter
                     if (currentSearch) {
@@ -387,6 +384,18 @@
                 renderListView(themesToRender, container);
             }
             lucide.createIcons();
+        }
+
+        function populateFilters() {
+            // Themes
+            const themes = [...new Set(SPEAKER_TOPICS.map(t => t.theme).filter(Boolean))].sort();
+            const tFilter = document.getElementById('theme-filter');
+            themes.forEach(t => tFilter.add(new Option(t, t)));
+
+            // Niches
+            const niches = [...new Set(SPEAKER_TOPICS.map(t => t.niche).filter(Boolean))].sort();
+            const nFilter = document.getElementById('niche-filter');
+            niches.forEach(n => nFilter.add(new Option(n, n)));
         }
 
         function renderGridView(items, container) {
