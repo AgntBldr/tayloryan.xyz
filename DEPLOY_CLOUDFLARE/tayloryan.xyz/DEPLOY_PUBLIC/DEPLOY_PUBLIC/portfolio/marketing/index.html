@@ -30,11 +30,11 @@
 </head>
 
 <body class="bg-black min-h-screen flex flex-col">
-    <script src="/DEPLOY_PUBLIC/assets/js/layout.js?v=20260202-1330"></script>
+    <script src="/DEPLOY_PUBLIC/assets/js/layout.js?v=20260202-1333"></script>
     <!-- Data Source -->
     <script src="/DEPLOY_PUBLIC/assets/js/marketing_full_data.js"></script>
     <!-- Sidebar -->
-    <script src="/DEPLOY_PUBLIC/assets/js/marketing_sidebar.js?v=20260202-1330"></script>
+    <script src="/DEPLOY_PUBLIC/assets/js/marketing_sidebar.js?v=20260202-1333"></script>
     <script src="/DEPLOY_PUBLIC/assets/js/social_media_data.js"></script>
     <script>
         // Merge Social Media Data into Marketing Full Data on the fly
@@ -172,10 +172,10 @@
             if (typeof renderMarketingSidebar === 'function') {
                 renderMarketingSidebar('overview');
                 // Move sidebar into container if needed, or sidebar script appends to body?
-                // marketing_sidebar.js?v=20260202-1330 usually document.write or appends. 
+                // marketing_sidebar.js?v=20260202-1333 usually document.write or appends. 
                 // Let's assume it appends to where it's called or we handle it.
-                // Actually, marketing_sidebar.js?v=20260202-1330 returns HTMLString? 
-                // Wait, let's check marketing_sidebar.js?v=20260202-1330 content again.
+                // Actually, marketing_sidebar.js?v=20260202-1333 returns HTMLString? 
+                // Wait, let's check marketing_sidebar.js?v=20260202-1333 content again.
                 // It returns a generic valid sidebar string? 
                 // Step 2436: `const sidebarHTML = ...` is defined but NOT returned or appended!
                 // It just defines `sidebarHTML` string?
@@ -186,11 +186,11 @@
                 // It calculates `sidebarHTML`.
                 // It DOES NOT inject it.
 
-                // Correction: I need to FIX marketing_sidebar.js?v=20260202-1330 or use the return value.
+                // Correction: I need to FIX marketing_sidebar.js?v=20260202-1333 or use the return value.
                 // Let's look at `portfolio/marketing/index.html` (Original).
                 // It had the sidebar INLINED.
 
-                // The `marketing_sidebar.js?v=20260202-1330` I saw in Step 2436 (which I thought was being used) might be a 'work in progress' or used differently?
+                // The `marketing_sidebar.js?v=20260202-1333` I saw in Step 2436 (which I thought was being used) might be a 'work in progress' or used differently?
                 // Ah, Step 2436 code:
                 // `renderMarketingSidebar` function body...
                 // It ends with: `span id="sidebar-resource-count">${totalResources}</span>...`
@@ -198,7 +198,7 @@
                 // It assigns it to a variable `sidebarHTML`.
                 // AND THEN? 
                 // The snippets shown end at line 100.
-                // I need to see the END of `marketing_sidebar.js?v=20260202-1330`.
+                // I need to see the END of `marketing_sidebar.js?v=20260202-1333`.
 
             }
 
