@@ -5,7 +5,7 @@ import pandas as pd
 
 # Configuration
 BASE_DIR = r"C:\Users\tempv2\Desktop\PortfolioAgent"
-RESOURCES_DIR = os.path.join(BASE_DIR, "Ref Docs", "Resources Tab")
+RESOURCES_DIR = os.path.join(BASE_DIR, "Ref Docs", "Work", "Quests", "Quest Resources")
 OUTPUT_FILE = os.path.join(BASE_DIR, "assets", "resources_data.js")
 
 CATEGORIES = {
@@ -34,16 +34,69 @@ def extract_docx(filepath):
     try:
         import docx
         doc = docx.Document(filepath)
-        full_text = []
+        html_parts = []
+        list_state = None # 'ul', 'ol', or None
+        
+        import re
+        def linkify_text(text):
+            return re.sub(r'(https?://\S+)', r'<a href="\1" target="_blank" class="text-blue-400 hover:underline">\1</a>', text)
+
+        def close_list():
+            nonlocal list_state
+            if list_state:
+                html_parts.append(f"</{list_state}>")
+                list_state = None
+
         for para in doc.paragraphs:
-            if para.text.strip():
-                full_text.append(para.text)
-        return {"type": "Doc", "content": "\n".join(full_text)}
+            raw_text = para.text.strip()
+            if not raw_text:
+                continue
+            
+            text = linkify_text(raw_text)
+            style_name = para.style.name.lower()
+            
+            # Headings
+            if 'heading' in style_name:
+                close_list()
+                level = 3
+                if '1' in style_name: level = 3
+                elif '2' in style_name: level = 4
+                elif '3' in style_name: level = 5
+                html_parts.append(f"<h{level} class='text-white font-bold mb-2 mt-4'>{text}</h{level}>")
+            
+            # Lists
+            elif 'list' in style_name or 'bullet' in style_name:
+                wanted_state = 'ol' if 'number' in style_name else 'ul'
+                if list_state != wanted_state:
+                    close_list()
+                    list_state = wanted_state
+                    html_parts.append(f"<{list_state} class='list-disc pl-5 mb-4 space-y-1 text-neutral-300'>")
+                
+                html_parts.append(f"<li>{text}</li>")
+            
+            # Normal text
+            else:
+                close_list()
+                if raw_text.startswith('- ') or raw_text.startswith('• '):
+                     if list_state != 'ul':
+                        list_state = 'ul'
+                        html_parts.append(f"<ul class='list-disc pl-5 mb-4 space-y-1 text-neutral-300'>")
+                     # Remove bullet char but keep linkified text (careful with indexing if link is at start)
+                     # safer to linkify AFTER removing bullet
+                     clean_text = raw_text[2:]
+                     html_parts.append(f"<li>{linkify_text(clean_text)}</li>")
+                else:
+                    html_parts.append(f"<p class='mb-4 text-neutral-300 leading-relaxed'>{text}</p>")
+
+        close_list() # Close any remaining list
+        
+        return {"type": "Doc", "content": "\n".join(html_parts)}
+
     except ImportError:
-        return {"type": "Doc", "content": "Error: python-docx not installed. formatting lost."}
+        return {"type": "Doc", "content": "<p class='text-red-400'>Error: python-docx not installed.</p>"}
     except Exception as e:
         print(f"Error reading Docx {filepath}: {e}")
-        return None
+        return {"type": "Doc", "content": f"<p class='text-red-400'>Error reading file: {e}</p>"}
 
 # ... (imports remain)
 

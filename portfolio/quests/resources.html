@@ -390,10 +390,10 @@
                 }).join('');
                 dynamicContainer.innerHTML = `<div class="space-y-4"><div class="flex border-b border-neutral-800 gap-1 overflow-x-auto scrollbar-hide">${tabsHtml}</div><div>${tablesHtml}</div></div>`;
             } else if (resource.content) {
-                // Generic Text
+                // Generic Text (HTML content from DOCX)
                 dynamicContainer.innerHTML = `
                     <div class="bg-neutral-800 rounded-xl border border-neutral-700 p-8 md:p-12 prose prose-invert max-w-none">
-                        <pre class="whitespace-pre-wrap font-sans text-neutral-300 leading-relaxed">${linkify(resource.content)}</pre>
+                        <div class="font-sans text-neutral-300 leading-relaxed">${resource.content}</div>
                     </div>
                 `;
             }
