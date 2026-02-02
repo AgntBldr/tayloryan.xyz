@@ -96,8 +96,8 @@ function injectLayout() {
                     <ul class="space-y-4 text-sm text-neutral-500">
                         <li><a href="/portfolio/quests/" class="hover:text-white transition-colors">Quests</a></li>
                         <li><a href="/work_speaker/" class="hover:text-blue-400 transition-colors">Keynotes</a></li>
-                        <li><a href="/work_writing/" class="hover:text-green-400 transition-colors">Writing</a></li>
-                        <li><a href="/work_projects/" class="hover:text-orange-400 transition-colors">Projects</a></li>
+                        <li><a href="/portfolio/marketing/" class="hover:text-green-400 transition-colors">Marketing Hub</a></li>
+                        <li><a href="/work_projects/" class="hover:text-orange-400 transition-colors">Builds & Projects</a></li>
                     </ul>
                 </div>
 
