@@ -20,7 +20,7 @@ const VIDEO_WORK_DATA = [
     "description": "How to hire and structure a growth team, avoid common leadership traps, and keep output high as you scale.",
     "url": "https://youtu.be/mHYWWdXkYbI",
     "videoId": "mHYWWdXkYbI",
-    "category": "Full talk",
+    "category": "Talk (Full)",
     "industry": "Growth marketing, Leadership, Startups, B2B SaaS, Hiring",
     "tags": [
       "Hiring",
@@ -36,7 +36,7 @@ const VIDEO_WORK_DATA = [
     "description": "Enterprise selling for startups, how pilots get approved, who blocks deals, and what to do before procurement shows up.",
     "url": "https://www.youtube.com/watch?v=TGgJq07i7bw",
     "videoId": "TGgJq07i7bw",
-    "category": "Full talk",
+    "category": "Talk (Full)",
     "industry": "Startups, Enterprise sales, B2B, Corporate innovation, SaaS",
     "tags": [
       "Pilots",
@@ -68,7 +68,7 @@ const VIDEO_WORK_DATA = [
     "description": "Playbook for building communities at scale, with a focus on engagement loops, events, and retention mechanics.",
     "url": "https://youtu.be/IsT6asLQHNE",
     "videoId": "IsT6asLQHNE",
-    "category": "Presentation",
+    "category": "Presentation (Full)",
     "industry": "Community, Events, SaaS, Creator economy, Digital marketing",
     "tags": [
       "Community building",
@@ -148,7 +148,7 @@ const VIDEO_WORK_DATA = [
     "description": "Failure story with the useful parts left in, covering lessons learned, decision points, and how to recover momentum.",
     "url": "https://www.youtube.com/watch?v=_92TcCdiQbI",
     "videoId": "_92TcCdiQbI",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "Startups, Entrepreneurship, Events, Leadership, Tech ecosystem",
     "tags": [
       "Failure lessons",
@@ -164,7 +164,7 @@ const VIDEO_WORK_DATA = [
     "description": "A deeper version of the failure narrative, tying mistakes to specific learning moments and future operating principles.",
     "url": "https://youtu.be/v_LU8-ZqZjU",
     "videoId": "v_LU8-ZqZjU",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "Startups, Entrepreneurship, Leadership, Events, Tech ecosystem",
     "tags": [
       "Failure lessons",
@@ -180,7 +180,7 @@ const VIDEO_WORK_DATA = [
     "description": "Quick-win growth tactics designed for speed, clarity, and measurable outcomes without heavy resources.",
     "url": "https://youtu.be/gFYRWbSXxeM",
     "videoId": "gFYRWbSXxeM",
-    "category": "Presentation",
+    "category": "Presentation (Full)",
     "industry": "Startups, Growth marketing, Entrepreneurship, SaaS, Community",
     "tags": [
       "Quick wins",
@@ -196,7 +196,7 @@ const VIDEO_WORK_DATA = [
     "description": "Short, punchy commentary on how teams misuse data, and why \u201creporting\u201d is not the same as decision-making.",
     "url": "https://www.youtube.com/watch?v=keaTbxSjmr0",
     "videoId": "keaTbxSjmr0",
-    "category": "Short video",
+    "category": "Short Clip / Highlight",
     "industry": "Digital marketing, Analytics, Culture, Content, Humor",
     "tags": [
       "Data culture",
@@ -212,7 +212,7 @@ const VIDEO_WORK_DATA = [
     "description": "Interview-style session on growth, diversity, and bootstrapping, with blunt insights on what actually drives outcomes.",
     "url": "https://youtu.be/Bl-JCe39kcQ",
     "videoId": "Bl-JCe39kcQ",
-    "category": "Interview",
+    "category": "Interview (Team, Q&A)",
     "industry": "SaaS, Social media, Startups, Leadership, Tech ecosystem",
     "tags": [
       "Growth",
@@ -228,7 +228,7 @@ const VIDEO_WORK_DATA = [
     "description": "Workflow for creating content guides that scale quality, reduce chaos, and keep production aligned with search intent.",
     "url": "https://youtu.be/Pph_Bsi8Y5Y",
     "videoId": "Pph_Bsi8Y5Y",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Content marketing, SEO, SaaS marketing, Digital strategy, Editorial ops",
     "tags": [
       "Content guides",
@@ -340,7 +340,7 @@ const VIDEO_WORK_DATA = [
     "description": "Build a lean growth org that ships fast, role design, hiring order, operating cadence, experiment loops, and accountability that does not kill creativity.",
     "url": "https://www.youtube.com/watch?v=BRBrvwZ3gWo",
     "videoId": "BRBrvwZ3gWo",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, Startups, SaaS, Leadership, Conference",
     "tags": [
       "growth team",
@@ -356,7 +356,7 @@ const VIDEO_WORK_DATA = [
     "description": "Brand foundations that do not waste time, positioning, messaging, proof, and how to align brand with acquisition channels from day one.",
     "url": "https://www.youtube.com/watch?v=L8EBqL6vyJ8",
     "videoId": "L8EBqL6vyJ8",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Startups, Branding, Marketing, Entrepreneurship, Conference",
     "tags": [
       "positioning",
@@ -372,7 +372,7 @@ const VIDEO_WORK_DATA = [
     "description": "Why the right stack compounds results, what to automate first, and how to avoid Frankenstack chaos.",
     "url": "https://www.youtube.com/watch?v=thQwc9ECcA0",
     "videoId": "thQwc9ECcA0",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Marketing ops, SaaS, Startups, Conference",
     "tags": [
       "martech",
@@ -388,7 +388,7 @@ const VIDEO_WORK_DATA = [
     "description": "Stack design that supports acquisition, activation, and retention, tracking that stays sane, and tooling decisions tied to outcomes.",
     "url": "https://www.youtube.com/watch?v=Xm70CVXx1Qw",
     "videoId": "Xm70CVXx1Qw",
-    "category": "Full Talk / Workshop",
+    "category": "Workshop",
     "industry": "Marketing ops, SaaS, Startups, Conference",
     "tags": [
       "martech stack",
@@ -404,7 +404,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a hands-on session on breaking into digital marketing with practical skills, frameworks, and how to build proof fast.",
     "url": "https://www.youtube.com/watch?v=rwiCvWfUxOk",
     "videoId": "rwiCvWfUxOk",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Education, Digital marketing, Career development, Program",
     "tags": [
       "digital marketing basics",
@@ -419,7 +419,7 @@ const VIDEO_WORK_DATA = [
     "description": "Quick cut of a deeper training session, core channels, measurement, and how to think in experiments instead of opinions.",
     "url": "https://www.youtube.com/watch?v=MHxzTtVWkuU",
     "videoId": "MHxzTtVWkuU",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Education, Digital marketing, Career development, Program",
     "tags": [
       "experimentation",
@@ -434,7 +434,7 @@ const VIDEO_WORK_DATA = [
     "description": "Why UX is a growth lever, how to test friction, and the mindset shift from pretty to profitable.",
     "url": "https://www.youtube.com/watch?v=bmC_86ws_TE",
     "videoId": "bmC_86ws_TE",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "UX, Product, Growth, Community, Meetup",
     "tags": [
       "conversion",
@@ -450,7 +450,7 @@ const VIDEO_WORK_DATA = [
     "description": "A fast montage of talks, workshops, and crowd moments built to sell the energy and credibility, not just the slides.",
     "url": "https://www.youtube.com/watch?v=t3YK93vuino",
     "videoId": "t3YK93vuino",
-    "category": "Highlight Reel",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Marketing, Events, Speaking, Agency",
     "tags": [
       "keynotes",
@@ -465,7 +465,7 @@ const VIDEO_WORK_DATA = [
     "description": "User testing that drives conversion, what to test first, fast scripts, and how to turn insights into experiments that ship.",
     "url": "https://www.youtube.com/watch?v=JDkYIwmqx7U",
     "videoId": "JDkYIwmqx7U",
-    "category": "Full Workshop",
+    "category": "Workshop",
     "industry": "UX, Product, Growth, Startups",
     "tags": [
       "user testing",
@@ -481,7 +481,7 @@ const VIDEO_WORK_DATA = [
     "description": "Blend UX and growth, diagnose funnels, prioritize fixes, and build an experimentation roadmap that improves the product and the metrics.",
     "url": "https://www.youtube.com/watch?v=1H15S1Lzcc8",
     "videoId": "1H15S1Lzcc8",
-    "category": "Full Workshop",
+    "category": "Workshop",
     "industry": "UX, Product, Growth, Startups",
     "tags": [
       "funnel analysis",
@@ -497,7 +497,7 @@ const VIDEO_WORK_DATA = [
     "description": "Short preview on building innovation capability, killing theater, and shipping experiments that change how teams work.",
     "url": "https://www.youtube.com/watch?v=9XU_Ry-zWtQ",
     "videoId": "9XU_Ry-zWtQ",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Innovation, Leadership, Corporate, Future of work",
     "tags": [
       "innovation systems",
@@ -512,7 +512,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a SportTech growth workshop, foundations, quick wins, and how to stop guessing and start validating.",
     "url": "https://www.youtube.com/watch?v=HMxdlRlnPXc",
     "videoId": "HMxdlRlnPXc",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Sports tech, Startups, Marketing, Workshop",
     "tags": [
       "growth foundations",
@@ -543,7 +543,7 @@ const VIDEO_WORK_DATA = [
     "description": "Premiere setup for TikTok, sequence settings, export choices, and workflow tweaks that save hours.",
     "url": "https://www.youtube.com/watch?v=dRgxlOBF9Zc",
     "videoId": "dRgxlOBF9Zc",
-    "category": "Tutorial / How-to",
+    "category": "Tutorial (How To)",
     "industry": "Social media, Creator economy, Video editing, Tools",
     "tags": [
       "Premiere Pro",
@@ -558,7 +558,7 @@ const VIDEO_WORK_DATA = [
     "description": "Desktop workflow for posting to TikTok, file prep, browser flow, and common gotchas that block uploads.",
     "url": "https://www.youtube.com/watch?v=QUZEre147Og",
     "videoId": "QUZEre147Og",
-    "category": "Tutorial / How-to",
+    "category": "Tutorial (How To)",
     "industry": "Social media, Creator economy, Tools, Productivity",
     "tags": [
       "TikTok desktop",
@@ -573,7 +573,7 @@ const VIDEO_WORK_DATA = [
     "description": "Move edits from your machine to TikTok cleanly using Drive, staying organized and avoiding quality loss.",
     "url": "https://www.youtube.com/watch?v=zqguZy09pTo",
     "videoId": "zqguZy09pTo",
-    "category": "Tutorial / How-to",
+    "category": "Tutorial (How To)",
     "industry": "Social media, Creator economy, Tools, Productivity",
     "tags": [
       "Google Drive",
@@ -588,7 +588,7 @@ const VIDEO_WORK_DATA = [
     "description": "Browser-based uploading steps, file requirements, and a repeatable checklist so posts go up without drama.",
     "url": "https://www.youtube.com/watch?v=uAUC6IGaMVY",
     "videoId": "uAUC6IGaMVY",
-    "category": "Tutorial / How-to",
+    "category": "Tutorial (How To)",
     "industry": "Social media, Creator economy, Tools, Productivity",
     "tags": [
       "TikTok browser",
@@ -603,7 +603,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of the corporate innovation talk, faster experiments, less politics, and measurable progress over theater.",
     "url": "https://youtu.be/bja8oOovpsA",
     "videoId": "bja8oOovpsA",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Innovation, Startups, Corporate, Conference",
     "tags": [
       "innovation",
@@ -618,7 +618,7 @@ const VIDEO_WORK_DATA = [
     "description": "Teaser for a long-form class on growth systems, channel testing, and the non-obvious execution details that matter.",
     "url": "https://youtu.be/P0hU5AAfxYY",
     "videoId": "P0hU5AAfxYY",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Education, Startups, Marketing, Workshop",
     "tags": [
       "growth systems",
@@ -633,7 +633,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of practical organic LinkedIn tactics, content angles, distribution, and consistency without being cringe.",
     "url": "https://youtu.be/GVOykRNf3tM",
     "videoId": "GVOykRNf3tM",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Community, Marketing, B2B, Networking",
     "tags": [
       "LinkedIn",
@@ -648,7 +648,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of the SEO session, quick wins, technical priorities, and content strategy built around intent.",
     "url": "https://youtu.be/aVCzCZKOyeU",
     "videoId": "aVCzCZKOyeU",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "SEO, Startups, Marketing, Conference",
     "tags": [
       "SEO hacks",
@@ -663,7 +663,7 @@ const VIDEO_WORK_DATA = [
     "description": "How marketing roles evolve, what skills compound, and where operators should focus to stay valuable as tools change.",
     "url": "https://www.youtube.com/watch?v=31mYSd40DVg",
     "videoId": "31mYSd40DVg",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "Marketing, Career, Tech, Conference",
     "tags": [
       "future of marketing",
@@ -679,7 +679,7 @@ const VIDEO_WORK_DATA = [
     "description": "Why experimentation beats opinions, how compounding tests win, and what future marketers must learn to stay competitive.",
     "url": "https://youtu.be/M-OV9M8_JPI",
     "videoId": "M-OV9M8_JPI",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "Marketing, Education, Startups, Conference",
     "tags": [
       "growth hacking",
@@ -694,7 +694,7 @@ const VIDEO_WORK_DATA = [
     "description": "Pushes for practical growth education, experimentation, measurement, and real-world execution over theory-only marketing.",
     "url": "https://www.youtube.com/watch?v=tQkULKXqCJk",
     "videoId": "tQkULKXqCJk",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "Education, Marketing, Startups, Conference",
     "tags": [
       "education",
@@ -709,7 +709,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a keynote on how AI content shifts attention economics, distribution, and what marketers must change fast.",
     "url": "https://youtu.be/v22N2relntw",
     "videoId": "v22N2relntw",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Startups, Tech, Marketing, Conference",
     "tags": [
       "AI content",
@@ -724,7 +724,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a Spark keynote, growth tactics, strategy, and a high-energy stage cut designed for shareability.",
     "url": "https://youtu.be/qgfNvEjgljA",
     "videoId": "qgfNvEjgljA",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Marketing, Social media, Conference, Tech",
     "tags": [
       "growth hacking",
@@ -739,7 +739,7 @@ const VIDEO_WORK_DATA = [
     "description": "Long-form conversation on innovation, building teams that execute, and how to turn ideas into shipped outcomes.",
     "url": "https://youtu.be/dp7Bdy8l4ek",
     "videoId": "dp7Bdy8l4ek",
-    "category": "Interview",
+    "category": "Interview (Team, Q&A)",
     "industry": "Innovation, Startups, Leadership, Media",
     "tags": [
       "innovation",
@@ -754,7 +754,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a SearchStars session on scaling growth, what to automate, and how to spot leverage in messy funnels.",
     "url": "https://youtu.be/Q_02zufahjs",
     "videoId": "Q_02zufahjs",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "SEO, Growth, Conference, B2B",
     "tags": [
       "scaling",
@@ -769,7 +769,7 @@ const VIDEO_WORK_DATA = [
     "description": "How to decide what to automate, what to keep manual, and where automation creates risk instead of leverage.",
     "url": "https://www.youtube.com/watch?v=eHmPxi_Yqdk",
     "videoId": "eHmPxi_Yqdk",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "Marketing ops, Automation, Startups, Conference",
     "tags": [
       "automation",
@@ -784,7 +784,7 @@ const VIDEO_WORK_DATA = [
     "description": "Stage talk packed with growth levers, prioritization, and tactics that translate into experiments teams can run immediately.",
     "url": "https://youtu.be/qJQkwSeOHEc",
     "videoId": "qJQkwSeOHEc",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "SEO, Growth, Conference, Marketing",
     "tags": [
       "growth hacks",
@@ -799,7 +799,7 @@ const VIDEO_WORK_DATA = [
     "description": "Growth-focused session tailored for a digital marketing audience, organic distribution, and repeatable tactics that scale with consistency.",
     "url": "https://youtu.be/LMXRddhNq44",
     "videoId": "LMXRddhNq44",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, Conference, Social media, Growth",
     "tags": [
       "organic growth",
@@ -814,7 +814,7 @@ const VIDEO_WORK_DATA = [
     "description": "LinkedIn organic strategy, hooks, posting cadence, and how to turn content into inbound without sounding like a brochure.",
     "url": "https://youtu.be/XH6YPOhPcy8",
     "videoId": "XH6YPOhPcy8",
-    "category": "Tutorial / Workshop",
+    "category": "Workshop",
     "industry": "B2B marketing, Social media, Personal branding",
     "tags": [
       "LinkedIn",
@@ -844,7 +844,7 @@ const VIDEO_WORK_DATA = [
     "description": "Short teaser for an organic social growth talk, tactics that cut through noise and a mindset built around testing.",
     "url": "https://youtu.be/7AHifFYlUQc",
     "videoId": "7AHifFYlUQc",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, Conference, Social media",
     "tags": [
       "organic social",
@@ -859,7 +859,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a failure story session, lessons learned, and the uncomfortable truths that actually help founders grow up fast.",
     "url": "https://youtu.be/SAwg9_pZAEw",
     "videoId": "SAwg9_pZAEw",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Startups, Entrepreneurship, Conference, Community",
     "tags": [
       "failure",
@@ -874,7 +874,7 @@ const VIDEO_WORK_DATA = [
     "description": "Ruthless focus on intent, building content that earns clicks, matches queries, and converts without gimmicks.",
     "url": "https://youtu.be/aH8nloYW-QY",
     "videoId": "aH8nloYW-QY",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "SEO, Content marketing, Startups, Conference",
     "tags": [
       "user intent",
@@ -889,7 +889,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of an innovation and startups session, corporate transformation, and what it takes to execute change at scale.",
     "url": "https://youtu.be/MYjY3b6KLEA",
     "videoId": "MYjY3b6KLEA",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Enterprise tech, Innovation, Conference, Startups",
     "tags": [
       "digital transformation",
@@ -904,7 +904,7 @@ const VIDEO_WORK_DATA = [
     "description": "Sharp teaser on why the CMO role is getting reshaped, accountability, execution, and where marketing leadership is headed.",
     "url": "https://youtu.be/PEWQdW1qbCQ",
     "videoId": "PEWQdW1qbCQ",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Startups, Marketing, Conference, Leadership",
     "tags": [
       "CMO",
@@ -919,7 +919,7 @@ const VIDEO_WORK_DATA = [
     "description": "Growth and content tactics tuned for a search audience, what to test, what to measure, and how to get compounding wins.",
     "url": "https://youtu.be/d6YVPqf7WQ0",
     "videoId": "d6YVPqf7WQ0",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "SEO, Content marketing, Conference, Growth",
     "tags": [
       "content hacks",
@@ -934,7 +934,7 @@ const VIDEO_WORK_DATA = [
     "description": "How startups disrupt incumbents, what innovation looks like in practice, and how to build internal momentum to ship.",
     "url": "https://youtu.be/vypCQI1Cki8",
     "videoId": "vypCQI1Cki8",
-    "category": "Lecture / Talk",
+    "category": "Talk (Full)",
     "industry": "Startups, Innovation, Education, Architecture",
     "tags": [
       "innovation",
@@ -949,7 +949,7 @@ const VIDEO_WORK_DATA = [
     "description": "AI content as a distribution weapon, how to stand out when volume explodes, and the growth mindset that survives the shift.",
     "url": "https://youtu.be/VZBqQcXS19Q",
     "videoId": "VZBqQcXS19Q",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "AI, Marketing, Media, Conference",
     "tags": [
       "AI content",
@@ -964,7 +964,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a long workshop on growth experimentation, channel testing, and execution systems that do not rely on hype.",
     "url": "https://youtu.be/h8WGi9P2QNo",
     "videoId": "h8WGi9P2QNo",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Tech, Marketing, Conference, Education",
     "tags": [
       "growth hacking",
@@ -979,7 +979,7 @@ const VIDEO_WORK_DATA = [
     "description": "Pushes for practical growth education, experimentation, measurement, and real-world execution over theory-only marketing.",
     "url": "https://www.youtube.com/watch?v=tQkULKXqCJk",
     "videoId": "tQkULKXqCJk",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "Education, Marketing, Startups, Conference",
     "tags": [
       "education",
@@ -994,7 +994,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a keynote on how AI content shifts attention economics, distribution, and what marketers must change fast.",
     "url": "https://youtu.be/v22N2relntw",
     "videoId": "v22N2relntw",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Startups, Tech, Marketing, Conference",
     "tags": [
       "AI content",
@@ -1009,7 +1009,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a Spark keynote, growth tactics, strategy, and a high-energy stage cut designed for shareability.",
     "url": "https://youtu.be/qgfNvEjgljA",
     "videoId": "qgfNvEjgljA",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Marketing, Social media, Conference, Tech",
     "tags": [
       "growth hacking",
@@ -1024,7 +1024,7 @@ const VIDEO_WORK_DATA = [
     "description": "Long-form conversation on innovation, building teams that execute, and how to turn ideas into shipped outcomes.",
     "url": "https://youtu.be/dp7Bdy8l4ek",
     "videoId": "dp7Bdy8l4ek",
-    "category": "Interview",
+    "category": "Interview (Team, Q&A)",
     "industry": "Innovation, Startups, Leadership, Media",
     "tags": [
       "innovation",
@@ -1039,7 +1039,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a SearchStars session on scaling growth, what to automate, and how to spot leverage in messy funnels.",
     "url": "https://youtu.be/Q_02zufahjs",
     "videoId": "Q_02zufahjs",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "SEO, Growth, Conference, B2B",
     "tags": [
       "scaling",
@@ -1054,7 +1054,7 @@ const VIDEO_WORK_DATA = [
     "description": "How to decide what to automate, what to keep manual, and where automation creates risk instead of leverage.",
     "url": "https://www.youtube.com/watch?v=eHmPxi_Yqdk",
     "videoId": "eHmPxi_Yqdk",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "Marketing ops, Automation, Startups, Conference",
     "tags": [
       "automation",
@@ -1069,7 +1069,7 @@ const VIDEO_WORK_DATA = [
     "description": "Stage talk packed with growth levers, prioritization, and tactics that translate into experiments teams can run immediately.",
     "url": "https://youtu.be/qJQkwSeOHEc",
     "videoId": "qJQkwSeOHEc",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "SEO, Growth, Conference, Marketing",
     "tags": [
       "growth hacks",
@@ -1084,7 +1084,7 @@ const VIDEO_WORK_DATA = [
     "description": "Growth-focused session tailored for a digital marketing audience, organic distribution, and repeatable tactics that scale with consistency.",
     "url": "https://youtu.be/LMXRddhNq44",
     "videoId": "LMXRddhNq44",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, Conference, Social media, Growth",
     "tags": [
       "organic growth",
@@ -1099,7 +1099,7 @@ const VIDEO_WORK_DATA = [
     "description": "LinkedIn organic strategy, hooks, posting cadence, and how to turn content into inbound without sounding like a brochure.",
     "url": "https://youtu.be/XH6YPOhPcy8",
     "videoId": "XH6YPOhPcy8",
-    "category": "Tutorial / Workshop",
+    "category": "Workshop",
     "industry": "B2B marketing, Social media, Personal branding",
     "tags": [
       "LinkedIn",
@@ -1129,7 +1129,7 @@ const VIDEO_WORK_DATA = [
     "description": "Short teaser for an organic social growth talk, tactics that cut through noise and a mindset built around testing.",
     "url": "https://youtu.be/7AHifFYlUQc",
     "videoId": "7AHifFYlUQc",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, Conference, Social media",
     "tags": [
       "organic social",
@@ -1144,7 +1144,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a failure story session, lessons learned, and the uncomfortable truths that actually help founders grow up fast.",
     "url": "https://youtu.be/SAwg9_pZAEw",
     "videoId": "SAwg9_pZAEw",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Startups, Entrepreneurship, Conference, Community",
     "tags": [
       "failure",
@@ -1159,7 +1159,7 @@ const VIDEO_WORK_DATA = [
     "description": "Ruthless focus on intent, building content that earns clicks, matches queries, and converts without gimmicks.",
     "url": "https://youtu.be/aH8nloYW-QY",
     "videoId": "aH8nloYW-QY",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "SEO, Content marketing, Startups, Conference",
     "tags": [
       "user intent",
@@ -1174,7 +1174,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of an innovation and startups session, corporate transformation, and what it takes to execute change at scale.",
     "url": "https://youtu.be/MYjY3b6KLEA",
     "videoId": "MYjY3b6KLEA",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Enterprise tech, Innovation, Conference, Startups",
     "tags": [
       "digital transformation",
@@ -1189,7 +1189,7 @@ const VIDEO_WORK_DATA = [
     "description": "Sharp teaser on why the CMO role is getting reshaped, accountability, execution, and where marketing leadership is headed.",
     "url": "https://youtu.be/PEWQdW1qbCQ",
     "videoId": "PEWQdW1qbCQ",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Startups, Marketing, Conference, Leadership",
     "tags": [
       "CMO",
@@ -1204,7 +1204,7 @@ const VIDEO_WORK_DATA = [
     "description": "Growth and content tactics tuned for a search audience, what to test, what to measure, and how to get compounding wins.",
     "url": "https://youtu.be/d6YVPqf7WQ0",
     "videoId": "d6YVPqf7WQ0",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "SEO, Content marketing, Conference, Growth",
     "tags": [
       "content hacks",
@@ -1219,7 +1219,7 @@ const VIDEO_WORK_DATA = [
     "description": "How startups disrupt incumbents, what innovation looks like in practice, and how to build internal momentum to ship.",
     "url": "https://youtu.be/vypCQI1Cki8",
     "videoId": "vypCQI1Cki8",
-    "category": "Lecture / Talk",
+    "category": "Talk (Full)",
     "industry": "Startups, Innovation, Education, Architecture",
     "tags": [
       "innovation",
@@ -1234,7 +1234,7 @@ const VIDEO_WORK_DATA = [
     "description": "AI content as a distribution weapon, how to stand out when volume explodes, and the growth mindset that survives the shift.",
     "url": "https://youtu.be/VZBqQcXS19Q",
     "videoId": "VZBqQcXS19Q",
-    "category": "Full Talk",
+    "category": "Talk (Full)",
     "industry": "AI, Marketing, Media, Conference",
     "tags": [
       "AI content",
@@ -1249,7 +1249,7 @@ const VIDEO_WORK_DATA = [
     "description": "Preview of a long workshop on growth experimentation, channel testing, and execution systems that do not rely on hype.",
     "url": "https://youtu.be/h8WGi9P2QNo",
     "videoId": "h8WGi9P2QNo",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Tech, Marketing, Conference, Education",
     "tags": [
       "growth hacking",
@@ -1264,7 +1264,7 @@ const VIDEO_WORK_DATA = [
     "description": "Highlight reel from the Growth Hacking course, fast cuts of tactics, slides, and room energy.",
     "url": "https://youtu.be/bJW2lj7wuuk",
     "videoId": "bJW2lj7wuuk",
-    "category": "Highlight Reel",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, startups, education, events, coworking",
     "tags": [
       "growth hacking",
@@ -1280,7 +1280,7 @@ const VIDEO_WORK_DATA = [
     "description": "Live-style session linking growth fundamentals with what changed in the algorithms, plus what to do next.",
     "url": "https://youtu.be/eauWVoLYmaw",
     "videoId": "eauWVoLYmaw",
-    "category": "Lecture / Workshop",
+    "category": "Workshop",
     "industry": "Digital marketing, fintech, education, startups, social media",
     "tags": [
       "algorithm updates",
@@ -1296,7 +1296,7 @@ const VIDEO_WORK_DATA = [
     "description": "A punchy clip on where big companies are headed and what they keep getting wrong.",
     "url": "https://youtu.be/CK9VPwRlW1E",
     "videoId": "CK9VPwRlW1E",
-    "category": "Clip / Talk",
+    "category": "Talk (Full)",
     "industry": "Startups, entrepreneurship, business, leadership, events",
     "tags": [
       "corporate change",
@@ -1312,7 +1312,7 @@ const VIDEO_WORK_DATA = [
     "description": "Practical growth tactics plus curated content plays you can run without a massive budget.",
     "url": "https://youtu.be/Bl1L3C0Amc4",
     "videoId": "Bl1L3C0Amc4",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, startups, entrepreneurship, events, SaaS",
     "tags": [
       "content marketing",
@@ -1328,7 +1328,7 @@ const VIDEO_WORK_DATA = [
     "description": "Teaser cut for the Pier 47 session, quick hooks and highlights to set the stage.",
     "url": "https://youtu.be/oHUA6A4VGOg",
     "videoId": "oHUA6A4VGOg",
-    "category": "Teaser",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, startups, branding, events, entrepreneurship",
     "tags": [
       "branding",
@@ -1344,7 +1344,7 @@ const VIDEO_WORK_DATA = [
     "description": "Fast teaser for Agency Day, going from solo freelancer to agency operator that scales.",
     "url": "https://youtu.be/2gzVBgcFhFs",
     "videoId": "2gzVBgcFhFs",
-    "category": "Teaser",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Entrepreneurship, marketing, education, freelancing, startups",
     "tags": [
       "freelancing",
@@ -1360,7 +1360,7 @@ const VIDEO_WORK_DATA = [
     "description": "Short teaser for the ITU Freelance Day session, positioning growth as the edge.",
     "url": "https://youtu.be/_HFiAnUDHOc",
     "videoId": "_HFiAnUDHOc",
-    "category": "Teaser",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Freelancing, marketing, education, tech, entrepreneurship",
     "tags": [
       "freelancing",
@@ -1376,7 +1376,7 @@ const VIDEO_WORK_DATA = [
     "description": "Trailer for the growth hacking course, what attendees can expect and why it matters.",
     "url": "https://youtu.be/HaF1GfIAD4A",
     "videoId": "HaF1GfIAD4A",
-    "category": "Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, education, startups, entrepreneurship, events",
     "tags": [
       "growth hacking",
@@ -1392,7 +1392,7 @@ const VIDEO_WORK_DATA = [
     "description": "Graduation trailer framing job search like a growth funnel, focus on action over vibes.",
     "url": "https://youtu.be/0z2v55eMzZI",
     "videoId": "0z2v55eMzZI",
-    "category": "Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Job search, education, marketing, career growth, entrepreneurship",
     "tags": [
       "job search funnel",
@@ -1408,7 +1408,7 @@ const VIDEO_WORK_DATA = [
     "description": "Trailer for a Google-focused online marketing training, crisp preview of the flow and outcomes.",
     "url": "https://youtu.be/fpNTmYttxSo",
     "videoId": "fpNTmYttxSo",
-    "category": "Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, education, career growth, tools, workshops",
     "tags": [
       "Google training",
@@ -1424,7 +1424,7 @@ const VIDEO_WORK_DATA = [
     "description": "Teaser cut, sharp setup for the mindset principles and how to apply them.",
     "url": "https://youtu.be/UvyHUUkdnvA",
     "videoId": "UvyHUUkdnvA",
-    "category": "Teaser",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, startups, education, events, coworking",
     "tags": [
       "growth mindset",
@@ -1440,7 +1440,7 @@ const VIDEO_WORK_DATA = [
     "description": "Practical social growth plays, what to test first, and how to keep iteration honest.",
     "url": "https://youtu.be/jMr9JMzCa7Q",
     "videoId": "jMr9JMzCa7Q",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, education, social media, startups, branding",
     "tags": [
       "social growth",
@@ -1456,7 +1456,7 @@ const VIDEO_WORK_DATA = [
     "description": "Growth approach to getting freelance clients, build proof, build pipeline, ship consistently.",
     "url": "https://youtu.be/b9gNZMlaQXA",
     "videoId": "b9gNZMlaQXA",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Freelancing, marketing, education, tech, entrepreneurship",
     "tags": [
       "freelance growth",
@@ -1472,7 +1472,7 @@ const VIDEO_WORK_DATA = [
     "description": "How branding and growth work together on social, message discipline plus testing cadence.",
     "url": "https://youtu.be/lQcyk3wtT14",
     "videoId": "lQcyk3wtT14",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, branding, education, social media, startups",
     "tags": [
       "brand strategy",
@@ -1488,7 +1488,7 @@ const VIDEO_WORK_DATA = [
     "description": "Blueprint view of starting an agency, offer design, delivery, and getting early wins.",
     "url": "https://youtu.be/6bJUbx0Njho",
     "videoId": "6bJUbx0Njho",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Entrepreneurship, marketing, education, freelancing, startups",
     "tags": [
       "agency building",
@@ -1504,7 +1504,7 @@ const VIDEO_WORK_DATA = [
     "description": "Job search as a growth system, tighten positioning, run outreach sprints, track conversion.",
     "url": "https://youtu.be/LYviXNqsAFw",
     "videoId": "LYviXNqsAFw",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Job search, education, marketing, career growth, tools",
     "tags": [
       "job search funnel",
@@ -1520,7 +1520,7 @@ const VIDEO_WORK_DATA = [
     "description": "Morning session pace, straight into tactics, frameworks, and how to prioritize tests.",
     "url": "https://youtu.be/wY9D4Uam6F0",
     "videoId": "wY9D4Uam6F0",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, startups, education, events, coworking",
     "tags": [
       "prioritization",
@@ -1536,7 +1536,7 @@ const VIDEO_WORK_DATA = [
     "description": "Content marketing fundamentals with a growth lens, build assets that compound.",
     "url": "https://youtu.be/Ec0NuJL0Zj4",
     "videoId": "Ec0NuJL0Zj4",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, education, content, career growth, tools",
     "tags": [
       "content marketing",
@@ -1552,7 +1552,7 @@ const VIDEO_WORK_DATA = [
     "description": "Part two builds the system, connect channels, tracking, and iteration habits.",
     "url": "https://youtu.be/OPchYCW60gc",
     "videoId": "OPchYCW60gc",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, education, tools, analytics, career growth",
     "tags": [
       "marketing fundamentals",
@@ -1568,7 +1568,7 @@ const VIDEO_WORK_DATA = [
     "description": "Final part, take the plan from theory to execution, keep the loop tight.",
     "url": "https://youtu.be/5adMzU5BBgI",
     "videoId": "5adMzU5BBgI",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, education, execution, analytics, career growth",
     "tags": [
       "execution",
@@ -1584,7 +1584,7 @@ const VIDEO_WORK_DATA = [
     "description": "Trailer style cut for Valuer, quick positioning and what the box concept is meant to show.",
     "url": "https://youtu.be/Ty0825DQiD0",
     "videoId": "Ty0825DQiD0",
-    "category": "Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "AI, startups, product, innovation, business strategy",
     "tags": [
       "product positioning",
@@ -1600,7 +1600,7 @@ const VIDEO_WORK_DATA = [
     "description": "A tactical backlink playbook, find competitor links, replicate wins, keep it ethical.",
     "url": "https://youtu.be/DGmqCPwbD_E",
     "videoId": "DGmqCPwbD_E",
-    "category": "Full Presentation",
+    "category": "Presentation (Full)",
     "industry": "Digital marketing, SEO, startups, education, events",
     "tags": [
       "link building",
@@ -1616,7 +1616,7 @@ const VIDEO_WORK_DATA = [
     "description": "Q&A clip, direct answer on innovation, speed, and what actually moves the needle.",
     "url": "https://youtu.be/MtaNhmBRu94",
     "videoId": "MtaNhmBRu94",
-    "category": "Clip / Q&A",
+    "category": "Interview (Team, Q&A)",
     "industry": "Startups, entrepreneurship, leadership, events, innovation",
     "tags": [
       "corporate innovation",
@@ -1632,7 +1632,7 @@ const VIDEO_WORK_DATA = [
     "description": "Team intro style video, who does what in marketing and how the machine runs.",
     "url": "https://youtu.be/4FwwpZ-nCiQ",
     "videoId": "4FwwpZ-nCiQ",
-    "category": "Team Interview",
+    "category": "Interview (Team, Q&A)",
     "industry": "AI, startups, marketing, product, business strategy",
     "tags": [
       "team structure",
@@ -1648,7 +1648,7 @@ const VIDEO_WORK_DATA = [
     "description": "Promo cut calling out the gaps in traditional marketing education, and what to learn instead.",
     "url": "https://youtu.be/mxNUeFJLdM8",
     "videoId": "mxNUeFJLdM8",
-    "category": "Promo / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, education, career growth, startups, entrepreneurship",
     "tags": [
       "growth hacking",
@@ -1696,7 +1696,7 @@ const VIDEO_WORK_DATA = [
     "description": "Short promo featuring Taylor, built for TwentyThree campaign use.",
     "url": "https://youtu.be/ExnydJLegMk",
     "videoId": "ExnydJLegMk",
-    "category": "Promo / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Video marketing, SaaS, digital marketing, events, education",
     "tags": [
       "video marketing",
@@ -1712,7 +1712,7 @@ const VIDEO_WORK_DATA = [
     "description": "UX branding basics, how brand systems stay consistent at speed, and what to document so teams stop \u201cfreestyling\u201d the UI.",
     "url": "https://youtu.be/8OnAev0VvZg",
     "videoId": "8OnAev0VvZg",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Digital marketing, UX, Branding, Startups, B2B SaaS",
     "tags": [
       "Guidelines",
@@ -1728,7 +1728,7 @@ const VIDEO_WORK_DATA = [
     "description": "Refresh workflow for aging posts, fix intent drift, tighten on-page SEO, and recover rankings without rewriting everything.",
     "url": "https://youtu.be/ZT-cHwci3yU",
     "videoId": "ZT-cHwci3yU",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "SEO, Content marketing, Startups, B2B SaaS, Media",
     "tags": [
       "Refresh strategy",
@@ -1744,7 +1744,7 @@ const VIDEO_WORK_DATA = [
     "description": "Content engine logic, what \u201cenough reps\u201d actually looks like, and how to keep quality high while shipping a lot.",
     "url": "https://youtu.be/E5SUryKwdKg",
     "videoId": "E5SUryKwdKg",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Content strategy, Digital marketing, Startups, B2B SaaS, Media",
     "tags": [
       "Content engine",
@@ -1760,7 +1760,7 @@ const VIDEO_WORK_DATA = [
     "description": "Growth sprint recap with Mindcap, skyscraper-style content plan, backlink targets, plus design tweaks meant to lift conversion.",
     "url": "https://youtu.be/ef9lhtCY_us",
     "videoId": "ef9lhtCY_us",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "SEO, Digital marketing, Creative services, B2B, Startups",
     "tags": [
       "Skyscraper method",
@@ -1776,7 +1776,7 @@ const VIDEO_WORK_DATA = [
     "description": "Project recording for TurnIvy, priorities, next actions, and what gets shipped first to prove traction.",
     "url": "https://youtu.be/rd8g-3ScP_0",
     "videoId": "rd8g-3ScP_0",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Startups, Digital marketing, B2B, Product, Operations",
     "tags": [
       "Prioritization",
@@ -1792,7 +1792,7 @@ const VIDEO_WORK_DATA = [
     "description": "Backlink plan and design review, what to fix first, what to ignore, and where the easiest wins usually hide.",
     "url": "https://youtu.be/j5ld4E4hb0g",
     "videoId": "j5ld4E4hb0g",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "SEO, Digital marketing, Creative services, B2B, Startups",
     "tags": [
       "Backlinks",
@@ -1808,7 +1808,7 @@ const VIDEO_WORK_DATA = [
     "description": "Build spec for a custom Chrome extension that moves data from Pipedrive into Upwork workflows with fewer manual steps.",
     "url": "https://youtu.be/VV6tbXDXjhA",
     "videoId": "VV6tbXDXjhA",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Automation, Sales ops, CRM, B2B, Productivity",
     "tags": [
       "Chrome extension",
@@ -1824,7 +1824,7 @@ const VIDEO_WORK_DATA = [
     "description": "How to build a growth team that ships, hires the right profiles, and runs without constant founder babysitting.",
     "url": "https://www.youtube.com/watch?v=x42RrLpj7JA",
     "videoId": "x42RrLpj7JA",
-    "category": "Full talk",
+    "category": "Talk (Full)",
     "industry": "Growth marketing, Leadership, Startups, B2B SaaS, Hiring",
     "tags": [
       "Hiring profiles",
@@ -1840,7 +1840,7 @@ const VIDEO_WORK_DATA = [
     "description": "Fast-cut teaser that sells the promise, the pain, and what the audience will walk away with.",
     "url": "https://www.youtube.com/watch?v=0bj8mriNIvs",
     "videoId": "0bj8mriNIvs",
-    "category": "Teaser",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Growth marketing, Startups, Leadership, B2B SaaS, Education",
     "tags": [
       "Positioning",
@@ -1872,7 +1872,7 @@ const VIDEO_WORK_DATA = [
     "description": "Explainer on predictive maintenance, what the model predicts, and how teams reduce downtime with better signals.",
     "url": "https://youtu.be/N1yzL-GV09k",
     "videoId": "N1yzL-GV09k",
-    "category": "Explainer video",
+    "category": "Explainer",
     "industry": "Manufacturing, Industrial AI, B2B SaaS, Predictive maintenance, Industry 4.0",
     "tags": [
       "Anomaly detection",
@@ -1888,7 +1888,7 @@ const VIDEO_WORK_DATA = [
     "description": "Why video calls drain people, what behaviors make it worse, and practical fixes that improve remote performance.",
     "url": "https://youtu.be/3_N_AqvZoi0",
     "videoId": "3_N_AqvZoi0",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Remote work, Productivity, Leadership, Tech, Startups",
     "tags": [
       "Meeting hygiene",
@@ -1904,7 +1904,7 @@ const VIDEO_WORK_DATA = [
     "description": "On-page optimization session for The Med Writers, tightening headings, links, and intent so posts convert and rank.",
     "url": "https://youtu.be/e2uLIVhmWDg",
     "videoId": "e2uLIVhmWDg",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Healthcare, Content marketing, SEO, Services, B2B",
     "tags": [
       "On-page SEO",
@@ -1920,7 +1920,7 @@ const VIDEO_WORK_DATA = [
     "description": "ICP work, segmentation, pain mapping, and a targeting plan that stops outreach from spraying and praying.",
     "url": "https://youtu.be/ODAOlsaRjtU",
     "videoId": "ODAOlsaRjtU",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Startups, B2B, Digital marketing, Strategy, Sales",
     "tags": [
       "ICP",
@@ -1936,7 +1936,7 @@ const VIDEO_WORK_DATA = [
     "description": "First-message playbook, personalization cues, and follow-up flow designed to start real conversations, not spam.",
     "url": "https://youtu.be/HglTy-AZqO0",
     "videoId": "HglTy-AZqO0",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Sales, B2B, Recruiting, Startups, Professional services",
     "tags": [
       "Cold outreach",
@@ -1968,7 +1968,7 @@ const VIDEO_WORK_DATA = [
     "description": "Practical growth and marketing tips tailored to Amourbox, focused on what to fix first and what to scale next.",
     "url": "https://www.youtube.com/watch?v=PB-NYxm6S9s",
     "videoId": "PB-NYxm6S9s",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "Subscription commerce, E-commerce, DTC, Digital marketing, Retention",
     "tags": [
       "Positioning",
@@ -1984,7 +1984,7 @@ const VIDEO_WORK_DATA = [
     "description": "Step-by-step process for refreshing aging content so it ranks again, converts better, and compounds traffic.",
     "url": "https://www.youtube.com/watch?v=-lT8Xd_oSN4",
     "videoId": "-lT8Xd_oSN4",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "SEO, Content marketing, SaaS marketing, Digital marketing, Web analytics",
     "tags": [
       "Content refresh",
@@ -2064,7 +2064,7 @@ const VIDEO_WORK_DATA = [
     "description": "Keyword research training that connects intent, SERP reality, and content structure into a repeatable workflow.",
     "url": "https://youtu.be/SYKwgC2LdAo",
     "videoId": "SYKwgC2LdAo",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "SEO, Content marketing, SaaS marketing, Web analytics, Digital marketing",
     "tags": [
       "Keyword research",
@@ -2080,7 +2080,7 @@ const VIDEO_WORK_DATA = [
     "description": "Outbound system overview, from targeting and list building to messaging, sequencing, and iteration loops.",
     "url": "https://youtu.be/gQ-4wzC9Q1c",
     "videoId": "gQ-4wzC9Q1c",
-    "category": "Tutorial",
+    "category": "Tutorial (How To)",
     "industry": "B2B sales, Lead generation, Growth marketing, SaaS, Operations",
     "tags": [
       "Prospecting",
@@ -2096,7 +2096,7 @@ const VIDEO_WORK_DATA = [
     "description": "Operational walkthrough for turning connectors on and off safely, plus how to restart campaigns without breaking data.",
     "url": "https://youtu.be/_7qxYTzOWLY",
     "videoId": "_7qxYTzOWLY",
-    "category": "Screen recording",
+    "category": "Screen Recording / Call Capture",
     "industry": "Automation, RevOps, CRM, Data ops, SaaS tooling",
     "tags": [
       "Connectors",
@@ -2112,7 +2112,7 @@ const VIDEO_WORK_DATA = [
     "description": "Product walkthrough and demo, showing core functionality and how it fits into a real workflow.",
     "url": "https://www.youtube.com/watch?v=H811xEEBRBg",
     "videoId": "H811xEEBRBg",
-    "category": "Product demo",
+    "category": "Product Demo",
     "industry": "B2B SaaS, Productivity, Automation, Sales ops, Tech",
     "tags": [
       "How-to",
@@ -2128,7 +2128,7 @@ const VIDEO_WORK_DATA = [
     "description": "Keyword strategy workflow, intent mapping, clustering, prioritization, and how to turn research into pages that rank and convert.",
     "url": "https://www.youtube.com/watch?v=rJpBnk4_MFs",
     "videoId": "rJpBnk4_MFs",
-    "category": "Tutorial / Workshop",
+    "category": "Workshop",
     "industry": "SEO, Content marketing, SaaS, Startups, B2B",
     "tags": [
       "keyword research",
@@ -2144,7 +2144,7 @@ const VIDEO_WORK_DATA = [
     "description": "Practical playbook for extracting demand from niche groups, outreach without spam, value-first posts, and tracking what actually moves pipeline.",
     "url": "https://www.youtube.com/watch?v=9CKtac1mILE",
     "videoId": "9CKtac1mILE",
-    "category": "Tutorial / Workshop",
+    "category": "Workshop",
     "industry": "B2B SaaS, Sales, Growth marketing, Community",
     "tags": [
       "building communities",
@@ -2160,7 +2160,7 @@ const VIDEO_WORK_DATA = [
     "description": "Content planning call, topic triage, what to publish first, and how to turn ideas into shippable assets.",
     "url": "https://youtu.be/Omh_bZn8GA8",
     "videoId": "Omh_bZn8GA8",
-    "category": "Call Recording / Screen Capture",
+    "category": "Screen Recording / Call Capture",
     "industry": "Content marketing, Consulting, Startups",
     "tags": [
       "editorial strategy",
@@ -2175,7 +2175,7 @@ const VIDEO_WORK_DATA = [
     "description": "Funnel teardown, conversion fixes, and what to measure so you stop optimizing vibes and start optimizing outcomes.",
     "url": "https://youtu.be/T3y8yMnNCJs",
     "videoId": "T3y8yMnNCJs",
-    "category": "Call Recording / Screen Capture",
+    "category": "Screen Recording / Call Capture",
     "industry": "Healthcare marketing, Content, B2B, Consulting",
     "tags": [
       "funnels",
@@ -2191,7 +2191,7 @@ const VIDEO_WORK_DATA = [
     "description": "Team structure for growth, role clarity, operating cadence, and how to avoid hiring a pile of specialists with no system.",
     "url": "https://youtu.be/PwhGYamH7UU",
     "videoId": "PwhGYamH7UU",
-    "category": "Tutorial / Workshop",
+    "category": "Workshop",
     "industry": "Startups, Marketing, Leadership, Operations",
     "tags": [
       "growth team",
@@ -2207,7 +2207,7 @@ const VIDEO_WORK_DATA = [
     "description": "High-level teaser around fintech disruption, category shifts, and the scale of change hitting financial services.",
     "url": "https://youtu.be/rzVnXNpILPY",
     "videoId": "rzVnXNpILPY",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Fintech, Startups, Finance, Tech",
     "tags": [
       "fintech disruption",
@@ -2222,7 +2222,7 @@ const VIDEO_WORK_DATA = [
     "description": "Short Q&A style call, quick takes, and rapid-fire answers captured for reuse in content or a feature segment.",
     "url": "https://youtu.be/SlQU-vAM8gc",
     "videoId": "SlQU-vAM8gc",
-    "category": "Call Recording / Screen Capture",
+    "category": "Screen Recording / Call Capture",
     "industry": "Architecture, Media, Consulting, Q&A",
     "tags": [
       "Q&A",
@@ -2237,7 +2237,7 @@ const VIDEO_WORK_DATA = [
     "description": "High-level teaser around fintech disruption, category shifts, and the scale of change hitting financial services.",
     "url": "https://youtu.be/rzVnXNpILPY",
     "videoId": "rzVnXNpILPY",
-    "category": "Teaser / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Fintech, Startups, Finance, Tech",
     "tags": [
       "fintech disruption",
@@ -2252,7 +2252,7 @@ const VIDEO_WORK_DATA = [
     "description": "Mindset trailer for growth hacking, speed, experimentation, and learning loops.",
     "url": "https://youtu.be/yZN8BdAmLpc",
     "videoId": "yZN8BdAmLpc",
-    "category": "Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, startups, education, events, coworking",
     "tags": [
       "growth mindset",
@@ -2268,7 +2268,7 @@ const VIDEO_WORK_DATA = [
     "description": "Masterclass promo with dates, positioning, and what the class is built to unlock.",
     "url": "https://youtu.be/EuGY5zdi7Mg",
     "videoId": "EuGY5zdi7Mg",
-    "category": "Promo / Trailer",
+    "category": "Teaser / Trailer / Promo",
     "industry": "Digital marketing, education, startups, events, coworking",
     "tags": [
       "masterclass",
@@ -2284,7 +2284,7 @@ const VIDEO_WORK_DATA = [
     "description": "How to map competitors fast, spot wedge angles, and position for growth.",
     "url": "https://www.youtube.com/watch?v=ZgoAmpJcHU4",
     "videoId": "ZgoAmpJcHU4",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "Competitive landscape, positioning, differentiation, market mapping, growth strategy",
     "tags": [
       "Competitor analysis",
@@ -2316,7 +2316,7 @@ const VIDEO_WORK_DATA = [
     "description": "What NFT fractionalisation is, why it matters, and the tradeoffs to watch.",
     "url": "https://youtu.be/s9-P9F8frnQ",
     "videoId": "s9-P9F8frnQ",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "NFTs, fractionalisation, tokenization, liquidity, ownership models",
     "tags": [
       "Web3 storytelling",
@@ -2332,7 +2332,7 @@ const VIDEO_WORK_DATA = [
     "description": "Core Web3 business models, incentives, and paths to sustainable revenue.",
     "url": "https://youtu.be/9wwOwzhhwOE",
     "videoId": "9wwOwzhhwOE",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "Token models, marketplaces, incentives, network effects, governance",
     "tags": [
       "Model design",
@@ -2348,7 +2348,7 @@ const VIDEO_WORK_DATA = [
     "description": "Student-focused metaverse discussion, trends, and practical takeaways.",
     "url": "https://youtu.be/jR10KFMn2A4",
     "videoId": "jR10KFMn2A4",
-    "category": "Interview",
+    "category": "Interview (Team, Q&A)",
     "industry": "Metaverse, Web3 adoption, education, product trends, community",
     "tags": [
       "Interview delivery",
@@ -2364,7 +2364,7 @@ const VIDEO_WORK_DATA = [
     "description": "Turn customer insights into experiments that move activation and retention.",
     "url": "https://youtu.be/mxUEVppCeTY",
     "videoId": "mxUEVppCeTY",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "Customer research, experimentation, activation, retention, growth loops",
     "tags": [
       "Insight synthesis",
@@ -2380,7 +2380,7 @@ const VIDEO_WORK_DATA = [
     "description": "Practical Web3 marketing tactics across community, quests, and distribution.",
     "url": "https://youtu.be/P-G1yUJxQDE",
     "videoId": "P-G1yUJxQDE",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "Community growth, partnerships, content loops, launch planning, web3 GTM",
     "tags": [
       "Community strategy",
@@ -2412,7 +2412,7 @@ const VIDEO_WORK_DATA = [
     "description": "Fast, punchy growth principles for pipeline, messaging, and conversion.",
     "url": "https://youtu.be/rmtcw0AmEx0",
     "videoId": "rmtcw0AmEx0",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "B2B growth, outbound, conversion, messaging, pipeline",
     "tags": [
       "Prioritization",
@@ -2444,7 +2444,7 @@ const VIDEO_WORK_DATA = [
     "description": "How to execute growth with focus, cadence, and measurable outcomes.",
     "url": "https://youtu.be/9Ia4y7TYMCE",
     "videoId": "9Ia4y7TYMCE",
-    "category": "Talk",
+    "category": "Talk (Full)",
     "industry": "Growth operations, experimentation, cross-functional work, metrics, prioritization",
     "tags": [
       "Operating cadence",
