@@ -219,7 +219,7 @@ function renderAboutSidebar(activePage) {
 
         return `
                     <a href="${item.href}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all group ${activeClass}">
-                        <i data-lucide="${item.icon}" class="w-5 h-5 ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
+                        <i data-lucide="${item.icon}" class="w-5 h-5 ${item.color} ${isActive ? 'opacity-100' : 'opacity-70 group-hover:opacity-100'}"></i>
                         <span class="font-medium text-sm sidebar-label">${item.label}</span>
                         ${isActive ? '<i data-lucide="chevron-right" class="w-4 h-4 ml-auto opacity-50"></i>' : ''}
                     </a>

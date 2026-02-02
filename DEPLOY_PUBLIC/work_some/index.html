@@ -40,15 +40,15 @@
 </head>
 
 <body class="bg-black min-h-screen">
-    <script src="../assets/js/layout.js?v=20260202-1833"></script>
-    <script src="../assets/js/work_sidebar.js?v=20260202-1833"></script>
-    <script src="../assets/js/work_scroll.js?v=20260202-1833"></script>
+    <script src="../assets/js/layout.js?v=20260202-1925"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260202-1925"></script>
+    <script src="../assets/js/work_scroll.js?v=20260202-1925"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Render Sidebar (will need to update work_sidebar.js?v=20260202-1833 to handle 'some')
+            // Render Sidebar (will need to update work_sidebar.js?v=20260202-1925 to handle 'some')
             if (!document.getElementById('work-sidebar')) {
-                // Temporary fallback or assume work_sidebar.js?v=20260202-1833 will be updated
+                // Temporary fallback or assume work_sidebar.js?v=20260202-1925 will be updated
                 if (typeof renderWorkSidebar === 'function') renderWorkSidebar('some');
             }
             renderResources();
