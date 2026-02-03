@@ -32,6 +32,11 @@ else {
     Write-Warning "No _headers file found."
 }
 
+# 1.5.0 Sync index.html
+Write-Host "Syncing index.html..." -ForegroundColor Yellow
+Copy-Item -Path "$SourceRoot\index.html" -Destination "$DeployRoot\index.html" -Force
+Write-Host "index.html Synced." -ForegroundColor Green
+
 # 1.5.2 Sync JS Data Files with Path Corrections
 # This is critical for data files loaded from subdirectories
 Write-Host "Processing JS Data Files for Path corrections..." -ForegroundColor Yellow
