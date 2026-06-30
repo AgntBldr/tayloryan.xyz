@@ -9,6 +9,7 @@ created: 2026-06-30
 updated: 2026-06-30
 visibility: namespace
 part_of: ["[[pil-portfolio-agent]]"]
+derived_from: ["[[cpt-three-layer-architecture]]"]
 ---
 
 Directives must be updated when discovering API constraints, better approaches, or common errors. They are living documents that serve as the instruction set. However, agents should not create or overwrite directives without asking unless explicitly told to. The goal is to preserve and improve them over time rather than using them extemporaneously.

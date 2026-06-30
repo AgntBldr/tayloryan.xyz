@@ -8,7 +8,7 @@ status: active
 created: 2026-06-30
 updated: 2026-06-30
 visibility: namespace
-part_of: ["[[pil-portfolio-agent]]"]
+part_of: ["[[pil-portfolio-agent]]", "[[prj-teneo-website]]"]
 ---
 
 The deployment workflow involves four main steps. First, make changes to source files. Second, run build scripts if applicable to update the `DEPLOY_PUBLIC` folder. Third, commit and push the changes to the GitHub repository. Finally, Cloudflare Pages detects the push and automatically deploys the content from `DEPLOY_PUBLIC`.

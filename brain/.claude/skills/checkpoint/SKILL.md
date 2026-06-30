@@ -1,6 +1,6 @@
 ---
 name: checkpoint
-description: Capture a labeled rollback point of BOTH tiers — annotated-tag Tier-1 (`checkpoint/<id>`) and snapshot the LightRAG `rag_storage/` store under `backups/<id>/` — so a risky operation can be undone. Use before any bulk import, re-ingest, rename, or destructive sweep.
+description: Capture a labeled rollback point of BOTH tiers - annotated-tag Tier-1 (`checkpoint/<id>`) and snapshot the LightRAG `rag_storage/` store under `backups/<id>/` - so a risky operation can be undone. Use before any bulk import, re-ingest, rename, or destructive sweep.
 ---
 # checkpoint
 
@@ -10,7 +10,7 @@ a standalone bundle; Tier-2 (LightRAG `rag_storage/`) is snapshotted by a read-o
 checkpoint is atomic.
 
 ## Prereqs
-- Runs from `scripts/checkpoint.ps1`. Docker may be down — Tier-2 is a plain folder, so no container
+- Runs from `scripts/checkpoint.ps1`. Docker may be down - Tier-2 is a plain folder, so no container
   is needed to capture it (the live store is only ever READ).
 - `.env` is never copied (excluded by scope + robocopy `/XF` + a pre-flight scan).
 
@@ -29,7 +29,7 @@ checkpoint is atomic.
 5. The script appends a `checkpoint` entry to `00-system/log.md` automatically.
 
 ## Rules
-- Local commit + tag only — never push.
+- Local commit + tag only - never push.
 - Never copy `.env` into the checkpoint (scope + `/XF` + pre-flight scan enforce this).
 - A checkpoint without a `COMPLETE` marker is partial; `list`/`restore` ignore it.
 - Capturing the live Tier-2 store is READ-only; it does not require docker to be up.

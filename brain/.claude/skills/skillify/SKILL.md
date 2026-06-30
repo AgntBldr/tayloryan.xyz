@@ -4,7 +4,7 @@ description: Compile a mature playbook (or recurring pattern) into a dedicated C
 ---
 # skillify
 
-The brain→skill loop: turn knowledge (a `playbook`) into capability (a skill).
+The brain->skill loop: turn knowledge (a `playbook`) into capability (a skill).
 
 ## When to use
 A `playbook` is stable, well-tested, and run often enough that a one-command skill beats
@@ -21,4 +21,4 @@ re-reading it each time.
 
 ## Rules
 - Don't hand-fork logic: the skill should mirror the playbook so they don't drift.
-- Skills are capability, not knowledge — the reasoning stays in the playbook node.
+- Skills are capability, not knowledge - the reasoning stays in the playbook node.

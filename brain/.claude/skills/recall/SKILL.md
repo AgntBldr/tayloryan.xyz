@@ -19,4 +19,4 @@ LightRAG server running (see `lightrag/README.md`), scoped to this vault's works
 5. Append a `recall` entry to `log.md`.
 
 ## Rules
-- Tier-2 answers are probabilistic — cite sources, and prefer Tier-1 facts when they conflict.
+- Tier-2 answers are probabilistic - cite sources, and prefer Tier-1 facts when they conflict.

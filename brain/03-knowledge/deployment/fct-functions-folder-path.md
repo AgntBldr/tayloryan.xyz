@@ -9,7 +9,7 @@ created: 2026-06-30
 updated: 2026-06-30
 visibility: namespace
 confidence: 1.0
-part_of: ["[[pil-portfolio-agent]]"]
+part_of: ["[[pil-portfolio-agent]]", "[[prj-teneo-website]]"]
 ---
 
 The project stores serverless functions in the `functions/` directory. This is distinct from the `DEPLOY_PUBLIC` directory which contains the static assets and build output intended for the Cloudflare Pages deployment.

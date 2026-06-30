@@ -9,7 +9,7 @@ created: 2026-06-30
 updated: 2026-06-30
 visibility: namespace
 confidence: 1.0
-part_of: ["[[pil-portfolio-agent]]"]
+part_of: ["[[pil-portfolio-agent]]", "[[prj-teneo-website]]"]
 ---
 
 The active development happens in `C:\Users\tempv2\Desktop\V2TeneoWebsite`. This folder is treated as the source of truth. The repository might be a mirror (e.g., for Cloudflare deployment). Parent folders are unrelated to the app. Next.js configuration sets `outputFileTracingRoot` and `turbopack.root` to ensure the app uses its own root, ignoring ancestor lockfiles.

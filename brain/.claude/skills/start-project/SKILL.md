@@ -1,6 +1,6 @@
 ---
 name: start-project
-description: Instantiate a new project in the vault from a playbook — create the project node (part_of a pillar, derived_from the playbook), scaffold its folder, and generate ordered task nodes. Use when kicking off a new bounded initiative.
+description: Instantiate a new project in the vault from a playbook - create the project node (part_of a pillar, derived_from the playbook), scaffold its folder, and generate ordered task nodes. Use when kicking off a new bounded initiative.
 ---
 # start-project
 
@@ -24,4 +24,4 @@ Turn a playbook into a running project. Follows `00-system/schema.md` (project/t
 
 ## Rules
 - One project = one folder. Tasks live inside it and are `part_of` the project.
-- Don't copy playbook content into the project — link via `derived_from`.
+- Don't copy playbook content into the project - link via `derived_from`.

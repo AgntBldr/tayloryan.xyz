@@ -9,7 +9,7 @@ created: 2026-06-30
 updated: 2026-06-30
 visibility: namespace
 confidence: 1.0
-part_of: ["[[pil-portfolio-agent]]"]
+part_of: ["[[pil-portfolio-agent]]", "[[prj-quest-portfolio]]"]
 ---
 
 The `scrape_quests.py` script opens a browser window but cannot automate the login process completely. The user must manually enter credentials (Taylor@klintmarketing.com) and complete the 2FA challenge before the script proceeds to navigate and scrape data.

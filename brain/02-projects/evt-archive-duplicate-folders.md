@@ -7,8 +7,9 @@ domain: infra-maintenance
 status: active
 created: 2026-06-30
 updated: 2026-06-30
+occurred_at: 2026-01-27
 visibility: namespace
-part_of: ["[[pil-portfolio-agent]]"]
+part_of: ["[[pil-portfolio-agent]]", "[[prj-teneo-website]]"]
 ---
 
 The folder `DEPLOY_CLOUDFLARE` was moved to `__ARCHIVE_NOT_USED_FOR_DEPLOY__`. A timestamped backup was saved to `__BACKUP_DUPLICATES__\20260127_0955`. Guardrails were added via `README_DEPLOY.md` and `.gitignore` updates.

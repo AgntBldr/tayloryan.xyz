@@ -9,7 +9,7 @@ created: 2026-06-30
 updated: 2026-06-30
 visibility: namespace
 confidence: 1.0
-part_of: ["[[pil-portfolio-agent]]"]
+part_of: ["[[pil-portfolio-agent]]", "[[prj-quest-portfolio]]"]
 ---
 
-The main view of the Next.js application is a dashboard that presents a grid layout of quests. This grid is populated using data combined from the source CSV and the generated `quests.` file, allowing users to select and enter specific quest simulations.
+The main view of the Next.js application is a dashboard that presents a grid layout of quests. This grid is populated using data combined from the source CSV and the generated `quests.json` file, allowing users to select and enter specific quest simulations.

@@ -26,4 +26,4 @@ and mounts `shared-core/` at `_shared/`.
 
 ## Rules
 - Never create the new vault inside an existing vault.
-- The template is content-free — never add business content to `secondbrain-template/`.
+- The template is content-free - never add business content to `secondbrain-template/`.

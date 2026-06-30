@@ -1,6 +1,6 @@
 ---
 name: query-vault
-description: Answer a question from the V3 Second Brain using routing-first retrieval — read node frontmatter (summary/edges) before bodies to minimize tokens. Use when asked anything the vault might know.
+description: Answer a question from the V3 Second Brain using routing-first retrieval - read node frontmatter (summary/edges) before bodies to minimize tokens. Use when asked anything the vault might know.
 ---
 # query-vault
 

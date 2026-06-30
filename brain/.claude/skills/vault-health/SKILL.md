@@ -1,6 +1,6 @@
 ---
 name: vault-health
-description: Run a trust-maintenance sweep on the V3 Second Brain — decay confidence on stale claim-nodes, flag triggered staleness conditions, and queue items for re-verification. Claim-types only. Use on a schedule or before relying on the vault.
+description: Run a trust-maintenance sweep on the V3 Second Brain - decay confidence on stale claim-nodes, flag triggered staleness conditions, and queue items for re-verification. Claim-types only. Use on a schedule or before relying on the vault.
 ---
 # vault-health
 
