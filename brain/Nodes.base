@@ -1,0 +1,56 @@
+views:
+  - type: table
+    name: All nodes
+    filters:
+      and:
+        - 'type != ""'
+    order:
+      - file.name
+      - type
+      - status
+      - domain
+      - updated
+  - type: table
+    name: Decisions
+    filters:
+      and:
+        - 'type == "decision"'
+    order:
+      - file.name
+      - status
+      - domain
+      - summary
+      - updated
+  - type: table
+    name: Tasks by status
+    filters:
+      and:
+        - 'type == "task"'
+    order:
+      - file.name
+      - status
+      - domain
+      - updated
+    groupBy:
+      property: status
+      direction: ASC
+  - type: table
+    name: Pillars
+    filters:
+      and:
+        - 'type == "pillar"'
+    order:
+      - file.name
+      - domain
+      - summary
+  - type: table
+    name: Missing summary (quality)
+    filters:
+      and:
+        - 'type != ""'
+        - 'summary == ""'
+    order:
+      - file.name
+      - type
+      - status
+      - domain
