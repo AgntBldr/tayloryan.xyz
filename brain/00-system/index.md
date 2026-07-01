@@ -1,7 +1,7 @@
 ---
 display_name: Portfolio Agent
 slug: portfolio-agent
-portfolio_pillar: apps
+portfolio_pillar: web-properties
 status: active
 repo: local-only
 folder: PortfolioAgent
