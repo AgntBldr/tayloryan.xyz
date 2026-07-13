@@ -108,7 +108,7 @@ function injectLayout() {
                         <li><a href="https://www.linkedin.com/in/taylorryan/" target="_blank" class="hover:text-blue-500 transition-colors">LinkedIn</a></li>
                         <li><a href="https://x.com/TaylorRyanTweet" target="_blank" class="hover:text-white transition-colors">Twitter / X</a></li>
                         <li><a href="https://www.youtube.com/c/TaylorRyanPLUS" target="_blank" class="hover:text-red-500 transition-colors">YouTube</a></li>
-                        <li><a href="mailto:taylor@klintmarketing.com" class="hover:text-white transition-colors">Email</a></li>
+                        <li><a href="/contact/" class="hover:text-white transition-colors">Contact Form</a></li>
                     </ul>
                 </div>
 
@@ -175,6 +175,7 @@ function injectLayout() {
                     <p class="text-neutral-400 text-sm mb-6">Send me a message and I'll get back to you shortly.</p>
                     
                     <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <input type="text" name="honeycomb" class="hidden" tabindex="-1" autocomplete="off">
                         <div>
                             <label class="block text-xs uppercase text-neutral-500 font-bold mb-1">Name</label>
                             <input type="text" name="name" required class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="Your Name">
@@ -198,6 +199,7 @@ function injectLayout() {
                         <button type="submit" class="w-full py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2">
                             Send Message <i data-lucide="send" class="w-4 h-4"></i>
                         </button>
+                        <p data-contact-status class="min-h-5 text-xs text-neutral-400" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
@@ -260,31 +262,75 @@ window.toggleMobileMenu = function () {
     }
 };
 
-window.handleContactSubmit = function (e) {
+window.handleContactSubmit = async function (e) {
     e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const status = form.querySelector('[data-contact-status]');
+    const originalText = btn ? btn.innerHTML : '';
     const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
+    const data = Object.fromEntries(formData.entries());
 
-    // Construct Mailto
-    const mailtoLink = `mailto:taylor@klintmarketing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Taylor,\n\n${message}\n\nBest,\n${name}`)}`;
+    if (status) {
+        status.textContent = '';
+        status.className = status.className.replace(/text-(green|red)-400/g, 'text-neutral-400');
+    }
 
-    // Open Mail Client
-    window.location.href = mailtoLink;
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = 'Sending... <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>';
+        if (window.lucide) lucide.createIcons();
+    }
 
-    // Optional: Show feedback
-    const btn = e.target.querySelector('button');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = 'Client Opened <i data-lucide="check" class="w-4 h-4"></i>';
-    btn.classList.add('bg-green-500', 'text-white');
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const result = await response.json().catch(() => ({}));
 
-    setTimeout(() => {
-        closeContactModal();
-        btn.innerHTML = originalText;
-        btn.classList.remove('bg-green-500', 'text-white');
-        e.target.reset();
-    }, 2000);
+        if (!response.ok || !result.success) {
+            throw new Error(result.error || 'Message could not be sent. Please try again later.');
+        }
+
+        if (status) {
+            status.textContent = result.message || 'Thanks. Your message was sent.';
+            status.className = status.className.replace('text-neutral-400', 'text-green-400');
+        }
+        if (btn) {
+            btn.innerHTML = 'Sent <i data-lucide="check" class="w-4 h-4"></i>';
+            btn.classList.add('bg-green-500', 'text-white');
+            if (window.lucide) lucide.createIcons();
+        }
+
+        setTimeout(() => {
+            closeContactModal();
+            form.reset();
+            if (btn) {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.classList.remove('bg-green-500', 'text-white');
+            }
+            if (status) {
+                status.textContent = '';
+                status.className = status.className.replace('text-green-400', 'text-neutral-400');
+            }
+            if (window.lucide) lucide.createIcons();
+        }, 1800);
+    } catch (err) {
+        if (status) {
+            status.textContent = err.message || 'Message could not be sent. Please try again later.';
+            status.className = status.className.replace('text-neutral-400', 'text-red-400');
+        } else {
+            alert(err.message || 'Message could not be sent. Please try again later.');
+        }
+        if (btn) {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            if (window.lucide) lucide.createIcons();
+        }
+    }
 };
 
 function isActive(href) {

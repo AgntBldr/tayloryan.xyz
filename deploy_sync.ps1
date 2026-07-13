@@ -49,6 +49,47 @@ Write-Host "Syncing index.html..." -ForegroundColor Yellow
 Copy-Item -Path "$SourceRoot\index.html" -Destination "$DeployRoot\index.html" -Force
 Write-Host "index.html Synced." -ForegroundColor Green
 
+function Sync-StaticPage {
+    param(
+        [Parameter(Mandatory = $true)][string]$FileName,
+        [Parameter(Mandatory = $true)][string]$Route
+    )
+
+    $source = Join-Path $SourceRoot $FileName
+    $destDir = Join-Path $DeployRoot $Route
+    $dest = Join-Path $destDir "index.html"
+
+    if (-not (Test-Path $source)) {
+        Write-Warning "Static page source not found: $FileName"
+        return
+    }
+
+    if (-not (Test-Path $destDir)) {
+        New-Item -ItemType Directory -Force -Path $destDir | Out-Null
+    }
+
+    $content = Get-Content $source -Raw
+    $content = $content -replace 'src="assets/', 'src="/assets/'
+    $content = $content -replace 'href="assets/', 'href="/assets/'
+    $content = $content -replace 'href="index.html"', 'href="/"'
+    $content = $content -replace 'href="work.html"', 'href="/work/"'
+    $content = $content -replace 'href="contact.html"', 'href="/contact/"'
+    $content = $content -replace 'href="about.html"', 'href="/about/"'
+    $content = $content -replace 'href="now.html"', 'href="/now/"'
+
+    if ($content -notmatch '<link rel="canonical"') {
+        $canonical = "    <link rel=`"canonical`" href=`"https://taylorryan.xyz/$Route/`">`r`n    <meta property=`"og:url`" content=`"https://taylorryan.xyz/$Route/`">"
+        $content = $content -replace '</head>', "$canonical`r`n</head>"
+    }
+
+    [System.IO.File]::WriteAllText($dest, $content, [System.Text.Encoding]::UTF8)
+    Write-Host "$FileName synced to $Route/index.html" -ForegroundColor Green
+}
+
+Sync-StaticPage -FileName "about.html" -Route "about"
+Sync-StaticPage -FileName "contact.html" -Route "contact"
+Sync-StaticPage -FileName "now.html" -Route "now"
+
 # 1.5.2 Sync JS Data Files with Path Corrections
 # This is critical for data files loaded from subdirectories
 Write-Host "Processing JS Data Files for Path corrections..." -ForegroundColor Yellow

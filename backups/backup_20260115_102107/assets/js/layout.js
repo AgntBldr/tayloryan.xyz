@@ -82,7 +82,7 @@ function injectLayout() {
                         <li><a href="https://www.linkedin.com/in/taylorryan/" target="_blank" class="hover:text-purple-400 transition-colors">LinkedIn</a></li>
                         <li><a href="https://x.com/TaylorRyanTweet" target="_blank" class="hover:text-purple-400 transition-colors">Twitter / X</a></li>
                         <li><a href="https://www.youtube.com/c/TaylorRyanPLUS" target="_blank" class="hover:text-purple-400 transition-colors">YouTube</a></li>
-                        <li><a href="mailto:taylor@klintmarketing.com" class="hover:text-purple-400 transition-colors">Email</a></li>
+                        <li><a href="/contact/" class="hover:text-purple-400 transition-colors">Contact Form</a></li>
                     </ul>
                 </div>
 

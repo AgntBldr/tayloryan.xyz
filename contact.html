@@ -20,53 +20,100 @@
 
 <body class="bg-black min-h-screen">
 
-    <main class="pt-32 pb-20 max-w-4xl mx-auto px-6">
+    <main class="pt-32 pb-20 max-w-5xl mx-auto px-6">
 
         <div class="text-center mb-16">
             <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Get in Touch</h1>
             <p class="text-neutral-400 text-xl max-w-2xl mx-auto leading-relaxed">
-                Whether you want to book me for a keynote, discuss a project, or just say hi—here's how to reach me.
+                Use the form for speaking, consulting, partnerships, or project questions. I read these directly.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-8 max-w-5xl mx-auto">
 
-            <!-- Email -->
-            <!-- Email -->
-            <a href="#" onclick="openContactModal(); return false;"
-                class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-green-500/50 hover:bg-neutral-900/80 transition-all text-center">
-                <div
-                    class="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-6 flex items-center justify-center group-hover:bg-green-500 group-hover:text-black transition-colors">
-                    <i data-lucide="mail" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Email</h3>
-                <p class="text-neutral-400 mb-4">Best for speaking inquiries and business.</p>
-                <span class="text-green-400 font-bold group-hover:underline">taylor@klintmarketing.com</span>
-            </a>
+            <section class="bg-neutral-900 border border-neutral-800 rounded-lg p-6 md:p-8">
+                <form onsubmit="handleContactSubmit(event)" class="space-y-5">
+                    <input type="text" name="honeycomb" class="hidden" tabindex="-1" autocomplete="off">
 
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com/in/taylorryan" target="_blank"
-                class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-blue-500/50 hover:bg-neutral-900/80 transition-all text-center">
-                <div
-                    class="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-6 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                    <i data-lucide="linkedin" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-2">LinkedIn</h3>
-                <p class="text-neutral-400 mb-4">Best for quick messages and following updates.</p>
-                <span class="text-blue-400 font-bold group-hover:underline">/in/taylorryan</span>
-            </a>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs uppercase text-neutral-500 font-bold mb-2">Name</label>
+                            <input type="text" name="name" required autocomplete="name"
+                                class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors"
+                                placeholder="Your name">
+                        </div>
 
-            <!-- Book a Meeting -->
-            <a href="https://bookme.name/TaylorRyan" target="_blank"
-                class="group bg-neutral-900 border border-neutral-800 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-neutral-900/80 transition-all text-center md:col-span-2 lg:col-span-1 lg:col-start-2">
-                <div
-                    class="w-16 h-16 rounded-full bg-neutral-800 mx-auto mb-6 flex items-center justify-center group-hover:bg-purple-500 group-hover:text-white transition-colors">
-                    <i data-lucide="calendar" class="w-8 h-8"></i>
+                        <div>
+                            <label class="block text-xs uppercase text-neutral-500 font-bold mb-2">Reply Email</label>
+                            <input type="email" name="email" required autocomplete="email"
+                                class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors"
+                                placeholder="you@example.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase text-neutral-500 font-bold mb-2">Topic</label>
+                        <select name="subject" required
+                            class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors">
+                            <option value="">Choose one</option>
+                            <option value="Speaking Inquiry">Speaking Inquiry</option>
+                            <option value="Consulting / Advisory">Consulting / Advisory</option>
+                            <option value="Project Collaboration">Project Collaboration</option>
+                            <option value="Media / Interview">Media / Interview</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase text-neutral-500 font-bold mb-2">Message</label>
+                        <textarea name="message" required rows="7"
+                            class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors resize-y"
+                            placeholder="A few details, timing, and the best way to reply."></textarea>
+                    </div>
+
+                    <p data-contact-status class="min-h-6 text-sm text-neutral-400" aria-live="polite"></p>
+
+                    <button type="submit"
+                        class="w-full md:w-auto px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-purple-400 hover:text-white transition-colors inline-flex items-center justify-center gap-2">
+                        Send Message <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </section>
+
+            <aside class="space-y-4">
+                <a href="https://linkedin.com/in/taylorryan" target="_blank"
+                    class="group block bg-neutral-900 border border-neutral-800 rounded-lg p-6 hover:border-blue-500/50 hover:bg-neutral-900/80 transition-all">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-neutral-800 mb-5 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <i data-lucide="briefcase" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">LinkedIn</h3>
+                    <p class="text-neutral-400 mb-4">Quick professional messages and updates.</p>
+                    <span class="text-blue-400 font-bold group-hover:underline">/in/taylorryan</span>
+                </a>
+
+                <a href="https://bookme.name/TaylorRyan" target="_blank"
+                    class="group block bg-neutral-900 border border-neutral-800 rounded-lg p-6 hover:border-purple-500/50 hover:bg-neutral-900/80 transition-all">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-neutral-800 mb-5 flex items-center justify-center group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <i data-lucide="calendar" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Book a Meeting</h3>
+                    <p class="text-neutral-400 mb-4">Best when a live conversation is already the next step.</p>
+                    <span class="text-purple-400 font-bold group-hover:underline">Let's Talk &rarr;</span>
+                </a>
+
+                <div class="bg-neutral-950 border border-neutral-800 rounded-lg p-6">
+                    <div class="flex items-center gap-3 text-sm text-neutral-400">
+                        <span class="relative flex h-3 w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        <span>Open for keynotes, workshops, consulting, and select leadership roles.</span>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-2">Book a Meeting</h3>
-                <p class="text-neutral-400 mb-4">Schedule a time directly on my calendar.</p>
-                <span class="text-purple-400 font-bold group-hover:underline">Let's Talk &rarr;</span>
-            </a>
+            </aside>
 
         </div>
 

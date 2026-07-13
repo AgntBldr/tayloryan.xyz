@@ -90,7 +90,7 @@ function injectLayout() {
                         <li><a href="https://www.linkedin.com/in/taylorryan/" target="_blank" class="hover:text-blue-500 transition-colors">LinkedIn</a></li>
                         <li><a href="https://x.com/TaylorRyanTweet" target="_blank" class="hover:text-white transition-colors">Twitter / X</a></li>
                         <li><a href="https://www.youtube.com/c/TaylorRyanPLUS" target="_blank" class="hover:text-red-500 transition-colors">YouTube</a></li>
-                        <li><a href="mailto:taylor@klintmarketing.com" class="hover:text-white transition-colors">Email</a></li>
+                        <li><a href="/contact/" class="hover:text-white transition-colors">Contact Form</a></li>
                     </ul>
                 </div>
 
@@ -195,7 +195,7 @@ window.handleContactSubmit = function (e) {
     const message = formData.get('message');
 
     // Construct Mailto
-    const mailtoLink = `mailto:taylor@klintmarketing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Taylor,\n\n${message}\n\nBest,\n${name}`)}`;
+    const mailtoLink = `/contact/?subject=${encodeURIComponent(subject)}`;
 
     // Open Mail Client
     window.location.href = mailtoLink;

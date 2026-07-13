@@ -34,3 +34,6 @@ Removed duplicate deployed material from `DEPLOY_CLOUDFLARE/` and `DEPLOY_PUBLIC
 
 ## [2026-07-13] report | Google links working vs not working
 Generated `audits/site-audit/google-links-review.html`, `.csv`, and `.json` plus `execution/google_links_report.mjs`. Counts: 622 Google URLs total, 25 public-working/live, 517 auth-required/private, and 80 broken/missing.
+
+## [2026-07-13] fix | Resend contact form and email privacy
+Converted the contact page to a form-first flow, replaced public Klint email CTAs with `/contact/`, wired `functions/api/contact.js` for Resend via Cloudflare env vars, fixed missing Lucide LinkedIn icons, synced `DEPLOY_PUBLIC`, and recorded `dec-use-resend-contact-form`.
