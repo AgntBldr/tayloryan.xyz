@@ -25,3 +25,6 @@ Fixed the Bless LinkedIn URL in source/deploy quest data, updated `deploy_sync.p
 
 ## [2026-07-13] cleanup | archived stray Teneo copy
 Moved `DEPLOY_CLOUDFLARE/teneo-protocol.ai` to `C:\Users\tempv2\PortfolioAgent_ExternalArchive\20260713-stray-teneo-protocol.ai` after user approval. Refreshed the audit dashboard; `DEPLOY_CLOUDFLARE` dropped from about 843 MB to about 113 MB.
+
+## [2026-07-13] review | cleanup safety and memory readiness
+Reviewed the archive cleanup and current deploy state. Live homepage/work/quest/resource routes returned 200, local deploy/script checks passed, the branch remained clean before memory writes, and reviewed memory wikilinks resolved. Added follow-up tasks for deploy-output mojibake and stale Teneo memory anchors before calling the brain fully tidy.
