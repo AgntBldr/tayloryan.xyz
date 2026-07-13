@@ -27,7 +27,7 @@ Browser QA confirmed the unavailable case-study action is absent, a neighboring 
 
 Implementation commit `fa27c38` was pushed to `codex/broken-google-link-cleanup` and opened as GitHub PR #3: https://github.com/AgntBldr/tayloryan.xyz/pull/3. The PR was merged to `main` as `cdb5075f0f834804dcacd5c23ec6896ba59b97b2`, and Cloudflare production deployment `76b2fd8f-c3be-44cd-8dcf-fc3445ccfbce` passed.
 
-Production verification on the custom domain confirmed HTTP 200 for `/`, `/about/`, `/skills/`, `/work_some/`, `/portfolio/`, and `/marketing/case_studies/`; zero retired URLs; all 395 private URLs in the touched source datasets; all 39 Layer3 URLs; the corrected About CTA; the missing-link modal guard; and the `Offline copy preserved` case-study metadata.
+Production verification on the custom domain confirmed HTTP 200 for `/`, `/about/`, `/skills/`, `/work_some/`, `/contact/`, and `/portfolio/marketing/case_studies/`; zero retired URLs; all 395 private URLs in the touched source datasets; all 39 Layer3 URLs; the corrected About CTA; the missing-link modal guard; and the `Offline copy preserved` case-study metadata.
 
 The Cloudflare Pages preview check passed for PR head `c4f4ae9`. Immediately after the production deployment, the immutable deployment URL served the new marketing asset before the custom domain did. The custom domain converged without a code workaround, after which its marketing asset returned the expected content and ETag. See [[fct-cloudflare-custom-domain-propagation-lag-2026-07-13]].
 

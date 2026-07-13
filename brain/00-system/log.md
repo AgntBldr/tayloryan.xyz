@@ -61,3 +61,6 @@ Cloudflare Pages completed successfully for PR head `c4f4ae9`. The final follow-
 
 ## [2026-07-13] deploy | merged PR #3 and verified production
 Merged PR #3 to `main` as `cdb5075f0f834804dcacd5c23ec6896ba59b97b2`; Cloudflare production passed and the custom domain retained 395/395 private URLs plus 39/39 Layer3 URLs with zero retired URLs. Recorded the brief custom-domain static-asset propagation lag, which resolved without a workaround.
+
+## [2026-07-13] correct | fixed production route names in deployment memory
+Replaced two shorthand 404 paths in the PR #3 deployment note with the verified `/contact/` and `/portfolio/marketing/case_studies/` routes. This corrected memory only; the application routes were already healthy.
