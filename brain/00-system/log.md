@@ -13,3 +13,12 @@ Reviewed all 61 nodes under 01-05. Verified frontmatter, prefixes, edges, summar
 
 ## [2026-07-13] audit | site link and cleanup dashboard
 Created `execution/audit_site.mjs` and generated `audits/site-audit/dashboard.html` plus JSON results. Recorded `fct-site-audit-2026-07-13`, added approval task `tsk-review-site-audit-dashboard`, and corrected the canonical deploy path fact from the stale Desktop path to the current repo path.
+
+## [2026-07-13] clarify | teneo folder and old drive access
+User clarified that `DEPLOY_CLOUDFLARE/teneo-protocol.ai` is unrelated to the Taylor Ryan site and may be a copied folder. User also clarified the connected Google Drive account is not the old resource account, and inaccessible old-account files should be replaced, hidden, or re-shared from accessible copies rather than recovered.
+
+## [2026-07-13] decision | use project brain not memtrace
+User clarified they do not want Memtrace used for this project. Created `dec-use-project-brain-not-memtrace`; future project memory and continuity should use the repo-local `./brain` vault.
+
+## [2026-07-13] fix | safe deploy and link pass
+Fixed the Bless LinkedIn URL in source/deploy quest data, updated `deploy_sync.ps1` to derive paths from `$PSScriptRoot`, gated legacy `DEPLOY_CLOUDFLARE` sync behind `PORTFOLIO_SYNC_CLOUDFLARE_COPY=1`, refreshed the audit dashboard, and recorded canonical repo/deploy-sync/Teneo-folder facts.

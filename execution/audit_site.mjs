@@ -710,10 +710,10 @@ function deployFindings(directorySizes) {
   if (fileExists(teneoPath)) {
     findings.push({
       severity: "high",
-      area: "Nested app copy",
-      finding: "DEPLOY_CLOUDFLARE/teneo-protocol.ai is a full Next.js project copy with its own app, src, .git, .next, and node_modules.",
+      area: "Stray copied app folder",
+      finding: "DEPLOY_CLOUDFLARE/teneo-protocol.ai appears unrelated to taylorryan.xyz and contains a full copied Next.js app with its own app, src, .git, .next, and node_modules.",
       evidence: "This is untracked in the current git status and accounts for most local bloat.",
-      recommendation: "Human review before removal. If it is not this site's source of truth, move it outside this repo or delete after backup.",
+      recommendation: "After approval, move it outside this repo or delete it after confirming no needed files are inside.",
     });
   }
 

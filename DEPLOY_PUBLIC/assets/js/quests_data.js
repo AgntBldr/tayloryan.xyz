@@ -1617,7 +1617,7 @@
       "discord": "https://discord.gg/blessnetwork",
       "telegram": "N/A",
       "github": "N/A",
-      "linkedin": "linkedin.com/company/blessnetwork",
+      "linkedin": "https://linkedin.com/company/blessnetwork",
       "token_listing": "N/A"
     },
     "token": "BLESS",

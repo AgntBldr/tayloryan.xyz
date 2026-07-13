@@ -8,8 +8,12 @@
     3. Handles cache busting for critical scripts.
 #>
 
-$SourceRoot = "C:\Users\tempv2\Desktop\PortfolioAgent"
-$DeployRoot = "$SourceRoot\DEPLOY_PUBLIC"
+$SourceRoot = $PSScriptRoot
+$DeployRoot = Join-Path $SourceRoot "DEPLOY_PUBLIC"
+
+if (-not (Test-Path $DeployRoot)) {
+    New-Item -ItemType Directory -Force -Path $DeployRoot | Out-Null
+}
 
 Write-Host "Starting Deployment Sync..." -ForegroundColor Cyan
 
@@ -350,10 +354,19 @@ Write-Host "Global Cache Busting Complete." -ForegroundColor Green
 
 Write-Host "Deployment Sync Complete." -ForegroundColor Cyan
 
-# Sync to Cloudflare Deploy Folder
-$CloudflareDest = "$PSScriptRoot\DEPLOY_CLOUDFLARE\tayloryan.xyz\DEPLOY_PUBLIC"
-if (Test-Path $CloudflareDest) {
-    Write-Host "Syncing to Cloudflare Dest: $CloudflareDest" -ForegroundColor Yellow
-    Copy-Item -Path "$DeployRoot\*" -Destination $CloudflareDest -Recurse -Force
-    Write-Host "Cloudflare Sync Complete." -ForegroundColor Green
+# Legacy duplicate deploy sync. Disabled by default because DEPLOY_PUBLIC is the
+# Cloudflare Pages source of truth and extra deploy folders have caused bloat.
+if ($env:PORTFOLIO_SYNC_CLOUDFLARE_COPY -eq "1") {
+    $CloudflareDest = Join-Path $PSScriptRoot "DEPLOY_CLOUDFLARE\tayloryan.xyz\DEPLOY_PUBLIC"
+    if (Test-Path $CloudflareDest) {
+        Write-Host "Syncing to legacy Cloudflare copy: $CloudflareDest" -ForegroundColor Yellow
+        Copy-Item -Path "$DeployRoot\*" -Destination $CloudflareDest -Recurse -Force
+        Write-Host "Legacy Cloudflare copy sync complete." -ForegroundColor Green
+    }
+    else {
+        Write-Warning "PORTFOLIO_SYNC_CLOUDFLARE_COPY=1, but legacy Cloudflare copy path was not found."
+    }
+}
+else {
+    Write-Host "Skipping legacy DEPLOY_CLOUDFLARE sync. Set PORTFOLIO_SYNC_CLOUDFLARE_COPY=1 to enable it." -ForegroundColor DarkGray
 }
