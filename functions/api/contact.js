@@ -1,56 +1,126 @@
+const jsonHeaders = {
+  "Content-Type": "application/json",
+};
 
-export async function onRequestPost({ request }) {
+function jsonResponse(body, init = {}) {
+  return new Response(JSON.stringify(body), {
+    ...init,
+    headers: {
+      ...jsonHeaders,
+      ...(init.headers || {}),
+    },
+  });
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function cleanString(value, maxLength) {
+  return String(value || "").trim().slice(0, maxLength);
+}
+
+export async function onRequestPost({ request, env }) {
   try {
     const data = await request.json();
-    const { name, email, message, honeycomb } = data;
+    const name = cleanString(data.name, 120);
+    const email = cleanString(data.email, 180);
+    const subject = cleanString(data.subject, 160) || "Portfolio Contact Form";
+    const message = cleanString(data.message, 5000);
+    const honeycomb = cleanString(data.honeycomb, 120);
 
-    // 1. Honeypot check
     if (honeycomb) {
-      // Silent rejection for bots
-      return new Response(JSON.stringify({ success: true, message: "Message sent!" }), {
-        headers: { "Content-Type": "application/json" }
-      });
+      return jsonResponse({ success: true, message: "Thanks. Your message was sent." });
     }
 
-    // 2. Validation
     if (!name || !email || !message) {
-      return new Response(JSON.stringify({ success: false, error: "Missing required fields" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" }
-      });
+      return jsonResponse(
+        { success: false, error: "Please complete your name, email, and message." },
+        { status: 400 }
+      );
     }
 
-    // Email validation regex (simple)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return new Response(JSON.stringify({ success: false, error: "Invalid email address" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" }
-      });
+      return jsonResponse(
+        { success: false, error: "Please enter a valid reply email." },
+        { status: 400 }
+      );
     }
 
-    // 3. Process - For now, just log or simulate success since "If sending email is not implemented, fallback to a secure form provider endpoint and update the frontend"
-    // The user instruction said: "If sending email is not implemented, fallback to a secure form provider endpoint and update the frontend accordingly."
-    // BUT also: "The contact form must submit to /api/contact (Pages Functions)... Return clean JSON success/error responses"
-    // So this function acts as the endpoint. Real email sending would usually require an environment variable (e.g. SENDGRID_API_KEY) in the Cloudflare dashboard.
-    // We will simulate success for the deployment ready state, ready to hook up to a provider.
-    
-    // Simulate processing time
-    // await new Promise(r => setTimeout(r, 500));
+    if (!env.RESEND_API_KEY || !env.CONTACT_TO_EMAIL || !env.CONTACT_FROM_EMAIL) {
+      return jsonResponse(
+        { success: false, error: "The contact form is temporarily unavailable." },
+        { status: 503 }
+      );
+    }
 
-    return new Response(JSON.stringify({ 
-      success: true, 
-      message: "Thank you! Your message has been received.",
-      debug: "Email sending not configured in this demo." 
-    }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" }
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeSubject = escapeHtml(subject);
+    const safeMessage = escapeHtml(message).replaceAll("\n", "<br>");
+    const submittedAt = new Date().toISOString();
+
+    const resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: env.CONTACT_FROM_EMAIL,
+        to: [env.CONTACT_TO_EMAIL],
+        reply_to: email,
+        subject: `TaylorRyan.xyz: ${subject}`,
+        html: `
+          <h2>New portfolio contact form message</h2>
+          <p><strong>Name:</strong> ${safeName}</p>
+          <p><strong>Reply email:</strong> ${safeEmail}</p>
+          <p><strong>Topic:</strong> ${safeSubject}</p>
+          <p><strong>Submitted:</strong> ${escapeHtml(submittedAt)}</p>
+          <hr>
+          <p>${safeMessage}</p>
+        `,
+        text: [
+          "New portfolio contact form message",
+          "",
+          `Name: ${name}`,
+          `Reply email: ${email}`,
+          `Topic: ${subject}`,
+          `Submitted: ${submittedAt}`,
+          "",
+          message,
+        ].join("\n"),
+        tags: [
+          { name: "source", value: "tayloryan_xyz" },
+          { name: "type", value: "contact_form" },
+        ],
+      }),
     });
 
+    if (!resendResponse.ok) {
+      const errorBody = await resendResponse.text();
+      console.error("Resend contact form error", resendResponse.status, errorBody);
+      return jsonResponse(
+        { success: false, error: "Message could not be sent. Please try again later." },
+        { status: 502 }
+      );
+    }
+
+    return jsonResponse({
+      success: true,
+      message: "Thanks. Your message was sent.",
+    });
   } catch (err) {
-    return new Response(JSON.stringify({ success: false, error: "Server error handling request" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" }
-    });
+    console.error("Contact form error", err);
+    return jsonResponse(
+      { success: false, error: "Server error handling contact form." },
+      { status: 500 }
+    );
   }
 }

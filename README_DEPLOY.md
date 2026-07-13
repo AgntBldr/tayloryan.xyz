@@ -21,6 +21,14 @@ This ensures assets are synced and `work.html` is correctly transformed for sub-
 ./deploy_sync.ps1
 ```
 
+## Contact Form
+The contact form submits to the Cloudflare Pages Function at `functions/api/contact.js` and sends email through Resend.
+Set these Cloudflare Pages environment variables before relying on the form in production:
+
+- `RESEND_API_KEY`
+- `CONTACT_FROM_EMAIL` - must be a Resend-verified sender/domain
+- `CONTACT_TO_EMAIL` - private destination inbox, not exposed in frontend HTML
+
 ## Archives
 Old or duplicate folders have been moved to `__ARCHIVE_NOT_USED_FOR_DEPLOY__`.
 Do not mistakenly use these for deployment.

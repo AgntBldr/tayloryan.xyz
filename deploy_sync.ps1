@@ -8,8 +8,12 @@
     3. Handles cache busting for critical scripts.
 #>
 
-$SourceRoot = "C:\Users\tempv2\Desktop\PortfolioAgent"
-$DeployRoot = "$SourceRoot\DEPLOY_PUBLIC"
+$SourceRoot = $PSScriptRoot
+$DeployRoot = Join-Path $SourceRoot "DEPLOY_PUBLIC"
+
+if (-not (Test-Path $DeployRoot)) {
+    New-Item -ItemType Directory -Force -Path $DeployRoot | Out-Null
+}
 
 Write-Host "Starting Deployment Sync..." -ForegroundColor Cyan
 
@@ -32,10 +36,59 @@ else {
     Write-Warning "No _headers file found."
 }
 
+if (Test-Path "$SourceRoot\_redirects") {
+    Copy-Item -Path "$SourceRoot\_redirects" -Destination "$DeployRoot" -Force
+    Write-Host "Redirects Synced." -ForegroundColor Green
+}
+else {
+    Write-Warning "No _redirects file found."
+}
+
 # 1.5.0 Sync index.html
 Write-Host "Syncing index.html..." -ForegroundColor Yellow
 Copy-Item -Path "$SourceRoot\index.html" -Destination "$DeployRoot\index.html" -Force
 Write-Host "index.html Synced." -ForegroundColor Green
+
+function Sync-StaticPage {
+    param(
+        [Parameter(Mandatory = $true)][string]$FileName,
+        [Parameter(Mandatory = $true)][string]$Route
+    )
+
+    $source = Join-Path $SourceRoot $FileName
+    $destDir = Join-Path $DeployRoot $Route
+    $dest = Join-Path $destDir "index.html"
+
+    if (-not (Test-Path $source)) {
+        Write-Warning "Static page source not found: $FileName"
+        return
+    }
+
+    if (-not (Test-Path $destDir)) {
+        New-Item -ItemType Directory -Force -Path $destDir | Out-Null
+    }
+
+    $content = Get-Content $source -Raw
+    $content = $content -replace 'src="assets/', 'src="/assets/'
+    $content = $content -replace 'href="assets/', 'href="/assets/'
+    $content = $content -replace 'href="index.html"', 'href="/"'
+    $content = $content -replace 'href="work.html"', 'href="/work/"'
+    $content = $content -replace 'href="contact.html"', 'href="/contact/"'
+    $content = $content -replace 'href="about.html"', 'href="/about/"'
+    $content = $content -replace 'href="now.html"', 'href="/now/"'
+
+    if ($content -notmatch '<link rel="canonical"') {
+        $canonical = "    <link rel=`"canonical`" href=`"https://taylorryan.xyz/$Route/`">`r`n    <meta property=`"og:url`" content=`"https://taylorryan.xyz/$Route/`">"
+        $content = $content -replace '</head>', "$canonical`r`n</head>"
+    }
+
+    [System.IO.File]::WriteAllText($dest, $content, [System.Text.Encoding]::UTF8)
+    Write-Host "$FileName synced to $Route/index.html" -ForegroundColor Green
+}
+
+Sync-StaticPage -FileName "about.html" -Route "about"
+Sync-StaticPage -FileName "contact.html" -Route "contact"
+Sync-StaticPage -FileName "now.html" -Route "now"
 
 # 1.5.2 Sync JS Data Files with Path Corrections
 # This is critical for data files loaded from subdirectories
@@ -350,10 +403,19 @@ Write-Host "Global Cache Busting Complete." -ForegroundColor Green
 
 Write-Host "Deployment Sync Complete." -ForegroundColor Cyan
 
-# Sync to Cloudflare Deploy Folder
-$CloudflareDest = "$PSScriptRoot\DEPLOY_CLOUDFLARE\tayloryan.xyz\DEPLOY_PUBLIC"
-if (Test-Path $CloudflareDest) {
-    Write-Host "Syncing to Cloudflare Dest: $CloudflareDest" -ForegroundColor Yellow
-    Copy-Item -Path "$DeployRoot\*" -Destination $CloudflareDest -Recurse -Force
-    Write-Host "Cloudflare Sync Complete." -ForegroundColor Green
+# Legacy duplicate deploy sync. Disabled by default because DEPLOY_PUBLIC is the
+# Cloudflare Pages source of truth and extra deploy folders have caused bloat.
+if ($env:PORTFOLIO_SYNC_CLOUDFLARE_COPY -eq "1") {
+    $CloudflareDest = Join-Path $PSScriptRoot "DEPLOY_CLOUDFLARE\tayloryan.xyz\DEPLOY_PUBLIC"
+    if (Test-Path $CloudflareDest) {
+        Write-Host "Syncing to legacy Cloudflare copy: $CloudflareDest" -ForegroundColor Yellow
+        Copy-Item -Path "$DeployRoot\*" -Destination $CloudflareDest -Recurse -Force
+        Write-Host "Legacy Cloudflare copy sync complete." -ForegroundColor Green
+    }
+    else {
+        Write-Warning "PORTFOLIO_SYNC_CLOUDFLARE_COPY=1, but legacy Cloudflare copy path was not found."
+    }
+}
+else {
+    Write-Host "Skipping legacy DEPLOY_CLOUDFLARE sync. Set PORTFOLIO_SYNC_CLOUDFLARE_COPY=1 to enable it." -ForegroundColor DarkGray
 }

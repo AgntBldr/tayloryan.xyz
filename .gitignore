@@ -1,6 +1,8 @@
 # Deploy Archives
 __BACKUP_DUPLICATES__/
 __ARCHIVE_NOT_USED_FOR_DEPLOY__/
+DEPLOY_CLOUDFLARE/
+DEPLOY_PUBLIC/DEPLOY_PUBLIC/
 
 # System & Deps
 node_modules/
