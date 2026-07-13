@@ -10,3 +10,6 @@ Created root pillar pil-portfolio-agent. Created 3 project nodes (prj-writing-ar
 
 ## [2026-06-30] qa | portfolio-agent: strategic + faithfulness quality gate
 Reviewed all 61 nodes under 01-05. Verified frontmatter, prefixes, edges, summaries. Faithfulness spot-checked 8 nodes against directives/ and teneo-homepage-cursor-brief.md (hero, stats, 9 investors, copy rules, FAQ count, Get Started flow) -- all faithful, no hallucinations, no deletions for cause. Fixes: (1) pbk-onboarding-flow (prefix/type mismatch: id pbk- but type fact) renamed to fct-onboarding-flow and moved playbooks->content-homepage; (2) fct-data-output + fct-ui-dashboard-grid: restored truncated path 'quests.' -> 'quests.json'; (3) evt-archive-duplicate-folders: added required occurred_at 2026-01-27. Zero real dangling edges (pil-<business> exists only in README template prose). Pillar mission valid; portfolio_pillar 'apps' fits; index MOC reaches key nodes in <=2 clicks.
+
+## [2026-07-13] audit | site link and cleanup dashboard
+Created `execution/audit_site.mjs` and generated `audits/site-audit/dashboard.html` plus JSON results. Recorded `fct-site-audit-2026-07-13`, added approval task `tsk-review-site-audit-dashboard`, and corrected the canonical deploy path fact from the stale Desktop path to the current repo path.
