@@ -34,7 +34,8 @@ The system exists to make portfolio work reproducible and improvable. Any AI age
 |---|---|---|
 | [[prj-writing-archive]] | active | PDFs in `Ref Docs/Archived_PDFs/` |
 | [[prj-quest-portfolio]] | active | Next.js app at `quest_portfolio/` |
-| [[prj-teneo-website]] | active | teneo-protocol.ai via Cloudflare Pages |
+| [[prj-taylor-ryan-site-remediation]] | active | taylorryan.xyz via Cloudflare Pages |
+| [[prj-teneo-website]] | archived | Historical, unrelated Teneo context |
 
 ## Key Knowledge
 
@@ -58,13 +59,13 @@ The system exists to make portfolio work reproducible and improvable. Any AI age
 - [[fct-manual-login-required]] -- user must complete 2FA; script cannot automate it
 - [[dec-disable-verification]] -- verification logic is disabled; app simulates success only
 
-### Teneo Website
+### Taylor Ryan Website
 
-- [[fct-project-tech-stack]] -- Next.js 15 / React 19 / TypeScript / Tailwind v4 / pnpm
+- [[prj-taylor-ryan-site-remediation]] -- active cleanup, preservation, and UI/UX project
 - [[dec-use-deploy-public-folder]] -- canonical deploy target is `DEPLOY_PUBLIC/`; no other folders
-- [[dec-use-existing-codebase-styles]] -- no new styles; pull design from existing codebase only
-- [[dec-global-copy-rules]] -- sentence case; no em dashes; x402 lowercase; CLI/SDK uppercase
-- [[pbk-standard-deployment-workflow]] -- make changes, build, commit/push, Cloudflare auto-deploys
+- [[dec-use-resource-preservation-manifest-before-google-link-removal]] -- preserve and review resources before retiring public links
+- [[dec-tiered-model-routing-site-maintenance]] -- route work across 5.6 SOL, cheaper frontier models, Ollama, and deterministic tools
+- [[tsk-clean-broken-google-links]] -- active selective cleanup and compact-ready resume state
 
 ## Sources
 

@@ -2309,21 +2309,8 @@
   },
   {
     "title": "Meet Raluca, Graphic Design Intern",
-    "url": "https://drive.google.com/file/d/1QWJLgFNh3cESjjL1vzZn6CdULipFFW2Z/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1QWJLgFNh3cESjjL1vzZn6CdULipFFW2Z/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1oT7trGt2TgdCA2RVND7ZNZRCFh316Ig7/view?usp=sharing"
-      },
-      {
-        "label": "Vertical",
-        "url": "https://drive.google.com/file/d/1UqqK6QTAecJgRCfx5S39Lgbg1_TpI90N/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "Meet Raluca \ud83c\uddf7\ud83c\uddf4 She joined as a graphic design intern at Klint. She\u2019s into murder-mystery podcasts and recently designed a logo for a cat caf\u00e9. More intros to come.",
     "summary": "Team intro featuring a Romania-based graphic design intern.",
     "date": "",
@@ -2342,17 +2329,8 @@
   },
   {
     "title": "Meet Felix, Web Developer Intern",
-    "url": "https://drive.google.com/file/d/15H2VuqnUrJ1UUq6fAOyaMqh2DOTopMsT/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/15H2VuqnUrJ1UUq6fAOyaMqh2DOTopMsT/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1Yxr3tTQdP93FeyG6xxqlFYzpjiXP3fMc/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "Say hi to Felix \ud83d\udc4b He joined as a web developer intern from Spain \ud83c\uddea\ud83c\uddf8 He enjoys backend work and brings a global background from moving often as a kid.",
     "summary": "Team intro featuring a Spain-based web developer intern.",
     "date": "",
@@ -2371,17 +2349,8 @@
   },
   {
     "title": "Meet Pavel, Video Production Intern",
-    "url": "https://drive.google.com/file/d/1p01vTt9e0HkjP0gxAbqsrei39qP2Vxz5/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1p01vTt9e0HkjP0gxAbqsrei39qP2Vxz5/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/12wUVdQ4-9hfMfaNIf5aOKK97n_jI8UF6/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "Have you met Pavel? \ud83d\udc40 He joined as a video production intern from Slovakia \ud83c\uddf8\ud83c\uddf0 He plays drums, guitar, and piano, and loved filming Klint\u2019s launch event.",
     "summary": "Team intro featuring a Slovakia-based video production intern.",
     "date": "",
@@ -2400,17 +2369,8 @@
   },
   {
     "title": "Meet Rayane, Web Developer Intern",
-    "url": "https://drive.google.com/file/d/1rbIEvgHPUmle0KHiKiU4nSyZ89L2IY8H/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1rbIEvgHPUmle0KHiKiU4nSyZ89L2IY8H/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1e12SMcLrI53ioIA_VwNDICY5prMGsIno/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "Say hi to Rayane \u2757 He joined as a web developer intern from France \ud83c\uddeb\ud83c\uddf7 He enjoys learning enterprise-grade tech, and films and edits videos in his free time.",
     "summary": "Team intro featuring a France-based web developer intern.",
     "date": "",
@@ -2429,17 +2389,8 @@
   },
   {
     "title": "Meet Coco, Marketing Intern",
-    "url": "https://drive.google.com/file/d/1btLk4LHjCn-KSNPsy5beEMk_ImoyYgbd/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1btLk4LHjCn-KSNPsy5beEMk_ImoyYgbd/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1jwzfQe2tqzYHTm9yi7cfoXyb4VokjVcA/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "Have you met Coco? \ud83d\udc4b She joined as a marketing intern from New York \ud83c\uddfa\ud83c\uddf8 She brings a positive mindset, and once played in a squash tournament in Egypt.",
     "summary": "Team intro featuring a New York-based marketing intern.",
     "date": "",
@@ -2458,17 +2409,8 @@
   },
   {
     "title": "Meet Femke, Marketing Intern",
-    "url": "https://drive.google.com/file/d/1OjlNqLmnXBrtRGyKigIYaYNY7DzWGkQN/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1OjlNqLmnXBrtRGyKigIYaYNY7DzWGkQN/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1tWaBnkuCLZJD0CQAARLSFKK3bUQscoBx/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "Meet Femke \ud83d\ude4c She joined as a marketing intern from Breda, Netherlands \ud83c\uddf3\ud83c\uddf1 She\u2019s an escape-room fan and always makes it out. Stay tuned for the next introduction.",
     "summary": "Team intro featuring a Netherlands-based marketing intern.",
     "date": "",
@@ -2487,17 +2429,8 @@
   },
   {
     "title": "Meet Ava, Marketing Intern",
-    "url": "https://drive.google.com/file/d/1ypzzbi8ZyFcQxp9Bi7NT7cJS8TStZWZc/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1ypzzbi8ZyFcQxp9Bi7NT7cJS8TStZWZc/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1TFfjTu1Fjw15iGrEwT1ltPoIM0CM1H9J/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "Meet Ava \ud83d\udc4f She joined as an intern from New York City \ud83c\uddfa\ud83c\uddf8 She splits time across several US states and Copenhagen. Her favorite part of Klint is the people, supportive and welcoming.",
     "summary": "Team intro featuring a NYC-based intern with global moves.",
     "date": "",
@@ -2547,16 +2480,8 @@
   },
   {
     "title": "Meet the Team: Giacomo Piccinini",
-    "url": "https://drive.google.com/file/d/1zS5NPw5sH91MqB5S7T8_FmJWG_alujRv/view?usp=sharing",
+    "url": "https://drive.google.com/file/d/1cVHMKE5q8hi1qhYQ0x7tPKX-Md9YJNXd/view?usp=sharing",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1zS5NPw5sH91MqB5S7T8_FmJWG_alujRv/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1MUYZ0sLy--3wZLZD-0gKzPSLr7Ii40m1/view?usp=sharing"
-      },
       {
         "label": "Vertical",
         "url": "https://drive.google.com/file/d/1cVHMKE5q8hi1qhYQ0x7tPKX-Md9YJNXd/view?usp=sharing"
@@ -2578,16 +2503,8 @@
   },
   {
     "title": "Meet the Team: Giovanni Buffa",
-    "url": "https://drive.google.com/file/d/1_lVufi0ZkCYb67ylza0FwUXop5DfjcHt/view?usp=sharing",
+    "url": "https://drive.google.com/file/d/1vi2r3mMWzoh4HyozTwWvQLHpXSi6AW79/view?usp=sharing",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1_lVufi0ZkCYb67ylza0FwUXop5DfjcHt/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1NWTthH2TjKb-FPwUzljpLsX3nztzVgye/view?usp=sharing"
-      },
       {
         "label": "Vertical",
         "url": "https://drive.google.com/file/d/1vi2r3mMWzoh4HyozTwWvQLHpXSi6AW79/view?usp=sharing"
@@ -2609,16 +2526,8 @@
   },
   {
     "title": "Meet the Team: Julia Gonz\u00e1lez",
-    "url": "https://drive.google.com/file/d/1FicULlioWQpqXF6rCxjZ8X3VDMbXFkbt/view?usp=sharing",
+    "url": "https://drive.google.com/file/d/1iOfe953kzvgkvsJqpHUXOx7IzprWNo93/view?usp=sharing",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1FicULlioWQpqXF6rCxjZ8X3VDMbXFkbt/view?usp=sharing"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1pqQFuIER-maWqQ5CXzKLXVvhn5M_f2Xa/view?usp=sharing"
-      },
       {
         "label": "Vertical",
         "url": "https://drive.google.com/file/d/1iOfe953kzvgkvsJqpHUXOx7IzprWNo93/view?usp=sharing"
@@ -3043,13 +2952,8 @@
   },
   {
     "title": "Growth hacking campaigns that move the needle",
-    "url": "https://drive.google.com/file/d/1tfWbg4eWy4AiNVHyxxfff4tTagRlQK_z/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1tfWbg4eWy4AiNVHyxxfff4tTagRlQK_z/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "#GrowthHacking is making waves in the marketing world!\ud83c\udf0a ...and #Klint are experts within the field. We use #automation and data driven #marketing techniques throughout our process: \u2b55SEO and Content \u2b55Advertising \u2b55Social Media \u2b55Email Marketing and much more! Find out how Klint can boost your sales with a #GrowthHackingCampaign today! \ud83d\udc47",
     "summary": "Klint uses automation and data-driven marketing to run growth campaigns.",
     "date": "Not suitable",
@@ -3085,13 +2989,8 @@
   },
   {
     "title": "Staying ahead in digital marketing",
-    "url": "https://drive.google.com/file/d/1IAePrKk1svTbP6w69HGWMmNCf1VBoMnU/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1IAePrKk1svTbP6w69HGWMmNCf1VBoMnU/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "What's the next breakthrough #DigitalMarketingStrategy going to be?\ud83e\udd14 It can be difficult to keep up with the ever-evolving world of #DigitalMarketing. #Klint is a #GrowthHackingAgency that helps you stay up to date with: \ud83d\udccc SEO/SEM \ud83d\udccc Social Media Marketing \ud83d\udccc Content Marketing \ud83d\udccc Email Marketing Check out our site in the 1st comment to see how we can help you conquer Digital Marketing in 2021! \u2728",
     "summary": "Klint helps teams stay current across SEO, social, content, and email.",
     "date": "Not suitable",
@@ -3131,13 +3030,8 @@
   },
   {
     "title": "Growth hacks that level up your business",
-    "url": "https://drive.google.com/file/d/1tfWbg4eWy4AiNVHyxxfff4tTagRlQK_z/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1tfWbg4eWy4AiNVHyxxfff4tTagRlQK_z/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "What can boost your business and bring you to a new level? #Growthhacking can! Here at #KlintMarketing, we know our way around a good growth hack: \ud83d\udc49 SEO content \ud83d\udc49 Email marketing \ud83d\udc49 Social Media \ud83d\udc49 Ads Follow the link below \ud83d\udc47 and #GrowWithKlint \ud83d\ude80",
     "summary": "Growth hacking blends SEO, email, social, and ads into one system.",
     "date": "Not suitable",
@@ -3173,13 +3067,8 @@
   },
   {
     "title": "A simple process for high-performance ads",
-    "url": "https://drive.google.com/file/d/1IAePrKk1svTbP6w69HGWMmNCf1VBoMnU/view?usp=sharing",
-    "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1IAePrKk1svTbP6w69HGWMmNCf1VBoMnU/view?usp=sharing"
-      }
-    ],
+    "url": "",
+    "links": [],
     "post_text": "\ud83d\udc49Did you know that #DigitalAdvertising can help you generate 10X revenue!?! (No joke!) The process for #AdStrategy and creation looks like this: \ud83d\udd34 Industry & competitor #audit and outline target segments \ud83d\udd34 Create ads and ad copy specific to cohorts \ud83d\udd34 Campaign level reporting and optimization We've launched a campaign or two in our time, click below and get #Klint to do the hard work for you! \ud83c\udfd7\ufe0f",
     "summary": "Ads work best with clear audits, cohort targeting, and continuous optimization.",
     "date": "Not suitable",
@@ -3515,16 +3404,8 @@
   },
   {
     "title": "Marketing Statistics",
-    "url": "https://drive.google.com/file/d/1eCo5Lze5dxD4ddxfd2TDZdTMuvLW1lEQ/view",
+    "url": "https://blog.hootsuite.com/youtube-stats-marketers/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1eCo5Lze5dxD4ddxfd2TDZdTMuvLW1lEQ/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1i3FMlhPQ6kfhb7p1iopgl7DNhuxBQjGg/view"
-      },
       {
         "label": "Article",
         "url": "https://blog.hootsuite.com/youtube-stats-marketers/"
@@ -3966,20 +3847,8 @@
   },
   {
     "title": "The Ultimate Landing Page Checklist",
-    "url": "https://drive.google.com/file/d/1-bR7temcdbWPwQPxu7hLbV-zm-JW3lVI/view",
+    "url": "https://klintmarketing.com/landing-page-checklist/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1-bR7temcdbWPwQPxu7hLbV-zm-JW3lVI/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1-bR7temcdbWPwQPxu7hLbV-zm-JW3lVI/view"
-      },
-      {
-        "label": "Vertical",
-        "url": "https://drive.google.com/file/d/1-bR7temcdbWPwQPxu7hLbV-zm-JW3lVI/view"
-      },
       {
         "label": "Article",
         "url": "https://klintmarketing.com/landing-page-checklist/"
@@ -4003,20 +3872,8 @@
   },
   {
     "title": "Sustainable Marketing: What It Is and How to Use It",
-    "url": "https://drive.google.com/file/d/1E61ZhhUvYRAYMTIL1igf8naPHx-qUOPf/view",
+    "url": "https://klintmarketing.com/sustainable-marketing/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1E61ZhhUvYRAYMTIL1igf8naPHx-qUOPf/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1E61ZhhUvYRAYMTIL1igf8naPHx-qUOPf/view"
-      },
-      {
-        "label": "Vertical",
-        "url": "https://drive.google.com/file/d/1E61ZhhUvYRAYMTIL1igf8naPHx-qUOPf/view"
-      },
       {
         "label": "Article",
         "url": "https://klintmarketing.com/sustainable-marketing/"
@@ -4114,20 +3971,8 @@
   },
   {
     "title": "Sustainable Marketing: Customer-Value Marketing",
-    "url": "https://drive.google.com/file/d/1WjryV-Wg7gaP2u_657tMdUsI22PQS_Q9/view",
+    "url": "https://klintmarketing.com/sustainable-marketing/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1WjryV-Wg7gaP2u_657tMdUsI22PQS_Q9/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1WjryV-Wg7gaP2u_657tMdUsI22PQS_Q9/view"
-      },
-      {
-        "label": "Vertical",
-        "url": "https://drive.google.com/file/d/1WjryV-Wg7gaP2u_657tMdUsI22PQS_Q9/view"
-      },
       {
         "label": "Article",
         "url": "https://klintmarketing.com/sustainable-marketing/"
@@ -4151,20 +3996,8 @@
   },
   {
     "title": "Societal Marketing in Practice",
-    "url": "https://drive.google.com/file/d/1-D6Dy41ZAYV9yYuVICwhsRB_aJYJbDjo/view",
+    "url": "https://klintmarketing.com/sustainable-marketing/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1-D6Dy41ZAYV9yYuVICwhsRB_aJYJbDjo/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1-D6Dy41ZAYV9yYuVICwhsRB_aJYJbDjo/view"
-      },
-      {
-        "label": "Vertical",
-        "url": "https://drive.google.com/file/d/1-D6Dy41ZAYV9yYuVICwhsRB_aJYJbDjo/view"
-      },
       {
         "label": "Article",
         "url": "https://klintmarketing.com/sustainable-marketing/"
@@ -4188,20 +4021,8 @@
   },
   {
     "title": "Sustainable Marketing Benefits",
-    "url": "https://drive.google.com/file/d/1d4guGOw-Nc0s1_4WMiC84bbaimyqL0Qa/view",
+    "url": "https://klintmarketing.com/sustainable-marketing/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1d4guGOw-Nc0s1_4WMiC84bbaimyqL0Qa/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1d4guGOw-Nc0s1_4WMiC84bbaimyqL0Qa/view"
-      },
-      {
-        "label": "Vertical",
-        "url": "https://drive.google.com/file/d/1d4guGOw-Nc0s1_4WMiC84bbaimyqL0Qa/view"
-      },
       {
         "label": "Article",
         "url": "https://klintmarketing.com/sustainable-marketing/"
@@ -8115,12 +7936,8 @@
   },
   {
     "title": "Not suitable",
-    "url": "https://drive.google.com/file/d/1GChGtGu4nhWT_tAhfNUBhLOQaDVczivA/view",
+    "url": "https://klintmarketing.com/landing-page-checklist/",
     "links": [
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1GChGtGu4nhWT_tAhfNUBhLOQaDVczivA/view"
-      },
       {
         "label": "Article",
         "url": "https://klintmarketing.com/landing-page-checklist/"
@@ -8175,12 +7992,8 @@
   },
   {
     "title": "Klint Page",
-    "url": "https://drive.google.com/file/d/1oCcjgTTadugcxEX9hWjQJsiKRKtSI15g/view?usp=sharing",
+    "url": "https://klintmarketing.com/cro-inbound-marketing/",
     "links": [
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1oCcjgTTadugcxEX9hWjQJsiKRKtSI15g/view?usp=sharing"
-      },
       {
         "label": "Article",
         "url": "https://klintmarketing.com/cro-inbound-marketing/"
@@ -8201,16 +8014,8 @@
   },
   {
     "title": "Trust is a relationship, not a transaction",
-    "url": "https://drive.google.com/file/d/1APBHr0BfspBhm4s0XWlfTjcgMmEcPEeK/view",
+    "url": "https://www.helloroketto.com/articles/saas-growth",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1APBHr0BfspBhm4s0XWlfTjcgMmEcPEeK/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1SKebgpf51W1QZUD4QgVKeq8pQ2kxltIB/view"
-      },
       {
         "label": "Article",
         "url": "https://www.helloroketto.com/articles/saas-growth"
@@ -8233,16 +8038,8 @@
   },
   {
     "title": "Email traffic drives more purchases",
-    "url": "https://drive.google.com/file/d/1EZaJvfoxgMoDl8Q_Jezkc_o5QYvZ88B0/view",
+    "url": "https://startupbonsai.com/email-marketing-statistics/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1EZaJvfoxgMoDl8Q_Jezkc_o5QYvZ88B0/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1gkTdJVNfKvfPBwIpFC1C-OtFZikwj8Pv/view"
-      },
       {
         "label": "Article",
         "url": "https://startupbonsai.com/email-marketing-statistics/"
@@ -8265,16 +8062,8 @@
   },
   {
     "title": "Know your audience by platform",
-    "url": "https://drive.google.com/file/d/1G1I-mbbXMQ6My1SDA_MYoqbwQcKoHI_Y/view",
+    "url": "https://www.oberlo.com/blog/social-media-marketing-statistics#:~:text=The%20latest%20social%20media%20statistics%20show%20that%20there%20are%203.78,of%20the%20current%20world%20population.",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1G1I-mbbXMQ6My1SDA_MYoqbwQcKoHI_Y/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1loz5CMrNHHu1F7lGJBxMbUWpu2mpDWME/view"
-      },
       {
         "label": "Article",
         "url": "https://www.oberlo.com/blog/social-media-marketing-statistics#:~:text=The%20latest%20social%20media%20statistics%20show%20that%20there%20are%203.78,of%20the%20current%20world%20population."
@@ -8296,16 +8085,8 @@
   },
   {
     "title": "Email marketing ROI is huge",
-    "url": "https://drive.google.com/file/d/1yzO1EpKl0NG-9fyeFT2bQvr4oCecoobz/view",
+    "url": "https://startupbonsai.com/email-marketing-statistics/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1yzO1EpKl0NG-9fyeFT2bQvr4oCecoobz/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1KI9DlsNEMCGuNcU5KxuBkA__5MTUr8Ko/view"
-      },
       {
         "label": "Article",
         "url": "https://startupbonsai.com/email-marketing-statistics/"
@@ -8328,16 +8109,8 @@
   },
   {
     "title": "Online ad spend is eating the pie",
-    "url": "https://drive.google.com/file/d/1UFB98ktq5V8adTOwNXevyRm88mxKhUqf/view",
+    "url": "https://www.oberlo.com/blog/digital-marketing-statistics",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1UFB98ktq5V8adTOwNXevyRm88mxKhUqf/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1-fgJ9Mj1nhl5jeWh8pKmWDO4KqlJcZvF/view"
-      },
       {
         "label": "Article",
         "url": "https://www.oberlo.com/blog/digital-marketing-statistics"
@@ -8360,16 +8133,8 @@
   },
   {
     "title": "Google dominates search",
-    "url": "https://drive.google.com/file/d/1CpB_AZedg2sUJZ9hb5C4XkXW8jmUbKF8/view",
+    "url": "https://inter-growth.co/seo-stats/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1CpB_AZedg2sUJZ9hb5C4XkXW8jmUbKF8/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1CAsMzqxRZvWrLFQpiSC0H9eWEEMzv7WL/view"
-      },
       {
         "label": "Article",
         "url": "https://inter-growth.co/seo-stats/"
@@ -8392,16 +8157,8 @@
   },
   {
     "title": "Visuals matter (a lot)",
-    "url": "https://drive.google.com/file/d/11-IZQo75CBL0Lg9M9-qDUV-FFaFs7opJ/view",
+    "url": "https://www.mediavalet.com/blog/digital-marketing-statistics/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/11-IZQo75CBL0Lg9M9-qDUV-FFaFs7opJ/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1ZTaXpAuombxO2XPTp5VUTNxDKoGzcxDl/view"
-      },
       {
         "label": "Article",
         "url": "https://www.mediavalet.com/blog/digital-marketing-statistics/"
@@ -8424,16 +8181,8 @@
   },
   {
     "title": "Webinars pull strong attendance",
-    "url": "https://drive.google.com/file/d/1QS_xFPDfU1yWOZE7H7wAcykybgkyMow7/view",
+    "url": "https://webinarcare.com/webinar-statistics/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1QS_xFPDfU1yWOZE7H7wAcykybgkyMow7/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1384mgL6dG0Oo0PbSZJJwBhSOcCmJcT4g/view"
-      },
       {
         "label": "Article",
         "url": "https://webinarcare.com/webinar-statistics/"
@@ -8456,16 +8205,8 @@
   },
   {
     "title": "Blogging fuels backlinks",
-    "url": "https://drive.google.com/file/d/1oOddcoh0-eKsiMJIDJCgZmC7MCxLOjXU/view",
+    "url": "https://backlinko.com/content-marketing-stats",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1oOddcoh0-eKsiMJIDJCgZmC7MCxLOjXU/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1oSIm6gdW0J_ZVBln5QJbzMEqPQNTgfRK/view"
-      },
       {
         "label": "Article",
         "url": "https://backlinko.com/content-marketing-stats"
@@ -8488,16 +8229,8 @@
   },
   {
     "title": "Facebook still reaches massive scale",
-    "url": "https://drive.google.com/file/d/1ryqRQRtgQlJd17BB4WxbgbsGOINAX0k6/view",
+    "url": "https://blog.hootsuite.com/facebook-statistics/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1ryqRQRtgQlJd17BB4WxbgbsGOINAX0k6/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1HktR213DhkMeQ15-5x3orn15Qp9Jls4H/view"
-      },
       {
         "label": "Article",
         "url": "https://blog.hootsuite.com/facebook-statistics/"
@@ -8520,16 +8253,8 @@
   },
   {
     "title": "Instagram kept growing in Western Europe",
-    "url": "https://drive.google.com/file/d/1iTIA1qkx3Z9QoWeNC48dxedMnmtQDTr2/view",
+    "url": "https://blog.hootsuite.com/instagram-statistics/#Instagram_user_statistics",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1iTIA1qkx3Z9QoWeNC48dxedMnmtQDTr2/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1Z3A8dCycsEFhXVKNpY-1MQtuxdSisX-S/view"
-      },
       {
         "label": "Article",
         "url": "https://blog.hootsuite.com/instagram-statistics/#Instagram_user_statistics"
@@ -8552,16 +8277,8 @@
   },
   {
     "title": "Twitter keeps growing",
-    "url": "https://drive.google.com/file/d/1vv7NQSGPtRvGi_-oTsOAsVkXrLJXwdtF/view",
+    "url": "https://blog.hootsuite.com/twitter-statistics/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1vv7NQSGPtRvGi_-oTsOAsVkXrLJXwdtF/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1Irpl1WskuACTzSuxvLU9CeTFpI3b2F7V/view"
-      },
       {
         "label": "Article",
         "url": "https://blog.hootsuite.com/twitter-statistics/"
@@ -8584,16 +8301,8 @@
   },
   {
     "title": "LinkedIn audience is not one-size-fits-all",
-    "url": "https://drive.google.com/file/d/1Hrccmf_P-sj20XoORJyVElgudG43v9aC/view",
+    "url": "https://blog.hootsuite.com/linkedin-statistics-business/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1Hrccmf_P-sj20XoORJyVElgudG43v9aC/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1qgL03Imx12h7wsQStcvBGhqp7Ir6LYu1/view"
-      },
       {
         "label": "Article",
         "url": "https://blog.hootsuite.com/linkedin-statistics-business/"
@@ -8616,16 +8325,8 @@
   },
   {
     "title": "Bad service loses customers fast",
-    "url": "https://drive.google.com/file/d/1f2zq4GrJGhEcxMQNRMQeD60427V_zSoj/view",
+    "url": "https://blog.hubspot.com/service/customer-service-statss",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1f2zq4GrJGhEcxMQNRMQeD60427V_zSoj/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1klbUrey6h9G9aOLy1OVcxD4Tnlp1YtR2/view"
-      },
       {
         "label": "Article",
         "url": "https://blog.hubspot.com/service/customer-service-statss"
@@ -8648,16 +8349,8 @@
   },
   {
     "title": "Marketing automation budgets are climbing",
-    "url": "https://drive.google.com/file/d/1YcdTsjCQRuI-teKElmCYv0L1RKMvqDp7/view",
+    "url": "https://startupbonsai.com/marketing-automation-statistics/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1YcdTsjCQRuI-teKElmCYv0L1RKMvqDp7/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1OUlUx7r2RY2K5ubaf9xNiIdJPVwPKUV7/view"
-      },
       {
         "label": "Article",
         "url": "https://startupbonsai.com/marketing-automation-statistics/"
@@ -8680,16 +8373,8 @@
   },
   {
     "title": "Reduce friction, win better deals",
-    "url": "https://drive.google.com/file/d/1ZZhe__MmhUEdEtNg2DAdvfkxAAgxRcc1/view",
+    "url": "https://khrisdigital.com/sales-funnel-statistics/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1ZZhe__MmhUEdEtNg2DAdvfkxAAgxRcc1/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/13EA8dUVWADImzWEaHAQhCL-QgiLM0Xad/view"
-      },
       {
         "label": "Article",
         "url": "https://khrisdigital.com/sales-funnel-statistics/"
@@ -8712,16 +8397,8 @@
   },
   {
     "title": "YouTube is mainstream (still)",
-    "url": "https://drive.google.com/file/d/1eCo5Lze5dxD4ddxfd2TDZdTMuvLW1lEQ/view",
+    "url": "https://blog.hootsuite.com/youtube-stats-marketers/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1eCo5Lze5dxD4ddxfd2TDZdTMuvLW1lEQ/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1i3FMlhPQ6kfhb7p1iopgl7DNhuxBQjGg/view"
-      },
       {
         "label": "Article",
         "url": "https://blog.hootsuite.com/youtube-stats-marketers/"
@@ -8744,16 +8421,8 @@
   },
   {
     "title": "In-house vs outsource is a real split",
-    "url": "https://drive.google.com/file/d/1MWpGVdpalQ3L3lsgEgXscGxV3wsRnaFL/view",
+    "url": "https://backlinko.com/b2b-marketing-stats",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1MWpGVdpalQ3L3lsgEgXscGxV3wsRnaFL/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1AEUlRMUJBOU4eQ3Nzvmnatqty68KFv3s/view"
-      },
       {
         "label": "Article",
         "url": "https://backlinko.com/b2b-marketing-stats"
@@ -8776,16 +8445,8 @@
   },
   {
     "title": "Video is a lead gen weapon",
-    "url": "https://drive.google.com/file/d/1SlZxjuAD-pPMOaDdzGH54jaxaxqr0uVa/view",
+    "url": "https://www.hubspot.com/marketing-statistics",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1SlZxjuAD-pPMOaDdzGH54jaxaxqr0uVa/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1dlT5QNMbtX-Lnlzthf4zbspnBG9rqRqN/view"
-      },
       {
         "label": "Article",
         "url": "https://www.hubspot.com/marketing-statistics"
@@ -9191,16 +8852,8 @@
   },
   {
     "title": "Paid social is the baseline now",
-    "url": "https://drive.google.com/file/d/1Bc0vLS7-4_qltglG_RAgSsb1Fu4IFDls/view",
+    "url": "https://sharpspring.com/top-10-marketing-tips-for-2021/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1Bc0vLS7-4_qltglG_RAgSsb1Fu4IFDls/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1p43NKMXVA652evycWRdIx2e-x1IdW8nI/view"
-      },
       {
         "label": "Article",
         "url": "https://sharpspring.com/top-10-marketing-tips-for-2021/"
@@ -9223,16 +8876,8 @@
   },
   {
     "title": "Win the first 8 seconds",
-    "url": "https://drive.google.com/file/d/1kSLdPibj1iYMBMEAxkw08HTGymRuESuF/view",
+    "url": "https://mediakix.com/blog/marketing-facts-to-know//",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1kSLdPibj1iYMBMEAxkw08HTGymRuESuF/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1AKfEIpnOEsU8STbd3bOX_p2CT6Dmw88U/view"
-      },
       {
         "label": "Article",
         "url": "https://mediakix.com/blog/marketing-facts-to-know//"
@@ -9255,16 +8900,8 @@
   },
   {
     "title": "Make visuals part of the strategy",
-    "url": "https://drive.google.com/file/d/16Bjwhvh7cdivJB8flwoTcS5ff0M7l59J/view",
+    "url": "https://mediakix.com/blog/marketing-facts-to-know/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/16Bjwhvh7cdivJB8flwoTcS5ff0M7l59J/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1sbwkP1JwJiz0QBiKcqfQJxovmcgBPrgH/view"
-      },
       {
         "label": "Article",
         "url": "https://mediakix.com/blog/marketing-facts-to-know/"
@@ -9287,16 +8924,8 @@
   },
   {
     "title": "Google searches an enormous web index",
-    "url": "https://drive.google.com/file/d/1lSgR1DQ2qgxyAQeMhluztO_uftcNassy/view",
+    "url": "https://www.textmetrics.com/interesting-facts-google",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1lSgR1DQ2qgxyAQeMhluztO_uftcNassy/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1sbwkP1JwJiz0QBiKcqfQJxovmcgBPrgH/view"
-      },
       {
         "label": "Article",
         "url": "https://www.textmetrics.com/interesting-facts-google"
@@ -9319,16 +8948,8 @@
   },
   {
     "title": "Email is not dead",
-    "url": "https://drive.google.com/file/d/1LpHjvNsbr2MqELnG81qwZhcZcJKZi8CE/view",
+    "url": "https://techjury.net/blog/how-many-emails-are-sent-per-day/#:~:text=In%202020%2C%20there%20are%20306.4%20billion%20emails%20sent%20every%20day.",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1LpHjvNsbr2MqELnG81qwZhcZcJKZi8CE/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/12WXaZbo4B-qMnWR3y3cOCg-HDJqbMXjz/view"
-      },
       {
         "label": "Article",
         "url": "https://techjury.net/blog/how-many-emails-are-sent-per-day/#:~:text=In%202020%2C%20there%20are%20306.4%20billion%20emails%20sent%20every%20day."
@@ -9351,16 +8972,8 @@
   },
   {
     "title": "Micro-influencers can outperform big names",
-    "url": "https://drive.google.com/file/d/1eboAK8E-HDlL886kLr_b7lUJS3TwsQMn/view",
+    "url": "https://www.websitebuilderexpert.com/grow-online/digital-marketing-tips/",
     "links": [
-      {
-        "label": "Landscape",
-        "url": "https://drive.google.com/file/d/1eboAK8E-HDlL886kLr_b7lUJS3TwsQMn/view"
-      },
-      {
-        "label": "Square",
-        "url": "https://drive.google.com/file/d/1YAHVK_fK7X20wC-azSXMyZCS0_LDD8ZJ/view"
-      },
       {
         "label": "Article",
         "url": "https://www.websitebuilderexpert.com/grow-online/digital-marketing-tips/"

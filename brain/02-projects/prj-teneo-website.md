@@ -4,9 +4,9 @@ type: project
 summary: Build and maintain the teneo-protocol.ai marketing site as a static Next.js 15 app deployed via Cloudflare Pages, using the existing codebase visual identity.
 tags: [nextjs, cloudflare, teneo, marketing-site, static-site]
 domain: pil-portfolio-agent-frontend
-status: active
+status: archived
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-13
 visibility: namespace
 owner: agent
 outcome: "Deployed site at teneo-protocol.ai via Cloudflare Pages from DEPLOY_PUBLIC/"
@@ -14,6 +14,8 @@ part_of: ["[[pil-portfolio-agent]]"]
 ---
 
 # Teneo Website Project
+
+> Archived project context. The user confirmed this is unrelated to `taylorryan.xyz`; current website work belongs to [[prj-taylor-ryan-site-remediation]].
 
 ## Scope
 

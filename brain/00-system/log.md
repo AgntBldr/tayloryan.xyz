@@ -43,3 +43,12 @@ Merged GitHub PR #1 into `main` with merge commit `f84dd13bbf0b25b78da0ce98eec0f
 
 ## [2026-07-13] report | resource preservation manifest
 Generated `audits/site-audit/resource-preservation-manifest.html`, `.csv`, and `.json` plus `execution/resource_preservation_manifest.mjs`. Recorded the decision to use the manifest as the gate before removing or replacing Google resource links.
+
+## [2026-07-13] resume | restored broken-link cleanup after power loss
+Restored the background goal on `codex/broken-google-link-cleanup`, recorded an exact compact-ready task state, and confirmed Ollama is running with `qwen2.5:7b-instruct` and `bge-m3:latest`.
+
+## [2026-07-13] decision | tiered model routing for site maintenance
+Reserved 5.6 SOL for judgment-heavy work, assigned bounded review to cheaper frontier models, assigned bulk advisory work to local Ollama models, and kept deterministic scripts and browsers as the verification layer. Added the correct Taylor Ryan project anchor and archived stale Teneo routing.
+
+## [2026-07-13] cleanup | selective broken Google link remediation
+Retired only the 80 manifest-approved broken Google URLs, preserved all retired details in a cleanup ledger, kept 517 private/auth-required and all 39 Layer3 Google links, fixed one stale About skills route, and verified 0 broken Google plus 0 broken internal routes with browser QA.

@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Broken Google Link Cleanup Ledger</title>
+  <style>
+    :root { color-scheme: dark; --bg: #0c0d10; --panel: #15171c; --line: #30343d; --muted: #a4a9b3; --text: #f4f5f7; --accent: #f5b942; --ok: #70d7a5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 system-ui, sans-serif; }
+    main { max-width: 1500px; margin: 0 auto; padding: 32px 24px 64px; }
+    h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: 0; }
+    p { color: var(--muted); margin: 0 0 24px; }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; margin-bottom: 24px; }
+    .metric { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px; }
+    .metric strong { display: block; font-size: 24px; }
+    .metric span, td span { color: var(--muted); }
+    .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+    input { width: min(520px, 100%); background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 11px 12px; }
+    .table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 6px; }
+    table { width: 100%; border-collapse: collapse; min-width: 1100px; }
+    th, td { padding: 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { position: sticky; top: 0; background: #1c1f25; color: var(--muted); font-size: 11px; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+    code { color: var(--accent); }
+    a { color: var(--accent); }
+    .state { color: var(--ok); font-weight: 700; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Broken Google Link Cleanup Ledger</h1>
+  <p>Historical record of the approved broken links removed from public actions. Private/auth-required and Layer3 links were not changed. Generated 2026-07-13T19:55:03.654Z.</p>
+  <section class="metrics">
+    <div class="metric"><strong>80</strong><span>broken URLs retired</span></div>
+    <div class="metric"><strong>48</strong><span>items affected</span></div>
+    <div class="metric"><strong>36</strong><span>items kept other actions</span></div>
+    <div class="metric"><strong>11</strong><span>items now show no public link</span></div>
+    <div class="metric"><strong>0</strong><span>private links changed</span></div>
+    <div class="metric"><strong>0</strong><span>Layer3 links changed</span></div>
+  </section>
+  <div class="toolbar"><input id="filter" type="search" placeholder="Filter title, artifact, label, or URL"></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Affected item</th><th>Prior state</th><th>Offline preservation</th><th>Public result</th><th>Historical URL</th></tr></thead>
+      <tbody id="rows">
+  <tr>
+    <td><code>rpm-0001</code></td>
+    <td><strong>Meet the Team: Giovanni Buffa</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1_lVufi0ZkCYb67ylza0FwUXop5DfjcHt/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0002</code></td>
+    <td><strong>The Ultimate Landing Page Checklist</strong><br><span>Landscape | Square | Vertical</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1-bR7temcdbWPwQPxu7hLbV-zm-JW3lVI/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0003</code></td>
+    <td><strong>Societal Marketing in Practice</strong><br><span>Landscape | Square | Vertical</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1-D6Dy41ZAYV9yYuVICwhsRB_aJYJbDjo/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0004</code></td>
+    <td><strong>Online ad spend is eating the pie</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1-fgJ9Mj1nhl5jeWh8pKmWDO4KqlJcZvF/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0005</code></td>
+    <td><strong>Visuals matter (a lot)</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/11-IZQo75CBL0Lg9M9-qDUV-FFaFs7opJ/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0006</code></td>
+    <td><strong>Meet Pavel, Video Production Intern</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/12wUVdQ4-9hfMfaNIf5aOKK97n_jI8UF6/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0007</code></td>
+    <td><strong>Email is not dead</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/12WXaZbo4B-qMnWR3y3cOCg-HDJqbMXjz/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0008</code></td>
+    <td><strong>Webinars pull strong attendance</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1384mgL6dG0Oo0PbSZJJwBhSOcCmJcT4g/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0009</code></td>
+    <td><strong>Reduce friction, win better deals</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/13EA8dUVWADImzWEaHAQhCL-QgiLM0Xad/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0010</code></td>
+    <td><strong>Meet Felix, Web Developer Intern</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/15H2VuqnUrJ1UUq6fAOyaMqh2DOTopMsT/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0011</code></td>
+    <td><strong>Make visuals part of the strategy</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/16Bjwhvh7cdivJB8flwoTcS5ff0M7l59J/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0012</code></td>
+    <td><strong>In-house vs outsource is a real split</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1AEUlRMUJBOU4eQ3Nzvmnatqty68KFv3s/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0013</code></td>
+    <td><strong>Win the first 8 seconds</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1AKfEIpnOEsU8STbd3bOX_p2CT6Dmw88U/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0014</code></td>
+    <td><strong>Trust is a relationship, not a transaction</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1APBHr0BfspBhm4s0XWlfTjcgMmEcPEeK/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0015</code></td>
+    <td><strong>Paid social is the baseline now</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1Bc0vLS7-4_qltglG_RAgSsb1Fu4IFDls/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0016</code></td>
+    <td><strong>Meet Coco, Marketing Intern</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1btLk4LHjCn-KSNPsy5beEMk_ImoyYgbd/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0017</code></td>
+    <td><strong>Google dominates search</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1CAsMzqxRZvWrLFQpiSC0H9eWEEMzv7WL/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0018</code></td>
+    <td><strong>Google dominates search</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1CpB_AZedg2sUJZ9hb5C4XkXW8jmUbKF8/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0019</code></td>
+    <td><strong>Sustainable Marketing Benefits</strong><br><span>Landscape | Square | Vertical</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1d4guGOw-Nc0s1_4WMiC84bbaimyqL0Qa/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0020</code></td>
+    <td><strong>Video is a lead gen weapon</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1dlT5QNMbtX-Lnlzthf4zbspnBG9rqRqN/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0021</code></td>
+    <td><strong>Meet Rayane, Web Developer Intern</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1e12SMcLrI53ioIA_VwNDICY5prMGsIno/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0022</code></td>
+    <td><strong>Sustainable Marketing: What It Is and How to Use It</strong><br><span>Landscape | Square | Vertical</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1E61ZhhUvYRAYMTIL1igf8naPHx-qUOPf/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0023</code></td>
+    <td><strong>Micro-influencers can outperform big names</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1eboAK8E-HDlL886kLr_b7lUJS3TwsQMn/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0024</code></td>
+    <td><strong>Marketing Statistics | YouTube is mainstream (still)</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1eCo5Lze5dxD4ddxfd2TDZdTMuvLW1lEQ/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0025</code></td>
+    <td><strong>Email traffic drives more purchases</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1EZaJvfoxgMoDl8Q_Jezkc_o5QYvZ88B0/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0026</code></td>
+    <td><strong>Bad service loses customers fast</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1f2zq4GrJGhEcxMQNRMQeD60427V_zSoj/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0027</code></td>
+    <td><strong>Meet the Team: Julia González</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1FicULlioWQpqXF6rCxjZ8X3VDMbXFkbt/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0028</code></td>
+    <td><strong>Know your audience by platform</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1G1I-mbbXMQ6My1SDA_MYoqbwQcKoHI_Y/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0029</code></td>
+    <td><strong>Not suitable</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1GChGtGu4nhWT_tAhfNUBhLOQaDVczivA/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0030</code></td>
+    <td><strong>Email traffic drives more purchases</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1gkTdJVNfKvfPBwIpFC1C-OtFZikwj8Pv/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0031</code></td>
+    <td><strong>Facebook still reaches massive scale</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1HktR213DhkMeQ15-5x3orn15Qp9Jls4H/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0032</code></td>
+    <td><strong>LinkedIn audience is not one-size-fits-all</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1Hrccmf_P-sj20XoORJyVElgudG43v9aC/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0033</code></td>
+    <td><strong>Marketing Statistics | YouTube is mainstream (still)</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1i3FMlhPQ6kfhb7p1iopgl7DNhuxBQjGg/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0034</code></td>
+    <td><strong>Staying ahead in digital marketing | A simple process for high-performance ads</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1IAePrKk1svTbP6w69HGWMmNCf1VBoMnU/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0035</code></td>
+    <td><strong>Twitter keeps growing</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1Irpl1WskuACTzSuxvLU9CeTFpI3b2F7V/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0036</code></td>
+    <td><strong>Instagram kept growing in Western Europe</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1iTIA1qkx3Z9QoWeNC48dxedMnmtQDTr2/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0037</code></td>
+    <td><strong>Meet Coco, Marketing Intern</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1jwzfQe2tqzYHTm9yi7cfoXyb4VokjVcA/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0038</code></td>
+    <td><strong>Email marketing ROI is huge</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1KI9DlsNEMCGuNcU5KxuBkA__5MTUr8Ko/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0039</code></td>
+    <td><strong>Bad service loses customers fast</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1klbUrey6h9G9aOLy1OVcxD4Tnlp1YtR2/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0040</code></td>
+    <td><strong>Win the first 8 seconds</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1kSLdPibj1iYMBMEAxkw08HTGymRuESuF/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0041</code></td>
+    <td><strong>Know your audience by platform</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1loz5CMrNHHu1F7lGJBxMbUWpu2mpDWME/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0042</code></td>
+    <td><strong>Email is not dead</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1LpHjvNsbr2MqELnG81qwZhcZcJKZi8CE/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0043</code></td>
+    <td><strong>Google searches an enormous web index</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1lSgR1DQ2qgxyAQeMhluztO_uftcNassy/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0044</code></td>
+    <td><strong>Meet the Team: Giacomo Piccinini</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1MUYZ0sLy--3wZLZD-0gKzPSLr7Ii40m1/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0045</code></td>
+    <td><strong>In-house vs outsource is a real split</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1MWpGVdpalQ3L3lsgEgXscGxV3wsRnaFL/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0046</code></td>
+    <td><strong>Meet the Team: Giovanni Buffa</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1NWTthH2TjKb-FPwUzljpLsX3nztzVgye/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0047</code></td>
+    <td><strong>Klint Page</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1oCcjgTTadugcxEX9hWjQJsiKRKtSI15g/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0048</code></td>
+    <td><strong>Meet Femke, Marketing Intern</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1OjlNqLmnXBrtRGyKigIYaYNY7DzWGkQN/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0049</code></td>
+    <td><strong>Blogging fuels backlinks</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1oOddcoh0-eKsiMJIDJCgZmC7MCxLOjXU/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0050</code></td>
+    <td><strong>Blogging fuels backlinks</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1oSIm6gdW0J_ZVBln5QJbzMEqPQNTgfRK/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0051</code></td>
+    <td><strong>Meet Raluca, Graphic Design Intern</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1oT7trGt2TgdCA2RVND7ZNZRCFh316Ig7/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0052</code></td>
+    <td><strong>Marketing automation budgets are climbing</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1OUlUx7r2RY2K5ubaf9xNiIdJPVwPKUV7/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0053</code></td>
+    <td><strong>Meet Pavel, Video Production Intern</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1p01vTt9e0HkjP0gxAbqsrei39qP2Vxz5/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0054</code></td>
+    <td><strong>Paid social is the baseline now</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1p43NKMXVA652evycWRdIx2e-x1IdW8nI/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0055</code></td>
+    <td><strong>Meet the Team: Julia González</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1pqQFuIER-maWqQ5CXzKLXVvhn5M_f2Xa/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0056</code></td>
+    <td><strong>LinkedIn audience is not one-size-fits-all</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1qgL03Imx12h7wsQStcvBGhqp7Ir6LYu1/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0057</code></td>
+    <td><strong>Webinars pull strong attendance</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1QS_xFPDfU1yWOZE7H7wAcykybgkyMow7/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0058</code></td>
+    <td><strong>Meet Raluca, Graphic Design Intern</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1QWJLgFNh3cESjjL1vzZn6CdULipFFW2Z/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0059</code></td>
+    <td><strong>Meet Rayane, Web Developer Intern</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1rbIEvgHPUmle0KHiKiU4nSyZ89L2IY8H/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0060</code></td>
+    <td><strong>Facebook still reaches massive scale</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1ryqRQRtgQlJd17BB4WxbgbsGOINAX0k6/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0061</code></td>
+    <td><strong>Make visuals part of the strategy | Google searches an enormous web index</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1sbwkP1JwJiz0QBiKcqfQJxovmcgBPrgH/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0062</code></td>
+    <td><strong>Trust is a relationship, not a transaction</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1SKebgpf51W1QZUD4QgVKeq8pQ2kxltIB/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0063</code></td>
+    <td><strong>Video is a lead gen weapon</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1SlZxjuAD-pPMOaDdzGH54jaxaxqr0uVa/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0064</code></td>
+    <td><strong>Meet Ava, Marketing Intern</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1TFfjTu1Fjw15iGrEwT1ltPoIM0CM1H9J/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0065</code></td>
+    <td><strong>Growth hacking campaigns that move the needle | Growth hacks that level up your business</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1tfWbg4eWy4AiNVHyxxfff4tTagRlQK_z/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0066</code></td>
+    <td><strong>Meet Femke, Marketing Intern</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1tWaBnkuCLZJD0CQAARLSFKK3bUQscoBx/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0067</code></td>
+    <td><strong>Online ad spend is eating the pie</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1UFB98ktq5V8adTOwNXevyRm88mxKhUqf/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0068</code></td>
+    <td><strong>Meet Raluca, Graphic Design Intern</strong><br><span>Vertical</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1UqqK6QTAecJgRCfx5S39Lgbg1_TpI90N/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0069</code></td>
+    <td><strong>Twitter keeps growing</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1vv7NQSGPtRvGi_-oTsOAsVkXrLJXwdtF/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0070</code></td>
+    <td><strong>Sustainable Marketing: Customer-Value Marketing</strong><br><span>Landscape | Square | Vertical</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1WjryV-Wg7gaP2u_657tMdUsI22PQS_Q9/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0071</code></td>
+    <td><strong>Micro-influencers can outperform big names</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1YAHVK_fK7X20wC-azSXMyZCS0_LDD8ZJ/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0072</code></td>
+    <td><strong>Marketing automation budgets are climbing</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1YcdTsjCQRuI-teKElmCYv0L1RKMvqDp7/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0073</code></td>
+    <td><strong>Meet Ava, Marketing Intern</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1ypzzbi8ZyFcQxp9Bi7NT7cJS8TStZWZc/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0074</code></td>
+    <td><strong>Meet Felix, Web Developer Intern</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>no public link available</td>
+    <td><a href="https://drive.google.com/file/d/1Yxr3tTQdP93FeyG6xxqlFYzpjiXP3fMc/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0075</code></td>
+    <td><strong>Email marketing ROI is huge</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1yzO1EpKl0NG-9fyeFT2bQvr4oCecoobz/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0076</code></td>
+    <td><strong>Instagram kept growing in Western Europe</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1Z3A8dCycsEFhXVKNpY-1MQtuxdSisX-S/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0077</code></td>
+    <td><strong>Meet the Team: Giacomo Piccinini</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1zS5NPw5sH91MqB5S7T8_FmJWG_alujRv/view?usp=sharing" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0078</code></td>
+    <td><strong>Visuals matter (a lot)</strong><br><span>Square</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1ZTaXpAuombxO2XPTp5VUTNxDKoGzcxDl/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0079</code></td>
+    <td><strong>Reduce friction, win better deals</strong><br><span>Landscape</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 404</span></td>
+    <td><strong>missing_artifact</strong><br><span>Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png</span></td>
+    <td>remaining links preserved</td>
+    <td><a href="https://drive.google.com/file/d/1ZZhe__MmhUEdEtNg2DAdvfkxAAgxRcc1/view" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr>
+  <tr>
+    <td><code>rpm-0080</code></td>
+    <td><strong>Logo Enrichment Resources [Sheet]</strong><br><span>Open Resource</span></td>
+    <td><span class="state">Retired</span><br><span>HTTP 410</span></td>
+    <td><strong>matched_artifact</strong><br><span>Ref Docs/Work/Marketing/Case Study Creation/Case Study Creation Resources.xlsx</span></td>
+    <td>dead action hidden; card and offline record preserved</td>
+    <td><a href="https://docs.google.com/spreadsheets/d/1pV3K-KvATaj4qWdytYDc81T0mD_1boFiVy3SYueDCng/edit?usp=drive_link" target="_blank" rel="noreferrer">Preserved URL</a></td>
+  </tr></tbody>
+    </table>
+  </div>
+</main>
+<script>
+  const input = document.getElementById('filter');
+  input.addEventListener('input', () => {
+    const query = input.value.toLowerCase();
+    for (const row of document.querySelectorAll('#rows tr')) {
+      row.hidden = !row.textContent.toLowerCase().includes(query);
+    }
+  });
+</script>
+</body>
+</html>
