@@ -4,7 +4,7 @@ type: task
 summary: Fix mojibake arrow characters in deploy output and prevent source/deploy encoding drift.
 tags: [deployment, encoding, cleanup, ui]
 domain: project-management
-status: todo
+status: done
 created: 2026-07-13
 updated: 2026-07-13
 visibility: namespace
@@ -13,14 +13,16 @@ due:
 effort: small
 part_of: ["[[pil-portfolio-agent]]"]
 depends_on: ["[[evt-review-cleanup-safety-2026-07-13]]"]
+followed_by: ["[[evt-clean-deployed-material-2026-07-13]]"]
 ---
 
 # Fix Deploy Public Mojibake
 
-Review found that the live site and `DEPLOY_PUBLIC` output contain mojibake where arrow symbols were intended. `index.html` has the correct Unicode arrows, but `DEPLOY_PUBLIC/index.html:366` has a mojibake right-arrow sequence near the testimonials link and `DEPLOY_PUBLIC/index.html:469` has a mojibake prompt-arrow sequence near the terminal prompt. `DEPLOY_PUBLIC/contact/index.html:70` also has a mojibake right-arrow sequence, and the nested `DEPLOY_PUBLIC/DEPLOY_PUBLIC` copy contains the same issue.
+Review found that the live site and `DEPLOY_PUBLIC` output contained mojibake where arrow symbols were intended. `index.html` had the correct Unicode arrows, but `DEPLOY_PUBLIC/index.html:366` had a mojibake right-arrow sequence near the testimonials link and `DEPLOY_PUBLIC/index.html:469` had a mojibake prompt-arrow sequence near the terminal prompt. `DEPLOY_PUBLIC/contact/index.html:70` also had a mojibake right-arrow sequence, and the nested `DEPLOY_PUBLIC/DEPLOY_PUBLIC` copy contained the same issue.
 
-Done means the deploy output no longer contains U+00E2 mojibake arrow sequences, the live homepage/contact page render the intended symbols or icon replacements, and the sync path cannot reintroduce the mojibake from stale deploy artifacts.
+Done: the source and deploy output now use HTML entities for those arrows, the nested deploy copy was removed, and validation found no U+00E2 mojibake arrow sequences in the active deploy output.
 
 ## Edges
 
 - depends_on [[evt-review-cleanup-safety-2026-07-13]] - issue was discovered during the post-cleanup safety review.
+- followed_by [[evt-clean-deployed-material-2026-07-13]] - cleanup completed the fix.

@@ -691,6 +691,7 @@ function collectLargestFiles(limit = 40) {
 function deployFindings(directorySizes) {
   const syncScript = readTextIfExists(path.join(ROOT, "deploy_sync.ps1"));
   const deployReport = readTextIfExists(path.join(ROOT, "DEPLOY_FOLDER_REPORT.md"));
+  const cloudflarePath = path.join(ROOT, "DEPLOY_CLOUDFLARE");
   const teneoPath = path.join(ROOT, "DEPLOY_CLOUDFLARE", "teneo-protocol.ai");
   const nestedPublicPath = path.join(ROOT, "DEPLOY_PUBLIC", "DEPLOY_PUBLIC");
   const findings = [];
@@ -699,13 +700,15 @@ function deployFindings(directorySizes) {
     return directorySizes.find((entry) => entry.name === name)?.mb || 0;
   }
 
-  findings.push({
-    severity: "high",
-    area: "Duplicate deployment tree",
-    finding: "DEPLOY_CLOUDFLARE exists even though project docs say DEPLOY_PUBLIC is the canonical deploy folder.",
-    evidence: `DEPLOY_CLOUDFLARE size: ${sizeFor("DEPLOY_CLOUDFLARE")} MB.`,
-    recommendation: "Do not delete yet. Confirm Cloudflare is not using this path, then archive or remove it in a separate cleanup commit.",
-  });
+  if (fileExists(cloudflarePath)) {
+    findings.push({
+      severity: "high",
+      area: "Duplicate deployment tree",
+      finding: "DEPLOY_CLOUDFLARE exists even though project docs say DEPLOY_PUBLIC is the canonical deploy folder.",
+      evidence: `DEPLOY_CLOUDFLARE size: ${sizeFor("DEPLOY_CLOUDFLARE")} MB.`,
+      recommendation: "Do not delete yet. Confirm Cloudflare is not using this path, then archive or remove it in a separate cleanup commit.",
+    });
+  }
 
   if (fileExists(teneoPath)) {
     findings.push({
@@ -737,13 +740,21 @@ function deployFindings(directorySizes) {
     });
   }
 
-  if (syncScript.includes("DEPLOY_CLOUDFLARE")) {
+  if (syncScript.includes("DEPLOY_CLOUDFLARE") && !syncScript.includes("PORTFOLIO_SYNC_CLOUDFLARE_COPY")) {
     findings.push({
       severity: "medium",
       area: "Deployment script",
       finding: "deploy_sync.ps1 still contains a final sync into DEPLOY_CLOUDFLARE.",
       evidence: "This conflicts with README_DEPLOY.md guidance that only DEPLOY_PUBLIC is canonical.",
       recommendation: "Remove or gate this sync once Cloudflare configuration is confirmed.",
+    });
+  } else if (syncScript.includes("PORTFOLIO_SYNC_CLOUDFLARE_COPY")) {
+    findings.push({
+      severity: "info",
+      area: "Deployment script",
+      finding: "Legacy DEPLOY_CLOUDFLARE sync is gated behind PORTFOLIO_SYNC_CLOUDFLARE_COPY.",
+      evidence: "Routine syncs write only to DEPLOY_PUBLIC unless the explicit legacy environment variable is set.",
+      recommendation: "Leave the gate in place unless the old Cloudflare copy is intentionally restored.",
     });
   }
 

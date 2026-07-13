@@ -36,6 +36,14 @@ else {
     Write-Warning "No _headers file found."
 }
 
+if (Test-Path "$SourceRoot\_redirects") {
+    Copy-Item -Path "$SourceRoot\_redirects" -Destination "$DeployRoot" -Force
+    Write-Host "Redirects Synced." -ForegroundColor Green
+}
+else {
+    Write-Warning "No _redirects file found."
+}
+
 # 1.5.0 Sync index.html
 Write-Host "Syncing index.html..." -ForegroundColor Yellow
 Copy-Item -Path "$SourceRoot\index.html" -Destination "$DeployRoot\index.html" -Force

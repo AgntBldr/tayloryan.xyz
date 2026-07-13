@@ -28,3 +28,6 @@ Moved `DEPLOY_CLOUDFLARE/teneo-protocol.ai` to `C:\Users\tempv2\PortfolioAgent_E
 
 ## [2026-07-13] review | cleanup safety and memory readiness
 Reviewed the archive cleanup and current deploy state. Live homepage/work/quest/resource routes returned 200, local deploy/script checks passed, the branch remained clean before memory writes, and reviewed memory wikilinks resolved. Added follow-up tasks for deploy-output mojibake and stale Teneo memory anchors before calling the brain fully tidy.
+
+## [2026-07-13] cleanup | deployed material dedupe
+Removed duplicate deployed material from `DEPLOY_CLOUDFLARE/` and `DEPLOY_PUBLIC/DEPLOY_PUBLIC/`, kept canonical `DEPLOY_PUBLIC/` plus root `functions/api/contact.js`, added canonical `/DEPLOY_PUBLIC/*` redirects, fixed deploy-output mojibake arrows, refreshed the audit dashboard, and recorded `evt-clean-deployed-material-2026-07-13`.
