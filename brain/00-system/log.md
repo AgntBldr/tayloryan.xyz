@@ -31,3 +31,6 @@ Reviewed the archive cleanup and current deploy state. Live homepage/work/quest/
 
 ## [2026-07-13] cleanup | deployed material dedupe
 Removed duplicate deployed material from `DEPLOY_CLOUDFLARE/` and `DEPLOY_PUBLIC/DEPLOY_PUBLIC/`, kept canonical `DEPLOY_PUBLIC/` plus root `functions/api/contact.js`, added canonical `/DEPLOY_PUBLIC/*` redirects, fixed deploy-output mojibake arrows, refreshed the audit dashboard, and recorded `evt-clean-deployed-material-2026-07-13`.
+
+## [2026-07-13] report | Google links working vs not working
+Generated `audits/site-audit/google-links-review.html`, `.csv`, and `.json` plus `execution/google_links_report.mjs`. Counts: 622 Google URLs total, 25 public-working/live, 517 auth-required/private, and 80 broken/missing.

@@ -22,9 +22,12 @@ The audit runner `execution/audit_site.mjs` generated `audits/site-audit/dashboa
 
 On the deployed-material cleanup branch, duplicate deploy output was removed: `DEPLOY_CLOUDFLARE` and `DEPLOY_PUBLIC/DEPLOY_PUBLIC` are absent, canonical `DEPLOY_PUBLIC` remains about 43.48 MB with 213 files, and root `functions/api/contact.js` remains present. The refreshed audit still has 3,263 records and 0 broken internal routes; action buckets are 597 Google resources to replace/re-share, 2 Layer3 links to leave unless approved, 159 manual/browser retry links, and 2,101 live links.
 
+The Google-specific review report found 622 unique Google URLs: 25 public-working/live, 517 auth-required/private, and 80 broken/missing. Outputs are `audits/site-audit/google-links-review.html`, `.csv`, and `.json`; see [[evt-google-links-review-2026-07-13]].
+
 ## Edges
 
 - followed_by [[evt-clean-deployed-material-2026-07-13]] - duplicate deploy material was removed after this audit's first cleanup pass.
+- followed_by [[evt-google-links-review-2026-07-13]] - Google resources were separated into working vs private/broken review buckets.
 
 ## Edges
 
