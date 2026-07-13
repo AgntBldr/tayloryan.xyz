@@ -22,3 +22,6 @@ User clarified they do not want Memtrace used for this project. Created `dec-use
 
 ## [2026-07-13] fix | safe deploy and link pass
 Fixed the Bless LinkedIn URL in source/deploy quest data, updated `deploy_sync.ps1` to derive paths from `$PSScriptRoot`, gated legacy `DEPLOY_CLOUDFLARE` sync behind `PORTFOLIO_SYNC_CLOUDFLARE_COPY=1`, refreshed the audit dashboard, and recorded canonical repo/deploy-sync/Teneo-folder facts.
+
+## [2026-07-13] cleanup | archived stray Teneo copy
+Moved `DEPLOY_CLOUDFLARE/teneo-protocol.ai` to `C:\Users\tempv2\PortfolioAgent_ExternalArchive\20260713-stray-teneo-protocol.ai` after user approval. Refreshed the audit dashboard; `DEPLOY_CLOUDFLARE` dropped from about 843 MB to about 113 MB.

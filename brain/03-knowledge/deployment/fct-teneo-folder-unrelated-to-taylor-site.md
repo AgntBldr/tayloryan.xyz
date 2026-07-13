@@ -13,11 +13,12 @@ verified_at: 2026-07-13
 verified_by: user clarification
 part_of: ["[[pil-portfolio-agent]]"]
 supports: ["[[fct-site-audit-2026-07-13]]"]
+followed_by: ["[[evt-archive-stray-teneo-copy]]"]
 ---
 
 # Teneo Folder Unrelated
 
-The user clarified that Teneo has nothing to do with the Taylor Ryan website and that `DEPLOY_CLOUDFLARE/teneo-protocol.ai` may simply be a copied folder. For this cleanup, treat that folder as a stray copied app, not as source-of-truth for the Taylor Ryan website. It should still be moved/deleted only after explicit approval because it is large and contains its own `.git`, `.next`, `node_modules`, and source folders.
+The user clarified that Teneo has nothing to do with the Taylor Ryan website and that `DEPLOY_CLOUDFLARE/teneo-protocol.ai` may simply be a copied folder. For this cleanup, treat that folder as a stray copied app, not as source-of-truth for the Taylor Ryan website. After approval, it was moved to `C:\Users\tempv2\PortfolioAgent_ExternalArchive\20260713-stray-teneo-protocol.ai`; see [[evt-archive-stray-teneo-copy]].
 
 ## Edges
 
