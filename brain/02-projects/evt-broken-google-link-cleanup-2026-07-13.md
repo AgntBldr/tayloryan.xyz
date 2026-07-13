@@ -27,6 +27,8 @@ Browser QA confirmed the unavailable case-study action is absent, a neighboring 
 
 Implementation commit `fa27c38` was pushed to `codex/broken-google-link-cleanup` and opened as GitHub PR #3: https://github.com/AgntBldr/tayloryan.xyz/pull/3. Production remains unchanged until that PR is merged.
 
+The Cloudflare Pages preview check passed for PR head `c4f4ae9`. The subsequent follow-up commit records this result in the Second Brain only and does not change deploy output.
+
 ## Edges
 
 - derived_from [[evt-resource-preservation-manifest-2026-07-13]] - cleanup scope came only from the approved 80-row broken queue.
