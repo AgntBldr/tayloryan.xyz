@@ -52,3 +52,6 @@ Reserved 5.6 SOL for judgment-heavy work, assigned bounded review to cheaper fro
 
 ## [2026-07-13] cleanup | selective broken Google link remediation
 Retired only the 80 manifest-approved broken Google URLs, preserved all retired details in a cleanup ledger, kept 517 private/auth-required and all 39 Layer3 Google links, fixed one stale About skills route, and verified 0 broken Google plus 0 broken internal routes with browser QA.
+
+## [2026-07-13] publish | broken Google cleanup PR #3
+Committed the selective cleanup as `fa27c38`, pushed `codex/broken-google-link-cleanup`, opened https://github.com/AgntBldr/tayloryan.xyz/pull/3, and marked [[tsk-clean-broken-google-links]] done. Production remains unchanged pending merge.

@@ -25,8 +25,10 @@ Post-change audit: 542 current Google URLs, 25 public-working, 517 auth-required
 
 Browser QA confirmed the unavailable case-study action is absent, a neighboring working resource action remains visible, the social no-link fallback renders, mixed social entries retain valid article buttons, and the About CTA resolves correctly.
 
+Implementation commit `fa27c38` was pushed to `codex/broken-google-link-cleanup` and opened as GitHub PR #3: https://github.com/AgntBldr/tayloryan.xyz/pull/3. Production remains unchanged until that PR is merged.
+
 ## Edges
 
 - derived_from [[evt-resource-preservation-manifest-2026-07-13]] - cleanup scope came only from the approved 80-row broken queue.
-- supports [[tsk-clean-broken-google-links]] - implementation and local validation are complete; GitHub publication is the remaining task step.
+- supports [[tsk-clean-broken-google-links]] - implementation, local validation, and GitHub publication are complete.
 - supports [[fct-site-audit-2026-07-13]] - records the verified post-cleanup counts.

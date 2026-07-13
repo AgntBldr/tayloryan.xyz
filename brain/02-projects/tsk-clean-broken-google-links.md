@@ -4,7 +4,7 @@ type: task
 summary: Neutralize only the 80 confirmed-broken Google resource URLs while preserving a ledger and leaving private/auth-required and Layer3 links unchanged.
 tags: [google-drive, broken-links, preservation, deploy, compact-handoff]
 domain: project-management
-status: doing
+status: done
 created: 2026-07-13
 updated: 2026-07-13
 visibility: namespace
@@ -36,7 +36,8 @@ followed_by: ["[[evt-broken-google-link-cleanup-2026-07-13]]"]
 - Background goal: restored after the computer lost power on 2026-07-13
 - Validation: 542 current Google URLs = 25 public-working + 517 private/auth-required + 0 broken; 359 internal routes live + 0 broken
 - Browser QA: unavailable actions hidden, valid neighboring actions preserved, social fallback correct, About `/skills/` route correct
-- Next step: final diff/secret/memory integrity review, then commit, push, open PR, and mark this task done with the PR URL.
+- Publication: implementation commit `fa27c38` pushed to `codex/broken-google-link-cleanup`; review PR https://github.com/AgntBldr/tayloryan.xyz/pull/3
+- Next step: review PR #3 and either merge it to trigger the normal Cloudflare deployment or request changes. Production is unchanged until merge.
 
 ## Guardrails
 
