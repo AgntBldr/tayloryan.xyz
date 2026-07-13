@@ -37,3 +37,6 @@ Generated `audits/site-audit/google-links-review.html`, `.csv`, and `.json` plus
 
 ## [2026-07-13] fix | Resend contact form and email privacy
 Converted the contact page to a form-first flow, replaced public Klint email CTAs with `/contact/`, wired `functions/api/contact.js` for Resend via Cloudflare env vars, fixed missing Lucide LinkedIn icons, synced `DEPLOY_PUBLIC`, and recorded `dec-use-resend-contact-form`.
+
+## [2026-07-13] deploy | merged PR #1 to main
+Merged GitHub PR #1 into `main` with merge commit `f84dd13bbf0b25b78da0ce98eec0fbc279ff9403`. Recorded non-sensitive deployment memory for the Resend contact form and Cloudflare env-var configuration; secret values are intentionally not stored.
