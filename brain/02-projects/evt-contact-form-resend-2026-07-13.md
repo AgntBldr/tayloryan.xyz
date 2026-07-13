@@ -16,7 +16,7 @@ supports: ["[[dec-use-resend-contact-form]]"]
 
 # Contact Form Resend Pass
 
-Removed the public `taylor@klintmarketing.com` contact affordance from source, deployed HTML, shared layout, and tracked backup files. `contact.html` now presents a form-first contact experience, while `about.html` and `now.html` route users to `/contact/` instead of `mailto:`. The shared modal handler posts JSON to `/api/contact`.
+Removed the public Klint email contact affordance from source, deployed HTML, shared layout, and tracked backup files. `contact.html` now presents a form-first contact experience, while `about.html` and `now.html` route users to `/contact/` instead of `mailto:`. The shared modal handler posts JSON to `/api/contact`.
 
 `functions/api/contact.js` now validates contact submissions and sends through Resend when `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, and `CONTACT_TO_EMAIL` are configured in Cloudflare Pages. If env vars are missing, it returns a clear 503 unavailable response instead of a fake success.
 

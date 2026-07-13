@@ -1,7 +1,7 @@
 ---
 id: dec-use-resend-contact-form
 type: decision
-summary: TaylorRyan.xyz should use a server-side Resend contact form instead of exposing a direct Klint email address in the public UI.
+summary: TaylorRyan.xyz should use a server-side Resend contact form instead of exposing a direct Klint address in the public UI.
 tags: [contact-form, resend, cloudflare-pages, privacy, ux]
 domain: deployment
 status: active
@@ -15,7 +15,7 @@ supports: ["[[evt-contact-form-resend-2026-07-13]]"]
 
 # Use Resend Contact Form
 
-TaylorRyan.xyz should not expose `taylor@klintmarketing.com` in deployed HTML, shared layout scripts, or tracked public source. The contact page and shared contact modal should submit to the Cloudflare Pages Function at `functions/api/contact.js`, and that function should send through Resend using environment variables.
+TaylorRyan.xyz should not expose the direct Klint email address in deployed HTML, shared layout scripts, or tracked public source. The contact page and shared contact modal should submit to the Cloudflare Pages Function at `functions/api/contact.js`, and that function should send through Resend using environment variables.
 
 Required Cloudflare Pages environment variables:
 
