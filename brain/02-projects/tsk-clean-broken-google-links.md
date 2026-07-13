@@ -29,16 +29,17 @@ followed_by: ["[[evt-broken-google-link-cleanup-2026-07-13]]"]
 
 ## Resume State
 
-- Branch: `codex/broken-google-link-cleanup`
-- Working tree at recovery: clean; selective cleanup and validation are now implemented
+- Implementation branch: `codex/broken-google-link-cleanup` (merged)
+- Working tree at completion: clean; selective cleanup and validation are live in production
 - Preservation report: merged to `main` in PR #2, merge commit `56cea79`
 - Broken queue: 79 URLs in `assets/js/some_work_data.js`; 1 URL in `assets/js/marketing_full_data.js`
 - Background goal: restored after the computer lost power on 2026-07-13
 - Validation: 542 current Google URLs = 25 public-working + 517 private/auth-required + 0 broken; 359 internal routes live + 0 broken
 - Browser QA: unavailable actions hidden, valid neighboring actions preserved, social fallback correct, About `/skills/` route correct
-- Publication: implementation commit `fa27c38` pushed to `codex/broken-google-link-cleanup`; review PR https://github.com/AgntBldr/tayloryan.xyz/pull/3
-- Preview: Cloudflare Pages passed for PR head `c4f4ae9`; the final follow-up commit changes memory only.
-- Next step: review PR #3 and either merge it to trigger the normal Cloudflare deployment or request changes. Production is unchanged until merge.
+- Publication: PR https://github.com/AgntBldr/tayloryan.xyz/pull/3 merged to `main` as `cdb5075f0f834804dcacd5c23ec6896ba59b97b2`
+- Deployment: Cloudflare Pages production check `76b2fd8f-c3be-44cd-8dcf-fc3445ccfbce` passed for the merge commit
+- Production: all six sampled routes returned HTTP 200; 0 retired URLs remain; 395/395 private links and 39/39 Layer3 links remain in their touched source datasets
+- Next step: treat the 80-link cleanup as complete. Review the 517 private/auth-required resources only as a separate, preservation-first project if their ownership or offline copies become available.
 
 ## Guardrails
 

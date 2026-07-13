@@ -58,3 +58,6 @@ Committed the selective cleanup as `fa27c38`, pushed `codex/broken-google-link-c
 
 ## [2026-07-13] validate | Cloudflare preview passed for PR #3
 Cloudflare Pages completed successfully for PR head `c4f4ae9`. The final follow-up commit changes only Second Brain memory, so deploy output remains the validated version.
+
+## [2026-07-13] deploy | merged PR #3 and verified production
+Merged PR #3 to `main` as `cdb5075f0f834804dcacd5c23ec6896ba59b97b2`; Cloudflare production passed and the custom domain retained 395/395 private URLs plus 39/39 Layer3 URLs with zero retired URLs. Recorded the brief custom-domain static-asset propagation lag, which resolved without a workaround.
