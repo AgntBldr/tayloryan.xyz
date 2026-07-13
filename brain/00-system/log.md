@@ -40,3 +40,6 @@ Converted the contact page to a form-first flow, replaced public Klint email CTA
 
 ## [2026-07-13] deploy | merged PR #1 to main
 Merged GitHub PR #1 into `main` with merge commit `f84dd13bbf0b25b78da0ce98eec0fbc279ff9403`. Recorded non-sensitive deployment memory for the Resend contact form and Cloudflare env-var configuration; secret values are intentionally not stored.
+
+## [2026-07-13] report | resource preservation manifest
+Generated `audits/site-audit/resource-preservation-manifest.html`, `.csv`, and `.json` plus `execution/resource_preservation_manifest.mjs`. Recorded the decision to use the manifest as the gate before removing or replacing Google resource links.
