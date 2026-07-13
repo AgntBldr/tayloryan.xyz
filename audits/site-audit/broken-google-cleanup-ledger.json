@@ -1,0 +1,2032 @@
+{
+  "generated_at": "2026-07-13T19:55:03.654Z",
+  "source_manifest": "audits/site-audit/resource-preservation-manifest.json",
+  "policy": "Retire only the 80 URLs classified not_working_broken in the approved preservation manifest. Preserve private/auth-required and Layer3 links.",
+  "summary": {
+    "approved_broken_urls_retired": 80,
+    "affected_items": 48,
+    "social_items_affected": 47,
+    "social_items_with_remaining_actions": 36,
+    "social_items_without_public_actions": 11,
+    "marketing_items_with_hidden_action": 1,
+    "auth_required_urls_changed": 0,
+    "layer3_urls_changed": 0
+  },
+  "rows": [
+    {
+      "resource_id": "rpm-0001",
+      "url": "https://drive.google.com/file/d/1_lVufi0ZkCYb67ylza0FwUXop5DfjcHt/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2581,
+      "project_title": "Meet the Team: Giovanni Buffa | Meet the Team: Giacomo Piccinini",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet the Team: Giovanni Buffa"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0002",
+      "url": "https://drive.google.com/file/d/1-bR7temcdbWPwQPxu7hLbV-zm-JW3lVI/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 3969,
+      "project_title": "The Ultimate Landing Page Checklist | Bad ideas are part of creativity",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "The Ultimate Landing Page Checklist"
+      ],
+      "removed_labels": [
+        "Landscape",
+        "Square",
+        "Vertical"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0003",
+      "url": "https://drive.google.com/file/d/1-D6Dy41ZAYV9yYuVICwhsRB_aJYJbDjo/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 4154,
+      "project_title": "Societal Marketing in Practice",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Societal Marketing in Practice"
+      ],
+      "removed_labels": [
+        "Landscape",
+        "Square",
+        "Vertical"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0004",
+      "url": "https://drive.google.com/file/d/1-fgJ9Mj1nhl5jeWh8pKmWDO4KqlJcZvF/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8339,
+      "project_title": "Online ad spend is eating the pie",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Online ad spend is eating the pie"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0005",
+      "url": "https://drive.google.com/file/d/11-IZQo75CBL0Lg9M9-qDUV-FFaFs7opJ/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8395,
+      "project_title": "Visuals matter (a lot) | Google dominates search",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Visuals matter (a lot)"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0006",
+      "url": "https://drive.google.com/file/d/12wUVdQ4-9hfMfaNIf5aOKK97n_jI8UF6/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2382,
+      "project_title": "Meet Pavel, Video Production Intern",
+      "resource_label": "Square | Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Pavel, Video Production Intern"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0007",
+      "url": "https://drive.google.com/file/d/12WXaZbo4B-qMnWR3y3cOCg-HDJqbMXjz/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9330,
+      "project_title": "Email is not dead",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Email is not dead"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0008",
+      "url": "https://drive.google.com/file/d/1384mgL6dG0Oo0PbSZJJwBhSOcCmJcT4g/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8435,
+      "project_title": "Webinars pull strong attendance",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Webinars pull strong attendance"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0009",
+      "url": "https://drive.google.com/file/d/13EA8dUVWADImzWEaHAQhCL-QgiLM0Xad/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8691,
+      "project_title": "Reduce friction, win better deals",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Reduce friction, win better deals"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0010",
+      "url": "https://drive.google.com/file/d/15H2VuqnUrJ1UUq6fAOyaMqh2DOTopMsT/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2345,
+      "project_title": "Meet Felix, Web Developer Intern | Meet Raluca, Graphic Design Intern",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Felix, Web Developer Intern"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0011",
+      "url": "https://drive.google.com/file/d/16Bjwhvh7cdivJB8flwoTcS5ff0M7l59J/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9258,
+      "project_title": "Make visuals part of the strategy | Win the first 8 seconds",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Make visuals part of the strategy"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0012",
+      "url": "https://drive.google.com/file/d/1AEUlRMUJBOU4eQ3Nzvmnatqty68KFv3s/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8755,
+      "project_title": "In-house vs outsource is a real split",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "In-house vs outsource is a real split"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0013",
+      "url": "https://drive.google.com/file/d/1AKfEIpnOEsU8STbd3bOX_p2CT6Dmw88U/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9234,
+      "project_title": "Win the first 8 seconds",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Win the first 8 seconds"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0014",
+      "url": "https://drive.google.com/file/d/1APBHr0BfspBhm4s0XWlfTjcgMmEcPEeK/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8204,
+      "project_title": "Trust is a relationship, not a transaction | Klint Page",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Trust is a relationship, not a transaction"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0015",
+      "url": "https://drive.google.com/file/d/1Bc0vLS7-4_qltglG_RAgSsb1Fu4IFDls/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9194,
+      "project_title": "Paid social is the baseline now | Page 2 might as well not exist",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Paid social is the baseline now"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0016",
+      "url": "https://drive.google.com/file/d/1btLk4LHjCn-KSNPsy5beEMk_ImoyYgbd/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2432,
+      "project_title": "Meet Coco, Marketing Intern | Meet Rayane, Web Developer Intern",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Coco, Marketing Intern"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0017",
+      "url": "https://drive.google.com/file/d/1CAsMzqxRZvWrLFQpiSC0H9eWEEMzv7WL/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8371,
+      "project_title": "Google dominates search",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Google dominates search"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0018",
+      "url": "https://drive.google.com/file/d/1CpB_AZedg2sUJZ9hb5C4XkXW8jmUbKF8/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8363,
+      "project_title": "Google dominates search | Online ad spend is eating the pie",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Google dominates search"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0019",
+      "url": "https://drive.google.com/file/d/1d4guGOw-Nc0s1_4WMiC84bbaimyqL0Qa/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 4191,
+      "project_title": "Sustainable Marketing Benefits",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Sustainable Marketing Benefits"
+      ],
+      "removed_labels": [
+        "Landscape",
+        "Square",
+        "Vertical"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0020",
+      "url": "https://drive.google.com/file/d/1dlT5QNMbtX-Lnlzthf4zbspnBG9rqRqN/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8787,
+      "project_title": "Video is a lead gen weapon",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Video is a lead gen weapon"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0021",
+      "url": "https://drive.google.com/file/d/1e12SMcLrI53ioIA_VwNDICY5prMGsIno/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2411,
+      "project_title": "Meet Rayane, Web Developer Intern",
+      "resource_label": "Square | Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Rayane, Web Developer Intern"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0022",
+      "url": "https://drive.google.com/file/d/1E61ZhhUvYRAYMTIL1igf8naPHx-qUOPf/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 4006,
+      "project_title": "Sustainable Marketing: What It Is and How to Use It",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Sustainable Marketing: What It Is and How to Use It"
+      ],
+      "removed_labels": [
+        "Landscape",
+        "Square",
+        "Vertical"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0023",
+      "url": "https://drive.google.com/file/d/1eboAK8E-HDlL886kLr_b7lUJS3TwsQMn/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9354,
+      "project_title": "Micro-influencers can outperform big names | Email is not dead",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Micro-influencers can outperform big names"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0024",
+      "url": "https://drive.google.com/file/d/1eCo5Lze5dxD4ddxfd2TDZdTMuvLW1lEQ/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 3518,
+      "project_title": "Marketing Statistics",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Marketing Statistics",
+        "YouTube is mainstream (still)"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 2
+    },
+    {
+      "resource_id": "rpm-0025",
+      "url": "https://drive.google.com/file/d/1EZaJvfoxgMoDl8Q_Jezkc_o5QYvZ88B0/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8236,
+      "project_title": "Email traffic drives more purchases | Trust is a relationship, not a transaction",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Email traffic drives more purchases"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0026",
+      "url": "https://drive.google.com/file/d/1f2zq4GrJGhEcxMQNRMQeD60427V_zSoj/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8619,
+      "project_title": "Bad service loses customers fast | LinkedIn audience is not one-size-fits-all",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Bad service loses customers fast"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0027",
+      "url": "https://drive.google.com/file/d/1FicULlioWQpqXF6rCxjZ8X3VDMbXFkbt/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2612,
+      "project_title": "Meet the Team: Julia González | Meet the Team: Giovanni Buffa",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet the Team: Julia González"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0028",
+      "url": "https://drive.google.com/file/d/1G1I-mbbXMQ6My1SDA_MYoqbwQcKoHI_Y/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8268,
+      "project_title": "Know your audience by platform | Email traffic drives more purchases",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Know your audience by platform"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0029",
+      "url": "https://drive.google.com/file/d/1GChGtGu4nhWT_tAhfNUBhLOQaDVczivA/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8118,
+      "project_title": "Not suitable | 60+ Pros and Cons of Instagram (2021)",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Not suitable"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0030",
+      "url": "https://drive.google.com/file/d/1gkTdJVNfKvfPBwIpFC1C-OtFZikwj8Pv/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8244,
+      "project_title": "Email traffic drives more purchases",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Email traffic drives more purchases"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0031",
+      "url": "https://drive.google.com/file/d/1HktR213DhkMeQ15-5x3orn15Qp9Jls4H/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8499,
+      "project_title": "Facebook still reaches massive scale",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Facebook still reaches massive scale"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0032",
+      "url": "https://drive.google.com/file/d/1Hrccmf_P-sj20XoORJyVElgudG43v9aC/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8587,
+      "project_title": "LinkedIn audience is not one-size-fits-all | Twitter keeps growing",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "LinkedIn audience is not one-size-fits-all"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0033",
+      "url": "https://drive.google.com/file/d/1i3FMlhPQ6kfhb7p1iopgl7DNhuxBQjGg/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 3526,
+      "project_title": "Marketing Statistics",
+      "resource_label": "Square | Vertical",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Marketing Statistics",
+        "YouTube is mainstream (still)"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 2
+    },
+    {
+      "resource_id": "rpm-0034",
+      "url": "https://drive.google.com/file/d/1IAePrKk1svTbP6w69HGWMmNCf1VBoMnU/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 3088,
+      "project_title": "Staying ahead in digital marketing | SEO is a long game",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Staying ahead in digital marketing",
+        "A simple process for high-performance ads"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 2
+    },
+    {
+      "resource_id": "rpm-0035",
+      "url": "https://drive.google.com/file/d/1Irpl1WskuACTzSuxvLU9CeTFpI3b2F7V/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8563,
+      "project_title": "Twitter keeps growing",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Twitter keeps growing"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0036",
+      "url": "https://drive.google.com/file/d/1iTIA1qkx3Z9QoWeNC48dxedMnmtQDTr2/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8523,
+      "project_title": "Instagram kept growing in Western Europe | Facebook still reaches massive scale",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Instagram kept growing in Western Europe"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0037",
+      "url": "https://drive.google.com/file/d/1jwzfQe2tqzYHTm9yi7cfoXyb4VokjVcA/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2440,
+      "project_title": "Meet Coco, Marketing Intern",
+      "resource_label": "Square | Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Coco, Marketing Intern"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0038",
+      "url": "https://drive.google.com/file/d/1KI9DlsNEMCGuNcU5KxuBkA__5MTUr8Ko/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8307,
+      "project_title": "Email marketing ROI is huge",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Email marketing ROI is huge"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0039",
+      "url": "https://drive.google.com/file/d/1klbUrey6h9G9aOLy1OVcxD4Tnlp1YtR2/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8627,
+      "project_title": "Bad service loses customers fast",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Bad service loses customers fast"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0040",
+      "url": "https://drive.google.com/file/d/1kSLdPibj1iYMBMEAxkw08HTGymRuESuF/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9226,
+      "project_title": "Win the first 8 seconds | Paid social is the baseline now",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Win the first 8 seconds"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0041",
+      "url": "https://drive.google.com/file/d/1loz5CMrNHHu1F7lGJBxMbUWpu2mpDWME/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8276,
+      "project_title": "Know your audience by platform",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Know your audience by platform"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0042",
+      "url": "https://drive.google.com/file/d/1LpHjvNsbr2MqELnG81qwZhcZcJKZi8CE/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9322,
+      "project_title": "Email is not dead | Google searches an enormous web index",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Email is not dead"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0043",
+      "url": "https://drive.google.com/file/d/1lSgR1DQ2qgxyAQeMhluztO_uftcNassy/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9290,
+      "project_title": "Google searches an enormous web index | Make visuals part of the strategy",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Google searches an enormous web index"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0044",
+      "url": "https://drive.google.com/file/d/1MUYZ0sLy--3wZLZD-0gKzPSLr7Ii40m1/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2558,
+      "project_title": "Meet the Team: Giacomo Piccinini",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet the Team: Giacomo Piccinini"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0045",
+      "url": "https://drive.google.com/file/d/1MWpGVdpalQ3L3lsgEgXscGxV3wsRnaFL/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8747,
+      "project_title": "In-house vs outsource is a real split | YouTube is mainstream (still)",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "In-house vs outsource is a real split"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0046",
+      "url": "https://drive.google.com/file/d/1NWTthH2TjKb-FPwUzljpLsX3nztzVgye/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2589,
+      "project_title": "Meet the Team: Giovanni Buffa",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet the Team: Giovanni Buffa"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0047",
+      "url": "https://drive.google.com/file/d/1oCcjgTTadugcxEX9hWjQJsiKRKtSI15g/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8178,
+      "project_title": "Klint Page | Klint Marketing",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Klint Page"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0048",
+      "url": "https://drive.google.com/file/d/1OjlNqLmnXBrtRGyKigIYaYNY7DzWGkQN/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2461,
+      "project_title": "Meet Femke, Marketing Intern | Meet Coco, Marketing Intern",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Femke, Marketing Intern"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0049",
+      "url": "https://drive.google.com/file/d/1oOddcoh0-eKsiMJIDJCgZmC7MCxLOjXU/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8459,
+      "project_title": "Blogging fuels backlinks | Webinars pull strong attendance",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Blogging fuels backlinks"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0050",
+      "url": "https://drive.google.com/file/d/1oSIm6gdW0J_ZVBln5QJbzMEqPQNTgfRK/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8467,
+      "project_title": "Blogging fuels backlinks",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Blogging fuels backlinks"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0051",
+      "url": "https://drive.google.com/file/d/1oT7trGt2TgdCA2RVND7ZNZRCFh316Ig7/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2320,
+      "project_title": "Meet Raluca, Graphic Design Intern",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Raluca, Graphic Design Intern"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0052",
+      "url": "https://drive.google.com/file/d/1OUlUx7r2RY2K5ubaf9xNiIdJPVwPKUV7/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8659,
+      "project_title": "Marketing automation budgets are climbing",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Marketing automation budgets are climbing"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0053",
+      "url": "https://drive.google.com/file/d/1p01vTt9e0HkjP0gxAbqsrei39qP2Vxz5/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2374,
+      "project_title": "Meet Pavel, Video Production Intern | Meet Felix, Web Developer Intern",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Pavel, Video Production Intern"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0054",
+      "url": "https://drive.google.com/file/d/1p43NKMXVA652evycWRdIx2e-x1IdW8nI/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9202,
+      "project_title": "Paid social is the baseline now",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Paid social is the baseline now"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0055",
+      "url": "https://drive.google.com/file/d/1pqQFuIER-maWqQ5CXzKLXVvhn5M_f2Xa/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2620,
+      "project_title": "Meet the Team: Julia González | Meet the Team: Julia Gonz\\u00e1lez",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet the Team: Julia González"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0056",
+      "url": "https://drive.google.com/file/d/1qgL03Imx12h7wsQStcvBGhqp7Ir6LYu1/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8595,
+      "project_title": "LinkedIn audience is not one-size-fits-all",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "LinkedIn audience is not one-size-fits-all"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0057",
+      "url": "https://drive.google.com/file/d/1QS_xFPDfU1yWOZE7H7wAcykybgkyMow7/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8427,
+      "project_title": "Webinars pull strong attendance | Visuals matter (a lot)",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Webinars pull strong attendance"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0058",
+      "url": "https://drive.google.com/file/d/1QWJLgFNh3cESjjL1vzZn6CdULipFFW2Z/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2312,
+      "project_title": "Meet Raluca, Graphic Design Intern | Meet Pavel, Marketing Intern",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Raluca, Graphic Design Intern"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0059",
+      "url": "https://drive.google.com/file/d/1rbIEvgHPUmle0KHiKiU4nSyZ89L2IY8H/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2403,
+      "project_title": "Meet Rayane, Web Developer Intern | Meet Pavel, Video Production Intern",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Rayane, Web Developer Intern"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0060",
+      "url": "https://drive.google.com/file/d/1ryqRQRtgQlJd17BB4WxbgbsGOINAX0k6/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8491,
+      "project_title": "Facebook still reaches massive scale | Blogging fuels backlinks",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Facebook still reaches massive scale"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0061",
+      "url": "https://drive.google.com/file/d/1sbwkP1JwJiz0QBiKcqfQJxovmcgBPrgH/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9266,
+      "project_title": "Make visuals part of the strategy",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Make visuals part of the strategy",
+        "Google searches an enormous web index"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 2
+    },
+    {
+      "resource_id": "rpm-0062",
+      "url": "https://drive.google.com/file/d/1SKebgpf51W1QZUD4QgVKeq8pQ2kxltIB/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8212,
+      "project_title": "Trust is a relationship, not a transaction",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Trust is a relationship, not a transaction"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0063",
+      "url": "https://drive.google.com/file/d/1SlZxjuAD-pPMOaDdzGH54jaxaxqr0uVa/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8779,
+      "project_title": "Video is a lead gen weapon | In-house vs outsource is a real split",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Video is a lead gen weapon"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0064",
+      "url": "https://drive.google.com/file/d/1TFfjTu1Fjw15iGrEwT1ltPoIM0CM1H9J/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2498,
+      "project_title": "Meet Ava, Marketing Intern",
+      "resource_label": "Square | Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Ava, Marketing Intern"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0065",
+      "url": "https://drive.google.com/file/d/1tfWbg4eWy4AiNVHyxxfff4tTagRlQK_z/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 3046,
+      "project_title": "Growth hacking campaigns that move the needle | Infuse your brand with purpose",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Growth hacking campaigns that move the needle",
+        "Growth hacks that level up your business"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 2
+    },
+    {
+      "resource_id": "rpm-0066",
+      "url": "https://drive.google.com/file/d/1tWaBnkuCLZJD0CQAARLSFKK3bUQscoBx/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2469,
+      "project_title": "Meet Femke, Marketing Intern",
+      "resource_label": "Square | Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Femke, Marketing Intern"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0067",
+      "url": "https://drive.google.com/file/d/1UFB98ktq5V8adTOwNXevyRm88mxKhUqf/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8331,
+      "project_title": "Online ad spend is eating the pie | Email marketing ROI is huge",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Online ad spend is eating the pie"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0068",
+      "url": "https://drive.google.com/file/d/1UqqK6QTAecJgRCfx5S39Lgbg1_TpI90N/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2324,
+      "project_title": "Meet Raluca, Graphic Design Intern",
+      "resource_label": "Vertical",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Raluca, Graphic Design Intern"
+      ],
+      "removed_labels": [
+        "Vertical"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0069",
+      "url": "https://drive.google.com/file/d/1vv7NQSGPtRvGi_-oTsOAsVkXrLJXwdtF/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8555,
+      "project_title": "Twitter keeps growing | Instagram kept growing in Western Europe",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Twitter keeps growing"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0070",
+      "url": "https://drive.google.com/file/d/1WjryV-Wg7gaP2u_657tMdUsI22PQS_Q9/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 4117,
+      "project_title": "Sustainable Marketing: Customer-Value Marketing",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Sustainable Marketing: Customer-Value Marketing"
+      ],
+      "removed_labels": [
+        "Landscape",
+        "Square",
+        "Vertical"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0071",
+      "url": "https://drive.google.com/file/d/1YAHVK_fK7X20wC-azSXMyZCS0_LDD8ZJ/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 9362,
+      "project_title": "Micro-influencers can outperform big names",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Micro-influencers can outperform big names"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0072",
+      "url": "https://drive.google.com/file/d/1YcdTsjCQRuI-teKElmCYv0L1RKMvqDp7/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8651,
+      "project_title": "Marketing automation budgets are climbing | Bad service loses customers fast",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Marketing automation budgets are climbing"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0073",
+      "url": "https://drive.google.com/file/d/1ypzzbi8ZyFcQxp9Bi7NT7cJS8TStZWZc/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2490,
+      "project_title": "Meet Ava, Marketing Intern | Meet Femke, Marketing Intern",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Ava, Marketing Intern"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0074",
+      "url": "https://drive.google.com/file/d/1Yxr3tTQdP93FeyG6xxqlFYzpjiXP3fMc/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2353,
+      "project_title": "Meet Felix, Web Developer Intern",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet Felix, Web Developer Intern"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "no public link available"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0075",
+      "url": "https://drive.google.com/file/d/1yzO1EpKl0NG-9fyeFT2bQvr4oCecoobz/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8299,
+      "project_title": "Email marketing ROI is huge | Know your audience by platform",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Email marketing ROI is huge"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0076",
+      "url": "https://drive.google.com/file/d/1Z3A8dCycsEFhXVKNpY-1MQtuxdSisX-S/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8531,
+      "project_title": "Instagram kept growing in Western Europe",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Event Banners/Growth Secrets - Social media amplificaiton.jfif",
+      "offline_best_sha256": "7e12e68e3b070870ba4d9300f2bd5220b909eacf9131237c3f41ffc00c9fbd46",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Instagram kept growing in Western Europe"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0077",
+      "url": "https://drive.google.com/file/d/1zS5NPw5sH91MqB5S7T8_FmJWG_alujRv/view?usp=sharing",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 2550,
+      "project_title": "Meet the Team: Giacomo Piccinini | Meet the Team: Taylor Ryan",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Meet the Team: Giacomo Piccinini"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0078",
+      "url": "https://drive.google.com/file/d/1ZTaXpAuombxO2XPTp5VUTNxDKoGzcxDl/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8403,
+      "project_title": "Visuals matter (a lot)",
+      "resource_label": "Square",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Work/Public Speaking/Images/Staff/square-collage.jpg",
+      "offline_best_sha256": "27ed996fdda1b2c944ba749e93852e39d03325feb1fac478e5bc55bdcb9210df",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Visuals matter (a lot)"
+      ],
+      "removed_labels": [
+        "Square"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0079",
+      "url": "https://drive.google.com/file/d/1ZZhe__MmhUEdEtNg2DAdvfkxAAgxRcc1/view",
+      "google_type": "google-drive",
+      "prior_http_status": 404,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/some_work_data.js",
+      "source_line_before_cleanup": 8683,
+      "project_title": "Reduce friction, win better deals | Marketing automation budgets are climbing",
+      "resource_label": "Landscape",
+      "offline_match_status": "missing_artifact",
+      "offline_best_path": "Ref Docs/Trust Signals/Client Logos/social-media-today-logo.png",
+      "offline_best_sha256": "4223eedc500197b9095eff3391621f09cb231e266a4b0c7feaedd777eeff4962",
+      "future_sync_action": "No likely offline artifact found; keep the manifest record and decide whether to hide the public link or rebuild the resource.",
+      "affected_items": [
+        "Reduce friction, win better deals"
+      ],
+      "removed_labels": [
+        "Landscape"
+      ],
+      "public_results": [
+        "remaining links preserved"
+      ],
+      "source_occurrence_count": 1
+    },
+    {
+      "resource_id": "rpm-0080",
+      "url": "https://docs.google.com/spreadsheets/d/1pV3K-KvATaj4qWdytYDc81T0mD_1boFiVy3SYueDCng/edit?usp=drive_link",
+      "google_type": "google-sheet",
+      "prior_http_status": 410,
+      "prior_reason": "HTTP missing response.",
+      "source_file": "assets/js/marketing_full_data.js",
+      "source_line_before_cleanup": 4339,
+      "project_title": "Logo Enrichment Resources [Sheet] | Clients - Ocean [Sheet]",
+      "resource_label": "text-url",
+      "offline_match_status": "matched_artifact",
+      "offline_best_path": "Ref Docs/Work/Marketing/Case Study Creation/Case Study Creation Resources.xlsx",
+      "offline_best_sha256": "75bc47a920f98f220f2f599c181e7fdb9a8b4d30eea1a5c57b49c9346781487d",
+      "future_sync_action": "Use the local artifact as the replacement source after manual approval.",
+      "affected_items": [
+        "Logo Enrichment Resources [Sheet]"
+      ],
+      "removed_labels": [
+        "Open Resource"
+      ],
+      "public_results": [
+        "dead action hidden; card and offline record preserved"
+      ],
+      "source_occurrence_count": 1
+    }
+  ]
+}

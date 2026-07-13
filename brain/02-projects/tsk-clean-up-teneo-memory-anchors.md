@@ -4,11 +4,11 @@ type: task
 summary: Archive or relabel stale Teneo memory anchors so Taylor Ryan website work routes through the correct project context.
 tags: [second-brain, memory, cleanup, teneo]
 domain: project-management
-status: todo
+status: done
 created: 2026-07-13
 updated: 2026-07-13
 visibility: namespace
-assignee: user
+assignee: codex
 due:
 effort: medium
 part_of: ["[[pil-portfolio-agent]]"]
@@ -20,6 +20,8 @@ depends_on: ["[[fct-teneo-folder-unrelated-to-taylor-site]]", "[[evt-review-clea
 The user clarified on 2026-07-13 that Teneo has nothing to do with the Taylor Ryan site. The brain now records that fact, but older nodes and the index still route a large share of project knowledge through `[[prj-teneo-website]]` and `[[fct-source-of-truth-location]]`. That can mislead future agents even though the new clarification nodes are accurate.
 
 Done means the brain has a Taylor Ryan website project anchor, current audit/deployment tasks point to it or only to `[[pil-portfolio-agent]]`, and genuinely Teneo-specific nodes are archived or clearly separated from Taylor Ryan website cleanup.
+
+Completed on 2026-07-13 by creating [[prj-taylor-ryan-site-remediation]], archiving [[prj-teneo-website]], and rerouting current site-audit tasks and facts.
 
 ## Edges
 

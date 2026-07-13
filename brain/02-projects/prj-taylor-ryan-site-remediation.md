@@ -1,0 +1,34 @@
+---
+id: prj-taylor-ryan-site-remediation
+type: project
+summary: Audit, preserve, and safely remediate the Taylor Ryan portfolio website and its linked work artifacts without losing recoverable documentation.
+tags: [taylor-ryan, portfolio-site, cloudflare, link-audit, preservation]
+domain: project-management
+status: active
+created: 2026-07-13
+updated: 2026-07-13
+visibility: namespace
+owner: agent
+start: 2026-07-13
+target:
+outcome: A lean canonical Cloudflare deploy, a reviewed resource inventory, and reversible link/UI improvements on taylorryan.xyz.
+part_of: ["[[pil-portfolio-agent]]"]
+derived_from: ["[[fct-site-audit-2026-07-13]]", "[[fct-teneo-folder-unrelated-to-taylor-site]]"]
+---
+
+# Taylor Ryan Site Remediation
+
+## Scope
+
+Maintain `taylorryan.xyz` from this repository and its canonical `DEPLOY_PUBLIC/` output. The project covers duplicate cleanup, public route validation, Google resource preservation and remediation, contact-form privacy, and later UI/UX improvements.
+
+Teneo is outside this project. Layer3 quest links and Google URLs that merely require authentication stay unchanged unless the user explicitly approves a later change.
+
+## Current State
+
+The preservation manifest reviewed 622 Google URLs: 25 public-working, 517 auth-required/private, and 80 confirmed broken/missing. The active cleanup removes or neutralizes only those 80 confirmed-broken public actions while preserving every retired URL in a review ledger.
+
+## Edges
+
+- derived_from [[fct-site-audit-2026-07-13]] - the audit established the cleanup and link-remediation scope.
+- derived_from [[fct-teneo-folder-unrelated-to-taylor-site]] - separates Taylor Ryan work from obsolete Teneo routing.

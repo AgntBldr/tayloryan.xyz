@@ -20,7 +20,7 @@ The three workstreams currently served are:
 
 1. **Writing Archive** -- crawling a CSV of published articles, verifying URLs, and capturing full-page PDFs as durable evidence of published work.
 2. **Quest Portfolio** -- scraping Layer3.xyz quest data and re-presenting it in a polished Next.js simulation for portfolio demonstration.
-3. **Teneo Website** -- building and maintaining the `teneo-protocol.ai` marketing site (static Next.js, deployed via Cloudflare Pages).
+3. **Taylor Ryan Website** -- preserving, auditing, and maintaining `taylorryan.xyz` and its portfolio resources on Cloudflare Pages.
 
 ## Why This Architecture Works
 

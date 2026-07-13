@@ -404,7 +404,14 @@
                 goalsSection.classList.add('hidden');
             }
 
-            document.getElementById('modal-link').href = item.url || '#';
+            const modalLink = document.getElementById('modal-link');
+            if (item.url && item.url.startsWith('http')) {
+                modalLink.href = item.url;
+                modalLink.style.removeProperty('display');
+            } else {
+                modalLink.removeAttribute('href');
+                modalLink.style.display = 'none';
+            }
 
             // Icon Logic
             const iconContainer = document.getElementById('modal-icon-container');

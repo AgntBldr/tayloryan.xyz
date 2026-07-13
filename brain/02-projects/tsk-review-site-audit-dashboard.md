@@ -11,7 +11,7 @@ visibility: namespace
 assignee: user
 due:
 effort: medium
-part_of: ["[[pil-portfolio-agent]]", "[[prj-teneo-website]]"]
+part_of: ["[[pil-portfolio-agent]]", "[[prj-taylor-ryan-site-remediation]]"]
 depends_on: ["[[fct-site-audit-2026-07-13]]"]
 followed_by: ["[[evt-review-cleanup-safety-2026-07-13]]"]
 ---

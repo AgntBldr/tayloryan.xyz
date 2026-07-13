@@ -11,7 +11,7 @@ visibility: namespace
 confidence: 0.95
 verified_at: 2026-07-13
 verified_by: codex audit_site.mjs
-part_of: ["[[pil-portfolio-agent]]", "[[prj-teneo-website]]"]
+part_of: ["[[pil-portfolio-agent]]", "[[prj-taylor-ryan-site-remediation]]"]
 supports: ["[[dec-use-deploy-public-folder]]"]
 followed_by: ["[[evt-archive-stray-teneo-copy]]", "[[evt-clean-deployed-material-2026-07-13]]"]
 ---
@@ -24,10 +24,13 @@ On the deployed-material cleanup branch, duplicate deploy output was removed: `D
 
 The Google-specific review report found 622 unique Google URLs: 25 public-working/live, 517 auth-required/private, and 80 broken/missing. Outputs are `audits/site-audit/google-links-review.html`, `.csv`, and `.json`; see [[evt-google-links-review-2026-07-13]].
 
+After the preservation-gated cleanup in [[evt-broken-google-link-cleanup-2026-07-13]], the current-state Google report contains 542 URLs: the same 25 public-working and 517 auth-required/private links, with zero broken or manual-review links. The retired 80 remain in the cleanup ledger and the pre-cleanup preservation manifest. The refreshed internal-route audit contains 359 live and zero broken routes.
+
 ## Edges
 
 - followed_by [[evt-clean-deployed-material-2026-07-13]] - duplicate deploy material was removed after this audit's first cleanup pass.
 - followed_by [[evt-google-links-review-2026-07-13]] - Google resources were separated into working vs private/broken review buckets.
+- followed_by [[evt-broken-google-link-cleanup-2026-07-13]] - only the approved broken queue was retired and validated.
 
 ## Edges
 
