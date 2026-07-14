@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T13:06:21+02:00",
+  "generated_at": "2026-07-14T13:46:47+02:00",
   "target": "http://127.0.0.1:4174",
   "production_changed": false,
   "passed": true,
@@ -44,7 +44,19 @@
       "name": "Trust-logo normalization",
       "viewport": "1280x1000 and 390x844 review sheet",
       "passed": true,
-      "evidence": "All 34 contact-sheet images and all 108 repeated marquee image instances load. Google is visually comparable to adjacent wordmarks, icon-only SVGs share one display size, Maersk retains its brand-color mark, and the page has no horizontal overflow."
+      "evidence": "All 34 assets and all repeated marquee instances load. Existing wordmarks remain intact; 12 symbol-only brands now render as consistently sized icon-and-name recognition lockups. Maersk retains its blue star beside the Maersk name, and the desktop page has no horizontal overflow."
+    },
+    {
+      "name": "Content Creator buyer-proof overview",
+      "viewport": "1280x720",
+      "passed": true,
+      "evidence": "The additive Challenge, System built, and Evidence layer overview renders above the existing archive. The marketing side menu, four outcome metrics, two resource tabs, modal shell, and 59 internal resources remain; no images fail and there is no horizontal overflow."
+    },
+    {
+      "name": "Content Creator clean-route assets",
+      "viewport": "1280x720",
+      "passed": true,
+      "evidence": "The Cloudflare-root preview loads layout.js, marketing_full_data.js, and marketing_sidebar.js from /assets/. The archive no longer remains on Loading resources. The viewport override accepted a mobile request but did not resize the in-app browser, so no new mobile visual claim is made for this pass."
     },
     {
       "name": "Linked copy and proof review",
@@ -64,6 +76,8 @@
     "audits/site-audit/screenshots/case-study-modal-2026-07-14.png",
     "audits/site-audit/screenshots/trust-logos-normalized-2026-07-14.png",
     "audits/site-audit/screenshots/trust-logo-contact-sheet-responsive-2026-07-14.png",
-    "audits/site-audit/screenshots/copy-review-linked-2026-07-14.png"
+    "audits/site-audit/screenshots/copy-review-linked-2026-07-14.png",
+    "audits/site-audit/screenshots/trust-logo-lockups-2026-07-14.png",
+    "audits/site-audit/screenshots/content-creator-overview-2026-07-14.png"
   ]
 }

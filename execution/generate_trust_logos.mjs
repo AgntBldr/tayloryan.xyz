@@ -137,6 +137,8 @@ for (const item of uniqueItems.values()) {
   results.push({
     name: item.name,
     domain: item.domain,
+    display: item.display || "wordmark",
+    preserve_color: item.preserve_color === true,
     file: `assets/brand/trust/${fileName}`,
     bytes: image.bytes.length,
     sha256: createHash("sha256").update(image.bytes).digest("hex"),
@@ -161,10 +163,14 @@ const renderTrack = (group) => {
     const attrs = copy === 0 ? "" : ' aria-hidden="true" data-logo-copy';
     return group.items.map((item) => {
       const name = escapeHtml(item.name);
-      const displayClass = item.display === "mark"
-        ? " trust-logo--mark"
-        : item.display === "color" ? " trust-logo--color" : "";
-      return `                <span class="trust-logo${displayClass}" role="img" aria-label="${name}"${attrs}><img src="/assets/brand/trust/${fileBySlug.get(item.slug)}" alt="" width="128" height="48" decoding="async"></span>`;
+      const classes = ["trust-logo"];
+      if (item.display === "mark") classes.push("trust-logo--mark");
+      if (item.display === "lockup") classes.push("trust-logo--lockup");
+      if (item.preserve_color) classes.push("trust-logo--color");
+      const isLockup = item.display === "lockup";
+      const dimensions = isLockup ? 'width="40" height="40"' : 'width="128" height="48"';
+      const label = isLockup ? `<span class="trust-logo__name" aria-hidden="true">${name}</span>` : "";
+      return `                <span class="${classes.join(" ")}" role="img" aria-label="${name}"${attrs}><img src="/assets/brand/trust/${fileBySlug.get(item.slug)}" alt="" ${dimensions} decoding="async">${label}</span>`;
     }).join("\n");
   });
 

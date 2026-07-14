@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-14T11:05:49.871Z",
+  "generated_at": "2026-07-14T11:49:04.002Z",
   "passed": true,
-  "check_count": 17,
+  "check_count": 18,
   "failure_count": 0,
   "checks": [
     {
@@ -37,7 +37,7 @@
     {
       "name": "Clean-route source freshness",
       "passed": true,
-      "detail": "Case Studies clean route has 1 sidebar initializer after legacy-source refresh."
+      "detail": "Case Studies has 1 sidebar initializer; 16 generated routes checked; 0 broken asset roots; 0/2 Content Creator data roots broken."
     },
     {
       "name": "Vibecoding remains first-class",
@@ -65,6 +65,11 @@
       "detail": "11/11 templates use neutral fallbacks; 0 lack a resource or booking action."
     },
     {
+      "name": "Buyer-proof overview",
+      "passed": true,
+      "detail": "2/2 Content Creator tabs add overview context while retaining resource containers and modal actions."
+    },
+    {
       "name": "Static accessibility",
       "passed": true,
       "detail": "0 issue(s) across 61 source files."
@@ -87,7 +92,7 @@
     {
       "name": "Trust logo assets",
       "passed": true,
-      "detail": "34 local assets; 0 missing copies; 0 missing review references; 0 raster sizing failures; both marquees remain."
+      "detail": "34 local assets; 0 missing copies; 0 missing review references; 0 raster sizing failures; 0 missing icon-and-name lockups; both marquees remain."
     }
   ],
   "failures": [],
@@ -96,7 +101,10 @@
   "missing_css_backgrounds": [],
   "missing_logo_files": [],
   "missing_review_logo_references": [],
+  "generated_routes_with_broken_asset_roots": [],
   "stale_modal_fallbacks": [],
   "modal_files_without_action": [],
-  "invalid_normalized_logos": []
+  "incomplete_buyer_proof_pages": [],
+  "invalid_normalized_logos": [],
+  "missing_lockups": []
 }

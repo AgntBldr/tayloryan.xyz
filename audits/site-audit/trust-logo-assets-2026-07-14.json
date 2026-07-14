@@ -1,13 +1,15 @@
 {
-    "generated_at":  "2026-07-14T11:04:55.020Z",
+    "generated_at":  "2026-07-14T11:37:51.430Z",
     "manifest_version":  1,
     "simple_icons_version":  "16.21.0",
     "asset_count":  34,
-    "total_bytes":  166491,
+    "total_bytes":  165054,
     "assets":  [
                    {
                        "name":  "Novo Nordisk",
                        "domain":  "novonordisk.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/novo-nordisk.png",
                        "bytes":  5535,
                        "sha256":  "e821138df925fecc347a2f0f046b9cd39559175f731f92d591fba34e7dfbea02",
@@ -15,11 +17,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/novo.png",
                        "optimized":  true,
                        "source_content_bounds":  "1166x881",
-                       "normalized_visible_bounds":  "90x68"
+                       "normalized_visible_bounds":  "90x68",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "NEAR Protocol",
                        "domain":  "near.org",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/near-protocol.svg",
                        "bytes":  559,
                        "sha256":  "af0c85b53cd6f13c0da60a0317f7fcd7cee4a42623b87b4a60fbe3a15b13f53e",
@@ -29,18 +34,23 @@
                    {
                        "name":  "SSV Network",
                        "domain":  "ssv.network",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/ssv-network.png",
-                       "bytes":  2422,
-                       "sha256":  "cac5aacf46c13688de3ab4d871be16a8b577bde53281244346554060f2235cb9",
+                       "bytes":  2255,
+                       "sha256":  "67a7af4fe54574d09afd7e4374fcd77f9a1c70d17eb0a4375861b822fa85edf2",
                        "source_type":  "official-domain-icon",
                        "source_url":  "https://framerusercontent.com/images/4HILD95911lljaeBb0mz7IsyInk.png",
                        "optimized":  true,
                        "source_content_bounds":  "548x769",
-                       "normalized_visible_bounds":  "48x68"
+                       "normalized_visible_bounds":  "51x72",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "Lunar",
                        "domain":  "lunar.app",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/lunar.png",
                        "bytes":  3682,
                        "sha256":  "ae309121f0a9144f41ca72c9a52f84f837f3fd918d0f570d2559d1c076645093",
@@ -48,11 +58,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/lunar.png",
                        "optimized":  true,
                        "source_content_bounds":  "2488x837",
-                       "normalized_visible_bounds":  "164x55"
+                       "normalized_visible_bounds":  "164x55",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Google",
                        "domain":  "google.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/google.png",
                        "bytes":  6991,
                        "sha256":  "1a0cade8f5314408ff67b08c0ea03b233cc6d56ffc2016216eb30a520ac3c5a8",
@@ -60,23 +73,29 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/google.png",
                        "optimized":  true,
                        "source_content_bounds":  "2308x760",
-                       "normalized_visible_bounds":  "165x54"
+                       "normalized_visible_bounds":  "165x54",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Rhea Finance",
                        "domain":  "rhea.finance",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/rhea-finance.png",
-                       "bytes":  8017,
-                       "sha256":  "1db9b7fd7e5eb5fa390f69f06056e5affbcbab2735f6601450d706e845c93e8a",
+                       "bytes":  6831,
+                       "sha256":  "a6e02f25ab927091264e82960981ff64cef4e45bdd67ab7356d4ec4af520f825",
                        "source_type":  "domain-icon-cache-for-compression",
                        "source_url":  "https://icon.horse/icon/rhea.finance",
                        "optimized":  true,
                        "source_content_bounds":  "358x319",
-                       "normalized_visible_bounds":  "76x68"
+                       "normalized_visible_bounds":  "72x64",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "Actimo",
                        "domain":  "actimo.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/actimo.png",
                        "bytes":  5253,
                        "sha256":  "c66334b5ebc01ff3402df98d88c906a0e7df3a9f7fef2cb064d2b349f4663c5b",
@@ -84,11 +103,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/actimo.png",
                        "optimized":  true,
                        "source_content_bounds":  "747x240",
-                       "normalized_visible_bounds":  "167x54"
+                       "normalized_visible_bounds":  "167x54",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Valuer",
                        "domain":  "valuer.ai",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/valuer.png",
                        "bytes":  2722,
                        "sha256":  "9783a9b035eae26c319b87ae8c77ff15c1296cf67e8e4771fcff460df0e6ac7f",
@@ -96,23 +118,29 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/valuer.png",
                        "optimized":  true,
                        "source_content_bounds":  "865x141",
-                       "normalized_visible_bounds":  "220x36"
+                       "normalized_visible_bounds":  "220x36",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Inflowpay",
                        "domain":  "inflowpay.com",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/inflowpay.png",
-                       "bytes":  5773,
-                       "sha256":  "5fe980b7d57b0ffa74a30a008109807d890a895370233895038415135f346b34",
+                       "bytes":  5875,
+                       "sha256":  "81a14694733d6e6c14fc5c5e6a57bcea8257b097acfadf6ec59481caaa50b081",
                        "source_type":  "official-domain-icon",
                        "source_url":  "https://cdn.prod.website-files.com/67aa871a4dc42014fd7e1250/67d87eec9098fa8bc828a036_inflow-favicon.png",
                        "optimized":  true,
                        "source_content_bounds":  "28x28",
-                       "normalized_visible_bounds":  "68x68"
+                       "normalized_visible_bounds":  "72x72",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "Grundfos",
                        "domain":  "grundfos.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/grundfos.png",
                        "bytes":  4973,
                        "sha256":  "b0976a2bb9882a4cff0163e3913fbe518b5fca900c92b7f9d314b591dcdbf01c",
@@ -120,11 +148,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/Grundfos.png",
                        "optimized":  true,
                        "source_content_bounds":  "852x125",
-                       "normalized_visible_bounds":  "220x32"
+                       "normalized_visible_bounds":  "220x32",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Talent Garden",
                        "domain":  "talentgarden.org",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/talent-garden.png",
                        "bytes":  7409,
                        "sha256":  "b67e142c3e882f9e3fb37fc605036d615a99e57d1c04baf7477f757f18b8ca23",
@@ -132,11 +163,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/talentgarden.png",
                        "optimized":  true,
                        "source_content_bounds":  "1663x774",
-                       "normalized_visible_bounds":  "139x65"
+                       "normalized_visible_bounds":  "139x65",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Lundbeck",
                        "domain":  "lundbeck.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/lundbeck.png",
                        "bytes":  7414,
                        "sha256":  "f33766d90a6fced9d744766ea963e10af76d9474729b3702c8af187cbc550b84",
@@ -144,35 +178,44 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/lundbeck.png",
                        "optimized":  true,
                        "source_content_bounds":  "1599x680",
-                       "normalized_visible_bounds":  "145x62"
+                       "normalized_visible_bounds":  "145x62",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Nordea",
                        "domain":  "nordea.com",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/nordea.png",
-                       "bytes":  4033,
-                       "sha256":  "dcd9624b6ac9ce1d001e8b8ad6fd06ebb455e521d8322b20bccf8d9a29ae0697",
+                       "bytes":  3559,
+                       "sha256":  "cbd90a491ddfb248d8f3c7e6389b565e011a18ffa2df9457601c11b87a1a1dcd",
                        "source_type":  "domain-icon-cache-for-compression",
                        "source_url":  "https://icon.horse/icon/nordea.com",
                        "optimized":  true,
                        "source_content_bounds":  "31x29",
-                       "normalized_visible_bounds":  "73x68"
+                       "normalized_visible_bounds":  "72x67",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "Maersk",
                        "domain":  "maersk.com",
+                       "display":  "lockup",
+                       "preserve_color":  true,
                        "file":  "assets/brand/trust/maersk.png",
-                       "bytes":  3627,
-                       "sha256":  "d036406e27e3bfa1f0874253d9492c45f53796eaa1f0c13074b0f20eb5ab9927",
+                       "bytes":  3481,
+                       "sha256":  "d307b36e280a160fb5ae3c88acbdf4b48b2e94abe0e43142ecd3825841451b89",
                        "source_type":  "domain-icon-cache-for-compression",
                        "source_url":  "https://icon.horse/icon/maersk.com",
                        "optimized":  true,
                        "source_content_bounds":  "61x64",
-                       "normalized_visible_bounds":  "65x68"
+                       "normalized_visible_bounds":  "69x72",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "The Washington Post",
                        "domain":  "washingtonpost.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/washington-post.png",
                        "bytes":  4362,
                        "sha256":  "07e702a6365d4df39bb4e2109cb667987fc9b768a958ec0b493b4482b88ad5c9",
@@ -180,11 +223,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/washington-post.png",
                        "optimized":  true,
                        "source_content_bounds":  "907x136",
-                       "normalized_visible_bounds":  "220x33"
+                       "normalized_visible_bounds":  "220x33",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Planday",
                        "domain":  "planday.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/planday.png",
                        "bytes":  6186,
                        "sha256":  "0c58c176a18da4265f9763099292dd1cbbc2c7332e8c542e8ffadbd3749282be",
@@ -192,11 +238,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/planday.png",
                        "optimized":  true,
                        "source_content_bounds":  "2378x492",
-                       "normalized_visible_bounds":  "209x43"
+                       "normalized_visible_bounds":  "209x43",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "TechBBQ",
                        "domain":  "techbbq.dk",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/techbbq.png",
                        "bytes":  7370,
                        "sha256":  "83dd95c7c51f80d045d2be3687c8d50ff490eee364705ac69194f51aef13aafc",
@@ -204,11 +253,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/techBBQ.png",
                        "optimized":  true,
                        "source_content_bounds":  "1200x488",
-                       "normalized_visible_bounds":  "149x60"
+                       "normalized_visible_bounds":  "149x60",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "WeddingWire",
                        "domain":  "weddingwire.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/weddingwire.png",
                        "bytes":  6301,
                        "sha256":  "f9855193c49ffb5f6d7c0c16acc45e9eb89751ee6f431c41098db9a3206f4f92",
@@ -216,11 +268,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/wedding-wire.png",
                        "optimized":  true,
                        "source_content_bounds":  "1134x170",
-                       "normalized_visible_bounds":  "220x33"
+                       "normalized_visible_bounds":  "220x33",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Rainmaking",
                        "domain":  "rainmaking.io",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/rainmaking.png",
                        "bytes":  5088,
                        "sha256":  "783fa7ae25fdf949a3617b0ad235b586637f3d104cc3e0f12be172eaf08cae22",
@@ -228,11 +283,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/rainmaking.png",
                        "optimized":  true,
                        "source_content_bounds":  "147x16",
-                       "normalized_visible_bounds":  "220x24"
+                       "normalized_visible_bounds":  "220x24",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Antler",
                        "domain":  "antler.co",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/antler.png",
                        "bytes":  2571,
                        "sha256":  "6e67a6bda14e6c1b8f39dfc36aecd5accd36173b69962d7aac9bae7ab5eaf761",
@@ -240,11 +298,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Accelerators/Acclerators/antler.png",
                        "optimized":  true,
                        "source_content_bounds":  "662x183",
-                       "normalized_visible_bounds":  "180x50"
+                       "normalized_visible_bounds":  "180x50",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Startup Wise Guys",
                        "domain":  "startupwiseguys.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/startup-wise-guys.png",
                        "bytes":  12313,
                        "sha256":  "a6c62c7abe8ceb589aa1cfcf9d0e2d97501a9bca154d5dec26f04544fc37e187",
@@ -252,11 +313,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/Startup wise guys.png",
                        "optimized":  true,
                        "source_content_bounds":  "490x159",
-                       "normalized_visible_bounds":  "167x54"
+                       "normalized_visible_bounds":  "167x54",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "HYPE Sports Innovation",
                        "domain":  "hypesportsinnovation.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/hype-sports-innovation.png",
                        "bytes":  7756,
                        "sha256":  "d1d73e688be9e6dff375444570319265d2f143478730b6441164681732c454d4",
@@ -264,11 +328,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/hype-SI.png",
                        "optimized":  true,
                        "source_content_bounds":  "538x658",
-                       "normalized_visible_bounds":  "56x68"
+                       "normalized_visible_bounds":  "56x68",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "The Camp (TRYG)",
                        "domain":  "tryg.dk",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/the-camp-tryg.png",
                        "bytes":  3980,
                        "sha256":  "505be6732482ab6c16bcc7de7a2fb6e95ee52a83722da2fa3fb721879c4e69da",
@@ -276,11 +343,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/thecamp.png",
                        "optimized":  true,
                        "source_content_bounds":  "818x160",
-                       "normalized_visible_bounds":  "215x42"
+                       "normalized_visible_bounds":  "215x42",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Copenhagen Fintech",
                        "domain":  "copenhagenfintech.dk",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/copenhagen-fintech.png",
                        "bytes":  3777,
                        "sha256":  "836d76ddf32298953ddf2610ac1cb1b372f0890448aa397334af3c62a64b9ff4",
@@ -288,11 +358,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Accelerators/Acclerators/copenhagen fintech.png",
                        "optimized":  true,
                        "source_content_bounds":  "500x127",
-                       "normalized_visible_bounds":  "188x48"
+                       "normalized_visible_bounds":  "188x48",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Go Grow (CBS)",
                        "domain":  "cbs.dk",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/go-grow-cbs.png",
                        "bytes":  9475,
                        "sha256":  "7be48b0d1afbaa5c07be3bbcf128ae9de6476984f2dab1becaf0b52a73b7e783",
@@ -300,23 +373,29 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/cbs.png",
                        "optimized":  true,
                        "source_content_bounds":  "1464x349",
-                       "normalized_visible_bounds":  "194x46"
+                       "normalized_visible_bounds":  "194x46",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Innovation Centre Denmark",
                        "domain":  "icdk.dk",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/innovation-centre-denmark.png",
-                       "bytes":  1662,
-                       "sha256":  "f52ab72324556b691e9790404e2081986547eac75c66a0240682e30914b16d1d",
+                       "bytes":  1545,
+                       "sha256":  "b9a1ad0547b85dd88618fb7e17cafae61b3912d49aa47cd3edd0fb4fc0a4fb9f",
                        "source_type":  "official-domain-icon",
                        "source_url":  "https://icdk.dk/media/srlfchpr/icdk_favicon.png?rmode=pad\u0026amp;width=180\u0026amp;height=180\u0026amp;format=png\u0026amp;bgcolor=transparent\u0026amp;v=1dcccd0afa089f0",
                        "optimized":  true,
                        "source_content_bounds":  "26x26",
-                       "normalized_visible_bounds":  "68x68"
+                       "normalized_visible_bounds":  "72x72",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "DGI",
                        "domain":  "dgi.dk",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/dgi.png",
                        "bytes":  2721,
                        "sha256":  "8d765914a1e4411989840ff541a6307ff5390a794dd3c96639f7cb8ccd5c1d84",
@@ -324,47 +403,59 @@
                        "source_url":  "https://icon.horse/icon/dgi.dk",
                        "optimized":  true,
                        "source_content_bounds":  "180x102",
-                       "normalized_visible_bounds":  "120x68"
+                       "normalized_visible_bounds":  "120x68",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Propagator",
                        "domain":  "propagator.co",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/propagator.png",
-                       "bytes":  1390,
-                       "sha256":  "e875d7ea6c5272876f46534261d09bb5c33743182234a57703556044ff355ef6",
+                       "bytes":  1239,
+                       "sha256":  "37a2c4f0e35711041e9a614a13b23c89be778dea67064c7e9a1cebac7c5f9e06",
                        "source_type":  "domain-icon-cache",
                        "source_url":  "https://icon.horse/icon/propagator.co",
                        "optimized":  true,
                        "source_content_bounds":  "78x102",
-                       "normalized_visible_bounds":  "52x68"
+                       "normalized_visible_bounds":  "55x72",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "Founder Institute",
                        "domain":  "fi.co",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/founder-institute.png",
-                       "bytes":  3336,
-                       "sha256":  "e2fe7b667620b03367a65790f4592b9db1d54add58b865760fcae4f2387e5640",
+                       "bytes":  4203,
+                       "sha256":  "0bf84def688217b3e27f37753ccebe4905cc80f1874da35a06215f303c827b0d",
                        "source_type":  "project-archive-logo",
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/founder-institute.png",
                        "optimized":  true,
                        "source_content_bounds":  "42x68",
-                       "normalized_visible_bounds":  "42x68"
+                       "normalized_visible_bounds":  "44x72",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "Crypto Summer Lab",
                        "domain":  "cryptosummerlab.com",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/crypto-summer-lab.png",
-                       "bytes":  2295,
-                       "sha256":  "a6f88c0f13b79f38aee32969b6a06081465a0db18decfa3ab5d8403b80c5b7d6",
+                       "bytes":  2122,
+                       "sha256":  "766e64ad5d4fc19017196f55ee91e0fa6575bcfa938b97ff4dc1d59f23a22df5",
                        "source_type":  "domain-icon-cache",
                        "source_url":  "https://icon.horse/icon/cryptosummerlab.com",
                        "optimized":  true,
                        "source_content_bounds":  "90x106",
-                       "normalized_visible_bounds":  "58x68"
+                       "normalized_visible_bounds":  "61x72",
+                       "normalized_canvas":  "88x88"
                    },
                    {
                        "name":  "Rockstart",
                        "domain":  "rockstart.com",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/rockstart.svg",
                        "bytes":  1592,
                        "sha256":  "8f32a2f9d0b1f0c414abeb84c9ed43cf58f5da63efe2ddd4a6d38cd28d658a4e",
@@ -374,6 +465,8 @@
                    {
                        "name":  "Techstars Boston",
                        "domain":  "techstars.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/techstars-boston.png",
                        "bytes":  5965,
                        "sha256":  "14b6fabd55b967866f241e7564bec47d5e3f32f71d0d8ec949715f7392d3b3a1",
@@ -381,11 +474,14 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/techstars.png",
                        "optimized":  true,
                        "source_content_bounds":  "403x73",
-                       "normalized_visible_bounds":  "220x40"
+                       "normalized_visible_bounds":  "220x40",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Techstars Dublin",
                        "domain":  "techstars.com",
+                       "display":  "wordmark",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/techstars-dublin.png",
                        "bytes":  5965,
                        "sha256":  "14b6fabd55b967866f241e7564bec47d5e3f32f71d0d8ec949715f7392d3b3a1",
@@ -393,20 +489,24 @@
                        "source_url":  "Ref Docs/Trust Signals/Client Logos/techstars.png",
                        "optimized":  true,
                        "source_content_bounds":  "403x73",
-                       "normalized_visible_bounds":  "220x40"
+                       "normalized_visible_bounds":  "220x40",
+                       "normalized_canvas":  "256x96"
                    },
                    {
                        "name":  "Intentional",
                        "domain":  "intentional.dk",
+                       "display":  "lockup",
+                       "preserve_color":  false,
                        "file":  "assets/brand/trust/intentional.png",
-                       "bytes":  3976,
-                       "sha256":  "9054951e8296abb52cb7658bb964eda493ac8cf1c7b9e9ffadab066981f40fae",
+                       "bytes":  3984,
+                       "sha256":  "400a4beb35ee656a6a665ce063a612c77c2d9236251b7e46c5df365901072352",
                        "source_type":  "domain-icon-cache-for-compression",
                        "source_url":  "https://icon.horse/icon/intentional.dk",
                        "optimized":  true,
                        "source_content_bounds":  "48x48",
-                       "normalized_visible_bounds":  "68x68"
+                       "normalized_visible_bounds":  "72x72",
+                       "normalized_canvas":  "88x88"
                    }
                ],
-    "optimized_at":  "2026-07-14T11:05:29.9715551Z"
+    "optimized_at":  "2026-07-14T11:38:16.2544530Z"
 }

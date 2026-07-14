@@ -78,16 +78,21 @@ foreach ($Asset in $Report.assets) {
 
         $ContentWidth = $MaxX - $MinX + 1
         $ContentHeight = $MaxY - $MinY + 1
+        $IsLockup = $Asset.display -eq "lockup"
+        $CanvasWidth = if ($IsLockup) { 88 } else { 256 }
+        $CanvasHeight = if ($IsLockup) { 88 } else { 96 }
+        $MaxVisibleWidth = if ($IsLockup) { 72 } else { 220 }
+        $MaxVisibleHeight = if ($IsLockup) { 72 } else { 68 }
         $TargetArea = 9000
         $Scale = [Math]::Sqrt($TargetArea / ($ContentWidth * $ContentHeight))
-        $Scale = [Math]::Min($Scale, 220 / $ContentWidth)
-        $Scale = [Math]::Min($Scale, 68 / $ContentHeight)
+        $Scale = [Math]::Min($Scale, $MaxVisibleWidth / $ContentWidth)
+        $Scale = [Math]::Min($Scale, $MaxVisibleHeight / $ContentHeight)
         $Width = [Math]::Max(1, [int][Math]::Round($ContentWidth * $Scale))
         $Height = [Math]::Max(1, [int][Math]::Round($ContentHeight * $Scale))
-        $DestinationX = [int][Math]::Round((256 - $Width) / 2)
-        $DestinationY = [int][Math]::Round((96 - $Height) / 2)
+        $DestinationX = [int][Math]::Round(($CanvasWidth - $Width) / 2)
+        $DestinationY = [int][Math]::Round(($CanvasHeight - $Height) / 2)
 
-        $Canvas = New-Object System.Drawing.Bitmap 256, 96, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+        $Canvas = New-Object System.Drawing.Bitmap $CanvasWidth, $CanvasHeight, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
         try {
             $Graphics = [System.Drawing.Graphics]::FromImage($Canvas)
             try {
@@ -140,6 +145,7 @@ foreach ($Asset in $Report.assets) {
     $Asset | Add-Member -NotePropertyName optimized -NotePropertyValue $true -Force
     $Asset | Add-Member -NotePropertyName source_content_bounds -NotePropertyValue "$ContentWidth`x$ContentHeight" -Force
     $Asset | Add-Member -NotePropertyName normalized_visible_bounds -NotePropertyValue "$Width`x$Height" -Force
+    $Asset | Add-Member -NotePropertyName normalized_canvas -NotePropertyValue "$CanvasWidth`x$CanvasHeight" -Force
 }
 
 $Report.total_bytes = ($Report.assets | Measure-Object -Property bytes -Sum).Sum

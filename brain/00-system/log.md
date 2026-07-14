@@ -84,3 +84,6 @@ Normalized trust marks by visible content area, replaced eleven hidden modal pla
 
 ## [2026-07-14] harden | deterministic trust-logo rebuilds
 Pinned the format-varying Founder Institute icon to the project archive and made generated marker replacement idempotent; final browser QA loaded all 108 repeated marquee image instances without page overflow.
+
+## [2026-07-14] refine | named trust lockups and additive buyer proof
+Preserved complete wordmarks, paired twelve symbol-only marks with company names, and added an approved overview above both unchanged Content Creator resource archives. Corrected generated clean-route asset roots so the 59-item archive loads; the expanded preservation gate passes 18/18 while production remains unchanged.

@@ -1,26 +1,26 @@
 {
   "version": 1,
   "verified_at": "2026-07-14",
-  "notes": "Company and accelerator marks shown on the homepage. Existing project-archive wordmarks are preferred; Simple Icons assets are pinned; remaining marks come from the icon published for the verified official domain.",
+  "notes": "Company and accelerator marks shown on the homepage. Existing project-archive wordmarks are preferred. When only an official symbol is available, the marquee renders it with the company name as a horizontal recognition lockup.",
   "groups": [
     {
       "id": "companies",
       "section_marker": "TRUST SIGNALS (LOGOS MARQUEE)",
       "items": [
         { "name": "Novo Nordisk", "slug": "novo-nordisk", "domain": "novonordisk.com", "local_source": "Ref Docs/Trust Signals/Client Logos/novo.png" },
-        { "name": "NEAR Protocol", "slug": "near-protocol", "domain": "near.org", "simple_icon": "near", "display": "mark" },
-        { "name": "SSV Network", "slug": "ssv-network", "domain": "ssv.network" },
+        { "name": "NEAR Protocol", "slug": "near-protocol", "domain": "near.org", "simple_icon": "near", "display": "lockup" },
+        { "name": "SSV Network", "slug": "ssv-network", "domain": "ssv.network", "display": "lockup" },
         { "name": "Lunar", "slug": "lunar", "domain": "lunar.app", "local_source": "Ref Docs/Trust Signals/Client Logos/lunar.png" },
         { "name": "Google", "slug": "google", "domain": "google.com", "local_source": "Ref Docs/Trust Signals/Client Logos/google.png" },
-        { "name": "Rhea Finance", "slug": "rhea-finance", "domain": "rhea.finance" },
+        { "name": "Rhea Finance", "slug": "rhea-finance", "domain": "rhea.finance", "display": "lockup" },
         { "name": "Actimo", "slug": "actimo", "domain": "actimo.com", "local_source": "Ref Docs/Trust Signals/Client Logos/actimo.png" },
         { "name": "Valuer", "slug": "valuer", "domain": "valuer.ai", "local_source": "Ref Docs/Trust Signals/Client Logos/valuer.png" },
-        { "name": "Inflowpay", "slug": "inflowpay", "domain": "inflowpay.com" },
+        { "name": "Inflowpay", "slug": "inflowpay", "domain": "inflowpay.com", "display": "lockup" },
         { "name": "Grundfos", "slug": "grundfos", "domain": "grundfos.com", "local_source": "Ref Docs/Trust Signals/Client Logos/Grundfos.png" },
         { "name": "Talent Garden", "slug": "talent-garden", "domain": "talentgarden.org", "local_source": "Ref Docs/Trust Signals/Client Logos/talentgarden.png" },
         { "name": "Lundbeck", "slug": "lundbeck", "domain": "lundbeck.com", "local_source": "Ref Docs/Trust Signals/Client Logos/lundbeck.png" },
-        { "name": "Nordea", "slug": "nordea", "domain": "nordea.com" },
-        { "name": "Maersk", "slug": "maersk", "domain": "maersk.com", "display": "color" },
+        { "name": "Nordea", "slug": "nordea", "domain": "nordea.com", "display": "lockup" },
+        { "name": "Maersk", "slug": "maersk", "domain": "maersk.com", "display": "lockup", "preserve_color": true },
         { "name": "The Washington Post", "slug": "washington-post", "domain": "washingtonpost.com", "local_source": "Ref Docs/Trust Signals/Client Logos/washington-post.png" },
         { "name": "Planday", "slug": "planday", "domain": "planday.com", "local_source": "Ref Docs/Trust Signals/Client Logos/planday.png" },
         { "name": "TechBBQ", "slug": "techbbq", "domain": "techbbq.dk", "local_source": "Ref Docs/Trust Signals/Client Logos/techBBQ.png" },
@@ -40,15 +40,15 @@
         { "name": "Talent Garden", "slug": "talent-garden", "domain": "talentgarden.org", "local_source": "Ref Docs/Trust Signals/Client Logos/talentgarden.png" },
         { "name": "Copenhagen Fintech", "slug": "copenhagen-fintech", "domain": "copenhagenfintech.dk", "local_source": "Ref Docs/Trust Signals/Accelerators/Acclerators/copenhagen fintech.png" },
         { "name": "Go Grow (CBS)", "slug": "go-grow-cbs", "domain": "cbs.dk", "local_source": "Ref Docs/Trust Signals/Client Logos/cbs.png" },
-        { "name": "Innovation Centre Denmark", "slug": "innovation-centre-denmark", "domain": "icdk.dk" },
+        { "name": "Innovation Centre Denmark", "slug": "innovation-centre-denmark", "domain": "icdk.dk", "display": "lockup" },
         { "name": "DGI", "slug": "dgi", "domain": "dgi.dk" },
-        { "name": "Propagator", "slug": "propagator", "domain": "propagator.co" },
-        { "name": "Founder Institute", "slug": "founder-institute", "domain": "fi.co", "local_source": "Ref Docs/Trust Signals/Client Logos/founder-institute.png" },
-        { "name": "Crypto Summer Lab", "slug": "crypto-summer-lab", "domain": "cryptosummerlab.com" },
-        { "name": "Rockstart", "slug": "rockstart", "domain": "rockstart.com", "display": "mark" },
+        { "name": "Propagator", "slug": "propagator", "domain": "propagator.co", "display": "lockup" },
+        { "name": "Founder Institute", "slug": "founder-institute", "domain": "fi.co", "local_source": "Ref Docs/Trust Signals/Client Logos/founder-institute.png", "display": "lockup" },
+        { "name": "Crypto Summer Lab", "slug": "crypto-summer-lab", "domain": "cryptosummerlab.com", "display": "lockup" },
+        { "name": "Rockstart", "slug": "rockstart", "domain": "rockstart.com", "display": "lockup" },
         { "name": "Techstars Boston", "slug": "techstars-boston", "domain": "techstars.com", "local_source": "Ref Docs/Trust Signals/Client Logos/techstars.png" },
         { "name": "Techstars Dublin", "slug": "techstars-dublin", "domain": "techstars.com", "local_source": "Ref Docs/Trust Signals/Client Logos/techstars.png" },
-        { "name": "Intentional", "slug": "intentional", "domain": "intentional.dk" }
+        { "name": "Intentional", "slug": "intentional", "domain": "intentional.dk", "display": "lockup" }
       ]
     }
   ]

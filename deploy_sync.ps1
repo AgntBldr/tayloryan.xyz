@@ -48,6 +48,12 @@ foreach ($Page in $PortfolioLegacyPages) {
         New-Item -ItemType Directory -Force -Path $DestinationDirectory | Out-Null
     }
     Copy-Item -LiteralPath $Page.FullName -Destination $DestinationPath -Force
+
+    # Moving page.html to page/index.html adds one path segment. Root local asset
+    # references in generated clean routes so scripts and styles remain loadable.
+    $CleanRouteHtml = Get-Content -LiteralPath $DestinationPath -Raw
+    $CleanRouteHtml = $CleanRouteHtml -replace '(\b(?:src|href)=["''])(?:\.\./)+assets/', '$1/assets/'
+    Set-Content -LiteralPath $DestinationPath -Value $CleanRouteHtml -NoNewline
     $CleanRouteCount++
 }
 Write-Host "Refreshed $CleanRouteCount portfolio clean-route indexes." -ForegroundColor Green

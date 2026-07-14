@@ -114,11 +114,33 @@ const sourceHomepage = await readFile(path.join(root, "index.html"), "utf8");
 const sourceWork = await readFile(path.join(root, "work.html"), "utf8");
 const sourceContact = await readFile(path.join(root, "contact.html"), "utf8");
 const deployedCaseStudies = await readFile(path.join(publicRoot, "portfolio", "marketing", "case_studies", "index.html"), "utf8");
+const deployedCreatorRoutes = await Promise.all([
+  readFile(path.join(publicRoot, "portfolio", "marketing", "content_creator", "index.html"), "utf8"),
+  readFile(path.join(publicRoot, "portfolio", "marketing", "content_creator_external", "index.html"), "utf8")
+]);
 const caseStudySidebarInitializers = deployedCaseStudies.match(/renderMarketingSidebar\('case-studies'\)/g) || [];
+const generatedLegacyPages = publicFiles.filter((file) =>
+  file.startsWith(path.join(publicRoot, "portfolio")) &&
+  path.extname(file).toLowerCase() === ".html" &&
+  path.basename(file).toLowerCase() !== "index.html"
+);
+const generatedRoutesWithBrokenAssetRoots = [];
+for (const legacyPage of generatedLegacyPages) {
+  const cleanRoute = path.join(path.dirname(legacyPage), path.basename(legacyPage, ".html"), "index.html");
+  try {
+    const html = await readFile(cleanRoute, "utf8");
+    if (/(?:src|href)=["'](?:\.\.\/)+assets\//.test(html)) generatedRoutesWithBrokenAssetRoots.push(cleanRoute);
+  } catch {
+    generatedRoutesWithBrokenAssetRoots.push(cleanRoute);
+  }
+}
+const creatorRoutesWithBrokenDataRoots = deployedCreatorRoutes.filter((html) =>
+  !html.includes('src="/assets/js/marketing_full_data.js?v=3"')
+);
 record(
   "Clean-route source freshness",
-  caseStudySidebarInitializers.length === 1,
-  `Case Studies clean route has ${caseStudySidebarInitializers.length} sidebar initializer after legacy-source refresh.`
+  caseStudySidebarInitializers.length === 1 && generatedRoutesWithBrokenAssetRoots.length === 0 && creatorRoutesWithBrokenDataRoots.length === 0,
+  `Case Studies has ${caseStudySidebarInitializers.length} sidebar initializer; ${generatedLegacyPages.length} generated routes checked; ${generatedRoutesWithBrokenAssetRoots.length} broken asset roots; ${creatorRoutesWithBrokenDataRoots.length}/2 Content Creator data roots broken.`
 );
 record(
   "Vibecoding remains first-class",
@@ -170,6 +192,26 @@ record(
   "Resource modal fallbacks",
   staleModalFallbacks.length === 0 && modalFilesWithoutAction.length === 0,
   `${modalFallbackFiles.length - staleModalFallbacks.length}/${modalFallbackFiles.length} templates use neutral fallbacks; ${modalFilesWithoutAction.length} lack a resource or booking action.`
+);
+
+const buyerProofFiles = [
+  "portfolio/marketing/content_creator.html",
+  "portfolio/marketing/content_creator_external.html"
+];
+const buyerProofSources = await Promise.all(
+  buyerProofFiles.map((file) => readFile(path.join(root, file), "utf8"))
+);
+const incompleteBuyerProofPages = buyerProofFiles.filter((_, index) => {
+  const source = buyerProofSources[index];
+  return !source.includes('id="program-overview"') ||
+    !source.includes("A repeatable creator growth system") ||
+    !source.includes('id="resources-container"') ||
+    !source.includes('id="modal-link"');
+});
+record(
+  "Buyer-proof overview",
+  incompleteBuyerProofPages.length === 0,
+  `${buyerProofFiles.length - incompleteBuyerProofPages.length}/${buyerProofFiles.length} Content Creator tabs add overview context while retaining resource containers and modal actions.`
 );
 
 const accessibility = await readJson("audits/site-audit/accessibility-static-2026-07-14.json");
@@ -227,13 +269,33 @@ const invalidNormalizedLogos = rasterLogos.filter((asset) => {
   const match = /^(\d+)x(\d+)$/.exec(asset.normalized_visible_bounds || "");
   if (!match) return true;
   const [, width, height] = match.map(Number);
-  return width < 1 || width > 220 || height < 1 || height > 68;
+  const maxWidth = asset.display === "lockup" ? 72 : 220;
+  const maxHeight = asset.display === "lockup" ? 72 : 68;
+  return width < 1 || width > maxWidth || height < 1 || height > maxHeight;
 });
-const markLogos = ["NEAR Protocol", "Rockstart"];
+const lockupLogos = [
+  "NEAR Protocol",
+  "SSV Network",
+  "Rhea Finance",
+  "Inflowpay",
+  "Nordea",
+  "Maersk",
+  "Innovation Centre Denmark",
+  "Propagator",
+  "Founder Institute",
+  "Crypto Summer Lab",
+  "Rockstart",
+  "Intentional"
+];
+const missingLockups = lockupLogos.filter((name) =>
+  !sourceHomepage.includes(`trust-logo--lockup`) ||
+  !sourceHomepage.includes(`aria-label="${name}"`) ||
+  !sourceHomepage.includes(`trust-logo__name" aria-hidden="true">${name}</span>`)
+);
 record(
   "Trust logo assets",
-  logos.asset_count === 34 && missingLogoFiles.length === 0 && missingReviewLogoReferences.length === 0 && invalidNormalizedLogos.length === 0 && markLogos.every((name) => sourceHomepage.includes(`trust-logo trust-logo--mark" role="img" aria-label="${name}"`)) && sourceHomepage.includes('trust-logo trust-logo--color" role="img" aria-label="Maersk"') && sourceHomepage.includes('data-trust-logo-group="companies"') && sourceHomepage.includes('data-trust-logo-group="accelerators"'),
-  `${logos.asset_count} local assets; ${missingLogoFiles.length} missing copies; ${missingReviewLogoReferences.length} missing review references; ${invalidNormalizedLogos.length} raster sizing failures; both marquees remain.`
+  logos.asset_count === 34 && missingLogoFiles.length === 0 && missingReviewLogoReferences.length === 0 && invalidNormalizedLogos.length === 0 && missingLockups.length === 0 && sourceHomepage.includes('trust-logo--lockup trust-logo--color" role="img" aria-label="Maersk"') && sourceHomepage.includes('data-trust-logo-group="companies"') && sourceHomepage.includes('data-trust-logo-group="accelerators"'),
+  `${logos.asset_count} local assets; ${missingLogoFiles.length} missing copies; ${missingReviewLogoReferences.length} missing review references; ${invalidNormalizedLogos.length} raster sizing failures; ${missingLockups.length} missing icon-and-name lockups; both marquees remain.`
 );
 
 const report = {
@@ -248,9 +310,12 @@ const report = {
   missing_css_backgrounds: missingCssBackgrounds,
   missing_logo_files: missingLogoFiles,
   missing_review_logo_references: missingReviewLogoReferences.map((asset) => asset.name),
+  generated_routes_with_broken_asset_roots: generatedRoutesWithBrokenAssetRoots.map((file) => path.relative(root, file)),
   stale_modal_fallbacks: staleModalFallbacks,
   modal_files_without_action: modalFilesWithoutAction,
-  invalid_normalized_logos: invalidNormalizedLogos.map((asset) => asset.name)
+  incomplete_buyer_proof_pages: incompleteBuyerProofPages,
+  invalid_normalized_logos: invalidNormalizedLogos.map((asset) => asset.name),
+  missing_lockups: missingLockups
 };
 await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 
