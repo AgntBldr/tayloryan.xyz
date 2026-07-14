@@ -68,3 +68,7 @@ Replaced two shorthand 404 paths in the PR #3 deployment note with the verified 
 ## [2026-07-14] build | SEO, social preview, favicon, and product review
 Centralized metadata generation in the canonical deploy sync, added social/favicons/crawler controls, reduced 22 high-use images by 80.3%, and produced an ICE-ranked product review. Local metadata, route, browser, privacy, and resource-preservation checks pass; [[tsk-seo-social-discovery-upgrade]] remains doing until production verification.
 ## [2026-07-14] verify | Removed noindex fragment from SEO sitemap
+The Cloudflare preview crawl caught `/overview_blog_content/` in both the sitemap and noindex policy; removed it from the sitemap and added a verifier assertion against future overlap.
+
+## [2026-07-14] deploy | SEO and social discovery release verified in production
+Merged PR #6 as `ec160337`, passed Cloudflare deployment `ce446fff`, and verified 39/39 custom-domain routes, crawler assets, noindex headers, redirects, resource payloads, and contact-email privacy.
