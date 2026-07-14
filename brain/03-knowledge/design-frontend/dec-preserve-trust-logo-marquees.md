@@ -21,9 +21,9 @@ tagged_with: ["[[pil-portfolio-agent]]"]
 
 # Preserve Trust Logo Marquees
 
-Keep the existing company and accelerator trust-signal sections. Replace placeholder text labels with recognizable local logo assets selected from the project archive or a verified official-domain source. Normalize raster logos to transparent `256x96` PNGs, preserve wide wordmarks, and render the set in a dark-background-compatible monochrome treatment with color available on hover.
+Keep the existing company and accelerator trust-signal sections. Replace placeholder text labels with recognizable local logo assets selected from the project archive or a verified official-domain source. Normalize raster logos to transparent `256x96` PNGs, crop source padding, and scale by visible content area within fixed width and height limits. Icon-only SVGs use one smaller mark class. Most marks use a dark-background-compatible monochrome treatment with color available on hover; Maersk retains its official blue-tile color so the star does not collapse into a solid square.
 
-The implementation is manifest-driven so sources and generated assets can be audited or regenerated. Logo inclusion represents an existing site trust signal; it does not independently establish the exact relationship type. Future copy should not overstate a client, employer, partner, or accelerator relationship without supporting evidence.
+The implementation is manifest-driven so sources and generated assets can be audited or regenerated. Founder Institute is pinned to a project-local source because its official icon endpoint negotiated different image formats across identical requests; generated marker replacement is line-based so repeated builds do not accumulate indentation. Logo inclusion represents an existing site trust signal; it does not independently establish the exact relationship type. Future copy should not overstate a client, employer, partner, or accelerator relationship without supporting evidence.
 
 ## Edges
 

@@ -28,6 +28,15 @@ foreach ($Asset in $Report.assets) {
     }
     if ([System.IO.Path]::GetExtension($SourcePath) -eq ".svg") { continue }
 
+    if (-not (Test-Path -LiteralPath $SourcePath)) {
+        $RecoveredPngPath = [System.IO.Path]::ChangeExtension($SourcePath, ".png")
+        if (-not (Test-Path -LiteralPath $RecoveredPngPath)) {
+            throw "Missing trust-logo source and normalized fallback: $SourcePath"
+        }
+        $SourcePath = $RecoveredPngPath
+        $Asset.file = ($Asset.file -replace '\.[^.]+$', '.png')
+    }
+
     $Source = [System.Drawing.Bitmap]::FromFile($SourcePath)
     try {
         $Corners = @(
@@ -40,6 +49,44 @@ foreach ($Asset in $Report.assets) {
         $CornerSpread = ($Corners | ForEach-Object { Get-ColorDistance $_ $Background } | Measure-Object -Maximum).Maximum
         $RemoveSolidBackground = $Corners.Where({ $_.A -gt 245 }).Count -eq 4 -and $CornerSpread -lt 24
 
+        $MinX = $Source.Width
+        $MinY = $Source.Height
+        $MaxX = -1
+        $MaxY = -1
+        for ($Y = 0; $Y -lt $Source.Height; $Y++) {
+            for ($X = 0; $X -lt $Source.Width; $X++) {
+                $Pixel = $Source.GetPixel($X, $Y)
+                $IsContent = $Pixel.A -gt 24
+                if ($RemoveSolidBackground) {
+                    $IsContent = $IsContent -and (Get-ColorDistance $Pixel $Background) -ge 36
+                }
+                if ($IsContent) {
+                    $MinX = [Math]::Min($MinX, $X)
+                    $MinY = [Math]::Min($MinY, $Y)
+                    $MaxX = [Math]::Max($MaxX, $X)
+                    $MaxY = [Math]::Max($MaxY, $Y)
+                }
+            }
+        }
+
+        if ($MaxX -lt $MinX -or $MaxY -lt $MinY) {
+            $MinX = 0
+            $MinY = 0
+            $MaxX = $Source.Width - 1
+            $MaxY = $Source.Height - 1
+        }
+
+        $ContentWidth = $MaxX - $MinX + 1
+        $ContentHeight = $MaxY - $MinY + 1
+        $TargetArea = 9000
+        $Scale = [Math]::Sqrt($TargetArea / ($ContentWidth * $ContentHeight))
+        $Scale = [Math]::Min($Scale, 220 / $ContentWidth)
+        $Scale = [Math]::Min($Scale, 68 / $ContentHeight)
+        $Width = [Math]::Max(1, [int][Math]::Round($ContentWidth * $Scale))
+        $Height = [Math]::Max(1, [int][Math]::Round($ContentHeight * $Scale))
+        $DestinationX = [int][Math]::Round((256 - $Width) / 2)
+        $DestinationY = [int][Math]::Round((96 - $Height) / 2)
+
         $Canvas = New-Object System.Drawing.Bitmap 256, 96, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
         try {
             $Graphics = [System.Drawing.Graphics]::FromImage($Canvas)
@@ -48,12 +95,9 @@ foreach ($Asset in $Report.assets) {
                 $Graphics.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
                 $Graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
                 $Graphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
-                $Scale = [Math]::Min(232 / $Source.Width, 72 / $Source.Height)
-                $Width = [Math]::Max(1, [int][Math]::Round($Source.Width * $Scale))
-                $Height = [Math]::Max(1, [int][Math]::Round($Source.Height * $Scale))
-                $X = [int][Math]::Round((256 - $Width) / 2)
-                $Y = [int][Math]::Round((96 - $Height) / 2)
-                $Graphics.DrawImage($Source, $X, $Y, $Width, $Height)
+                $Destination = New-Object System.Drawing.Rectangle $DestinationX, $DestinationY, $Width, $Height
+                $SourceBounds = New-Object System.Drawing.Rectangle $MinX, $MinY, $ContentWidth, $ContentHeight
+                $Graphics.DrawImage($Source, $Destination, $SourceBounds, [System.Drawing.GraphicsUnit]::Pixel)
             }
             finally {
                 $Graphics.Dispose()
@@ -94,6 +138,8 @@ foreach ($Asset in $Report.assets) {
     $Asset.bytes = (Get-Item -LiteralPath $TargetPath).Length
     $Asset.sha256 = (Get-FileHash -LiteralPath $TargetPath -Algorithm SHA256).Hash.ToLowerInvariant()
     $Asset | Add-Member -NotePropertyName optimized -NotePropertyValue $true -Force
+    $Asset | Add-Member -NotePropertyName source_content_bounds -NotePropertyValue "$ContentWidth`x$ContentHeight" -Force
+    $Asset | Add-Member -NotePropertyName normalized_visible_bounds -NotePropertyValue "$Width`x$Height" -Force
 }
 
 $Report.total_bytes = ($Report.assets | Measure-Object -Property bytes -Sum).Sum

@@ -78,3 +78,9 @@ Recorded the user's decisions to preserve both side-menu systems, the full Work 
 
 ## [2026-07-14] verify | conversion UX preservation gate
 The isolated `codex/conversion-ux-pass` branch passed 16/16 preservation checks plus SEO, zero-issue static accessibility, and desktop/mobile browser QA. Production and `main` remain unchanged pending review.
+
+## [2026-07-14] refine | normalized logos and linked review sections
+Normalized trust marks by visible content area, replaced eleven hidden modal placeholders without removing their actions, and linked seven homepage copy proposals plus the buyer-proof example to their exact branch pages. The expanded gate passed 17/17 checks; production remains unchanged.
+
+## [2026-07-14] harden | deterministic trust-logo rebuilds
+Pinned the format-varying Founder Institute icon to the project archive and made generated marker replacement idempotent; final browser QA loaded all 108 repeated marquee image instances without page overflow.

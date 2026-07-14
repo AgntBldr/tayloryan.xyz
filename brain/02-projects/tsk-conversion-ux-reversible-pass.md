@@ -30,4 +30,4 @@ tagged_with: ["[[pil-portfolio-agent]]"]
 
 ## Current State
 
-The implementation is isolated on `codex/conversion-ux-pass` from base commit `8127110`. Git history is split into implementation, QA/report evidence, and Second Brain memory commits so each layer can be reviewed or reverted independently. The 16-check preservation gate, SEO verifier, static accessibility audit, and desktop/mobile browser QA pass. Production and `main` remain unchanged pending review.
+The implementation is isolated on `codex/conversion-ux-pass` from base commit `8127110`. Git history is split into implementation, QA/report evidence, and Second Brain memory commits so each layer can be reviewed or reverted independently. The follow-up normalizes visible logo area, replaces eleven hidden modal placeholders with neutral linked fallbacks, and adds direct report links to seven homepage copy sections and the buyer-proof example. The 17-check preservation gate, SEO verifier, static accessibility audit, and browser QA pass. Production and `main` remain unchanged pending review.

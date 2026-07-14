@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T12:15:00+02:00",
+  "generated_at": "2026-07-14T13:06:21+02:00",
   "target": "http://127.0.0.1:4174",
   "production_changed": false,
   "passed": true,
@@ -38,7 +38,19 @@
       "name": "Case Studies modal",
       "viewport": "1280x900",
       "passed": true,
-      "evidence": "The clean route renders one sidebar. Opening a resource replaces Resource Title and Description goes here with the indexed title and description."
+      "evidence": "The neutral fallback remains hidden before interaction. Opening the first resource shows its indexed title and the existing Google Sheet URL; no stale placeholder is visible."
+    },
+    {
+      "name": "Trust-logo normalization",
+      "viewport": "1280x1000 and 390x844 review sheet",
+      "passed": true,
+      "evidence": "All 34 contact-sheet images and all 108 repeated marquee image instances load. Google is visually comparable to adjacent wordmarks, icon-only SVGs share one display size, Maersk retains its brand-color mark, and the page has no horizontal overflow."
+    },
+    {
+      "name": "Linked copy and proof review",
+      "viewport": "1280x1000 and 390x844",
+      "passed": true,
+      "evidence": "The report exposes 4 review shortcuts, 11 affected resource routes, 7 homepage section links, and 1 proof-example link. The tested Contact CTA link opens the exact anchored homepage section."
     }
   ],
   "screenshots": [
@@ -49,6 +61,9 @@
     "audits/site-audit/screenshots/work-sidebar-mobile-2026-07-14.png",
     "audits/site-audit/screenshots/marketing-sidebar-mobile-2026-07-14.png",
     "audits/site-audit/screenshots/contact-desktop-2026-07-14.png",
-    "audits/site-audit/screenshots/case-study-modal-2026-07-14.png"
+    "audits/site-audit/screenshots/case-study-modal-2026-07-14.png",
+    "audits/site-audit/screenshots/trust-logos-normalized-2026-07-14.png",
+    "audits/site-audit/screenshots/trust-logo-contact-sheet-responsive-2026-07-14.png",
+    "audits/site-audit/screenshots/copy-review-linked-2026-07-14.png"
   ]
 }

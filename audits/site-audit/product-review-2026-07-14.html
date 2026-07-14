@@ -31,6 +31,9 @@
         p { margin: 0 0 12px; }
         a { color: var(--accent); }
         .subtitle { max-width: 760px; margin-top: 12px; color: var(--muted); font-size: 17px; }
+        .jump-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+        .jump-nav a, .action-link { display: inline-flex; align-items: center; min-height: 36px; padding: 7px 11px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); font-weight: 700; text-decoration: none; }
+        .jump-nav a:hover, .action-link:hover { border-color: var(--accent); background: var(--accent-soft); }
         .band { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
         .summary { max-width: 920px; font-size: 17px; }
         .summary p + p { margin-top: 12px; }
@@ -67,6 +70,7 @@
         .logo-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
         .logo { min-width: 0; min-height: 96px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 12px; border: 1px solid #343a3d; border-radius: 6px; background: #111516; color: #d9dedf; text-align: center; font-size: 11px; }
         .logo img { width: 100%; height: 42px; object-fit: contain; filter: grayscale(1) brightness(0) invert(1); opacity: .82; }
+        .logo--color img { filter: none; }
         code { font: .92em Consolas, monospace; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
             :root { --bg: #101213; --surface: #181b1d; --surface-alt: #202528; --text: #f2f4f4; --muted: #a5adaf; --line: #343a3d; --accent: #72c5c0; --accent-soft: #153132; --done: #70d6a5; --preview: #e6bf65; --hold: #ef8f8f; }
@@ -92,6 +96,12 @@
     <header>
         <h1>Portfolio Conversion and Product Review</h1>
         <p class="subtitle">A reversible implementation pass, your decisions on the original roadmap, and the two changes still waiting for approval. Updated 14 July 2026.</p>
+        <nav class="jump-nav" aria-label="Review shortcuts">
+            <a href="#item-1">Item 1: Resource fallbacks</a>
+            <a href="#item-3">Item 3: Copy by section</a>
+            <a href="#item-5">Item 5: Proof example</a>
+            <a href="#trust-logos">Item 6: Logo normalization</a>
+        </nav>
     </header>
 
     <section class="band">
@@ -99,7 +109,7 @@
         <div class="summary">
             <p><strong>The current changes are reversible and have not reached the live site.</strong> Work is isolated on <code>codex/conversion-ux-pass</code>, based on commit <code>8127110</code>. Cloudflare production remains unchanged.</p>
             <p><strong>Your side menus, archive, vibecoding work, Google records, and Layer3 links are explicitly protected.</strong> A release verifier now fails if any of those surfaces disappear. The 597 non-public or broken Google resources remain preserved for later offline pairing rather than being deleted.</p>
-            <p><strong>Items 2, 4, 6, 7, 9, and 10 are implemented in the preview build.</strong> Items 3 and 5 are examples only. Item 1 is now clarified and has not been changed because the placeholder strings are hidden modal defaults, not one visibly broken page.</p>
+            <p><strong>Items 1, 2, 4, 6, 7, 9, and 10 are implemented in the preview build.</strong> Items 3 and 5 remain approval previews. Item 1 now uses neutral hidden fallbacks while retaining the real card title, description, and available resource link when a modal opens.</p>
         </div>
         <div class="metrics">
             <div class="metric"><strong>622</strong><span>Google resource records preserved</span></div>
@@ -135,14 +145,14 @@
             <table>
                 <thead><tr><th>#</th><th>Decision</th><th>Status</th><th>What this pass does</th><th class="number">ICE</th></tr></thead>
                 <tbody>
-                    <tr><td>1</td><td><strong>Clarify placeholder proof first</strong></td><td class="status preview-status">Explained below</td><td>Names the exact affected routes and separates hidden modal defaults from genuinely missing content. No live copy removed.</td><td class="number">72.0</td></tr>
+                    <tr><td>1</td><td><strong>Clarify placeholder proof first</strong></td><td class="status done">Implemented</td><td>Replaces hidden placeholder defaults with neutral guidance, retains every available documentation link, and links the exact affected routes below.</td><td class="number">72.0</td></tr>
                     <tr><td>2</td><td><strong>Complete control accessibility</strong></td><td class="status done">Implemented</td><td>Labels icon controls and fixes the marketing mobile toggle. All marketing, work, speaker, and about side menus remain.</td><td class="number">63.0</td></tr>
                     <tr><td>3</td><td><strong>Clarify homepage audience and offer</strong></td><td class="status preview-status">Approval preview</td><td>Shows the exact line and CTA adjustment below. The live homepage wording is untouched.</td><td class="number">48.0</td></tr>
-                    <tr><td>4</td><td><strong>Use clean public routes</strong></td><td class="status done">Implemented</td><td>Normalizes 43 internal links and fails the build on unresolved routes. No resource destination is deleted.</td><td class="number">43.2</td></tr>
+                    <tr><td>4</td><td><strong>Use clean public routes</strong></td><td class="status done">Implemented</td><td>Normalizes 79 internal links and fails the build on unresolved routes. No resource destination is deleted.</td><td class="number">43.2</td></tr>
                     <tr><td>5</td><td><strong>Make buyer proof easier to scan</strong></td><td class="status preview-status">Example only</td><td>Shows one evidence-backed proof snapshot below. No testimonial or project content is replaced.</td><td class="number">43.2</td></tr>
-                    <tr><td>6</td><td><strong>Keep marquees and use real logos</strong></td><td class="status done">Implemented as requested</td><td>Keeps both marquees, replaces visible text names with 34 compressed local marks, and makes them readable on dark backgrounds.</td><td class="number">40.5</td></tr>
+                    <tr><td>6</td><td><strong>Keep marquees and use real logos</strong></td><td class="status done">Normalized</td><td>Keeps both marquees and 34 local marks, crops source padding, balances visible logo area, and gives icon-only marks a consistent display size.</td><td class="number">40.5</td></tr>
                     <tr><td>7</td><td><strong>Add contact fit and response cues</strong></td><td class="status done">Implemented</td><td>Adds suitable inquiry types and response expectations without exposing <code>Taylor@klintmarketing.com</code>.</td><td class="number">39.2</td></tr>
-                    <tr><td>8</td><td><strong>Keep doing more vibecoding</strong></td><td class="status done">Direction preserved</td><td>Vibecoding stays on the homepage and side menu, and now appears first in the new Work goal navigator.</td><td class="number">38.4</td></tr>
+                    <tr><td>8</td><td><strong>Keep doing more vibecoding</strong></td><td class="status done">Direction preserved</td><td>Vibecoding stays on the homepage and side menu, appears first in the Work goal navigator, and its homepage CTA now links to the dedicated Vibecoding page.</td><td class="number">38.4</td></tr>
                     <tr><td>9</td><td><strong>Reduce runtime dependency risk</strong></td><td class="status done">Implemented</td><td>Self-hosts compiled Tailwind CSS, pinned Lucide, and local Outfit/Inter fonts. External runtime references are now zero.</td><td class="number">33.6</td></tr>
                     <tr><td>10</td><td><strong>Add buyer-goal navigation</strong></td><td class="status done">Implemented</td><td>Adds four shortcuts above the Work archive. It does not replace the archive or remove any side-menu destination.</td><td class="number">28.8</td></tr>
                 </tbody>
@@ -150,49 +160,49 @@
         </div>
     </section>
 
-    <section class="band">
-        <h2>Item 1: Which Pages Contain the Placeholder Strings?</h2>
+    <section id="item-1" class="band">
+        <h2>Item 1: Resource Modal Fallbacks</h2>
         <div class="summary">
-            <p><strong>This is a shared modal-template issue, not one unfinished case-study page.</strong> The strings <code>Resource Title</code> and <code>Description goes here</code> initialize hidden modal elements. JavaScript normally replaces them when a visitor opens a resource.</p>
-            <p>The exact clean routes are:</p>
+            <p><strong>This was a shared modal-template issue, not one unfinished case-study page.</strong> The hidden defaults now say <code>Portfolio Resource</code> and explain that selecting a card opens its available documentation. JavaScript still replaces those defaults with the actual resource title, description, and URL.</p>
+            <p>No existing Google, Layer3, booking, testimonial, or portfolio destination was removed. Open any affected branch page directly:</p>
         </div>
         <ul class="route-list">
-            <li><code>/portfolio/marketing/affiliates/</code></li>
-            <li><code>/portfolio/marketing/case_studies/</code></li>
-            <li><code>/portfolio/marketing/case_studies/examples/</code></li>
-            <li><code>/portfolio/marketing/content_creator/</code></li>
-            <li><code>/portfolio/marketing/content_creator_external/</code></li>
-            <li><code>/portfolio/marketing/email_outreach/</code></li>
-            <li><code>/portfolio/marketing/email_outreach/templates/</code></li>
-            <li><code>/portfolio/marketing/email_outreach/video/</code></li>
-            <li><code>/portfolio/marketing/testimonials/</code></li>
-            <li><code>/portfolio/quests/resources/</code></li>
-            <li><code>/work_speaker_topics/</code></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/affiliates/index.html">Affiliates</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/case_studies/index.html">Case Studies</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/case_studies/examples/index.html">Case Study Examples</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/content_creator/index.html">Content Creator</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/content_creator_external/index.html">External Content Creator</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/email_outreach/index.html">Email Outreach</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/email_outreach/templates/index.html">Email Templates</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/email_outreach/video/index.html">Outreach Video</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/marketing/testimonials/index.html">Marketing Testimonials</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/portfolio/quests/resources/index.html">Quest Resources</a></li>
+            <li><a href="../../DEPLOY_PUBLIC/work_speaker_topics/index.html">Speaker Topics</a></li>
         </ul>
-        <p class="note" style="margin-top: 16px;"><strong>Verified example:</strong> opening the first Case Studies resource replaced the defaults with <em>Case Studies Examples - Competitors [Sheet]</em> and its real description. Recommendation: keep the modals and leave the hidden defaults unchanged until the remaining template families are tested in a later focused pass.</p>
+        <p class="note" style="margin-top: 16px;"><strong>Verified example:</strong> opening the first Case Studies resource replaces the fallback with <em>Case Studies Examples - Competitors [Sheet]</em>, its real description, and its existing Google Sheet URL. The preservation manifest remains the source of truth for future offline-file replacement work.</p>
     </section>
 
-    <section class="band">
-        <h2>Item 3: Homepage Copy Preview</h2>
-        <p><strong>What I would change:</strong> keep the <em>Driven by Growth.</em> headline and the visual design, replace only the supporting sentence with a clearer audience and work statement, then test a contact-oriented secondary CTA. Nothing in this section has been applied to the homepage.</p>
-        <div class="two-col">
-            <article class="preview">
-                <div class="preview-label">Current</div>
-                <div class="hero-sample">Driven by Growth.</div>
-                <p>17+ years scaling startups and mastering GTM operational excellence in AI, Blockchain, and SaaS.</p>
-                <p class="note">CTAs: Explore Work / About Me</p>
-            </article>
-            <article class="preview">
-                <div class="preview-label">Proposed option A</div>
-                <div class="hero-sample">Driven by Growth.</div>
-                <p>I help startup and scaleup teams build GTM systems, AI workflows, and growth programs across AI, blockchain, and SaaS.</p>
-                <p class="note">Suggested CTAs: Explore Work / Start a Conversation</p>
-            </article>
+    <section id="item-3" class="band">
+        <h2>Item 3: Homepage Text Changes, Section by Section</h2>
+        <p><strong>These are proposals only.</strong> The branch adds direct section anchors so you can inspect the current design beside each recommendation. No wording in this table has been applied.</p>
+        <div class="table-wrap" style="margin-top: 18px;">
+            <table>
+                <thead><tr><th>Section</th><th>Current</th><th>Proposed</th><th>Find it</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Hero</strong></td><td>17+ years scaling startups and mastering GTM operational excellence in AI, Blockchain, and SaaS.<br><span class="note">CTAs: Explore Work / About Me</span></td><td>I help startup and scaleup teams build go-to-market systems, AI workflows, and growth programs across AI, blockchain, and SaaS.<br><span class="note">CTAs: Explore Work / Start a Conversation</span></td><td><a class="action-link" href="../../DEPLOY_PUBLIC/index.html#home-hero">Open hero</a></td></tr>
+                    <tr><td><strong>Company logos</strong></td><td>Trusted by leading companies</td><td>Selected organizations across my work</td><td><a class="action-link" href="../../DEPLOY_PUBLIC/index.html#company-trust">Open logos</a></td></tr>
+                    <tr><td><strong>Areas of Impact</strong></td><td>Deep expertise across multiple domains. Explore the portfolio.</td><td>Explore hands-on work across growth systems, AI-enabled execution, speaking, education, and product building.</td><td><a class="action-link" href="../../DEPLOY_PUBLIC/index.html#areas-of-impact">Open section</a></td></tr>
+                    <tr><td><strong>Execution</strong></td><td>I don't just talk about growth; I build the systems that drive it. My approach blends technical precision with creative strategy.</td><td>I combine GTM leadership with hands-on systems building, from growth operations and automation to launches, workshops, and team enablement.</td><td><a class="action-link" href="../../DEPLOY_PUBLIC/index.html#execution">Open section</a></td></tr>
+                    <tr><td><strong>Vibecoding</strong></td><td>It's the flow state where AI and human creativity merge. By leveraging agentic workflows and LLMs, I build complex systems at 10x speed.</td><td>Vibecoding is how I use AI as an active building partner: orchestrating agents, testing ideas quickly, and turning rough concepts into working systems.</td><td><a class="action-link" href="../../DEPLOY_PUBLIC/index.html#vibecoding">Open section</a></td></tr>
+                    <tr><td><strong>Accelerators</strong></td><td>Mentor and Workshops for Over 20 Accelerators Globally</td><td>Mentoring and workshop experience across 20+ accelerator programs worldwide</td><td><a class="action-link" href="../../DEPLOY_PUBLIC/index.html#accelerator-network">Open logos</a></td></tr>
+                    <tr><td><strong>Contact CTA</strong></td><td>Ready to scale? I'm currently looking for the right leadership seat in a decentralized, product-first project.</td><td>Need a growth operator who can lead and build? Let's talk about GTM leadership, AI-enabled execution, workshops, or a focused growth engagement.</td><td><a class="action-link" href="../../DEPLOY_PUBLIC/index.html#contact-cta">Open CTA</a></td></tr>
+                </tbody>
+            </table>
         </div>
-        <p style="margin-top: 16px;"><strong>Alternative option B:</strong> GTM leadership, hands-on growth systems, and AI-enabled execution for startup and scaleup teams.</p>
+        <p class="note" style="margin-top: 14px;">The homepage headline <em>Driven by Growth.</em> stays unchanged. The Vibecoding CTA already points to the dedicated Vibecoding work page; only the explanatory paragraph above remains proposed.</p>
     </section>
 
-    <section class="band">
+    <section id="item-5" class="band">
         <h2>Item 5: Example of a Buyer-Proof Snapshot</h2>
         <p><strong>The idea is not to invent a result.</strong> It is to turn evidence already in the portfolio into a consistent, scannable structure and clearly mark whether the underlying artifacts are public, private, offline, or retired.</p>
         <div class="proof-grid">
@@ -214,11 +224,12 @@
                 </dl>
             </article>
         </div>
+        <p style="margin-top: 16px;"><a class="action-link" href="../../DEPLOY_PUBLIC/portfolio/marketing/content_creator/index.html">Open the Content Creator portfolio section</a></p>
     </section>
 
-    <section class="band">
+    <section id="trust-logos" class="band">
         <h2>Trust Logo Review</h2>
-        <p><strong>Both trust marquees remain.</strong> The text-only company names have been replaced with local assets sourced from pinned Simple Icons or icons declared by verified official domains. Raster files are compressed and normalized; the homepage renders every mark as monochrome on dark and restores color on hover.</p>
+        <p><strong>Both trust marquees remain.</strong> Raster marks are now cropped to their visible content and normalized by visible area, so Google no longer renders unusually small and large padded marks no longer dominate. The three icon-only SVGs use a consistent mark size. The homepage remains monochrome on dark and restores color on hover.</p>
         <div class="logo-grid" aria-label="Trust logo asset contact sheet">
             <div class="logo"><img src="../../assets/brand/trust/novo-nordisk.png" alt="Novo Nordisk"><span>Novo Nordisk</span></div>
             <div class="logo"><img src="../../assets/brand/trust/near-protocol.svg" alt="NEAR Protocol"><span>NEAR Protocol</span></div>
@@ -233,7 +244,7 @@
             <div class="logo"><img src="../../assets/brand/trust/talent-garden.png" alt="Talent Garden"><span>Talent Garden</span></div>
             <div class="logo"><img src="../../assets/brand/trust/lundbeck.png" alt="Lundbeck"><span>Lundbeck</span></div>
             <div class="logo"><img src="../../assets/brand/trust/nordea.png" alt="Nordea"><span>Nordea</span></div>
-            <div class="logo"><img src="../../assets/brand/trust/maersk.png" alt="Maersk"><span>Maersk</span></div>
+            <div class="logo logo--color"><img src="../../assets/brand/trust/maersk.png" alt="Maersk"><span>Maersk</span></div>
             <div class="logo"><img src="../../assets/brand/trust/washington-post.png" alt="The Washington Post"><span>Washington Post</span></div>
             <div class="logo"><img src="../../assets/brand/trust/planday.png" alt="Planday"><span>Planday</span></div>
             <div class="logo"><img src="../../assets/brand/trust/techbbq.png" alt="TechBBQ"><span>TechBBQ</span></div>
@@ -244,11 +255,11 @@
             <div class="logo"><img src="../../assets/brand/trust/hype-sports-innovation.png" alt="HYPE Sports Innovation"><span>HYPE Sports</span></div>
             <div class="logo"><img src="../../assets/brand/trust/the-camp-tryg.png" alt="The Camp by Tryg"><span>The Camp / Tryg</span></div>
             <div class="logo"><img src="../../assets/brand/trust/copenhagen-fintech.png" alt="Copenhagen Fintech"><span>Copenhagen Fintech</span></div>
-            <div class="logo"><img src="../../assets/brand/trust/go-grow-cbs.svg" alt="Go Grow at CBS"><span>Go Grow / CBS</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/go-grow-cbs.png" alt="Go Grow at CBS"><span>Go Grow / CBS</span></div>
             <div class="logo"><img src="../../assets/brand/trust/innovation-centre-denmark.png" alt="Innovation Centre Denmark"><span>Innovation Centre Denmark</span></div>
             <div class="logo"><img src="../../assets/brand/trust/dgi.png" alt="DGI"><span>DGI</span></div>
             <div class="logo"><img src="../../assets/brand/trust/propagator.png" alt="Propagator"><span>Propagator</span></div>
-            <div class="logo"><img src="../../assets/brand/trust/founder-institute.svg" alt="Founder Institute"><span>Founder Institute</span></div>
+          <div class="logo"><img src="../../assets/brand/trust/founder-institute.png" alt="Founder Institute"><span>Founder Institute</span></div>
             <div class="logo"><img src="../../assets/brand/trust/crypto-summer-lab.png" alt="Crypto Summer Lab"><span>Crypto Summer Lab</span></div>
             <div class="logo"><img src="../../assets/brand/trust/rockstart.svg" alt="Rockstart"><span>Rockstart</span></div>
             <div class="logo"><img src="../../assets/brand/trust/techstars-boston.png" alt="Techstars Boston"><span>Techstars Boston</span></div>

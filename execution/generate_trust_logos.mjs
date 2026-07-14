@@ -161,7 +161,10 @@ const renderTrack = (group) => {
     const attrs = copy === 0 ? "" : ' aria-hidden="true" data-logo-copy';
     return group.items.map((item) => {
       const name = escapeHtml(item.name);
-      return `                <span class="trust-logo" role="img" aria-label="${name}"${attrs}><img src="/assets/brand/trust/${fileBySlug.get(item.slug)}" alt="" width="128" height="48" decoding="async"></span>`;
+      const displayClass = item.display === "mark"
+        ? " trust-logo--mark"
+        : item.display === "color" ? " trust-logo--color" : "";
+      return `                <span class="trust-logo${displayClass}" role="img" aria-label="${name}"${attrs}><img src="/assets/brand/trust/${fileBySlug.get(item.slug)}" alt="" width="128" height="48" decoding="async"></span>`;
     }).join("\n");
   });
 
@@ -180,8 +183,9 @@ for (const group of manifest.groups) {
   const sectionEnd = homepage.indexOf("</section>", sectionStart);
   const generatedStart = homepage.indexOf("<!-- GENERATED TRUST LOGOS:", sectionStart);
   const originalStart = homepage.indexOf('<div\n                class="flex animate-scroll', sectionStart);
-  const trackStart = generatedStart >= 0 && generatedStart < sectionEnd ? generatedStart : originalStart;
-  if (trackStart < 0 || trackStart > sectionEnd) throw new Error(`Missing marquee track in ${group.section_marker}`);
+  const rawTrackStart = generatedStart >= 0 && generatedStart < sectionEnd ? generatedStart : originalStart;
+  if (rawTrackStart < 0 || rawTrackStart > sectionEnd) throw new Error(`Missing marquee track in ${group.section_marker}`);
+  const trackStart = homepage.lastIndexOf("\n", rawTrackStart) + 1;
   const trackEnd = homepage.indexOf("</div>", trackStart) + "</div>".length;
   homepage = homepage.slice(0, trackStart) + renderTrack(group) + homepage.slice(trackEnd);
 }

@@ -141,6 +141,37 @@ record(
   "Taylor@klintmarketing.com does not appear in DEPLOY_PUBLIC."
 );
 
+const modalFallbackFiles = [
+  "portfolio/marketing/affiliates.html",
+  "portfolio/marketing/case_studies.html",
+  "portfolio/marketing/case_studies/examples/index.html",
+  "portfolio/marketing/content_creator.html",
+  "portfolio/marketing/content_creator_external.html",
+  "portfolio/marketing/email_outreach.html",
+  "portfolio/marketing/email_outreach/templates/index.html",
+  "portfolio/marketing/email_outreach/video/index.html",
+  "portfolio/marketing/testimonials.html",
+  "portfolio/quests/resources.html",
+  "work_speaker_topics.html"
+];
+const modalFallbackSources = await Promise.all(
+  modalFallbackFiles.map((file) => readFile(path.join(root, file), "utf8"))
+);
+const staleModalFallbacks = modalFallbackFiles.filter((_, index) =>
+  /Resource Title|Description goes here/i.test(modalFallbackSources[index])
+);
+const modalFilesWithoutAction = modalFallbackFiles.filter((file, index) => {
+  const source = modalFallbackSources[index];
+  return file === "work_speaker_topics.html"
+    ? !source.includes('href="https://bookme.name/TaylorRyan"')
+    : !source.includes('id="modal-link"');
+});
+record(
+  "Resource modal fallbacks",
+  staleModalFallbacks.length === 0 && modalFilesWithoutAction.length === 0,
+  `${modalFallbackFiles.length - staleModalFallbacks.length}/${modalFallbackFiles.length} templates use neutral fallbacks; ${modalFilesWithoutAction.length} lack a resource or booking action.`
+);
+
 const accessibility = await readJson("audits/site-audit/accessibility-static-2026-07-14.json");
 record("Static accessibility", accessibility.issue_count === 0, `${accessibility.issue_count} issue(s) across ${accessibility.files_scanned} source files.`);
 
@@ -189,10 +220,20 @@ for (const asset of logos.assets) {
     }
   }
 }
+const productReview = await readFile(path.join(root, "audits", "site-audit", "product-review-2026-07-14.html"), "utf8");
+const missingReviewLogoReferences = logos.assets.filter((asset) => !productReview.includes(`../../${asset.file}`));
+const rasterLogos = logos.assets.filter((asset) => asset.file.endsWith(".png"));
+const invalidNormalizedLogos = rasterLogos.filter((asset) => {
+  const match = /^(\d+)x(\d+)$/.exec(asset.normalized_visible_bounds || "");
+  if (!match) return true;
+  const [, width, height] = match.map(Number);
+  return width < 1 || width > 220 || height < 1 || height > 68;
+});
+const markLogos = ["NEAR Protocol", "Rockstart"];
 record(
   "Trust logo assets",
-  logos.asset_count === 34 && missingLogoFiles.length === 0 && sourceHomepage.includes('data-trust-logo-group="companies"') && sourceHomepage.includes('data-trust-logo-group="accelerators"'),
-  `${logos.asset_count} local assets; ${missingLogoFiles.length} missing source/deploy copies; both marquees remain.`
+  logos.asset_count === 34 && missingLogoFiles.length === 0 && missingReviewLogoReferences.length === 0 && invalidNormalizedLogos.length === 0 && markLogos.every((name) => sourceHomepage.includes(`trust-logo trust-logo--mark" role="img" aria-label="${name}"`)) && sourceHomepage.includes('trust-logo trust-logo--color" role="img" aria-label="Maersk"') && sourceHomepage.includes('data-trust-logo-group="companies"') && sourceHomepage.includes('data-trust-logo-group="accelerators"'),
+  `${logos.asset_count} local assets; ${missingLogoFiles.length} missing copies; ${missingReviewLogoReferences.length} missing review references; ${invalidNormalizedLogos.length} raster sizing failures; both marquees remain.`
 );
 
 const report = {
@@ -205,7 +246,11 @@ const report = {
   missing_google_urls: missingGoogleUrls,
   missing_layer3_urls: missingLayer3Urls,
   missing_css_backgrounds: missingCssBackgrounds,
-  missing_logo_files: missingLogoFiles
+  missing_logo_files: missingLogoFiles,
+  missing_review_logo_references: missingReviewLogoReferences.map((asset) => asset.name),
+  stale_modal_fallbacks: staleModalFallbacks,
+  modal_files_without_action: modalFilesWithoutAction,
+  invalid_normalized_logos: invalidNormalizedLogos.map((asset) => asset.name)
 };
 await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
 

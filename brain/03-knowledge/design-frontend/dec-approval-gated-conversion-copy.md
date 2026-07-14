@@ -21,9 +21,9 @@ tagged_with: ["[[pil-portfolio-agent]]"]
 
 # Approval-Gated Conversion Copy
 
-Treat homepage positioning and richer case-study proof as approval-gated content changes. The product review may show concrete examples, but the live site keeps its existing homepage headline until the user selects a direction. Proof examples must separate the problem, work performed, available evidence, and current evidence availability; they must not invent business outcomes.
+Treat homepage positioning and richer case-study proof as approval-gated content changes. The product review shows current and proposed wording for seven directly linked homepage sections, but the live site keeps its existing text until the user selects a direction. Proof examples must separate the problem, work performed, available evidence, and current evidence availability; they must not invent business outcomes. The example links to the corresponding Content Creator portfolio section for inspection.
 
-The hidden modal defaults `Resource Title` and `Description goes here` are implementation fallbacks, not currently visible public copy. They appear in eleven clean routes and are replaced with real resource metadata when a card opens. Keep the modals and verify other resource families before deciding whether any fallback text should change.
+The eleven hidden modal defaults now use neutral guidance instead of placeholder text. Real resource metadata and the existing documentation URL still replace the fallback when a card opens; Speaker Topics retains its booking action. This cleanup does not remove or replace Google, Layer3, booking, testimonial, or portfolio destinations.
 
 ## Edges
 

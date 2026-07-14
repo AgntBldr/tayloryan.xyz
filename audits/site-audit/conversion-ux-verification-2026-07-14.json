@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-14T10:22:05.954Z",
+  "generated_at": "2026-07-14T11:05:49.871Z",
   "passed": true,
-  "check_count": 16,
+  "check_count": 17,
   "failure_count": 0,
   "checks": [
     {
@@ -60,6 +60,11 @@
       "detail": "Taylor@klintmarketing.com does not appear in DEPLOY_PUBLIC."
     },
     {
+      "name": "Resource modal fallbacks",
+      "passed": true,
+      "detail": "11/11 templates use neutral fallbacks; 0 lack a resource or booking action."
+    },
+    {
       "name": "Static accessibility",
       "passed": true,
       "detail": "0 issue(s) across 61 source files."
@@ -82,12 +87,16 @@
     {
       "name": "Trust logo assets",
       "passed": true,
-      "detail": "34 local assets; 0 missing source/deploy copies; both marquees remain."
+      "detail": "34 local assets; 0 missing copies; 0 missing review references; 0 raster sizing failures; both marquees remain."
     }
   ],
   "failures": [],
   "missing_google_urls": [],
   "missing_layer3_urls": [],
   "missing_css_backgrounds": [],
-  "missing_logo_files": []
+  "missing_logo_files": [],
+  "missing_review_logo_references": [],
+  "stale_modal_fallbacks": [],
+  "modal_files_without_action": [],
+  "invalid_normalized_logos": []
 }
