@@ -21,6 +21,11 @@ This ensures assets are synced and `work.html` is correctly transformed for sub-
 ./deploy_sync.ps1
 ```
 
+The sync finishes by running `execution/apply_seo_metadata.mjs`. Page titles and descriptions live in
+`execution/seo_metadata.json`; the script injects canonical, Open Graph, Twitter, favicon, and robots
+metadata, then regenerates `DEPLOY_PUBLIC/sitemap.xml` and copies the canonical crawler/manifest files.
+Run `node execution/verify_seo.mjs` before publishing metadata changes.
+
 ## Contact Form
 The contact form submits to the Cloudflare Pages Function at `functions/api/contact.js` and sends email through Resend.
 Set these Cloudflare Pages environment variables before relying on the form in production:
@@ -32,4 +37,3 @@ Set these Cloudflare Pages environment variables before relying on the form in p
 ## Archives
 Old or duplicate folders have been moved to `__ARCHIVE_NOT_USED_FOR_DEPLOY__`.
 Do not mistakenly use these for deployment.
-

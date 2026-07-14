@@ -6,7 +6,7 @@ tags: [taylor-ryan, portfolio-site, cloudflare, link-audit, preservation]
 domain: project-management
 status: active
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-07-14
 visibility: namespace
 owner: agent
 start: 2026-07-13
@@ -26,7 +26,9 @@ Teneo is outside this project. Layer3 quest links and Google URLs that merely re
 
 ## Current State
 
-The preservation manifest reviewed 622 Google URLs: 25 public-working, 517 auth-required/private, and 80 confirmed broken/missing. The active cleanup removes or neutralizes only those 80 confirmed-broken public actions while preserving every retired URL in a review ledger.
+The preservation manifest reviewed 622 Google URLs: 25 public-working, 517 auth-required/private, and 80 confirmed broken/missing. The selective cleanup of those 80 broken URLs is live and retains its preservation ledger, private resources, and Layer3 links.
+
+The active follow-up is [[tsk-seo-social-discovery-upgrade]]: a centralized discovery/share metadata pipeline, crawler-file correction, branded favicon set, image payload reduction, and ICE-ranked product review. Local validation is complete; production publication remains pending.
 
 ## Edges
 

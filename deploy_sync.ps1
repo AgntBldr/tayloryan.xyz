@@ -401,6 +401,14 @@ foreach ($file in $HtmlFiles) {
 }
 Write-Host "Global Cache Busting Complete." -ForegroundColor Green
 
+# 5. Apply canonical SEO metadata and generate crawler files.
+Write-Host "Applying SEO metadata and crawler files..." -ForegroundColor Yellow
+& node "$SourceRoot\execution\apply_seo_metadata.mjs"
+if ($LASTEXITCODE -ne 0) {
+    throw "SEO metadata generation failed with exit code $LASTEXITCODE."
+}
+Write-Host "SEO Metadata and Crawler Files Complete." -ForegroundColor Green
+
 Write-Host "Deployment Sync Complete." -ForegroundColor Cyan
 
 # Legacy duplicate deploy sync. Disabled by default because DEPLOY_PUBLIC is the

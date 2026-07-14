@@ -64,3 +64,6 @@ Merged PR #3 to `main` as `cdb5075f0f834804dcacd5c23ec6896ba59b97b2`; Cloudflare
 
 ## [2026-07-13] correct | fixed production route names in deployment memory
 Replaced two shorthand 404 paths in the PR #3 deployment note with the verified `/contact/` and `/portfolio/marketing/case_studies/` routes. This corrected memory only; the application routes were already healthy.
+
+## [2026-07-14] build | SEO, social preview, favicon, and product review
+Centralized metadata generation in the canonical deploy sync, added social/favicons/crawler controls, reduced 22 high-use images by 80.3%, and produced an ICE-ranked product review. Local metadata, route, browser, privacy, and resource-preservation checks pass; [[tsk-seo-social-discovery-upgrade]] remains doing until production verification.
