@@ -87,3 +87,6 @@ Pinned the format-varying Founder Institute icon to the project archive and made
 
 ## [2026-07-14] refine | named trust lockups and additive buyer proof
 Preserved complete wordmarks, paired twelve symbol-only marks with company names, and added an approved overview above both unchanged Content Creator resource archives. Corrected generated clean-route asset roots so the 59-item archive loads; the expanded preservation gate passes 18/18 while production remains unchanged.
+
+## [2026-07-14] decide | accepted current logo and buyer-proof pass
+The user accepted the current normalized recognition lockups and additive buyer-proof overview. Exact official combined wordmark assets are recorded as an optional future refinement; the accepted implementation remains reversible on `codex/conversion-ux-pass`.

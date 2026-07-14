@@ -33,3 +33,5 @@ tagged_with: ["[[pil-portfolio-agent]]"]
 The implementation is isolated on `codex/conversion-ux-pass` from base commit `8127110`. Existing horizontal wordmarks remain intact, while twelve symbol-only trust marks now render as normalized icon-and-name recognition lockups. Both Content Creator tabs add an approved buyer-proof overview above the unchanged resource archive. The deploy sync also roots local asset references in generated clean-route copies so the 59-item Content Creator archive loads instead of remaining on its loading state.
 
 The 18-check preservation gate, SEO verifier, static accessibility audit, and desktop browser QA pass. The gate retains 542 deployed Google URLs, the 80-URL recovery ledger, all 39 Layer3 URLs, both side-menu systems, vibecoding, and the full Work archive. Production and `main` remain unchanged pending review.
+
+The user accepted the named trust lockups and additive buyer-proof overview as sufficient for the current pass. Exact official combined wordmark assets remain an optional future logo refinement, not a blocker for this branch.
