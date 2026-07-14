@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-07-14T12:15:00+02:00",
+  "target": "http://127.0.0.1:4174",
+  "production_changed": false,
+  "passed": true,
+  "checks": [
+    {
+      "name": "Homepage desktop",
+      "viewport": "1280x1000",
+      "passed": true,
+      "evidence": "Hero photograph loads from /assets/images, no failed images, no horizontal overflow, and both trust-logo groups render."
+    },
+    {
+      "name": "Work goal navigator",
+      "viewport": "1280x1000 and 390x844",
+      "passed": true,
+      "evidence": "Four goal paths render, Build with AI remains first, #all-work remains present, and mobile has no horizontal overflow."
+    },
+    {
+      "name": "Contact form privacy and fit",
+      "viewport": "1280x1000",
+      "passed": true,
+      "evidence": "All four primary labels target controls, fit guidance renders, and Taylor@klintmarketing.com is absent."
+    },
+    {
+      "name": "Work side menu",
+      "viewport": "390x844 and 1280x900",
+      "passed": true,
+      "evidence": "Mobile panel opens to x=0 and closes to x=-256; desktop collapses to 80px and restores to 256px with the main margin restored to 288px."
+    },
+    {
+      "name": "Marketing side menu",
+      "viewport": "390x844",
+      "passed": true,
+      "evidence": "One sidebar and one mobile open control render without horizontal overflow."
+    },
+    {
+      "name": "Case Studies modal",
+      "viewport": "1280x900",
+      "passed": true,
+      "evidence": "The clean route renders one sidebar. Opening a resource replaces Resource Title and Description goes here with the indexed title and description."
+    }
+  ],
+  "screenshots": [
+    "audits/site-audit/screenshots/home-desktop-2026-07-14.png",
+    "audits/site-audit/screenshots/trust-logos-desktop-2026-07-14.png",
+    "audits/site-audit/screenshots/work-desktop-2026-07-14.png",
+    "audits/site-audit/screenshots/work-mobile-2026-07-14.png",
+    "audits/site-audit/screenshots/work-sidebar-mobile-2026-07-14.png",
+    "audits/site-audit/screenshots/marketing-sidebar-mobile-2026-07-14.png",
+    "audits/site-audit/screenshots/contact-desktop-2026-07-14.png",
+    "audits/site-audit/screenshots/case-study-modal-2026-07-14.png"
+  ]
+}

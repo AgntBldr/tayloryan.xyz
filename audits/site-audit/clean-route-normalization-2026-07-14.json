@@ -1,0 +1,405 @@
+{
+  "generated_at": "2026-07-14T10:22:01.425Z",
+  "normalized_count": 79,
+  "unresolved_count": 0,
+  "remaining_internal_html_links": 0,
+  "changes": [
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/analytics/index.html",
+      "from": "overview.html",
+      "to": "/portfolio/marketing/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/analytics/index.html",
+      "from": "resources.html",
+      "to": "/portfolio/marketing/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/analytics/index.html",
+      "from": "analytics.html",
+      "to": "/portfolio/marketing/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/analytics.html",
+      "from": "overview.html",
+      "to": "/portfolio/marketing/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/analytics.html",
+      "from": "resources.html",
+      "to": "/portfolio/marketing/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/analytics.html",
+      "from": "analytics.html",
+      "to": "/portfolio/marketing/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator/index.html",
+      "from": "content_creator.html",
+      "to": "/portfolio/marketing/content_creator/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator/index.html",
+      "from": "content_creator_external.html",
+      "to": "/portfolio/marketing/content_creator_external/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator/index.html",
+      "from": "content_creator_external.html",
+      "to": "/portfolio/marketing/content_creator_external/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator.html",
+      "from": "content_creator.html",
+      "to": "/portfolio/marketing/content_creator/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator.html",
+      "from": "content_creator_external.html",
+      "to": "/portfolio/marketing/content_creator_external/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator.html",
+      "from": "content_creator_external.html",
+      "to": "/portfolio/marketing/content_creator_external/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator_external/index.html",
+      "from": "content_creator.html",
+      "to": "/portfolio/marketing/content_creator/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator_external/index.html",
+      "from": "content_creator_external.html",
+      "to": "/portfolio/marketing/content_creator_external/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator_external.html",
+      "from": "content_creator.html",
+      "to": "/portfolio/marketing/content_creator/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/content_creator_external.html",
+      "from": "content_creator_external.html",
+      "to": "/portfolio/marketing/content_creator_external/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_templates/index.html",
+      "from": "email_outreach.html",
+      "to": "/portfolio/marketing/email_outreach/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_templates/index.html",
+      "from": "email_outreach_templates.html",
+      "to": "/portfolio/marketing/email_outreach/templates/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_templates/index.html",
+      "from": "email_outreach_video.html",
+      "to": "/portfolio/marketing/email_outreach/video/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_templates.html",
+      "from": "email_outreach.html",
+      "to": "/portfolio/marketing/email_outreach/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_templates.html",
+      "from": "email_outreach_templates.html",
+      "to": "/portfolio/marketing/email_outreach/templates/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_templates.html",
+      "from": "email_outreach_video.html",
+      "to": "/portfolio/marketing/email_outreach/video/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_video/index.html",
+      "from": "email_outreach.html",
+      "to": "/portfolio/marketing/email_outreach/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_video/index.html",
+      "from": "email_outreach_templates.html",
+      "to": "/portfolio/marketing/email_outreach/templates/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_video/index.html",
+      "from": "email_outreach_video.html",
+      "to": "/portfolio/marketing/email_outreach/video/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_video.html",
+      "from": "email_outreach.html",
+      "to": "/portfolio/marketing/email_outreach/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_video.html",
+      "from": "email_outreach_templates.html",
+      "to": "/portfolio/marketing/email_outreach/templates/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/email_outreach_video.html",
+      "from": "email_outreach_video.html",
+      "to": "/portfolio/marketing/email_outreach/video/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/overview/index.html",
+      "from": "overview.html",
+      "to": "/portfolio/marketing/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/overview/index.html",
+      "from": "resources.html",
+      "to": "/portfolio/marketing/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/overview/index.html",
+      "from": "analytics.html",
+      "to": "/portfolio/marketing/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/overview.html",
+      "from": "overview.html",
+      "to": "/portfolio/marketing/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/overview.html",
+      "from": "resources.html",
+      "to": "/portfolio/marketing/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/overview.html",
+      "from": "analytics.html",
+      "to": "/portfolio/marketing/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/resources/index.html",
+      "from": "overview.html",
+      "to": "/portfolio/marketing/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/resources/index.html",
+      "from": "resources.html",
+      "to": "/portfolio/marketing/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/resources/index.html",
+      "from": "analytics.html",
+      "to": "/portfolio/marketing/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/resources.html",
+      "from": "overview.html",
+      "to": "/portfolio/marketing/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/resources.html",
+      "from": "resources.html",
+      "to": "/portfolio/marketing/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/resources.html",
+      "from": "analytics.html",
+      "to": "/portfolio/marketing/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_creation/index.html",
+      "from": "index.html",
+      "to": "/portfolio/marketing/social_media/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_creation/index.html",
+      "from": "content_creation.html",
+      "to": "/portfolio/marketing/social_media/content_creation/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_creation/index.html",
+      "from": "content_publishing.html",
+      "to": "/portfolio/marketing/social_media/content_publishing/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_creation.html",
+      "from": "index.html",
+      "to": "/portfolio/marketing/social_media/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_creation.html",
+      "from": "content_creation.html",
+      "to": "/portfolio/marketing/social_media/content_creation/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_creation.html",
+      "from": "content_publishing.html",
+      "to": "/portfolio/marketing/social_media/content_publishing/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_publishing/index.html",
+      "from": "index.html",
+      "to": "/portfolio/marketing/social_media/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_publishing/index.html",
+      "from": "content_creation.html",
+      "to": "/portfolio/marketing/social_media/content_creation/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_publishing/index.html",
+      "from": "content_publishing.html",
+      "to": "/portfolio/marketing/social_media/content_publishing/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_publishing.html",
+      "from": "index.html",
+      "to": "/portfolio/marketing/social_media/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_publishing.html",
+      "from": "content_creation.html",
+      "to": "/portfolio/marketing/social_media/content_creation/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/content_publishing.html",
+      "from": "content_publishing.html",
+      "to": "/portfolio/marketing/social_media/content_publishing/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/index.html",
+      "from": "index.html",
+      "to": "/portfolio/marketing/social_media/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/index.html",
+      "from": "content_creation.html",
+      "to": "/portfolio/marketing/social_media/content_creation/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/social_media/index.html",
+      "from": "content_publishing.html",
+      "to": "/portfolio/marketing/social_media/content_publishing/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/testimonials/index.html",
+      "from": "../../testimonials.html",
+      "to": "/testimonials/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/marketing/testimonials.html",
+      "from": "../../testimonials.html",
+      "to": "/testimonials/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/analytics/index.html",
+      "from": "index.html",
+      "to": "/portfolio/quests/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/analytics/index.html",
+      "from": "overview.html",
+      "to": "/portfolio/quests/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/analytics/index.html",
+      "from": "analytics.html",
+      "to": "/portfolio/quests/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/analytics/index.html",
+      "from": "resources.html",
+      "to": "/portfolio/quests/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/analytics.html",
+      "from": "index.html",
+      "to": "/portfolio/quests/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/analytics.html",
+      "from": "overview.html",
+      "to": "/portfolio/quests/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/analytics.html",
+      "from": "analytics.html",
+      "to": "/portfolio/quests/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/analytics.html",
+      "from": "resources.html",
+      "to": "/portfolio/quests/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/index.html",
+      "from": "index.html",
+      "to": "/portfolio/quests/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/index.html",
+      "from": "overview.html",
+      "to": "/portfolio/quests/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/index.html",
+      "from": "analytics.html",
+      "to": "/portfolio/quests/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/index.html",
+      "from": "resources.html",
+      "to": "/portfolio/quests/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview/index.html",
+      "from": "index.html",
+      "to": "/portfolio/quests/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview/index.html",
+      "from": "overview.html",
+      "to": "/portfolio/quests/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview/index.html",
+      "from": "analytics.html",
+      "to": "/portfolio/quests/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview/index.html",
+      "from": "resources.html",
+      "to": "/portfolio/quests/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview/index.html",
+      "from": "resources.html",
+      "to": "/portfolio/quests/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview.html",
+      "from": "index.html",
+      "to": "/portfolio/quests/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview.html",
+      "from": "overview.html",
+      "to": "/portfolio/quests/overview/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview.html",
+      "from": "analytics.html",
+      "to": "/portfolio/quests/analytics/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview.html",
+      "from": "resources.html",
+      "to": "/portfolio/quests/resources/"
+    },
+    {
+      "file": "DEPLOY_PUBLIC/portfolio/quests/overview.html",
+      "from": "resources.html",
+      "to": "/portfolio/quests/resources/"
+    }
+  ],
+  "unresolved": [],
+  "remaining": []
+}

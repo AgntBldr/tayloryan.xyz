@@ -1,0 +1,347 @@
+{
+    "generated_at":  "2026-07-14T10:02:33.309Z",
+    "manifest_version":  1,
+    "simple_icons_version":  "16.21.0",
+    "asset_count":  34,
+    "total_bytes":  151231,
+    "assets":  [
+                   {
+                       "name":  "Novo Nordisk",
+                       "domain":  "novonordisk.com",
+                       "file":  "assets/brand/trust/novo-nordisk.png",
+                       "bytes":  5903,
+                       "sha256":  "6e28274eaa91edd7468581afe594388903a792cfe5261bd114b16d7bf96e3355",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/novo.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "NEAR Protocol",
+                       "domain":  "near.org",
+                       "file":  "assets/brand/trust/near-protocol.svg",
+                       "bytes":  559,
+                       "sha256":  "af0c85b53cd6f13c0da60a0317f7fcd7cee4a42623b87b4a60fbe3a15b13f53e",
+                       "source_type":  "simple-icons",
+                       "source_url":  "https://cdn.jsdelivr.net/npm/simple-icons@16.21.0/icons/near.svg"
+                   },
+                   {
+                       "name":  "SSV Network",
+                       "domain":  "ssv.network",
+                       "file":  "assets/brand/trust/ssv-network.png",
+                       "bytes":  2176,
+                       "sha256":  "a31b1de3dfee8b52b855d1edf110549849e3fd19a68f2d0a7035285b26aa4bb6",
+                       "source_type":  "official-domain-icon",
+                       "source_url":  "https://framerusercontent.com/images/4HILD95911lljaeBb0mz7IsyInk.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Lunar",
+                       "domain":  "lunar.app",
+                       "file":  "assets/brand/trust/lunar.png",
+                       "bytes":  4733,
+                       "sha256":  "f74fb5939b2345426061183e5348929819efb5f45e86ba00957d10e0f17da7c7",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/lunar.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Google",
+                       "domain":  "google.com",
+                       "file":  "assets/brand/trust/google.png",
+                       "bytes":  3421,
+                       "sha256":  "2bb177092f09593359af8add4fd207254030b01987c05c8cc1a358a7e65744ac",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/google.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Rhea Finance",
+                       "domain":  "rhea.finance",
+                       "file":  "assets/brand/trust/rhea-finance.png",
+                       "bytes":  4236,
+                       "sha256":  "12dd9d257d95f0185a68690039d6afa7fd9f2298078b21e87c8e646f536cfbe8",
+                       "source_type":  "domain-icon-cache-for-compression",
+                       "source_url":  "https://icon.horse/icon/rhea.finance",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Actimo",
+                       "domain":  "actimo.com",
+                       "file":  "assets/brand/trust/actimo.png",
+                       "bytes":  4538,
+                       "sha256":  "77742954af7546d94a0a73d30350c3f001a561d1077e482f6458471820c1b02b",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/actimo.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Valuer",
+                       "domain":  "valuer.ai",
+                       "file":  "assets/brand/trust/valuer.png",
+                       "bytes":  2830,
+                       "sha256":  "4df75f7ee35010984ec6936ba1d659c0fa0d1944b565fcc2d8f12d5f324e7fb0",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/valuer.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Inflowpay",
+                       "domain":  "inflowpay.com",
+                       "file":  "assets/brand/trust/inflowpay.png",
+                       "bytes":  5332,
+                       "sha256":  "a6f47cfb8f7b3d39c79afb31d2666867da436533322d7585bfad38b48a5bb220",
+                       "source_type":  "official-domain-icon",
+                       "source_url":  "https://cdn.prod.website-files.com/67aa871a4dc42014fd7e1250/67d87eec9098fa8bc828a036_inflow-favicon.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Grundfos",
+                       "domain":  "grundfos.com",
+                       "file":  "assets/brand/trust/grundfos.png",
+                       "bytes":  3375,
+                       "sha256":  "d5ae6f129d36969ac993ce9c984d81c7926ef03a2b45203569a70d81094e3a24",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/Grundfos.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Talent Garden",
+                       "domain":  "talentgarden.org",
+                       "file":  "assets/brand/trust/talent-garden.png",
+                       "bytes":  8021,
+                       "sha256":  "4394a8956d7339fdd353b491f31cb88a93905a9f5307807bf0ffa49016f42901",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/talentgarden.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Lundbeck",
+                       "domain":  "lundbeck.com",
+                       "file":  "assets/brand/trust/lundbeck.png",
+                       "bytes":  9057,
+                       "sha256":  "a4a120d0993b627b1c76ebe5d4d249e5b3add50a3df538dbb384e1691704ffe7",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/lundbeck.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Nordea",
+                       "domain":  "nordea.com",
+                       "file":  "assets/brand/trust/nordea.png",
+                       "bytes":  4179,
+                       "sha256":  "0f5f5f6a9884e4ae56f9963b4e89e1b351908be75b3430bfd646db94cc9a88c3",
+                       "source_type":  "domain-icon-cache-for-compression",
+                       "source_url":  "https://icon.horse/icon/nordea.com",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Maersk",
+                       "domain":  "maersk.com",
+                       "file":  "assets/brand/trust/maersk.png",
+                       "bytes":  4101,
+                       "sha256":  "0f904026b3f3822b4e7c76626fe758725981c06b1a2ea3e6faf5059ce612e3b6",
+                       "source_type":  "domain-icon-cache-for-compression",
+                       "source_url":  "https://icon.horse/icon/maersk.com",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "The Washington Post",
+                       "domain":  "washingtonpost.com",
+                       "file":  "assets/brand/trust/washington-post.png",
+                       "bytes":  4500,
+                       "sha256":  "71e44c05ddbb0f0916fb122102b4ad9bac05c77cb14d5bb1c39a2da1b913b392",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/washington-post.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Planday",
+                       "domain":  "planday.com",
+                       "file":  "assets/brand/trust/planday.png",
+                       "bytes":  6869,
+                       "sha256":  "05125cc28b2774540f17d77e45ad86f7299b6cf247c8d5c7e7aeff6c7fa0f71c",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/planday.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "TechBBQ",
+                       "domain":  "techbbq.dk",
+                       "file":  "assets/brand/trust/techbbq.png",
+                       "bytes":  8356,
+                       "sha256":  "7a64218ffa3d263e9d22ba76ea81eeea73e10e3f87ec32d2af0c1f7eaa14bb4b",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/techBBQ.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "WeddingWire",
+                       "domain":  "weddingwire.com",
+                       "file":  "assets/brand/trust/weddingwire.png",
+                       "bytes":  6679,
+                       "sha256":  "e9e8722068598de65f7a54461492f7cb927c199a7645f33a0aca9f927c4b36ea",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/wedding-wire.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Rainmaking",
+                       "domain":  "rainmaking.io",
+                       "file":  "assets/brand/trust/rainmaking.png",
+                       "bytes":  1508,
+                       "sha256":  "f4dda81925621ad5eba205b3ba10b014fbe529f8f6045fc3bdeaf7e3acf24e7f",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/rainmaking.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Antler",
+                       "domain":  "antler.co",
+                       "file":  "assets/brand/trust/antler.png",
+                       "bytes":  3043,
+                       "sha256":  "f4782e164f2047187b868fab5cd89952b1c41d95e1ef619e2626e6c4d07b5c1b",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Accelerators/Acclerators/antler.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Startup Wise Guys",
+                       "domain":  "startupwiseguys.com",
+                       "file":  "assets/brand/trust/startup-wise-guys.png",
+                       "bytes":  8606,
+                       "sha256":  "67ede1244290451fd34a2e477601ec8ed83b822391aee0f2baf11b20ad39faf6",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/Startup wise guys.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "HYPE Sports Innovation",
+                       "domain":  "hypesportsinnovation.com",
+                       "file":  "assets/brand/trust/hype-sports-innovation.png",
+                       "bytes":  7919,
+                       "sha256":  "900fa330e7cbb416d784b121eff1130def5acfe3227d1d7e32f8eaf40b39febc",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/hype-SI.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "The Camp (TRYG)",
+                       "domain":  "tryg.dk",
+                       "file":  "assets/brand/trust/the-camp-tryg.png",
+                       "bytes":  3827,
+                       "sha256":  "05698c43fb68398cdbde30af0fa4282b1cf4d09b6d2b0bb4ee20938d1ebd8d6f",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/thecamp.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Copenhagen Fintech",
+                       "domain":  "copenhagenfintech.dk",
+                       "file":  "assets/brand/trust/copenhagen-fintech.png",
+                       "bytes":  4673,
+                       "sha256":  "38419b2dc2de6d60b69696523e082fcef8ce6e0d2d8d0f86de7be7aef433f87a",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Accelerators/Acclerators/copenhagen fintech.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Go Grow (CBS)",
+                       "domain":  "cbs.dk",
+                       "file":  "assets/brand/trust/go-grow-cbs.png",
+                       "bytes":  11421,
+                       "sha256":  "51fc33ac8440f9c0c5cdebe8542d628d651c54c12c96bb15ab99b3d6446d064a",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/cbs.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Innovation Centre Denmark",
+                       "domain":  "icdk.dk",
+                       "file":  "assets/brand/trust/innovation-centre-denmark.png",
+                       "bytes":  1809,
+                       "sha256":  "0f16e3464e0047fbfc8d2fff9b2eeecc2e5ab4d240737efc06265ecf3c6c2b6e",
+                       "source_type":  "official-domain-icon",
+                       "source_url":  "https://icdk.dk/media/srlfchpr/icdk_favicon.png?rmode=pad\u0026amp;width=180\u0026amp;height=180\u0026amp;format=png\u0026amp;bgcolor=transparent\u0026amp;v=1dcccd0afa089f0",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "DGI",
+                       "domain":  "dgi.dk",
+                       "file":  "assets/brand/trust/dgi.png",
+                       "bytes":  1712,
+                       "sha256":  "228027d4bc523c3993eca3ccba7d7018e55ecec04353712ec8497b2c25c855b8",
+                       "source_type":  "domain-icon-cache-for-compression",
+                       "source_url":  "https://icon.horse/icon/dgi.dk",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Propagator",
+                       "domain":  "propagator.co",
+                       "file":  "assets/brand/trust/propagator.png",
+                       "bytes":  1155,
+                       "sha256":  "ddd77929669c94e37340ecd14353586386f30533245405e21c6342e7a70b180b",
+                       "source_type":  "domain-icon-cache",
+                       "source_url":  "https://icon.horse/icon/propagator.co",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Founder Institute",
+                       "domain":  "fi.co",
+                       "file":  "assets/brand/trust/founder-institute.svg",
+                       "bytes":  2196,
+                       "sha256":  "6f5839fc4d20790864a7557431d7447f0e9a5a4e01227f1607f6157a30b737b4",
+                       "source_type":  "official-domain-icon",
+                       "source_url":  "https://fi.co/icon.svg"
+                   },
+                   {
+                       "name":  "Crypto Summer Lab",
+                       "domain":  "cryptosummerlab.com",
+                       "file":  "assets/brand/trust/crypto-summer-lab.png",
+                       "bytes":  1454,
+                       "sha256":  "6c69ad1dd2d7d21576740ce17d5548871f4d91745b80de3db2e5b4657fc5aec7",
+                       "source_type":  "domain-icon-cache",
+                       "source_url":  "https://icon.horse/icon/cryptosummerlab.com",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Rockstart",
+                       "domain":  "rockstart.com",
+                       "file":  "assets/brand/trust/rockstart.svg",
+                       "bytes":  1592,
+                       "sha256":  "8f32a2f9d0b1f0c414abeb84c9ed43cf58f5da63efe2ddd4a6d38cd28d658a4e",
+                       "source_type":  "domain-icon-cache",
+                       "source_url":  "https://icon.horse/icon/rockstart.com"
+                   },
+                   {
+                       "name":  "Techstars Boston",
+                       "domain":  "techstars.com",
+                       "file":  "assets/brand/trust/techstars-boston.png",
+                       "bytes":  3560,
+                       "sha256":  "6f2341581e7a543299773fbf19c1f2f63c8baf903a91dd19295da0bf65836486",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/techstars.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Techstars Dublin",
+                       "domain":  "techstars.com",
+                       "file":  "assets/brand/trust/techstars-dublin.png",
+                       "bytes":  3560,
+                       "sha256":  "6f2341581e7a543299773fbf19c1f2f63c8baf903a91dd19295da0bf65836486",
+                       "source_type":  "project-archive-logo",
+                       "source_url":  "Ref Docs/Trust Signals/Client Logos/techstars.png",
+                       "optimized":  true
+                   },
+                   {
+                       "name":  "Intentional",
+                       "domain":  "intentional.dk",
+                       "file":  "assets/brand/trust/intentional.png",
+                       "bytes":  4331,
+                       "sha256":  "796b45ccf3704d2b6faeaff92bdb6324df3330041c3f4f51d59d863c4cfe99dc",
+                       "source_type":  "domain-icon-cache-for-compression",
+                       "source_url":  "https://icon.horse/icon/intentional.dk",
+                       "optimized":  true
+                   }
+               ],
+    "optimized_at":  "2026-07-14T10:02:35.3541070Z"
+}

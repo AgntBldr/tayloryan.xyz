@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-07-14T10:22:01.574Z",
+  "replacements": {
+    "tailwind": 58,
+    "lucide": 58,
+    "outfit": 45,
+    "inter": 1
+  },
+  "missing_assets": [],
+  "external_runtime_references": []
+}

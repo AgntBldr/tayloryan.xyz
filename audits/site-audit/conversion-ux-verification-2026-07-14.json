@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-07-14T10:22:05.954Z",
+  "passed": true,
+  "check_count": 16,
+  "failure_count": 0,
+  "checks": [
+    {
+      "name": "Google deployed URL preservation",
+      "passed": true,
+      "detail": "542/542 public or auth-gated URLs remain in DEPLOY_PUBLIC; 0 missing."
+    },
+    {
+      "name": "Broken Google recovery ledger",
+      "passed": true,
+      "detail": "80 broken URLs remain recorded in the 622-row recovery manifest without requiring dead public links."
+    },
+    {
+      "name": "Google audit classification",
+      "passed": true,
+      "detail": "622 total; 597 auth-gated or broken; 25 public."
+    },
+    {
+      "name": "Layer3 preservation",
+      "passed": true,
+      "detail": "39/39 Layer3 URLs remain in DEPLOY_PUBLIC."
+    },
+    {
+      "name": "Marketing side menu",
+      "passed": true,
+      "detail": "All 8 existing destinations and the desktop collapse control remain."
+    },
+    {
+      "name": "Work side menus",
+      "passed": true,
+      "detail": "All 11 work destinations plus the speaker and about side menus remain."
+    },
+    {
+      "name": "Clean-route source freshness",
+      "passed": true,
+      "detail": "Case Studies clean route has 1 sidebar initializer after legacy-source refresh."
+    },
+    {
+      "name": "Vibecoding remains first-class",
+      "passed": true,
+      "detail": "Vibecoding remains on the homepage, in the work side menu, and first in the goal navigator."
+    },
+    {
+      "name": "Work archive preserved",
+      "passed": true,
+      "detail": "The new goal navigator links into the unchanged full archive."
+    },
+    {
+      "name": "Contact fit cues",
+      "passed": true,
+      "detail": "Fit guidance and connected form labels are present."
+    },
+    {
+      "name": "Private email remains private",
+      "passed": true,
+      "detail": "Taylor@klintmarketing.com does not appear in DEPLOY_PUBLIC."
+    },
+    {
+      "name": "Static accessibility",
+      "passed": true,
+      "detail": "0 issue(s) across 61 source files."
+    },
+    {
+      "name": "Clean public routes",
+      "passed": true,
+      "detail": "79 links normalized; 0 unresolved; 0 internal .html links remain."
+    },
+    {
+      "name": "Local frontend runtime",
+      "passed": true,
+      "detail": "0 missing local assets and 0 external runtime references."
+    },
+    {
+      "name": "CSS background assets",
+      "passed": true,
+      "detail": "21 absolute image URLs checked; 0 missing; no document-relative URLs remain."
+    },
+    {
+      "name": "Trust logo assets",
+      "passed": true,
+      "detail": "34 local assets; 0 missing source/deploy copies; both marquees remain."
+    }
+  ],
+  "failures": [],
+  "missing_google_urls": [],
+  "missing_layer3_urls": [],
+  "missing_css_backgrounds": [],
+  "missing_logo_files": []
+}

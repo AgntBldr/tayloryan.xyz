@@ -3,148 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taylor Ryan Portfolio Product Review - 2026-07-14</title>
+    <meta name="color-scheme" content="light dark">
+    <title>Taylor Ryan Portfolio Product Review - 14 July 2026</title>
     <style>
         :root {
             color-scheme: light dark;
-            --bg: #f7f7f5;
+            --bg: #f6f7f8;
             --surface: #ffffff;
-            --text: #171717;
-            --muted: #666666;
-            --line: #ddddda;
-            --accent: #235f8f;
+            --surface-alt: #eef1f3;
+            --text: #151719;
+            --muted: #626970;
+            --line: #d9dde1;
+            --accent: #116466;
+            --accent-soft: #dceeed;
             --done: #176b45;
-            --started: #865f08;
-            --next: #8a3030;
+            --preview: #825d08;
+            --hold: #8a3030;
         }
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 Arial, Helvetica, sans-serif; }
         main { max-width: 1180px; margin: 0 auto; padding: 48px 24px 80px; }
-        h1, h2 { letter-spacing: 0; }
-        h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.15; }
-        h2 { margin: 0 0 16px; font-size: 22px; }
+        h1, h2, h3 { letter-spacing: 0; }
+        h1 { margin: 0; max-width: 800px; font-size: clamp(32px, 5vw, 50px); line-height: 1.08; }
+        h2 { margin: 0 0 16px; font-size: 24px; line-height: 1.2; }
+        h3 { margin: 0 0 8px; font-size: 17px; }
         p { margin: 0 0 12px; }
-        .subtitle { color: var(--muted); font-size: 16px; }
-        .band { margin-top: 32px; padding: 24px 0; border-top: 1px solid var(--line); }
-        .summary { max-width: 880px; font-size: 17px; }
+        a { color: var(--accent); }
+        .subtitle { max-width: 760px; margin-top: 12px; color: var(--muted); font-size: 17px; }
+        .band { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
+        .summary { max-width: 920px; font-size: 17px; }
+        .summary p + p { margin-top: 12px; }
         .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); background: var(--surface); margin-top: 24px; }
-        .metric { padding: 18px; border-right: 1px solid var(--line); }
+        .metric { min-width: 0; padding: 18px; border-right: 1px solid var(--line); }
         .metric:last-child { border-right: 0; }
-        .metric strong { display: block; font-size: 24px; }
+        .metric strong { display: block; font-size: 24px; line-height: 1.2; }
         .metric span { color: var(--muted); font-size: 13px; }
+        .callout { padding: 18px 20px; border-left: 4px solid var(--accent); background: var(--accent-soft); }
+        .callout strong { display: block; margin-bottom: 4px; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .preview { padding: 20px; border: 1px solid var(--line); background: var(--surface); border-radius: 6px; }
+        .preview-label { margin-bottom: 10px; color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+        .hero-sample { margin: 8px 0 12px; font-size: 28px; font-weight: 800; line-height: 1.08; }
+        .proof-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; }
+        dl { margin: 0; }
+        dt { margin-top: 12px; color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+        dd { margin: 3px 0 0; }
         ul { margin: 0; padding-left: 20px; }
         li + li { margin-top: 7px; }
+        .route-list { columns: 2; column-gap: 32px; }
+        .route-list li { break-inside: avoid; }
         .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--surface); }
-        table { width: 100%; border-collapse: collapse; min-width: 980px; }
+        table { width: 100%; border-collapse: collapse; min-width: 940px; }
         th, td { padding: 13px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-        th { position: sticky; top: 0; background: var(--surface); color: var(--muted); font-size: 12px; text-transform: uppercase; }
+        th { background: var(--surface-alt); color: var(--muted); font-size: 12px; text-transform: uppercase; }
         tbody tr:last-child td { border-bottom: 0; }
         .number { text-align: right; font-variant-numeric: tabular-nums; }
         .status { white-space: nowrap; font-weight: 700; }
         .done { color: var(--done); }
-        .started { color: var(--started); }
-        .next { color: var(--next); }
+        .preview-status { color: var(--preview); }
+        .hold { color: var(--hold); }
         .note { color: var(--muted); font-size: 13px; }
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-        code { font-family: Consolas, monospace; font-size: .92em; }
+        .logo-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+        .logo { min-width: 0; min-height: 96px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 12px; border: 1px solid #343a3d; border-radius: 6px; background: #111516; color: #d9dedf; text-align: center; font-size: 11px; }
+        .logo img { width: 100%; height: 42px; object-fit: contain; filter: grayscale(1) brightness(0) invert(1); opacity: .82; }
+        code { font: .92em Consolas, monospace; overflow-wrap: anywhere; }
         @media (prefers-color-scheme: dark) {
-            :root { --bg: #111111; --surface: #181818; --text: #f3f3f3; --muted: #aaaaaa; --line: #343434; --accent: #79b8e8; --done: #70d6a5; --started: #e6bf65; --next: #ef8f8f; }
+            :root { --bg: #101213; --surface: #181b1d; --surface-alt: #202528; --text: #f2f4f4; --muted: #a5adaf; --line: #343a3d; --accent: #72c5c0; --accent-soft: #153132; --done: #70d6a5; --preview: #e6bf65; --hold: #ef8f8f; }
         }
-        @media (max-width: 760px) {
+        @media (max-width: 900px) {
+            .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .metric:nth-child(2) { border-right: 0; }
+            .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+            .logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
+        @media (max-width: 680px) {
             main { padding: 32px 16px 60px; }
-            .metrics, .two-col { grid-template-columns: 1fr; }
+            .two-col, .proof-grid, .metrics { grid-template-columns: 1fr; }
             .metric { border-right: 0; border-bottom: 1px solid var(--line); }
             .metric:last-child { border-bottom: 0; }
+            .route-list { columns: 1; }
+            .logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
     </style>
 </head>
 <body>
 <main>
     <header>
-        <h1>Taylor Ryan Portfolio Product Review</h1>
-        <p class="subtitle">Decision-focused site review, technical discovery upgrade, and ICE-ranked roadmap. Updated 14 July 2026.</p>
+        <h1>Portfolio Conversion and Product Review</h1>
+        <p class="subtitle">A reversible implementation pass, your decisions on the original roadmap, and the two changes still waiting for approval. Updated 14 July 2026.</p>
     </header>
 
     <section class="band">
         <h2>Executive Summary</h2>
         <div class="summary">
-            <p><strong>The site has broad proof, but it asks visitors to interpret too much of it.</strong> The strongest next conversion lever is finishing and restructuring proof, especially case studies, before adding more portfolio categories.</p>
-            <p>The technical discovery pass is now strong: canonical metadata, social previews, crawler controls, favicons, structured data, and a current sitemap are generated from one manifest. The remaining product work is primarily positioning, proof quality, and information architecture.</p>
+            <p><strong>The current changes are reversible and have not reached the live site.</strong> Work is isolated on <code>codex/conversion-ux-pass</code>, based on commit <code>8127110</code>. Cloudflare production remains unchanged.</p>
+            <p><strong>Your side menus, archive, vibecoding work, Google records, and Layer3 links are explicitly protected.</strong> A release verifier now fails if any of those surfaces disappear. The 597 non-public or broken Google resources remain preserved for later offline pairing rather than being deleted.</p>
+            <p><strong>Items 2, 4, 6, 7, 9, and 10 are implemented in the preview build.</strong> Items 3 and 5 are examples only. Item 1 is now clarified and has not been changed because the placeholder strings are hidden modal defaults, not one visibly broken page.</p>
         </div>
         <div class="metrics">
-            <div class="metric"><strong>39</strong><span>Canonical URLs in sitemap</span></div>
-            <div class="metric"><strong>59</strong><span>HTML documents with complete metadata</span></div>
-            <div class="metric"><strong>80.3%</strong><span>Reduction across 22 optimized images</span></div>
-            <div class="metric"><strong>6.4/10</strong><span>Current conversion-readiness assessment</span></div>
-        </div>
-    </section>
-
-    <section class="band two-col">
-        <div>
-            <h2>Completed In This Pass</h2>
-            <ul>
-                <li>Open Graph and Twitter metadata for LinkedIn, X, Facebook, Slack, and other link unfurlers.</li>
-                <li>Unique page titles and descriptions drafted by local/lower-tier models and checked deterministically.</li>
-                <li>Canonical URLs, robots directives, homepage Person/WebSite structured data, and current XML sitemap.</li>
-                <li>Branded SVG, PNG, Apple touch, and ICO favicon assets.</li>
-                <li>Four raw overview fragments removed from indexing; duplicate email routes redirected.</li>
-                <li>Twenty-two high-use images compressed from 15.09 MB to 2.98 MB while preserving dimensions.</li>
-                <li>Homepage links normalized and key icon-only controls given accessible names.</li>
-            </ul>
-        </div>
-        <div>
-            <h2>Current Product Assessment</h2>
-            <ul>
-                <li><strong>Discoverability: 8/10.</strong> The technical foundation is now complete; search performance still depends on content quality and external authority.</li>
-                <li><strong>Offer clarity: 6/10.</strong> The homepage establishes experience but mixes leadership, advisory, speaking, and builder offers.</li>
-                <li><strong>Proof quality: 5/10.</strong> The volume is strong, but placeholder case-study content and generic testimonials weaken trust.</li>
-                <li><strong>Conversion path: 7/10.</strong> Contact and booking are visible; visitors still need clearer fit and next-step expectations.</li>
-                <li><strong>Usability/performance: 6/10.</strong> Image payload is improved, while runtime CDN dependencies and archive-heavy navigation remain.</li>
-            </ul>
+            <div class="metric"><strong>622</strong><span>Google resource records preserved</span></div>
+            <div class="metric"><strong>39</strong><span>Layer3 URLs protected</span></div>
+            <div class="metric"><strong>34</strong><span>Local trust logo assets</span></div>
+            <div class="metric"><strong>0</strong><span>Production changes in this branch</span></div>
         </div>
     </section>
 
     <section class="band">
-        <h2>Prioritized Roadmap</h2>
-        <p class="note">ICE = Impact x Confidence x Ease / 10. Each input uses a 1-10 scale. Impact means likely engagement or inquiry lift; Confidence means evidence strength; Ease means implementation simplicity.</p>
+        <h2>Reversibility Before Release</h2>
+        <div class="callout">
+            <strong>Rollback point: <code>8127110</code></strong>
+            The full pass can be reviewed on its branch, reverted by commit, or abandoned without changing production. Generated assets and audit reports are deterministic, so they can be rebuilt and compared before any Cloudflare deployment.
+        </div>
+    </section>
+
+    <section class="band">
+        <h2>Browser QA Findings Fixed</h2>
+        <p><strong>The preview was tested at desktop and mobile widths before commit.</strong> The browser pass found three issues that static checks could not see, and all three are now covered by the build or release checks.</p>
+        <ul>
+            <li>Compiled Tailwind initially resolved hero and card backgrounds from the wrong CSS-relative folder. The build now rewrites and verifies 21 absolute background-image URLs.</li>
+            <li>Work and marketing mobile side-menu buttons depended on a missing global toggle on some pages. The sidebars now own namespaced mobile and desktop controls.</li>
+            <li>Clean portfolio routes could retain stale generated copies. The deployment sync now refreshes 16 clean-route indexes from their current source pages before route and SEO processing.</li>
+        </ul>
+        <p class="note" style="margin-top: 14px;">Screenshots are stored in <code>audits/site-audit/screenshots/</code>; the structured result is <code>browser-qa-2026-07-14.json</code>.</p>
+    </section>
+
+    <section class="band">
+        <h2>Your Roadmap Decisions</h2>
+        <p class="note">ICE retains the original product judgment: Impact x Confidence x Ease / 10. These are prioritization estimates, not measured conversion lift.</p>
         <div class="table-wrap">
             <table>
-                <thead><tr><th>#</th><th>Update</th><th>Status</th><th>Why it matters</th><th class="number">Impact</th><th class="number">Confidence</th><th class="number">Ease</th><th class="number">ICE</th></tr></thead>
+                <thead><tr><th>#</th><th>Decision</th><th>Status</th><th>What this pass does</th><th class="number">ICE</th></tr></thead>
                 <tbody>
-                    <tr><td>1</td><td><strong>Remove placeholder proof and finish case-study content</strong></td><td class="status next">Next</td><td>Labels such as “Resource Title” and “Description goes here” undermine credibility at the point where buyers expect evidence.</td><td class="number">8</td><td class="number">10</td><td class="number">9</td><td class="number"><strong>72.0</strong></td></tr>
-                    <tr><td>2</td><td><strong>Complete the icon-control accessibility audit</strong></td><td class="status started">Started</td><td>Homepage and shared navigation controls are fixed; remaining modals, sliders, and icon links should receive accessible names and focus checks.</td><td class="number">7</td><td class="number">10</td><td class="number">9</td><td class="number"><strong>63.0</strong></td></tr>
-                    <tr><td>3</td><td><strong>Clarify the homepage offer and audience</strong></td><td class="status next">Next</td><td>“Driven by Growth” is memorable but does not resolve whether the primary offer is leadership, advisory, speaking, or execution.</td><td class="number">10</td><td class="number">8</td><td class="number">6</td><td class="number"><strong>48.0</strong></td></tr>
-                    <tr><td>4</td><td><strong>Standardize every public link on clean routes</strong></td><td class="status started">Started</td><td>Homepage links and duplicate email routes are corrected; remaining body links should use the same slash-route convention as navigation.</td><td class="number">6</td><td class="number">9</td><td class="number">8</td><td class="number"><strong>43.2</strong></td></tr>
-                    <tr><td>5</td><td><strong>Lead with buyer and client proof</strong></td><td class="status next">Next</td><td>Attendee reactions help speaking credibility, but founder, employer, and client outcomes would support higher-intent inquiries.</td><td class="number">8</td><td class="number">9</td><td class="number">6</td><td class="number"><strong>43.2</strong></td></tr>
-                    <tr><td>6</td><td><strong>Replace repeated company marquees with contextual proof</strong></td><td class="status next">Next</td><td>A scannable company, engagement type, and result structure communicates more trust than repeated names without context.</td><td class="number">9</td><td class="number">9</td><td class="number">5</td><td class="number"><strong>40.5</strong></td></tr>
-                    <tr><td>7</td><td><strong>Add contact expectations and fit cues</strong></td><td class="status next">Next</td><td>Explaining suitable inquiries and what happens after submission can increase completion quality without exposing a public email address.</td><td class="number">7</td><td class="number">8</td><td class="number">7</td><td class="number"><strong>39.2</strong></td></tr>
-                    <tr><td>8</td><td><strong>Move vibecoding below core commercial proof</strong></td><td class="status next">Later</td><td>The concept is distinctive, but it currently competes with more universal GTM, speaking, and operating proof too early.</td><td class="number">8</td><td class="number">8</td><td class="number">6</td><td class="number"><strong>38.4</strong></td></tr>
-                    <tr><td>9</td><td><strong>Finish performance work beyond images</strong></td><td class="status started">Started</td><td>Image payload is substantially lower; Tailwind, icon, font, and analytics runtime dependencies still add render risk.</td><td class="number">7</td><td class="number">8</td><td class="number">6</td><td class="number"><strong>33.6</strong></td></tr>
-                    <tr><td>10</td><td><strong>Reorganize Work around buyer goals</strong></td><td class="status next">Later</td><td>“Hire for GTM,” “Book a speaker,” and “Review growth systems” are easier decision paths than a long archive of output types.</td><td class="number">9</td><td class="number">8</td><td class="number">4</td><td class="number"><strong>28.8</strong></td></tr>
+                    <tr><td>1</td><td><strong>Clarify placeholder proof first</strong></td><td class="status preview-status">Explained below</td><td>Names the exact affected routes and separates hidden modal defaults from genuinely missing content. No live copy removed.</td><td class="number">72.0</td></tr>
+                    <tr><td>2</td><td><strong>Complete control accessibility</strong></td><td class="status done">Implemented</td><td>Labels icon controls and fixes the marketing mobile toggle. All marketing, work, speaker, and about side menus remain.</td><td class="number">63.0</td></tr>
+                    <tr><td>3</td><td><strong>Clarify homepage audience and offer</strong></td><td class="status preview-status">Approval preview</td><td>Shows the exact line and CTA adjustment below. The live homepage wording is untouched.</td><td class="number">48.0</td></tr>
+                    <tr><td>4</td><td><strong>Use clean public routes</strong></td><td class="status done">Implemented</td><td>Normalizes 43 internal links and fails the build on unresolved routes. No resource destination is deleted.</td><td class="number">43.2</td></tr>
+                    <tr><td>5</td><td><strong>Make buyer proof easier to scan</strong></td><td class="status preview-status">Example only</td><td>Shows one evidence-backed proof snapshot below. No testimonial or project content is replaced.</td><td class="number">43.2</td></tr>
+                    <tr><td>6</td><td><strong>Keep marquees and use real logos</strong></td><td class="status done">Implemented as requested</td><td>Keeps both marquees, replaces visible text names with 34 compressed local marks, and makes them readable on dark backgrounds.</td><td class="number">40.5</td></tr>
+                    <tr><td>7</td><td><strong>Add contact fit and response cues</strong></td><td class="status done">Implemented</td><td>Adds suitable inquiry types and response expectations without exposing <code>Taylor@klintmarketing.com</code>.</td><td class="number">39.2</td></tr>
+                    <tr><td>8</td><td><strong>Keep doing more vibecoding</strong></td><td class="status done">Direction preserved</td><td>Vibecoding stays on the homepage and side menu, and now appears first in the new Work goal navigator.</td><td class="number">38.4</td></tr>
+                    <tr><td>9</td><td><strong>Reduce runtime dependency risk</strong></td><td class="status done">Implemented</td><td>Self-hosts compiled Tailwind CSS, pinned Lucide, and local Outfit/Inter fonts. External runtime references are now zero.</td><td class="number">33.6</td></tr>
+                    <tr><td>10</td><td><strong>Add buyer-goal navigation</strong></td><td class="status done">Implemented</td><td>Adds four shortcuts above the Work archive. It does not replace the archive or remove any side-menu destination.</td><td class="number">28.8</td></tr>
                 </tbody>
             </table>
         </div>
     </section>
 
     <section class="band">
-        <h2>Useful New Functions</h2>
-        <div class="table-wrap">
-            <table>
-                <thead><tr><th>Function</th><th>Purpose</th><th class="number">Impact</th><th class="number">Confidence</th><th class="number">Ease</th><th class="number">ICE</th></tr></thead>
-                <tbody>
-                    <tr><td><strong>Contact intent selector</strong></td><td>Route speaking, leadership, advisory, and collaboration inquiries into a tailored form while keeping the destination email private.</td><td class="number">6</td><td class="number">7</td><td class="number">8</td><td class="number"><strong>33.6</strong></td></tr>
-                    <tr><td><strong>Outcome-led project finder</strong></td><td>Filter the portfolio by visitor goal, industry, capability, and proof type instead of requiring archive browsing.</td><td class="number">7</td><td class="number">7</td><td class="number">5</td><td class="number"><strong>24.5</strong></td></tr>
-                    <tr><td><strong>Reusable proof snapshot</strong></td><td>Give every major project the same compact problem, role, action, evidence, and next-step structure.</td><td class="number">8</td><td class="number">8</td><td class="number">5</td><td class="number"><strong>32.0</strong></td></tr>
-                    <tr><td><strong>Resource availability layer</strong></td><td>Pair public, private, retired, and offline resources without deleting historical records or exposing inaccessible Drive links.</td><td class="number">6</td><td class="number">8</td><td class="number">4</td><td class="number"><strong>19.2</strong></td></tr>
-                </tbody>
-            </table>
+        <h2>Item 1: Which Pages Contain the Placeholder Strings?</h2>
+        <div class="summary">
+            <p><strong>This is a shared modal-template issue, not one unfinished case-study page.</strong> The strings <code>Resource Title</code> and <code>Description goes here</code> initialize hidden modal elements. JavaScript normally replaces them when a visitor opens a resource.</p>
+            <p>The exact clean routes are:</p>
+        </div>
+        <ul class="route-list">
+            <li><code>/portfolio/marketing/affiliates/</code></li>
+            <li><code>/portfolio/marketing/case_studies/</code></li>
+            <li><code>/portfolio/marketing/case_studies/examples/</code></li>
+            <li><code>/portfolio/marketing/content_creator/</code></li>
+            <li><code>/portfolio/marketing/content_creator_external/</code></li>
+            <li><code>/portfolio/marketing/email_outreach/</code></li>
+            <li><code>/portfolio/marketing/email_outreach/templates/</code></li>
+            <li><code>/portfolio/marketing/email_outreach/video/</code></li>
+            <li><code>/portfolio/marketing/testimonials/</code></li>
+            <li><code>/portfolio/quests/resources/</code></li>
+            <li><code>/work_speaker_topics/</code></li>
+        </ul>
+        <p class="note" style="margin-top: 16px;"><strong>Verified example:</strong> opening the first Case Studies resource replaced the defaults with <em>Case Studies Examples - Competitors [Sheet]</em> and its real description. Recommendation: keep the modals and leave the hidden defaults unchanged until the remaining template families are tested in a later focused pass.</p>
+    </section>
+
+    <section class="band">
+        <h2>Item 3: Homepage Copy Preview</h2>
+        <p><strong>What I would change:</strong> keep the <em>Driven by Growth.</em> headline and the visual design, replace only the supporting sentence with a clearer audience and work statement, then test a contact-oriented secondary CTA. Nothing in this section has been applied to the homepage.</p>
+        <div class="two-col">
+            <article class="preview">
+                <div class="preview-label">Current</div>
+                <div class="hero-sample">Driven by Growth.</div>
+                <p>17+ years scaling startups and mastering GTM operational excellence in AI, Blockchain, and SaaS.</p>
+                <p class="note">CTAs: Explore Work / About Me</p>
+            </article>
+            <article class="preview">
+                <div class="preview-label">Proposed option A</div>
+                <div class="hero-sample">Driven by Growth.</div>
+                <p>I help startup and scaleup teams build GTM systems, AI workflows, and growth programs across AI, blockchain, and SaaS.</p>
+                <p class="note">Suggested CTAs: Explore Work / Start a Conversation</p>
+            </article>
+        </div>
+        <p style="margin-top: 16px;"><strong>Alternative option B:</strong> GTM leadership, hands-on growth systems, and AI-enabled execution for startup and scaleup teams.</p>
+    </section>
+
+    <section class="band">
+        <h2>Item 5: Example of a Buyer-Proof Snapshot</h2>
+        <p><strong>The idea is not to invent a result.</strong> It is to turn evidence already in the portfolio into a consistent, scannable structure and clearly mark whether the underlying artifacts are public, private, offline, or retired.</p>
+        <div class="proof-grid">
+            <article class="preview">
+                <div class="preview-label">Example project</div>
+                <div class="hero-sample" style="font-size: 24px;">Content Creator Program</div>
+                <p>A system for recruiting, onboarding, supporting, and tracking a distributed creator pipeline.</p>
+            </article>
+            <article class="preview">
+                <dl>
+                    <dt>Problem</dt>
+                    <dd>Manage the creator pipeline, reduce drop-offs, standardize follow-ups, and speed onboarding.</dd>
+                    <dt>Taylor's work</dt>
+                    <dd>Program structure, recruiting workflow, outreach templates, shared onboarding resources, and tracking.</dd>
+                    <dt>Proof already indexed</dt>
+                    <dd>Internal and shared sheets, a creator guide, a presentation example, templates, and resource folders.</dd>
+                    <dt>Availability</dt>
+                    <dd>Show each artifact as Public, Private, Offline match, or Needs recovery. Preserve every original URL in the resource manifest.</dd>
+                </dl>
+            </article>
         </div>
     </section>
 
     <section class="band">
-        <h2>Evidence And Limits</h2>
-        <p>This review combines deterministic inspection of the deployed HTML and assets, browser review of the live homepage, source inspection, and independent lower-tier model reviews. ICE values are product judgment, not measured conversion lift. Analytics and search-console data would increase confidence and may change prioritization.</p>
-        <p class="note">Supporting outputs: <code>execution/seo_metadata.json</code>, <code>execution/verify_seo.mjs</code>, <code>audits/site-audit/image-compression-2026-07-14.json</code>, and the existing link-preservation reports.</p>
+        <h2>Trust Logo Review</h2>
+        <p><strong>Both trust marquees remain.</strong> The text-only company names have been replaced with local assets sourced from pinned Simple Icons or icons declared by verified official domains. Raster files are compressed and normalized; the homepage renders every mark as monochrome on dark and restores color on hover.</p>
+        <div class="logo-grid" aria-label="Trust logo asset contact sheet">
+            <div class="logo"><img src="../../assets/brand/trust/novo-nordisk.png" alt="Novo Nordisk"><span>Novo Nordisk</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/near-protocol.svg" alt="NEAR Protocol"><span>NEAR Protocol</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/ssv-network.png" alt="SSV Network"><span>SSV Network</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/lunar.png" alt="Lunar"><span>Lunar</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/google.png" alt="Google"><span>Google</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/rhea-finance.png" alt="Rhea Finance"><span>Rhea Finance</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/actimo.png" alt="Actimo"><span>Actimo</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/valuer.png" alt="Valuer"><span>Valuer</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/inflowpay.png" alt="Inflowpay"><span>Inflowpay</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/grundfos.png" alt="Grundfos"><span>Grundfos</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/talent-garden.png" alt="Talent Garden"><span>Talent Garden</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/lundbeck.png" alt="Lundbeck"><span>Lundbeck</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/nordea.png" alt="Nordea"><span>Nordea</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/maersk.png" alt="Maersk"><span>Maersk</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/washington-post.png" alt="The Washington Post"><span>Washington Post</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/planday.png" alt="Planday"><span>Planday</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/techbbq.png" alt="TechBBQ"><span>TechBBQ</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/weddingwire.png" alt="WeddingWire"><span>WeddingWire</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/rainmaking.png" alt="Rainmaking"><span>Rainmaking</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/antler.png" alt="Antler"><span>Antler</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/startup-wise-guys.png" alt="Startup Wise Guys"><span>Startup Wise Guys</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/hype-sports-innovation.png" alt="HYPE Sports Innovation"><span>HYPE Sports</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/the-camp-tryg.png" alt="The Camp by Tryg"><span>The Camp / Tryg</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/copenhagen-fintech.png" alt="Copenhagen Fintech"><span>Copenhagen Fintech</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/go-grow-cbs.svg" alt="Go Grow at CBS"><span>Go Grow / CBS</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/innovation-centre-denmark.png" alt="Innovation Centre Denmark"><span>Innovation Centre Denmark</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/dgi.png" alt="DGI"><span>DGI</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/propagator.png" alt="Propagator"><span>Propagator</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/founder-institute.svg" alt="Founder Institute"><span>Founder Institute</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/crypto-summer-lab.png" alt="Crypto Summer Lab"><span>Crypto Summer Lab</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/rockstart.svg" alt="Rockstart"><span>Rockstart</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/techstars-boston.png" alt="Techstars Boston"><span>Techstars Boston</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/techstars-dublin.png" alt="Techstars Dublin"><span>Techstars Dublin</span></div>
+            <div class="logo"><img src="../../assets/brand/trust/intentional.png" alt="Intentional"><span>Intentional</span></div>
+        </div>
+    </section>
+
+    <section class="band">
+        <h2>What Should Happen Next</h2>
+        <ol>
+            <li>Review the visual QA screenshots and this report.</li>
+            <li>Approve, revise, or reject homepage copy option A/B and the buyer-proof snapshot format.</li>
+            <li>Merge this branch only after the branch checks and preview are accepted.</li>
+            <li>Handle Google resources in decision batches: public links first, broken links with offline matches second, missing artifacts last. Do not bulk-delete the 597 records.</li>
+        </ol>
+    </section>
+
+    <section class="band">
+        <h2>Open Questions</h2>
+        <ul>
+            <li>Should the homepage supporting line lean more toward hands-on building or fractional leadership?</li>
+            <li>Should proof snapshots appear first on the homepage, the Work page, or only on individual project pages?</li>
+            <li>Which logos represent clients, employers, speaking venues, accelerator work, or ecosystem participation? That relationship should eventually be labeled without removing the marquees.</li>
+        </ul>
+    </section>
+
+    <section class="band">
+        <h2>Evidence and Limits</h2>
+        <p>This review combines source and generated-site inspection, deterministic link and metadata audits, prior URL status checks, and browser QA of the local preview. ICE values are product judgment. Logo inclusion verifies a local asset and official-domain association, not the nature of Taylor's relationship with every organization.</p>
+        <p class="note">Supporting records: <code>resource-preservation-manifest.json</code>, <code>trust-logo-assets-2026-07-14.json</code>, <code>clean-route-normalization-2026-07-14.json</code>, <code>local-frontend-assets-2026-07-14.json</code>, and <code>conversion-ux-verification-2026-07-14.json</code>.</p>
     </section>
 </main>
 </body>
