@@ -96,6 +96,7 @@ if (!robots.includes(`Sitemap: ${config.site.baseUrl}/sitemap.xml`)) errors.push
 const headers = await fs.readFile(path.join(DEPLOY_ROOT, "_headers"), "utf8");
 for (const route of ["overview_blog_content", "overview_content_gen", "overview_raw", "overview_toc_gen"]) {
   if (!headers.includes(`/${route}/*`) || !headers.includes("X-Robots-Tag: noindex")) errors.push(`${route}: noindex response header is missing`);
+  if (sitemapUrls.includes(`${config.site.baseUrl}/${route}/`)) errors.push(`${route}: noindexed fragment must not appear in sitemap.xml`);
 }
 
 for (const asset of [

@@ -67,3 +67,4 @@ Replaced two shorthand 404 paths in the PR #3 deployment note with the verified 
 
 ## [2026-07-14] build | SEO, social preview, favicon, and product review
 Centralized metadata generation in the canonical deploy sync, added social/favicons/crawler controls, reduced 22 high-use images by 80.3%, and produced an ICE-ranked product review. Local metadata, route, browser, privacy, and resource-preservation checks pass; [[tsk-seo-social-discovery-upgrade]] remains doing until production verification.
+## [2026-07-14] verify | Removed noindex fragment from SEO sitemap

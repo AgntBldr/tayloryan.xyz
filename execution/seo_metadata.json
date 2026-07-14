@@ -38,12 +38,6 @@
       "index": true
     },
     {
-      "route": "/overview_blog_content/",
-      "title": "Quest Growth Case Study | Taylor Ryan",
-      "description": "Quest article about launching 40 quests and 111K activations, covering the repeatable build system, resources, and promotion flow.",
-      "index": true
-    },
-    {
       "route": "/portfolio/marketing/",
       "title": "Marketing Hub | Taylor Ryan",
       "description": "Explore Taylor Ryan's Marketing Hub for GTM, creator, email outreach, affiliate, analytics, social media, and case study work all in one place.",

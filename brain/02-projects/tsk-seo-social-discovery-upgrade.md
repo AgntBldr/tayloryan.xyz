@@ -32,7 +32,7 @@ supports: ["[[dec-centralize-seo-metadata-in-deploy-sync]]", "[[fct-seo-social-l
 - Branch: `codex/seo-social-discovery-upgrade`
 - Metadata source: `execution/seo_metadata.json`; descriptions were drafted with local `qwen2.5:7b-instruct` and `gpt-5.4-mini`, not 5.6 or 5.6 SOL
 - Generator: `execution/apply_seo_metadata.mjs`, called by `deploy_sync.ps1`
-- Verification: 59 deployed HTML documents complete, 40 sitemap URLs, four raw fragments noindexed, 40/40 local routes live
+- Verification: 59 deployed HTML documents complete, 39 sitemap URLs, four raw fragments noindexed, 39/39 local routes live
 - Images: 22 optimized variants reduced 15.09 MB to 2.98 MB while originals remain available for rollback
 - Preservation: 395/395 protected private links and 39/39 Layer3 links remain; zero retired links and zero public Klint email matches
 - Product report: `audits/site-audit/product-review-2026-07-14.html`
