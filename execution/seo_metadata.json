@@ -1,0 +1,265 @@
+{
+  "site": {
+    "baseUrl": "https://taylorryan.xyz",
+    "siteName": "Taylor Ryan Portfolio",
+    "defaultImage": "/assets/images/taylor_headshot.jpg",
+    "defaultImageAlt": "Taylor Ryan, GTM and growth expert",
+    "lastmod": "2026-07-14"
+  },
+  "pages": [
+    {
+      "route": "/",
+      "title": "Taylor Ryan | GTM & Growth Expert",
+      "description": "Homepage for Taylor Ryan, a GTM and growth operator with 17+ years across startups, AI, blockchain, and SaaS, plus links to work and contact.",
+      "index": true
+    },
+    {
+      "route": "/404/",
+      "title": "Page Not Found | Taylor Ryan",
+      "description": "The requested Taylor Ryan portfolio page could not be found. Use the main navigation to explore work, background, or contact options.",
+      "index": false
+    },
+    {
+      "route": "/about/",
+      "title": "About | Taylor Ryan",
+      "description": "About page for Taylor Ryan, outlining his background in GTM, growth, and content work, along with the experience behind the portfolio.",
+      "index": true
+    },
+    {
+      "route": "/contact/",
+      "title": "Contact | Taylor Ryan",
+      "description": "Contact page with booking and social links for Taylor Ryan, built for hiring conversations, collaborations, and event outreach.",
+      "index": true
+    },
+    {
+      "route": "/now/",
+      "title": "Now | Taylor Ryan",
+      "description": "Current status page for Taylor Ryan, summarizing what he is focused on, what he is building, and the work he is sharing now.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/",
+      "title": "Marketing Hub | Taylor Ryan",
+      "description": "Explore Taylor Ryan's Marketing Hub for GTM, creator, email outreach, affiliate, analytics, social media, and case study work all in one place.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/affiliates/",
+      "title": "Affiliate Program | Taylor Ryan",
+      "description": "Marketing case page for the affiliate program, showing how Taylor Ryan structured partner recruitment, tracking, and commissions.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/analytics/",
+      "title": "Program Analytics | Taylor Ryan",
+      "description": "Marketing analytics page focused on how Taylor Ryan tracked program performance, reporting, and campaign outcomes over time.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/case_studies/",
+      "title": "Case Studies | Taylor Ryan",
+      "description": "Case studies hub for marketing work, featuring proof-of-value stories, campaign summaries, and audience-facing results used by prospective clients.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/case_studies/examples/",
+      "title": "Case Study Library | Taylor Ryan",
+      "description": "Library of case study examples that documents client-style work, proof points, and story formats used across the portfolio.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/content_creator_external/",
+      "title": "Content Creator Program | Taylor Ryan",
+      "description": "Shared version of the content creator program page, built for external viewing of the same recruitment and enablement system.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/content_creator/",
+      "title": "Content Creator Program | Taylor Ryan",
+      "description": "Program page for the content creator system, describing recruitment, enablement, and the shared resources used to manage creator onboarding.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/email_outreach_templates/",
+      "title": "Email Outreach Templates | Taylor Ryan",
+      "description": "Template library for outreach emails, containing reusable structures, examples, and copy patterns used to assemble new campaigns quickly.",
+      "canonical": "/portfolio/marketing/email_outreach/templates/",
+      "index": false
+    },
+    {
+      "route": "/portfolio/marketing/email_outreach_video/",
+      "title": "Email Video Personalization | Taylor Ryan",
+      "description": "Email video personalization page, showing how Taylor Ryan uses video-led outreach and recorded assets to support direct response campaigns.",
+      "canonical": "/portfolio/marketing/email_outreach/video/",
+      "index": false
+    },
+    {
+      "route": "/portfolio/marketing/email_outreach/",
+      "title": "Email Outreach | Taylor Ryan",
+      "description": "Email outreach hub for Taylor Ryan, showing cold email workflows, templates, and the supporting program materials used across campaigns.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/email_outreach/templates/",
+      "title": "Email Outreach Templates | Taylor Ryan",
+      "description": "Template library for outreach emails, containing reusable structures, examples, and copy patterns used to assemble new campaigns quickly.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/email_outreach/video/",
+      "title": "Email Video Personalization | Taylor Ryan",
+      "description": "Email video personalization page, showing how Taylor Ryan uses video-led outreach and recorded assets to support direct response campaigns.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/overview/",
+      "title": "Marketing Overview | Taylor Ryan",
+      "description": "Overview page for the marketing portfolio, grouping content, outreach, affiliate, and case study work into one view for fast review.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/resources/",
+      "title": "Marketing Resources | Taylor Ryan",
+      "description": "Resources page for the marketing portfolio, surfacing references, templates, and supporting materials used in the work for review and reuse.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/social_media/",
+      "title": "Social Media Strategy | Taylor Ryan",
+      "description": "Social media strategy hub, showing how Taylor Ryan plans content, formats posts, and organizes channel execution across the mix.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/social_media/content_creation/",
+      "title": "Visual & Video Creation | Taylor Ryan",
+      "description": "Social media creation page covering visual and video production workflows and the media assets used in Taylor Ryan's content programs.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/social_media/content_publishing/",
+      "title": "Content Publishing | Taylor Ryan",
+      "description": "Publishing page for social media work, focused on scheduling, distribution, and the mechanics of getting content live across campaigns.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/marketing/testimonials/",
+      "title": "Testimonials | Taylor Ryan",
+      "description": "Testimonials page collecting social proof from clients, collaborators, and partners who have worked with Taylor Ryan for public-facing work.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/quests/",
+      "title": "Portfolio | Taylor's Quest Portfolio",
+      "description": "Main quest portfolio page, presenting the on-chain activations collection and linking to the companion overview views for employers and collaborators.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/quests/analytics/",
+      "title": "Analytics | Taylor's Quest Portfolio",
+      "description": "Analytics view for the quest portfolio, summarizing performance patterns, filters, and measurement across published quests.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/quests/overview/",
+      "title": "Overview | Taylor's Quest Portfolio",
+      "description": "Overview page for the quest portfolio, covering how quests are researched, built, reviewed, and promoted for clients and event organizers.",
+      "index": true
+    },
+    {
+      "route": "/portfolio/quests/resources/",
+      "title": "Resources | Taylor's Quest Portfolio",
+      "description": "Resources page for the quest portfolio, listing supporting documents, templates, and reference material for quest work for review and reuse.",
+      "index": true
+    },
+    {
+      "route": "/skills_detailed/",
+      "title": "Detailed Skills | Taylor Ryan",
+      "description": "Detailed skills page expanding the matrix with fuller context on Taylor Ryan's marketing, growth, and operator work for hiring and client review.",
+      "index": true
+    },
+    {
+      "route": "/skills/",
+      "title": "Skills Matrix | Taylor Ryan",
+      "description": "Skills matrix summarizing Taylor Ryan's marketing, growth, content, and operator capabilities across the portfolio for review.",
+      "index": true
+    },
+    {
+      "route": "/testimonials/",
+      "title": "Testimonials | Taylor Ryan",
+      "description": "Standalone testimonials page presenting client and collaborator quotes that support Taylor Ryan's portfolio and speaking profile.",
+      "index": true
+    },
+    {
+      "route": "/work_awards/",
+      "title": "Awards | Taylor Ryan",
+      "description": "Awards page highlighting the recognitions, honors, and public acknowledgments tied to Taylor Ryan's work and speaking history.",
+      "index": true
+    },
+    {
+      "route": "/work_courses/",
+      "title": "Courses | Taylor Ryan",
+      "description": "Courses page showcasing training materials and course-related work connected to Taylor Ryan's portfolio for onboarding and internal training.",
+      "index": true
+    },
+    {
+      "route": "/work_podcasts/",
+      "title": "Podcasts & Interviews | Taylor Ryan",
+      "description": "Podcasts and interviews page collecting guest appearances, recorded conversations, and media features relevant to hiring or event booking.",
+      "index": true
+    },
+    {
+      "route": "/work_projects/",
+      "title": "Builds & Projects | Taylor Ryan",
+      "description": "Projects hub for the portfolio, listing builds, automated tools, and product work Taylor Ryan has shipped for clients and collaborators.",
+      "index": true
+    },
+    {
+      "route": "/work_some/",
+      "title": "SoMe Work | Taylor Ryan",
+      "description": "Social media work page showing strategy, publishing, and channel execution examples from Taylor Ryan's portfolio and social channels.",
+      "index": true
+    },
+    {
+      "route": "/work_speaker_topics/",
+      "title": "Speaker Topics | Taylor Ryan",
+      "description": "Speaker topics page organizing the themes, talk formats, and subject areas Taylor Ryan covers on stage for event organizers.",
+      "index": true
+    },
+    {
+      "route": "/work_speaker/",
+      "title": "Speaker | Taylor Ryan",
+      "description": "Speaker page presenting Taylor Ryan's public speaking work, event appearances, and presentation history for event organizers and collaborators.",
+      "index": true
+    },
+    {
+      "route": "/work_tutorials/",
+      "title": "Tutorials | Taylor Ryan",
+      "description": "Tutorials page collecting instructional content, how-to material, and teaching-focused portfolio examples for employers and collaborators.",
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/",
+      "title": "Vibecoding | Taylor Ryan",
+      "description": "Vibecoding page showing experimental builds, AI-assisted workflows, and the experimental builds behind them for product exploration and demos.",
+      "index": true
+    },
+    {
+      "route": "/work_video/",
+      "title": "Video Work | Taylor Ryan",
+      "description": "Video work page presenting recorded assets, motion pieces, and edited examples from Taylor Ryan's portfolio for employers and clients.",
+      "index": true
+    },
+    {
+      "route": "/work_writing/",
+      "title": "Writing & Content | Taylor Ryan",
+      "description": "Writing and content page collecting longform articles, editorial pieces, and published writing samples for employers, clients, and editors.",
+      "index": true
+    },
+    {
+      "route": "/work/",
+      "title": "Work | Taylor Ryan",
+      "description": "Work landing page for Taylor Ryan, grouping the portfolio into projects, speaking, content, and campaign categories for quick scanning.",
+      "index": true
+    }
+  ]
+}

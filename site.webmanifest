@@ -1,0 +1,21 @@
+{
+  "name": "Taylor Ryan Portfolio",
+  "short_name": "Taylor Ryan",
+  "description": "GTM strategy, growth systems, AI, SaaS and Web3 portfolio by Taylor Ryan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/assets/brand/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/brand/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

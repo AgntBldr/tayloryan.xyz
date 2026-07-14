@@ -29,8 +29,10 @@
 /portfolio/marketing/content_creator.html /portfolio/marketing/content_creator/ 301
 /portfolio/marketing/content_creator_external.html /portfolio/marketing/content_creator_external/ 301
 /portfolio/marketing/email_outreach.html /portfolio/marketing/email_outreach/ 301
-/portfolio/marketing/email_outreach_templates.html /portfolio/marketing/email_outreach_templates/ 301
-/portfolio/marketing/email_outreach_video.html /portfolio/marketing/email_outreach_video/ 301
+/portfolio/marketing/email_outreach_templates.html /portfolio/marketing/email_outreach/templates/ 301
+/portfolio/marketing/email_outreach_video.html /portfolio/marketing/email_outreach/video/ 301
+/portfolio/marketing/email_outreach_templates/ /portfolio/marketing/email_outreach/templates/ 301
+/portfolio/marketing/email_outreach_video/ /portfolio/marketing/email_outreach/video/ 301
 /portfolio/marketing/overview.html /portfolio/marketing/overview/ 301
 /portfolio/marketing/resources.html /portfolio/marketing/resources/ 301
 /portfolio/marketing/testimonials.html /portfolio/marketing/testimonials/ 301

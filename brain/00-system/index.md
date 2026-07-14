@@ -65,7 +65,8 @@ The system exists to make portfolio work reproducible and improvable. Any AI age
 - [[dec-use-deploy-public-folder]] -- canonical deploy target is `DEPLOY_PUBLIC/`; no other folders
 - [[dec-use-resource-preservation-manifest-before-google-link-removal]] -- preserve and review resources before retiring public links
 - [[dec-tiered-model-routing-site-maintenance]] -- route work across 5.6 SOL, cheaper frontier models, Ollama, and deterministic tools
-- [[tsk-clean-broken-google-links]] -- active selective cleanup and compact-ready resume state
+- [[tsk-clean-broken-google-links]] -- completed selective cleanup and production verification
+- [[tsk-seo-social-discovery-upgrade]] -- active SEO, social preview, favicon, image, and product-review release
 
 ## Sources
 

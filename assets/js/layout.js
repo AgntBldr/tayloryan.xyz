@@ -21,7 +21,7 @@ function injectLayout() {
     mobileMenu.id = 'global-mobile-menu';
     mobileMenu.className = "fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8";
     mobileMenu.innerHTML = `
-        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-neutral-400 hover:text-white p-2">
+        <button type="button" aria-label="Close navigation menu" onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-neutral-400 hover:text-white p-2">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
         <nav class="flex flex-col items-center gap-6 text-lg font-bold">
@@ -65,7 +65,7 @@ function injectLayout() {
             </a>
 
             <!-- Mobile Menu Button -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
+            <button type="button" aria-label="Open navigation menu" aria-controls="global-mobile-menu" onclick="toggleMobileMenu()" class="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>

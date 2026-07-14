@@ -1,0 +1,178 @@
+﻿[
+    {
+        "source":  "assets/images/work/box_courses.png",
+        "optimized":  "assets/images/work/box_courses.jpg",
+        "original_bytes":  604901,
+        "optimized_bytes":  116839,
+        "saved_bytes":  488062,
+        "reduction_percent":  80.7
+    },
+    {
+        "source":  "assets/images/work/box_marketing.png",
+        "optimized":  "assets/images/work/box_marketing.jpg",
+        "original_bytes":  767135,
+        "optimized_bytes":  153533,
+        "saved_bytes":  613602,
+        "reduction_percent":  80
+    },
+    {
+        "source":  "assets/images/work/box_vibecoding.png",
+        "optimized":  "assets/images/work/box_vibecoding.jpg",
+        "original_bytes":  669400,
+        "optimized_bytes":  112887,
+        "saved_bytes":  556513,
+        "reduction_percent":  83.1
+    },
+    {
+        "source":  "assets/images/work/card_affiliates.png",
+        "optimized":  "assets/images/work/card_affiliates.jpg",
+        "original_bytes":  607240,
+        "optimized_bytes":  115080,
+        "saved_bytes":  492160,
+        "reduction_percent":  81
+    },
+    {
+        "source":  "assets/images/work/card_awards.png",
+        "optimized":  "assets/images/work/card_awards.jpg",
+        "original_bytes":  753032,
+        "optimized_bytes":  134480,
+        "saved_bytes":  618552,
+        "reduction_percent":  82.1
+    },
+    {
+        "source":  "assets/images/work/card_capabilities.png",
+        "optimized":  "assets/images/work/card_capabilities.jpg",
+        "original_bytes":  775155,
+        "optimized_bytes":  134452,
+        "saved_bytes":  640703,
+        "reduction_percent":  82.7
+    },
+    {
+        "source":  "assets/images/work/card_case_studies.png",
+        "optimized":  "assets/images/work/card_case_studies.jpg",
+        "original_bytes":  742950,
+        "optimized_bytes":  129416,
+        "saved_bytes":  613534,
+        "reduction_percent":  82.6
+    },
+    {
+        "source":  "assets/images/work/card_content_creator.png",
+        "optimized":  "assets/images/work/card_content_creator.jpg",
+        "original_bytes":  556406,
+        "optimized_bytes":  85154,
+        "saved_bytes":  471252,
+        "reduction_percent":  84.7
+    },
+    {
+        "source":  "assets/images/work/card_email_outreach.png",
+        "optimized":  "assets/images/work/card_email_outreach.jpg",
+        "original_bytes":  605503,
+        "optimized_bytes":  113842,
+        "saved_bytes":  491661,
+        "reduction_percent":  81.2
+    },
+    {
+        "source":  "assets/images/work/card_podcasts.png",
+        "optimized":  "assets/images/work/card_podcasts.jpg",
+        "original_bytes":  779605,
+        "optimized_bytes":  140396,
+        "saved_bytes":  639209,
+        "reduction_percent":  82
+    },
+    {
+        "source":  "assets/images/work/card_projects.png",
+        "optimized":  "assets/images/work/card_projects.jpg",
+        "original_bytes":  735622,
+        "optimized_bytes":  122692,
+        "saved_bytes":  612930,
+        "reduction_percent":  83.3
+    },
+    {
+        "source":  "assets/images/work/card_quests.png",
+        "optimized":  "assets/images/work/card_quests.jpg",
+        "original_bytes":  751370,
+        "optimized_bytes":  125648,
+        "saved_bytes":  625722,
+        "reduction_percent":  83.3
+    },
+    {
+        "source":  "assets/images/work/card_skills.png",
+        "optimized":  "assets/images/work/card_skills.jpg",
+        "original_bytes":  586479,
+        "optimized_bytes":  80498,
+        "saved_bytes":  505981,
+        "reduction_percent":  86.3
+    },
+    {
+        "source":  "assets/images/work/card_social_media.png",
+        "optimized":  "assets/images/work/card_social_media.jpg",
+        "original_bytes":  737230,
+        "optimized_bytes":  155831,
+        "saved_bytes":  581399,
+        "reduction_percent":  78.9
+    },
+    {
+        "source":  "assets/images/work/card_social_media_v2.png",
+        "optimized":  "assets/images/work/card_social_media_v2.jpg",
+        "original_bytes":  827124,
+        "optimized_bytes":  158974,
+        "saved_bytes":  668150,
+        "reduction_percent":  80.8
+    },
+    {
+        "source":  "assets/images/work/card_some_work.png",
+        "optimized":  "assets/images/work/card_some_work.jpg",
+        "original_bytes":  739086,
+        "optimized_bytes":  130144,
+        "saved_bytes":  608942,
+        "reduction_percent":  82.4
+    },
+    {
+        "source":  "assets/images/work/card_speaker.png",
+        "optimized":  "assets/images/work/card_speaker.jpg",
+        "original_bytes":  685488,
+        "optimized_bytes":  100630,
+        "saved_bytes":  584858,
+        "reduction_percent":  85.3
+    },
+    {
+        "source":  "assets/images/work/card_testimonials.png",
+        "optimized":  "assets/images/work/card_testimonials.jpg",
+        "original_bytes":  486906,
+        "optimized_bytes":  54002,
+        "saved_bytes":  432904,
+        "reduction_percent":  88.9
+    },
+    {
+        "source":  "assets/images/work/card_tutorials.png",
+        "optimized":  "assets/images/work/card_tutorials.jpg",
+        "original_bytes":  725927,
+        "optimized_bytes":  109792,
+        "saved_bytes":  616135,
+        "reduction_percent":  84.9
+    },
+    {
+        "source":  "assets/images/work/card_video_work.png",
+        "optimized":  "assets/images/work/card_video_work.jpg",
+        "original_bytes":  835377,
+        "optimized_bytes":  180509,
+        "saved_bytes":  654868,
+        "reduction_percent":  78.4
+    },
+    {
+        "source":  "assets/images/work/card_writing.png",
+        "optimized":  "assets/images/work/card_writing.jpg",
+        "original_bytes":  802243,
+        "optimized_bytes":  152670,
+        "saved_bytes":  649573,
+        "reduction_percent":  81
+    },
+    {
+        "source":  "assets/images/taylor_headshot.png",
+        "optimized":  "assets/images/taylor_headshot.jpg",
+        "original_bytes":  1052969,
+        "optimized_bytes":  512586,
+        "saved_bytes":  540383,
+        "reduction_percent":  51.3
+    }
+]
