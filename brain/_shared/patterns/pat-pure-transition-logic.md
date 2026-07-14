@@ -24,4 +24,3 @@ Pure transition logic lives in a domain module (`src/domain/operatorState.ts`). 
 ## Edges
 
 - supports: [[prj-approval-audit-spine]] -- the pure function pattern is the testable backbone of the audit spine
-

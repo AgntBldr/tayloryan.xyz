@@ -28,7 +28,9 @@ Teneo is outside this project. Layer3 quest links and Google URLs that merely re
 
 The preservation manifest reviewed 622 Google URLs: 25 public-working, 517 auth-required/private, and 80 confirmed broken/missing. The selective cleanup of those 80 broken URLs is live and retains its preservation ledger, private resources, and Layer3 links.
 
-The discovery release [[tsk-seo-social-discovery-upgrade]] is live: centralized share/search metadata, corrected crawler files, branded favicons, compressed high-use images, and an ICE-ranked product review. PR #6 and Cloudflare production were verified on the custom domain. The next highest-value pass is conversion work: finish placeholder case studies, sharpen the homepage offer, and replace repeated marquees with contextual outcome proof.
+The discovery release [[tsk-seo-social-discovery-upgrade]] is live: centralized share/search metadata, corrected crawler files, branded favicons, compressed high-use images, and an ICE-ranked product review. PR #6 and Cloudflare production were verified on the custom domain.
+
+The reversible conversion pass [[tsk-conversion-ux-reversible-pass]] is prepared on an isolated branch. It preserves the side menus, Work archive, vibecoding, Google recovery records, and Layer3 links while improving contact fit cues, navigation, accessibility, clean-route consistency, local runtime assets, and trust-logo marquees. Homepage positioning and proof-card copy remain approval-gated examples rather than live claims.
 
 ## Edges
 

@@ -72,3 +72,9 @@ The Cloudflare preview crawl caught `/overview_blog_content/` in both the sitema
 
 ## [2026-07-14] deploy | SEO and social discovery release verified in production
 Merged PR #6 as `ec160337`, passed Cloudflare deployment `ce446fff`, and verified 39/39 custom-domain routes, crawler assets, noindex headers, redirects, resource payloads, and contact-email privacy.
+
+## [2026-07-14] decision | reversible conversion UX direction
+Recorded the user's decisions to preserve both side-menu systems, the full Work archive, vibecoding, and both trust marquees; logo text is replaced with compressed dark-compatible assets, while homepage positioning and proof copy remain approval-gated examples.
+
+## [2026-07-14] verify | conversion UX preservation gate
+The isolated `codex/conversion-ux-pass` branch passed 16/16 preservation checks plus SEO, zero-issue static accessibility, and desktop/mobile browser QA. Production and `main` remain unchanged pending review.
