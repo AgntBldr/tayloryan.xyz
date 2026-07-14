@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Podcasts &amp; Interviews | Taylor Ryan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../assets/js/podcast_data.js"></script>
     <style>
@@ -65,9 +65,9 @@
 
 <body class="min-h-screen relative overflow-x-hidden">
     <!-- Global Layout -->
-    <script src="../assets/js/layout.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_sidebar.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_scroll.js?v=20260714-1009"></script>
+    <script src="../assets/js/layout.js?v=20260714-1221"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260714-1221"></script>
+    <script src="../assets/js/work_scroll.js?v=20260714-1221"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (!document.getElementById('work-sidebar')) {
@@ -83,7 +83,7 @@
             <div class="bg-neutral-900 border border-neutral-800 w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-y-auto custom-scrollbar relative shadow-2xl"
                 onclick="event.stopPropagation()">
                 <button onclick="closeModal()"
-                    class="absolute top-4 right-4 p-2 bg-black/50 hover:bg-neutral-800 rounded-full text-white transition-colors z-10 border border-neutral-700">
+                    class="absolute top-4 right-4 p-2 bg-black/50 hover:bg-neutral-800 rounded-full text-white transition-colors z-10 border border-neutral-700" type="button" aria-label="Close details">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
                 <div id="modal-content"></div>
@@ -149,22 +149,22 @@
                             class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
                         <input type="text" id="search-input" oninput="renderPodcasts()"
                             placeholder="Search topics, hosts, titles..."
-                            class="w-full bg-neutral-900 border border-neutral-700 text-white rounded-lg pl-10 pr-4 py-2.5 outline-none focus:ring-2 focus:ring-pink-500">
+                            class="w-full bg-neutral-900 border border-neutral-700 text-white rounded-lg pl-10 pr-4 py-2.5 outline-none focus:ring-2 focus:ring-pink-500" aria-label="Search topics, hosts, titles">
                     </div>
 
                     <!-- Filters -->
                     <select id="year-filter" onchange="renderPodcasts()"
-                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none">
+                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none" aria-label="Filter by year">
                         <option value="all">All Years</option>
                     </select>
 
                     <select id="type-filter" onchange="renderPodcasts()"
-                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none max-w-[200px]">
+                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none max-w-[200px]" aria-label="Filter by type">
                         <option value="all">All Types</option>
                     </select>
 
                     <select id="industry-filter" onchange="renderPodcasts()"
-                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none max-w-[200px]">
+                        class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-pink-500 outline-none max-w-[200px]" aria-label="Filter by industry">
                         <option value="all">All Industries</option>
                     </select>
 

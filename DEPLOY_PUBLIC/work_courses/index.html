@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses | Taylor Ryan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js"></script>
+    <link rel="stylesheet" href="/assets/fonts/outfit.css">
     <style>
         body {
             font-family: 'Outfit', sans-serif;
@@ -60,9 +59,9 @@
 </head>
 
 <body class="bg-black min-h-screen">
-    <script src="../assets/js/layout.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_sidebar.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_scroll.js?v=20260714-1009"></script>
+    <script src="../assets/js/layout.js?v=20260714-1221"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260714-1221"></script>
+    <script src="../assets/js/work_scroll.js?v=20260714-1221"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (!document.getElementById('work-sidebar')) {
@@ -98,7 +97,7 @@
         <div class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-300 scrollbar-hide"
             id="modal-content">
             <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group">
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group" type="button" aria-label="Close details">
                 <i data-lucide="x" class="w-6 h-6 text-neutral-400 group-hover:text-white"></i>
             </button>
             <div id="modal-body" class="p-8 md:p-12">
@@ -108,7 +107,7 @@
     </div>
 
     <!-- Data & Scripts -->
-    <script src="../assets/js/layout.js?v=20260714-1009"></script>
+    <script src="../assets/js/layout.js?v=20260714-1221"></script>
     <script src="../assets/js/projects_data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

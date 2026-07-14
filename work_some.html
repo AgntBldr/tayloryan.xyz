@@ -84,7 +84,7 @@
 
             <!-- Close Button -->
             <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5" type="button" aria-label="Close details">
                 <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
             </button>
 
@@ -176,7 +176,7 @@
                             <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"></i>
                             <input type="text" placeholder="Search Social Media Posts..." value="${searchQuery}" 
                                 oninput="searchQuery = this.value; renderResources()"
-                                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 focus:outline-none transition-all placeholder:text-neutral-600">
+                                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 focus:outline-none transition-all placeholder:text-neutral-600" aria-label="Search Social Media Posts">
                         </div>
                         <div class="px-4 py-3 bg-pink-500/10 rounded-xl border border-pink-500/20 text-pink-400 text-sm font-bold whitespace-nowrap">
                             ${data.length} Social Media Posts

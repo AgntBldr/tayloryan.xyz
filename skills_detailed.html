@@ -52,7 +52,7 @@
             <div class="bg-neutral-900 border border-neutral-800 w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-y-auto custom-scrollbar relative shadow-2xl"
                 onclick="event.stopPropagation()">
                 <button onclick="closeModal()"
-                    class="absolute top-4 right-4 p-2 bg-black/50 hover:bg-neutral-800 rounded-full text-white transition-colors z-10 border border-neutral-700">
+                    class="absolute top-4 right-4 p-2 bg-black/50 hover:bg-neutral-800 rounded-full text-white transition-colors z-10 border border-neutral-700" type="button" aria-label="Close details">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
                 <div id="modal-content"></div>
@@ -112,7 +112,7 @@
                         </div>
                         <input type="text" id="project-search"
                             class="block w-full pl-10 pr-3 py-2.5 bg-neutral-900/50 border border-neutral-800 rounded-xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500/50 transition-all text-sm"
-                            placeholder="Find projects..." oninput="handleSearch(this.value)">
+                            placeholder="Find projects..." oninput="handleSearch(this.value)" aria-label="Find projects">
                     </div>
 
                     <!-- View Toggle -->

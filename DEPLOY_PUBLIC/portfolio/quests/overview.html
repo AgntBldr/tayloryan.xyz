@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overview | Taylor's Quest Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js"></script>
     <style>
         body {
             background-color: #0a0a0a;
@@ -67,8 +67,8 @@
 
 <body class="min-h-screen p-6 md:p-12 relative md:pl-72">
     <!-- Global Layout -->
-    <script src="../../assets/js/layout.js?v=20260714-1009"></script>
-    <script src="../../assets/js/work_sidebar.js?v=20260714-1009"></script>
+    <script src="../../assets/js/layout.js?v=20260714-1221"></script>
+    <script src="../../assets/js/work_sidebar.js?v=20260714-1221"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof renderWorkSidebar === 'function') renderWorkSidebar('quests');
@@ -88,13 +88,13 @@
 
         <!-- View Toggle (Navigation) -->
         <div class="bg-neutral-900 border border-neutral-800 p-1 rounded-full flex gap-1 relative z-20">
-            <a href="index.html"
+            <a href="/portfolio/quests/"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Portfolio</a>
-            <a href="overview.html"
+            <a href="/portfolio/quests/overview/"
                 class="px-6 py-2 rounded-full text-sm font-bold bg-neutral-800 text-white shadow-lg transition-all">Overview</a>
-            <a href="analytics.html"
+            <a href="/portfolio/quests/analytics/"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Analytics</a>
-            <a href="resources.html"
+            <a href="/portfolio/quests/resources/"
                 class="px-6 py-2 rounded-full text-sm font-bold text-neutral-500 hover:text-white transition-all">Resources</a>
         </div>
     </header>
@@ -228,7 +228,7 @@
                         <div class="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4 mt-6">
                             <p class="font-bold text-blue-200 mb-2">Where to find all my resources:</p>
                             <ul class="space-y-2">
-                                <li class="flex items-center text-blue-300"><a href="resources.html"
+                                <li class="flex items-center text-blue-300"><a href="/portfolio/quests/resources/"
                                         class="flex items-center hover:underline"><i data-lucide="link"
                                             class="w-4 h-4 mr-2"></i>Resources
                                         tab (Within this portfolio)</a></li>

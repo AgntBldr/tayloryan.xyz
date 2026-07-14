@@ -166,7 +166,7 @@ function injectLayout() {
             <div class="bg-neutral-900 border border-neutral-800 rounded-2xl w-full max-w-lg relative shadow-2xl animate-fade-in-up">
                 
                 <!-- Close Button -->
-                <button onclick="closeContactModal()" class="absolute top-4 right-4 p-2 text-neutral-400 hover:text-white bg-neutral-800 rounded-full transition-colors">
+                <button onclick="closeContactModal()" class="absolute top-4 right-4 p-2 text-neutral-400 hover:text-white bg-neutral-800 rounded-full transition-colors" type="button" aria-label="Close contact form">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
 
@@ -178,22 +178,22 @@ function injectLayout() {
                         <input type="text" name="honeycomb" class="hidden" tabindex="-1" autocomplete="off">
                         <div>
                             <label class="block text-xs uppercase text-neutral-500 font-bold mb-1">Name</label>
-                            <input type="text" name="name" required class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="Your Name">
+                            <input type="text" name="name" required class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="Your Name" aria-label="Your Name">
                         </div>
                         
                         <div>
                             <label class="block text-xs uppercase text-neutral-500 font-bold mb-1">Email</label>
-                            <input type="email" name="email" required class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="your@email.com">
+                            <input type="email" name="email" required class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="your@email.com" aria-label="your@email.com">
                         </div>
 
                         <div>
                             <label class="block text-xs uppercase text-neutral-500 font-bold mb-1">Subject</label>
-                            <input type="text" name="subject" required class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="Project Inquiry / Speaking">
+                            <input type="text" name="subject" required class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="Project Inquiry / Speaking" aria-label="Project Inquiry / Speaking">
                         </div>
 
                         <div>
                             <label class="block text-xs uppercase text-neutral-500 font-bold mb-1">Message</label>
-                            <textarea name="message" required rows="4" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="How can I help you?"></textarea>
+                            <textarea name="message" required rows="4" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:border-purple-500 focus:outline-none transition-colors" placeholder="How can I help you?" aria-label="How can I help you?"></textarea>
                         </div>
 
                         <button type="submit" class="w-full py-3 bg-white text-black font-bold rounded-lg hover:bg-neutral-200 transition-colors flex items-center justify-center gap-2">

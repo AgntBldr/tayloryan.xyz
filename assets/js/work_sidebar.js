@@ -17,6 +17,13 @@ function renderWorkSidebar(activePage) {
             }
             /* Sidebar transitions */
             #work-sidebar { transition: transform 0.3s ease-in-out; }
+            @media (min-width: 768px) {
+                #work-sidebar.sidebar-collapsed { width: 5rem; }
+                #work-sidebar.sidebar-collapsed .sidebar-label { display: none; }
+                #work-sidebar.sidebar-collapsed nav a { justify-content: center; padding-left: 0.75rem; padding-right: 0.75rem; }
+                #work-sidebar.sidebar-collapsed #collapse-icon { transform: rotate(180deg); }
+                body.portfolio-sidebar-collapsed main { margin-left: 5rem !important; }
+            }
         `;
         document.head.appendChild(style);
     }
@@ -78,20 +85,20 @@ function renderWorkSidebar(activePage) {
             </nav>
             
              <!-- Desktop Collapse Button -->
-            <button onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
+            <button type="button" onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
                 <i data-lucide="chevron-left" class="w-5 h-5 transition-transform" id="collapse-icon"></i>
                 <span class="ml-3 font-medium text-sm sidebar-label">Collapse</span>
             </button>
         </div>
         
         <!-- Mobile Close Button -->
-        <button onclick="toggleSidebar()" class="md:hidden absolute top-4 right-4 text-neutral-400">
+        <button type="button" aria-label="Close work navigation" onclick="togglePortfolioSidebar()" class="md:hidden absolute top-4 right-4 text-neutral-400">
             <i data-lucide="x" class="w-6 h-6"></i>
         </button>
     </div>
 
     <!-- Mobile Toggle Button (Fixed) -->
-    <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-[100] bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
+    <button type="button" aria-label="Open work navigation" onclick="togglePortfolioSidebar()" class="md:hidden fixed bottom-6 right-6 z-[100] bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
         <i data-lucide="menu" class="w-6 h-6"></i>
     </button>
     `;
@@ -149,12 +156,12 @@ function renderSpeakerSidebar(activePage) {
                 </nav>
             </div>
              
-             <button class="p-2 text-neutral-400 absolute top-4 right-4 md:hidden" onclick="toggleSidebar()">
+             <button type="button" aria-label="Close speaker navigation" class="p-2 text-neutral-400 absolute top-4 right-4 md:hidden" onclick="togglePortfolioSidebar()">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             
             <!-- Desktop Collapse Button -->
-            <button onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
+            <button type="button" onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
                 <i data-lucide="chevron-left" class="w-5 h-5 transition-transform" id="collapse-icon"></i>
                 <span class="ml-3 font-medium text-sm sidebar-label">Collapse</span>
             </button>
@@ -162,7 +169,7 @@ function renderSpeakerSidebar(activePage) {
     </div>
     
      <!-- Mobile Toggle Button (Fixed) -->
-    <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-50 bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
+    <button type="button" aria-label="Open speaker navigation" onclick="togglePortfolioSidebar()" class="md:hidden fixed bottom-6 right-6 z-50 bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
         <i data-lucide="menu" class="w-6 h-6"></i>
     </button>
     `;
@@ -240,12 +247,12 @@ function renderAboutSidebar(activePage) {
                 </nav>
              </div>
              
-             <button class="p-2 text-neutral-400 absolute top-4 right-4 md:hidden" onclick="toggleSidebar()">
+             <button type="button" aria-label="Close about navigation" class="p-2 text-neutral-400 absolute top-4 right-4 md:hidden" onclick="togglePortfolioSidebar()">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             
             <!-- Desktop Collapse Button -->
-            <button onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
+            <button type="button" onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
                 <i data-lucide="chevron-left" class="w-5 h-5 transition-transform" id="collapse-icon"></i>
                 <span class="ml-3 font-medium text-sm sidebar-label">Collapse</span>
             </button>
@@ -253,7 +260,7 @@ function renderAboutSidebar(activePage) {
     </div>
     
      <!-- Mobile Toggle Button (Fixed) -->
-    <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-50 bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
+    <button type="button" aria-label="Open about navigation" onclick="togglePortfolioSidebar()" class="md:hidden fixed bottom-6 right-6 z-50 bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
         <i data-lucide="menu" class="w-6 h-6"></i>
     </button>
     `;
@@ -263,4 +270,16 @@ function renderAboutSidebar(activePage) {
     if (typeof lucide !== 'undefined') lucide.createIcons();
 }
 
-// Global Toggle logic is now handled in work_scroll.js to support all sidebars
+window.togglePortfolioSidebar = function () {
+    const sidebar = document.getElementById('work-sidebar');
+    if (!sidebar) return;
+    sidebar.classList.toggle('-translate-x-full');
+    if (!sidebar.classList.contains('-translate-x-full')) sidebar.style.zIndex = '100';
+};
+
+window.toggleDesktopSidebar = function () {
+    const sidebar = document.getElementById('work-sidebar');
+    if (!sidebar) return;
+    const collapsed = sidebar.classList.toggle('sidebar-collapsed');
+    document.body.classList.toggle('portfolio-sidebar-collapsed', collapsed);
+};

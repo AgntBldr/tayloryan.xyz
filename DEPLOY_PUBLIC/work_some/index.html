@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoMe Work | Taylor Ryan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js"></script>
+    <link rel="stylesheet" href="/assets/fonts/outfit.css">
     <script src="../assets/js/some_work_data.js"></script>
     <style>
         body {
@@ -66,15 +65,15 @@
 </head>
 
 <body class="bg-black min-h-screen">
-    <script src="../assets/js/layout.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_sidebar.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_scroll.js?v=20260714-1009"></script>
+    <script src="../assets/js/layout.js?v=20260714-1221"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260714-1221"></script>
+    <script src="../assets/js/work_scroll.js?v=20260714-1221"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Render Sidebar (will need to update work_sidebar.js?v=20260714-1009 to handle 'some')
+            // Render Sidebar (will need to update work_sidebar.js?v=20260714-1221 to handle 'some')
             if (!document.getElementById('work-sidebar')) {
-                // Temporary fallback or assume work_sidebar.js?v=20260714-1009 will be updated
+                // Temporary fallback or assume work_sidebar.js?v=20260714-1221 will be updated
                 if (typeof renderWorkSidebar === 'function') renderWorkSidebar('some');
             }
             renderResources();
@@ -110,7 +109,7 @@
 
             <!-- Close Button -->
             <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5" type="button" aria-label="Close details">
                 <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
             </button>
 
@@ -202,7 +201,7 @@
                             <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"></i>
                             <input type="text" placeholder="Search Social Media Posts..." value="${searchQuery}" 
                                 oninput="searchQuery = this.value; renderResources()"
-                                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 focus:outline-none transition-all placeholder:text-neutral-600">
+                                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 focus:outline-none transition-all placeholder:text-neutral-600" aria-label="Search Social Media Posts">
                         </div>
                         <div class="px-4 py-3 bg-pink-500/10 rounded-xl border border-pink-500/20 text-pink-400 text-sm font-bold whitespace-nowrap">
                             ${data.length} Social Media Posts

@@ -96,7 +96,7 @@
 
             <!-- Close Button -->
             <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5" type="button" aria-label="Close details">
                 <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
             </button>
 
@@ -203,10 +203,10 @@
                     
                     <!-- View Toggle -->
                     <div class="flex items-center gap-2 bg-neutral-900 p-1 rounded-lg border border-neutral-800">
-                        <button onclick="toggleView('card')" class="p-2 rounded-md transition-all ${currentView === 'card' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}">
+                        <button onclick="toggleView('card')" class="p-2 rounded-md transition-all ${currentView === 'card' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}" type="button" aria-label="Show card view">
                             <i data-lucide="layout-grid" class="w-4 h-4"></i>
                         </button>
-                        <button onclick="toggleView('row')" class="p-2 rounded-md transition-all ${currentView === 'row' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}">
+                        <button onclick="toggleView('row')" class="p-2 rounded-md transition-all ${currentView === 'row' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}" type="button" aria-label="Show row view">
                             <i data-lucide="list" class="w-4 h-4"></i>
                         </button>
                     </div>

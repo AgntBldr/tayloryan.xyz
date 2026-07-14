@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work | Taylor Ryan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js"></script>
+    <link rel="stylesheet" href="/assets/fonts/outfit.css">
     <style>
         body {
             font-family: 'Outfit', sans-serif;
@@ -61,7 +60,7 @@
     <main class="pt-32 pb-20 max-w-7xl mx-auto px-6">
 
         <!-- Header -->
-        <div class="mb-20">
+        <div class="mb-12">
             <span class="text-purple-400 font-bold tracking-widest uppercase text-sm mb-4 block">Portfolio</span>
             <h1 class="text-6xl font-extrabold text-white mb-6">Selected Work</h1>
             <p class="text-neutral-400 text-xl max-w-2xl">
@@ -69,8 +68,42 @@
             </p>
         </div>
 
+        <section aria-labelledby="work-goals-title" class="border-y border-neutral-800 mb-24">
+            <div class="py-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                    <p class="text-xs font-bold text-neutral-500 uppercase tracking-widest mb-1">Start with your goal</p>
+                    <h2 id="work-goals-title" class="text-2xl font-bold text-white">Choose a path into the work</h2>
+                </div>
+                <a href="#all-work" class="inline-flex items-center gap-2 text-sm font-bold text-neutral-400 hover:text-white transition-colors">
+                    Browse the full archive <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+            </div>
+            <nav aria-label="Explore work by goal" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 border-t border-neutral-800">
+                <a href="/work_vibecoding/" class="group py-6 xl:pr-6 border-b md:border-r xl:border-b-0 border-neutral-800">
+                    <i data-lucide="code-2" class="w-5 h-5 text-green-400 mb-3"></i>
+                    <span class="block text-lg font-bold text-white group-hover:text-green-400 transition-colors">Build with AI</span>
+                    <span class="block text-sm text-neutral-500 mt-1">Vibecoding, agents, and shipped systems</span>
+                </a>
+                <a href="/portfolio/marketing/" class="group py-6 md:pl-6 xl:px-6 border-b xl:border-b-0 xl:border-r border-neutral-800">
+                    <i data-lucide="rocket" class="w-5 h-5 text-purple-400 mb-3"></i>
+                    <span class="block text-lg font-bold text-white group-hover:text-purple-400 transition-colors">Grow or launch</span>
+                    <span class="block text-sm text-neutral-500 mt-1">GTM, growth, and marketing execution</span>
+                </a>
+                <a href="/work_speaker/" class="group py-6 xl:px-6 border-b md:border-b-0 md:border-r border-neutral-800">
+                    <i data-lucide="mic-2" class="w-5 h-5 text-orange-400 mb-3"></i>
+                    <span class="block text-lg font-bold text-white group-hover:text-orange-400 transition-colors">Book a speaker</span>
+                    <span class="block text-sm text-neutral-500 mt-1">Keynotes, workshops, and topics</span>
+                </a>
+                <a href="/portfolio/marketing/case_studies/" class="group py-6 md:pl-6 xl:pl-6">
+                    <i data-lucide="badge-check" class="w-5 h-5 text-blue-400 mb-3"></i>
+                    <span class="block text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Review proof</span>
+                    <span class="block text-sm text-neutral-500 mt-1">Case studies, resources, and outcomes</span>
+                </a>
+            </nav>
+        </section>
+
         <!-- Section 1: Builds & Projects -->
-        <section class="mb-24">
+        <section id="all-work" class="mb-24 scroll-mt-28">
             <div class="mb-10">
                 <a href="/work_projects/" class="hover:text-purple-400 transition-colors">
                     <h2 class="text-3xl font-bold text-white mb-4">Builds & Projects</h2>
@@ -647,7 +680,7 @@
         </section>
     </main>
 
-    <script src="../assets/js/layout.js?v=20260714-1009?v=20260128-0740"></script>
+    <script src="../assets/js/layout.js?v=20260714-1221?v=20260128-0740"></script>
 
 </body>
 

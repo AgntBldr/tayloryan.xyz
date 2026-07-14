@@ -16,15 +16,6 @@
             color: #fff;
         }
 
-        .clip-text-image {
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-
         .grain-overlay {
             position: fixed;
             top: 0;
@@ -40,6 +31,36 @@
             animation: scroll 10s linear infinite;
         }
 
+        .trust-logo-track {
+            width: max-content;
+            min-width: 100%;
+            gap: 3rem;
+        }
+
+        .trust-logo {
+            width: 8rem;
+            height: 3rem;
+            flex: 0 0 8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: grayscale(1) brightness(0) invert(1);
+            opacity: 0.68;
+            transition: filter 180ms ease, opacity 180ms ease, transform 180ms ease;
+        }
+
+        .trust-logo:hover img {
+            filter: none;
+            opacity: 1;
+            transform: scale(1.06);
+        }
+
         @keyframes scroll {
             0% {
                 transform: translateX(0);
@@ -47,6 +68,21 @@
 
             100% {
                 transform: translateX(-33.3333%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-scroll {
+                animation: none;
+                transform: none;
+                flex-wrap: wrap;
+                justify-content: center;
+                white-space: normal;
+                padding-inline: 1.5rem;
+            }
+
+            [data-logo-copy] {
+                display: none;
             }
         }
     </style>
@@ -127,74 +163,65 @@
                 <p class="text-sm font-bold text-neutral-500 uppercase tracking-widest">Trusted by leading companies</p>
             </div>
 
-            <!-- MARQUEE TRACK -->
-            <!-- MARQUEE TRACK -->
-            <!-- MARQUEE TRACK -->
-            <div
-                class="flex animate-scroll whitespace-nowrap gap-12 items-center text-neutral-500 font-bold text-2xl uppercase tracking-widest">
-
-                <!-- Set 1 -->
-                <span class="hover:text-white transition-colors">Novo Nordisk</span>
-                <span class="hover:text-white transition-colors">Near Protocol</span>
-                <span class="hover:text-white transition-colors">SSV Network</span>
-                <span class="hover:text-white transition-colors">Lunar</span>
-                <span class="hover:text-white transition-colors">Google</span>
-                <span class="hover:text-white transition-colors">Rhea Finance</span>
-                <span class="hover:text-white transition-colors">Actimo</span>
-                <span class="hover:text-white transition-colors">Valuer</span>
-                <span class="hover:text-white transition-colors">Inflowpay</span>
-                <span class="hover:text-white transition-colors">Grundfos</span>
-                <span class="hover:text-white transition-colors">Talent Garden</span>
-                <span class="hover:text-white transition-colors">Lundbeck</span>
-                <span class="hover:text-white transition-colors">Nordea</span>
-                <span class="hover:text-white transition-colors">Maersk</span>
-                <span class="hover:text-white transition-colors">The Washington Post</span>
-                <span class="hover:text-white transition-colors">Planday</span>
-                <span class="hover:text-white transition-colors">TechBBQ</span>
-                <span class="hover:text-white transition-colors">WeddingWire</span>
-                <span class="hover:text-white transition-colors">Rainmaking</span>
-
-                <!-- Set 2 -->
-                <span class="hover:text-white transition-colors">Novo Nordisk</span>
-                <span class="hover:text-white transition-colors">Near Protocol</span>
-                <span class="hover:text-white transition-colors">SSV Network</span>
-                <span class="hover:text-white transition-colors">Lunar</span>
-                <span class="hover:text-white transition-colors">Google</span>
-                <span class="hover:text-white transition-colors">Rhea Finance</span>
-                <span class="hover:text-white transition-colors">Actimo</span>
-                <span class="hover:text-white transition-colors">Valuer</span>
-                <span class="hover:text-white transition-colors">Inflowpay</span>
-                <span class="hover:text-white transition-colors">Grundfos</span>
-                <span class="hover:text-white transition-colors">Talent Garden</span>
-                <span class="hover:text-white transition-colors">Lundbeck</span>
-                <span class="hover:text-white transition-colors">Nordea</span>
-                <span class="hover:text-white transition-colors">Maersk</span>
-                <span class="hover:text-white transition-colors">The Washington Post</span>
-                <span class="hover:text-white transition-colors">Planday</span>
-                <span class="hover:text-white transition-colors">TechBBQ</span>
-                <span class="hover:text-white transition-colors">WeddingWire</span>
-                <span class="hover:text-white transition-colors">Rainmaking</span>
-
-                <!-- Set 3 -->
-                <span class="hover:text-white transition-colors">Novo Nordisk</span>
-                <span class="hover:text-white transition-colors">Near Protocol</span>
-                <span class="hover:text-white transition-colors">SSV Network</span>
-                <span class="hover:text-white transition-colors">Lunar</span>
-                <span class="hover:text-white transition-colors">Google</span>
-                <span class="hover:text-white transition-colors">Rhea Finance</span>
-                <span class="hover:text-white transition-colors">Actimo</span>
-                <span class="hover:text-white transition-colors">Valuer</span>
-                <span class="hover:text-white transition-colors">Inflowpay</span>
-                <span class="hover:text-white transition-colors">Grundfos</span>
-                <span class="hover:text-white transition-colors">Talent Garden</span>
-                <span class="hover:text-white transition-colors">Lundbeck</span>
-                <span class="hover:text-white transition-colors">Nordea</span>
-                <span class="hover:text-white transition-colors">Maersk</span>
-                <span class="hover:text-white transition-colors">The Washington Post</span>
-                <span class="hover:text-white transition-colors">Planday</span>
-                <span class="hover:text-white transition-colors">TechBBQ</span>
-                <span class="hover:text-white transition-colors">WeddingWire</span>
-                <span class="hover:text-white transition-colors">Rainmaking</span>
+                                    <!-- GENERATED TRUST LOGOS: edit execution/trust_logo_manifest.json, then run execution/build_trust_logos.ps1 -->
+            <div class="trust-logo-track flex animate-scroll whitespace-nowrap items-center" data-trust-logo-group="companies">
+                <span class="trust-logo" role="img" aria-label="Novo Nordisk"><img src="/assets/brand/trust/novo-nordisk.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="NEAR Protocol"><img src="/assets/brand/trust/near-protocol.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="SSV Network"><img src="/assets/brand/trust/ssv-network.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Lunar"><img src="/assets/brand/trust/lunar.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Google"><img src="/assets/brand/trust/google.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rhea Finance"><img src="/assets/brand/trust/rhea-finance.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Actimo"><img src="/assets/brand/trust/actimo.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Valuer"><img src="/assets/brand/trust/valuer.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Inflowpay"><img src="/assets/brand/trust/inflowpay.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Grundfos"><img src="/assets/brand/trust/grundfos.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Talent Garden"><img src="/assets/brand/trust/talent-garden.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Lundbeck"><img src="/assets/brand/trust/lundbeck.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Nordea"><img src="/assets/brand/trust/nordea.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Maersk"><img src="/assets/brand/trust/maersk.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="The Washington Post"><img src="/assets/brand/trust/washington-post.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Planday"><img src="/assets/brand/trust/planday.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="TechBBQ"><img src="/assets/brand/trust/techbbq.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="WeddingWire"><img src="/assets/brand/trust/weddingwire.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rainmaking"><img src="/assets/brand/trust/rainmaking.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Novo Nordisk" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/novo-nordisk.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="NEAR Protocol" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/near-protocol.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="SSV Network" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/ssv-network.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Lunar" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/lunar.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Google" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/google.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rhea Finance" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/rhea-finance.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Actimo" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/actimo.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Valuer" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/valuer.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Inflowpay" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/inflowpay.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Grundfos" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/grundfos.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Talent Garden" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/talent-garden.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Lundbeck" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/lundbeck.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Nordea" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/nordea.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Maersk" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/maersk.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="The Washington Post" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/washington-post.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Planday" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/planday.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="TechBBQ" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/techbbq.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="WeddingWire" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/weddingwire.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rainmaking" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/rainmaking.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Novo Nordisk" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/novo-nordisk.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="NEAR Protocol" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/near-protocol.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="SSV Network" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/ssv-network.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Lunar" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/lunar.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Google" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/google.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rhea Finance" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/rhea-finance.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Actimo" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/actimo.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Valuer" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/valuer.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Inflowpay" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/inflowpay.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Grundfos" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/grundfos.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Talent Garden" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/talent-garden.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Lundbeck" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/lundbeck.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Nordea" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/nordea.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Maersk" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/maersk.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="The Washington Post" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/washington-post.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Planday" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/planday.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="TechBBQ" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/techbbq.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="WeddingWire" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/weddingwire.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rainmaking" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/rainmaking.png" alt="" width="128" height="48" decoding="async"></span>
             </div>
         </section>
 
@@ -490,116 +517,59 @@
             </div>
 
             <!-- MARQUEE TRACK -->
-            <div
-                class="flex animate-scroll whitespace-nowrap gap-12 items-center text-neutral-500 font-bold text-lg uppercase tracking-widest">
-
-                <!-- Set 1 -->
-                <span class="hover:text-white transition-colors">Antler</span>
-
-                <span class="hover:text-white transition-colors">Startup Wise Guys</span>
-
-                <span class="hover:text-white transition-colors">Hype Sports Innovation</span>
-
-                <span class="hover:text-white transition-colors">Rainmaking</span>
-
-                <span class="hover:text-white transition-colors">The Camp (TRYG)</span>
-
-                <span class="hover:text-white transition-colors">Talent Garden</span>
-
-                <span class="hover:text-white transition-colors">Copenhagen Fintech</span>
-
-                <span class="hover:text-white transition-colors">Go Grow (CBS)</span>
-
-                <span class="hover:text-white transition-colors">Innovation Center Denmark</span>
-
-                <span class="hover:text-white transition-colors">DGI</span>
-
-                <span class="hover:text-white transition-colors">Propagator</span>
-
-                <span class="hover:text-white transition-colors">Founders Institute</span>
-
-                <span class="hover:text-white transition-colors">Crypto Summer Lab</span>
-
-                <span class="hover:text-white transition-colors">Rockstart</span>
-
-                <span class="hover:text-white transition-colors">TechStars Boston</span>
-
-                <span class="hover:text-white transition-colors">TechStars Dublin</span>
-
-                <span class="hover:text-white transition-colors">Intentional</span>
-
-
-                <!-- Set 2 -->
-                <span class="hover:text-white transition-colors">Antler</span>
-
-                <span class="hover:text-white transition-colors">Startup Wise Guys</span>
-
-                <span class="hover:text-white transition-colors">Hype Sports Innovation</span>
-
-                <span class="hover:text-white transition-colors">Rainmaking</span>
-
-                <span class="hover:text-white transition-colors">The Camp (TRYG)</span>
-
-                <span class="hover:text-white transition-colors">Talent Garden</span>
-
-                <span class="hover:text-white transition-colors">Copenhagen Fintech</span>
-
-                <span class="hover:text-white transition-colors">Go Grow (CBS)</span>
-
-                <span class="hover:text-white transition-colors">Innovation Center Denmark</span>
-
-                <span class="hover:text-white transition-colors">DGI</span>
-
-                <span class="hover:text-white transition-colors">Propagator</span>
-
-                <span class="hover:text-white transition-colors">Founders Institute</span>
-
-                <span class="hover:text-white transition-colors">Crypto Summer Lab</span>
-
-                <span class="hover:text-white transition-colors">Rockstart</span>
-
-                <span class="hover:text-white transition-colors">TechStars Boston</span>
-
-                <span class="hover:text-white transition-colors">TechStars Dublin</span>
-
-                <span class="hover:text-white transition-colors">Intentional</span>
-
-
-                <!-- Set 3 -->
-                <span class="hover:text-white transition-colors">Antler</span>
-
-                <span class="hover:text-white transition-colors">Startup Wise Guys</span>
-
-                <span class="hover:text-white transition-colors">Hype Sports Innovation</span>
-
-                <span class="hover:text-white transition-colors">Rainmaking</span>
-
-                <span class="hover:text-white transition-colors">The Camp (TRYG)</span>
-
-                <span class="hover:text-white transition-colors">Talent Garden</span>
-
-                <span class="hover:text-white transition-colors">Copenhagen Fintech</span>
-
-                <span class="hover:text-white transition-colors">Go Grow (CBS)</span>
-
-                <span class="hover:text-white transition-colors">Innovation Center Denmark</span>
-
-                <span class="hover:text-white transition-colors">DGI</span>
-
-                <span class="hover:text-white transition-colors">Propagator</span>
-
-                <span class="hover:text-white transition-colors">Founders Institute</span>
-
-                <span class="hover:text-white transition-colors">Crypto Summer Lab</span>
-
-                <span class="hover:text-white transition-colors">Rockstart</span>
-
-                <span class="hover:text-white transition-colors">TechStars Boston</span>
-
-                <span class="hover:text-white transition-colors">TechStars Dublin</span>
-
-                <span class="hover:text-white transition-colors">Intentional</span>
-
+                                                            <!-- GENERATED TRUST LOGOS: edit execution/trust_logo_manifest.json, then run execution/build_trust_logos.ps1 -->
+            <div class="trust-logo-track flex animate-scroll whitespace-nowrap items-center" data-trust-logo-group="accelerators">
+                <span class="trust-logo" role="img" aria-label="Antler"><img src="/assets/brand/trust/antler.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Startup Wise Guys"><img src="/assets/brand/trust/startup-wise-guys.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="HYPE Sports Innovation"><img src="/assets/brand/trust/hype-sports-innovation.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rainmaking"><img src="/assets/brand/trust/rainmaking.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="The Camp (TRYG)"><img src="/assets/brand/trust/the-camp-tryg.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Talent Garden"><img src="/assets/brand/trust/talent-garden.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Copenhagen Fintech"><img src="/assets/brand/trust/copenhagen-fintech.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Go Grow (CBS)"><img src="/assets/brand/trust/go-grow-cbs.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Innovation Centre Denmark"><img src="/assets/brand/trust/innovation-centre-denmark.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="DGI"><img src="/assets/brand/trust/dgi.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Propagator"><img src="/assets/brand/trust/propagator.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Founder Institute"><img src="/assets/brand/trust/founder-institute.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Crypto Summer Lab"><img src="/assets/brand/trust/crypto-summer-lab.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rockstart"><img src="/assets/brand/trust/rockstart.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Techstars Boston"><img src="/assets/brand/trust/techstars-boston.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Techstars Dublin"><img src="/assets/brand/trust/techstars-dublin.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Intentional"><img src="/assets/brand/trust/intentional.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Antler" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/antler.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Startup Wise Guys" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/startup-wise-guys.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="HYPE Sports Innovation" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/hype-sports-innovation.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rainmaking" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/rainmaking.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="The Camp (TRYG)" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/the-camp-tryg.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Talent Garden" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/talent-garden.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Copenhagen Fintech" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/copenhagen-fintech.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Go Grow (CBS)" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/go-grow-cbs.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Innovation Centre Denmark" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/innovation-centre-denmark.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="DGI" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/dgi.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Propagator" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/propagator.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Founder Institute" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/founder-institute.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Crypto Summer Lab" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/crypto-summer-lab.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rockstart" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/rockstart.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Techstars Boston" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/techstars-boston.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Techstars Dublin" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/techstars-dublin.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Intentional" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/intentional.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Antler" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/antler.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Startup Wise Guys" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/startup-wise-guys.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="HYPE Sports Innovation" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/hype-sports-innovation.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rainmaking" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/rainmaking.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="The Camp (TRYG)" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/the-camp-tryg.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Talent Garden" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/talent-garden.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Copenhagen Fintech" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/copenhagen-fintech.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Go Grow (CBS)" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/go-grow-cbs.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Innovation Centre Denmark" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/innovation-centre-denmark.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="DGI" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/dgi.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Propagator" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/propagator.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Founder Institute" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/founder-institute.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Crypto Summer Lab" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/crypto-summer-lab.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Rockstart" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/rockstart.svg" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Techstars Boston" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/techstars-boston.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Techstars Dublin" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/techstars-dublin.png" alt="" width="128" height="48" decoding="async"></span>
+                <span class="trust-logo" role="img" aria-label="Intentional" aria-hidden="true" data-logo-copy><img src="/assets/brand/trust/intentional.png" alt="" width="128" height="48" decoding="async"></span>
             </div>
         </section>
 

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writing &amp; Content | Taylor Ryan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js"></script>
     <script src="../assets/js/writing_data.js"></script>
     <style>
         body {
@@ -81,9 +81,9 @@
 
 <body class="min-h-screen relative overflow-x-hidden">
     <!-- Global Layout -->
-    <script src="../assets/js/layout.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_sidebar.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_scroll.js?v=20260714-1009"></script>
+    <script src="../assets/js/layout.js?v=20260714-1221"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260714-1221"></script>
+    <script src="../assets/js/work_scroll.js?v=20260714-1221"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (!document.getElementById('work-sidebar')) {
@@ -99,7 +99,7 @@
             <div class="bg-neutral-900 border border-neutral-800 w-full max-w-4xl max-h-[90vh] rounded-2xl overflow-y-auto custom-scrollbar relative shadow-2xl"
                 onclick="event.stopPropagation()">
                 <button onclick="closeModal()"
-                    class="absolute top-4 right-4 p-2 bg-black/50 hover:bg-neutral-800 rounded-full text-white transition-colors z-10 border border-neutral-700">
+                    class="absolute top-4 right-4 p-2 bg-black/50 hover:bg-neutral-800 rounded-full text-white transition-colors z-10 border border-neutral-700" type="button" aria-label="Close details">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
                 <div id="modal-content"></div>
@@ -165,13 +165,13 @@
                             class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
                         <input type="text" id="search-input" oninput="renderArticles()"
                             placeholder="Search titles, publishers, topics..."
-                            class="w-full bg-neutral-900 border border-neutral-700 text-white rounded-lg pl-10 pr-4 py-2.5 outline-none focus:ring-2 focus:ring-green-500">
+                            class="w-full bg-neutral-900 border border-neutral-700 text-white rounded-lg pl-10 pr-4 py-2.5 outline-none focus:ring-2 focus:ring-green-500" aria-label="Search titles, publishers, topics">
                     </div>
 
                     <div class="flex items-center gap-4 w-full md:w-auto">
                         <!-- Category Filter -->
                         <select id="category-filter" onchange="renderArticles()"
-                            class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-green-500 outline-none flex-1 md:w-40">
+                            class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-green-500 outline-none flex-1 md:w-40" aria-label="Filter by category">
                             <option value="all">All Topics</option>
                             <option value="Startups">Startups</option>
                             <option value="Web3">Web3 & Crypto</option>
@@ -183,7 +183,7 @@
 
                         <!-- Status Filter -->
                         <select id="status-filter" onchange="renderArticles()"
-                            class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-green-500 outline-none flex-1 md:w-36">
+                            class="bg-neutral-900 border border-neutral-700 text-neutral-300 rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-green-500 outline-none flex-1 md:w-36" aria-label="Filter by status">
                             <option value="all">All Status</option>
                             <option value="live">Live Only</option>
                             <option value="dead">Dead / Archive</option>

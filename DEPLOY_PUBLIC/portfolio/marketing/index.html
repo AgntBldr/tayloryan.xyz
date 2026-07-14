@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketing Hub | Taylor Ryan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js"></script>
+    <link rel="stylesheet" href="/assets/fonts/outfit.css">
     <style>
         body {
             font-family: 'Outfit', sans-serif;
@@ -54,11 +53,11 @@
 </head>
 
 <body class="bg-black min-h-screen flex flex-col">
-    <script src="../../assets/js/layout.js?v=20260714-1009"></script>
+    <script src="../../assets/js/layout.js?v=20260714-1221"></script>
     <!-- Data Source -->
     <script src="../../assets/js/marketing_full_data.js"></script>
     <!-- Sidebar -->
-    <script src="../../assets/js/marketing_sidebar.js?v=20260714-1009"></script>
+    <script src="../../assets/js/marketing_sidebar.js?v=20260714-1221"></script>
     <script src="../../assets/js/social_media_data.js"></script>
     <script>
         // Merge Social Media Data into Marketing Full Data on the fly
@@ -84,17 +83,6 @@
 
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto relative bg-neutral-950/50 md:ml-64">
-
-            <!-- Mobile Header -->
-            <div
-                class="md:hidden flex items-center justify-between p-4 border-b border-white/10 bg-black/80 backdrop-blur sticky top-0 z-20">
-                <span class="font-bold text-white">Marketing Hub</span>
-                <button
-                    onclick="document.querySelector('aside').classList.toggle('hidden'); document.querySelector('aside').classList.toggle('absolute'); document.querySelector('aside').classList.toggle('z-50'); document.querySelector('aside').classList.toggle('h-full');"
-                    class="p-2 text-white">
-                    <i data-lucide="menu"></i>
-                </button>
-            </div>
 
             <!-- Content Area -->
             <div class="p-6 md:p-12 max-w-7xl mx-auto pb-32">
@@ -196,10 +184,10 @@
             if (typeof renderMarketingSidebar === 'function') {
                 renderMarketingSidebar('overview');
                 // Move sidebar into container if needed, or sidebar script appends to body?
-                // marketing_sidebar.js?v=20260714-1009 usually document.write or appends.
+                // marketing_sidebar.js?v=20260714-1221 usually document.write or appends.
                 // Let's assume it appends to where it's called or we handle it.
-                // Actually, marketing_sidebar.js?v=20260714-1009 returns HTMLString?
-                // Wait, let's check marketing_sidebar.js?v=20260714-1009 content again.
+                // Actually, marketing_sidebar.js?v=20260714-1221 returns HTMLString?
+                // Wait, let's check marketing_sidebar.js?v=20260714-1221 content again.
                 // It returns a generic valid sidebar string? 
                 // Step 2436: `const sidebarHTML = ...` is defined but NOT returned or appended!
                 // It just defines `sidebarHTML` string?
@@ -210,11 +198,11 @@
                 // It calculates `sidebarHTML`.
                 // It DOES NOT inject it.
 
-                // Correction: I need to FIX marketing_sidebar.js?v=20260714-1009 or use the return value.
+                // Correction: I need to FIX marketing_sidebar.js?v=20260714-1221 or use the return value.
                 // Let's look at `portfolio/marketing/index.html` (Original).
                 // It had the sidebar INLINED.
 
-                // The `marketing_sidebar.js?v=20260714-1009` I saw in Step 2436 (which I thought was being used) might be a 'work in progress' or used differently?
+                // The `marketing_sidebar.js?v=20260714-1221` I saw in Step 2436 (which I thought was being used) might be a 'work in progress' or used differently?
                 // Ah, Step 2436 code:
                 // `renderMarketingSidebar` function body...
                 // It ends with: `span id="sidebar-resource-count">${totalResources}</span>...`
@@ -222,7 +210,7 @@
                 // It assigns it to a variable `sidebarHTML`.
                 // AND THEN? 
                 // The snippets shown end at line 100.
-                // I need to see the END of `marketing_sidebar.js?v=20260714-1009`.
+                // I need to see the END of `marketing_sidebar.js?v=20260714-1221`.
 
             }
 

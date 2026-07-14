@@ -86,7 +86,7 @@
             <span class="text-neutral-500 text-sm font-medium uppercase tracking-wider">Filter By:</span>
             <div class="relative w-full md:w-64">
                 <select id="type-filter" onchange="filterQuests()"
-                    class="w-full pl-4 pr-10 py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-200 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors cursor-pointer hover:bg-neutral-700/50">
+                    class="w-full pl-4 pr-10 py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-200 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-colors cursor-pointer hover:bg-neutral-700/50" aria-label="Filter by type">
                     <option value="all">All Categories</option>
                     <!-- Options injected via JS -->
                 </select>
@@ -120,7 +120,7 @@
             <div class="relative w-full md:w-64">
                 <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
                 <input type="text" id="search-input" placeholder="Search projects..."
-                    class="w-full pl-10 pr-4 py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-200 text-sm focus:outline-none focus:border-purple-500 transition-colors placeholder-neutral-600">
+                    class="w-full pl-10 pr-4 py-2.5 bg-neutral-800 border border-neutral-700 rounded-lg text-neutral-200 text-sm focus:outline-none focus:border-purple-500 transition-colors placeholder-neutral-600" aria-label="Search projects">
             </div>
             <span class="text-neutral-500 text-sm font-mono whitespace-nowrap min-w-[100px] text-right"
                 id="count-display">Loading...</span>
@@ -142,7 +142,7 @@
         <div class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-300 scrollbar-hide"
             id="modal-content">
             <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group">
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group" type="button" aria-label="Close details">
                 <i data-lucide="x" class="w-6 h-6 text-neutral-400 group-hover:text-white"></i>
             </button>
             <div id="modal-body" class="p-8"></div>

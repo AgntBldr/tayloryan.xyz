@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "Outfit";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300 800;
+    src: url("./outfit-latin-wght-normal.woff2") format("woff2-variations");
+}

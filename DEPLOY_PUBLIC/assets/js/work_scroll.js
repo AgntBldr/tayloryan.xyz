@@ -118,16 +118,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Global Sidebar Toggle (Mobile) - Attached to Window for Scope Safety
 window.toggleSidebar = function () {
-    const sidebar = document.getElementById('work-sidebar');
-    if (sidebar) {
-        // Toggle the translate class to show/hide
-        sidebar.classList.toggle('-translate-x-full');
-
-        // Ensure z-index is correct if it was somehow lost (safety)
-        if (!sidebar.classList.contains('-translate-x-full')) {
-            sidebar.style.zIndex = '50';
-        }
-    } else {
-        console.warn('Sidebar toggle clicked but no #work-sidebar found.');
-    }
+    if (typeof window.togglePortfolioSidebar === 'function') window.togglePortfolioSidebar();
 };

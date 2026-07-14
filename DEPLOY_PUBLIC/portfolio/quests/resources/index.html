@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources | Taylor's Quest Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js"></script>
     <script src="/assets/resources_data.js"></script>
-    <script src="/assets/js/quests_data.js"></script>
+    <script src="../../assets/js/quests_data.js"></script>
     <style>
         body {
             background-color: #0a0a0a;
@@ -67,8 +67,8 @@
 
 <body class="min-h-screen p-6 md:p-12 relative md:pl-72">
     <!-- Global Layout -->
-    <script src="/assets/js/layout.js?v=20260714-1009"></script>
-    <script src="/assets/js/work_sidebar.js?v=20260714-1009"></script>
+    <script src="/assets/js/layout.js?v=20260714-1221"></script>
+    <script src="../../assets/js/work_sidebar.js?v=20260714-1221"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof renderWorkSidebar === 'function') renderWorkSidebar('quests');
@@ -120,7 +120,7 @@
 
             <!-- Close Button -->
             <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5" type="button" aria-label="Close details">
                 <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
             </button>
 
@@ -227,10 +227,10 @@
                     
                     <!-- View Toggle -->
                     <div class="flex items-center gap-2 bg-neutral-900 p-1 rounded-lg border border-neutral-800">
-                        <button onclick="toggleView('card')" class="p-2 rounded-md transition-all ${currentView === 'card' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}">
+                        <button onclick="toggleView('card')" class="p-2 rounded-md transition-all ${currentView === 'card' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}" type="button" aria-label="Show card view">
                             <i data-lucide="layout-grid" class="w-4 h-4"></i>
                         </button>
-                        <button onclick="toggleView('row')" class="p-2 rounded-md transition-all ${currentView === 'row' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}">
+                        <button onclick="toggleView('row')" class="p-2 rounded-md transition-all ${currentView === 'row' ? 'bg-neutral-800 text-white shadow-sm' : 'text-neutral-500 hover:text-neutral-300'}" type="button" aria-label="Show row view">
                             <i data-lucide="list" class="w-4 h-4"></i>
                         </button>
                     </div>
@@ -380,7 +380,7 @@
             const linkify = (text) => {
                 if (!text) return '';
                 const urlRegex = /(https?:\/\/[^\s]+)/g;
-                return text.replace(urlRegex, '<a href="/portfolio/quests/$1" target="_blank" class="text-purple-400 hover:text-purple-300 underline">$1</a>');
+                return text.replace(urlRegex, '<a href="$1" target="_blank" class="text-purple-400 hover:text-purple-300 underline">$1</a>');
             };
 
             if (resource.type === 'Sheet' && resource.content) {
@@ -414,10 +414,10 @@
                 }).join('');
                 dynamicContainer.innerHTML = `<div class="space-y-4"><div class="flex border-b border-neutral-800 gap-1 overflow-x-auto scrollbar-hide">${tabsHtml}</div><div>${tablesHtml}</div></div>`;
             } else if (resource.content) {
-                // Generic Text
+                // Generic Text (HTML content from DOCX)
                 dynamicContainer.innerHTML = `
                     <div class="bg-neutral-800 rounded-xl border border-neutral-700 p-8 md:p-12 prose prose-invert max-w-none">
-                        <pre class="whitespace-pre-wrap font-sans text-neutral-300 leading-relaxed">${linkify(resource.content)}</pre>
+                        <div class="font-sans text-neutral-300 leading-relaxed">${resource.content}</div>
                     </div>
                 `;
             }

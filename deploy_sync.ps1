@@ -19,6 +19,14 @@ Write-Host "Starting Deployment Sync..." -ForegroundColor Cyan
 
 # 1. Sync Assets
 Write-Host "Syncing Assets..." -ForegroundColor Yellow
+$DeployBrandRoot = [System.IO.Path]::GetFullPath((Join-Path $DeployRoot "assets\brand"))
+$DeployTrustAssets = [System.IO.Path]::GetFullPath((Join-Path $DeployBrandRoot "trust"))
+if (-not $DeployTrustAssets.StartsWith("$DeployBrandRoot$([System.IO.Path]::DirectorySeparatorChar)", [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Refusing to clear trust assets outside the deploy brand directory: $DeployTrustAssets"
+}
+if (Test-Path -LiteralPath $DeployTrustAssets) {
+    Remove-Item -LiteralPath $DeployTrustAssets -Recurse -Force
+}
 Copy-Item -Path "$SourceRoot\assets" -Destination "$DeployRoot" -Recurse -Force
 Write-Host "Assets Synced." -ForegroundColor Green
 
@@ -26,6 +34,23 @@ Write-Host "Assets Synced." -ForegroundColor Green
 Write-Host "Syncing Portfolio..." -ForegroundColor Yellow
 Copy-Item -Path "$SourceRoot\portfolio" -Destination "$DeployRoot" -Recurse -Force
 Write-Host "Portfolio Synced." -ForegroundColor Green
+
+# Refresh clean-route indexes from their canonical legacy HTML sources. Copy-Item above
+# intentionally preserves nested routes, so these writes replace stale generated copies
+# without deleting source pages or child routes such as case_studies/examples.
+$PortfolioLegacyPages = Get-ChildItem -Path "$DeployRoot\portfolio" -Filter "*.html" -File -Recurse |
+    Where-Object { $_.Name -ne "index.html" }
+$CleanRouteCount = 0
+foreach ($Page in $PortfolioLegacyPages) {
+    $DestinationDirectory = Join-Path $Page.DirectoryName $Page.BaseName
+    $DestinationPath = Join-Path $DestinationDirectory "index.html"
+    if (-not (Test-Path $DestinationDirectory)) {
+        New-Item -ItemType Directory -Force -Path $DestinationDirectory | Out-Null
+    }
+    Copy-Item -LiteralPath $Page.FullName -Destination $DestinationPath -Force
+    $CleanRouteCount++
+}
+Write-Host "Refreshed $CleanRouteCount portfolio clean-route indexes." -ForegroundColor Green
 
 # 1.5.1 Sync Headers (CSP)
 if (Test-Path "$SourceRoot\_headers") {
@@ -401,7 +426,23 @@ foreach ($file in $HtmlFiles) {
 }
 Write-Host "Global Cache Busting Complete." -ForegroundColor Green
 
-# 5. Apply canonical SEO metadata and generate crawler files.
+# 5. Normalize legacy .html links to canonical slash routes.
+Write-Host "Normalizing public links..." -ForegroundColor Yellow
+& node "$SourceRoot\execution\normalize_public_links.mjs"
+if ($LASTEXITCODE -ne 0) {
+    throw "Public-link normalization failed with exit code $LASTEXITCODE."
+}
+Write-Host "Public Links Normalized." -ForegroundColor Green
+
+# 6. Replace browser-time CDN dependencies with pinned local assets.
+Write-Host "Applying local frontend assets..." -ForegroundColor Yellow
+& node "$SourceRoot\execution\apply_local_frontend_assets.mjs"
+if ($LASTEXITCODE -ne 0) {
+    throw "Local frontend asset application failed with exit code $LASTEXITCODE."
+}
+Write-Host "Local Frontend Assets Applied." -ForegroundColor Green
+
+# 7. Apply canonical SEO metadata and generate crawler files.
 Write-Host "Applying SEO metadata and crawler files..." -ForegroundColor Yellow
 & node "$SourceRoot\execution\apply_seo_metadata.mjs"
 if ($LASTEXITCODE -ne 0) {

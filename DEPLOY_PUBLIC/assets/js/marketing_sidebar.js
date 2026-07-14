@@ -32,6 +32,14 @@ function renderMarketingSidebar(activePage) {
             #work-sidebar {
                 transition: transform 0.3s ease-in-out;
             }
+            @media (min-width: 768px) {
+                #work-sidebar.sidebar-collapsed { width: 5rem; }
+                #work-sidebar.sidebar-collapsed .sidebar-label { display: none; }
+                #work-sidebar.sidebar-collapsed .sidebar-link { justify-content: center; padding-left: 0.75rem; padding-right: 0.75rem; }
+                #work-sidebar.sidebar-collapsed #collapse-icon { transform: rotate(180deg); }
+                body.portfolio-sidebar-collapsed main,
+                body.portfolio-sidebar-collapsed .md\\:ml-64 { margin-left: 5rem !important; }
+            }
         `;
         document.head.appendChild(style);
     }
@@ -39,14 +47,14 @@ function renderMarketingSidebar(activePage) {
     const totalResources = typeof MARKETING_FULL_DATA !== 'undefined' ? MARKETING_FULL_DATA.length : '...';
 
     const menuItems = [
-        { id: 'overview', label: 'Marketing Hub', icon: 'home', url: '/portfolio/marketing/index.html' },
-        { id: 'content-creator', label: 'Content Creator', icon: 'users', url: '/portfolio/marketing/content_creator.html', color: 'text-purple-400' },
-        { id: 'email-outreach', label: 'Email Outreach', icon: 'mail', url: '/portfolio/marketing/email_outreach.html', color: 'text-blue-400' },
-        { id: 'social-media', label: 'Social Media', icon: 'share-2', url: '/portfolio/marketing/social_media/index.html', color: 'text-cyan-400' },
-        { id: 'affiliates', label: 'Affiliate Program', icon: 'share-2', url: '/portfolio/marketing/affiliates.html', color: 'text-orange-400' },
-        { id: 'case-studies', label: 'Case Studies', icon: 'file-text', url: '/portfolio/marketing/case_studies.html', color: 'text-yellow-400' },
-        { id: 'testimonials', label: 'Testimonials', icon: 'message-square', url: '/portfolio/marketing/testimonials.html', color: 'text-pink-400' },
-        { id: 'projects-hub', label: 'Projects Hub', icon: 'folder-kanban', url: '/work_projects/index.html', color: 'text-white' }
+        { id: 'overview', label: 'Marketing Hub', icon: 'home', url: '/portfolio/marketing/' },
+        { id: 'content-creator', label: 'Content Creator', icon: 'users', url: '/portfolio/marketing/content_creator/', color: 'text-purple-400' },
+        { id: 'email-outreach', label: 'Email Outreach', icon: 'mail', url: '/portfolio/marketing/email_outreach/', color: 'text-blue-400' },
+        { id: 'social-media', label: 'Social Media', icon: 'share-2', url: '/portfolio/marketing/social_media/', color: 'text-cyan-400' },
+        { id: 'affiliates', label: 'Affiliate Program', icon: 'share-2', url: '/portfolio/marketing/affiliates/', color: 'text-orange-400' },
+        { id: 'case-studies', label: 'Case Studies', icon: 'file-text', url: '/portfolio/marketing/case_studies/', color: 'text-yellow-400' },
+        { id: 'testimonials', label: 'Testimonials', icon: 'message-square', url: '/portfolio/marketing/testimonials/', color: 'text-pink-400' },
+        { id: 'projects-hub', label: 'Projects Hub', icon: 'folder-kanban', url: '/work_projects/', color: 'text-white' }
     ];
 
     const sidebarHTML = `
@@ -90,12 +98,12 @@ function renderMarketingSidebar(activePage) {
             </div>
             
             <!-- Mobile Close Button -->
-            <button onclick="toggleSidebar()" class="md:hidden absolute top-4 right-4 text-neutral-400">
+            <button type="button" aria-label="Close marketing navigation" onclick="togglePortfolioSidebar()" class="md:hidden absolute top-4 right-4 text-neutral-400">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
 
             <!-- Desktop Collapse Button -->
-            <button onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
+            <button type="button" onclick="toggleDesktopSidebar()" class="hidden md:flex items-center justify-center w-full p-4 text-neutral-500 hover:text-white transition-colors border-t border-neutral-800 mt-auto absolute bottom-0 left-0 bg-black">
                 <i data-lucide="chevron-left" class="w-5 h-5 transition-transform" id="collapse-icon"></i>
                 <span class="ml-3 font-medium text-sm sidebar-label">Collapse</span>
             </button>
@@ -103,7 +111,7 @@ function renderMarketingSidebar(activePage) {
     </div>
 
     <!-- Mobile Toggle Button (Fixed) -->
-    <button onclick="toggleSidebar()" class="md:hidden fixed bottom-6 right-6 z-[100] bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
+    <button type="button" aria-label="Open marketing navigation" onclick="togglePortfolioSidebar()" class="md:hidden fixed bottom-6 right-6 z-[100] bg-neutral-900 border border-neutral-700 p-4 rounded-full shadow-2xl text-white">
         <i data-lucide="menu" class="w-6 h-6"></i>
     </button>
     `;
@@ -114,3 +122,17 @@ function renderMarketingSidebar(activePage) {
         lucide.createIcons();
     }
 }
+
+window.togglePortfolioSidebar = function () {
+    const sidebar = document.getElementById('work-sidebar');
+    if (!sidebar) return;
+    sidebar.classList.toggle('-translate-x-full');
+    if (!sidebar.classList.contains('-translate-x-full')) sidebar.style.zIndex = '100';
+};
+
+window.toggleDesktopSidebar = function () {
+    const sidebar = document.getElementById('work-sidebar');
+    if (!sidebar) return;
+    const collapsed = sidebar.classList.toggle('sidebar-collapsed');
+    document.body.classList.toggle('portfolio-sidebar-collapsed', collapsed);
+};

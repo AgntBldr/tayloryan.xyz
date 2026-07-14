@@ -43,14 +43,6 @@
     <script src="/assets/js/marketing_full_data.js"></script>
     <script src="/assets/js/marketing_sidebar.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            renderMarketingSidebar('case-studies');
-            renderResources();
-            lucide.createIcons();
-        });
-    </script>
-
     <!-- Main Content Wrapper -->
     <div class="md:ml-64 transition-all min-h-screen">
 
@@ -135,7 +127,7 @@
             id="modal-content">
             <!-- Close Button -->
             <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5">
+                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group border border-white/5" type="button" aria-label="Close details">
                 <i data-lucide="x" class="w-5 h-5 text-neutral-400 group-hover:text-white"></i>
             </button>
 
@@ -284,14 +276,14 @@
             <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500"></i>
             <input type="text" placeholder="Search resources..." value="${searchQuery}"
                 oninput="searchQuery = this.value; renderResources()"
-                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 focus:outline-none transition-all placeholder:text-neutral-600">
+                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white px-12 py-3 focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 focus:outline-none transition-all placeholder:text-neutral-600" aria-label="Search resources">
         </div>
 
         <!-- Filter -->
         <div class="relative w-full md:w-64">
             <i data-lucide="filter" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500"></i>
             <select onchange="sectionFilter = this.value; renderResources()"
-                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white pl-10 pr-8 py-3 appearance-none focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 focus:outline-none cursor-pointer">
+                class="w-full bg-neutral-900 border border-white/10 rounded-xl text-white pl-10 pr-8 py-3 appearance-none focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 focus:outline-none cursor-pointer" aria-label="Filter resources by section">
                 ${allSections.map(sec => `<option value="${sec}" ${sectionFilter === sec ? 'selected' : ''}>${sec}
                 </option>`).join('')}
             </select>
