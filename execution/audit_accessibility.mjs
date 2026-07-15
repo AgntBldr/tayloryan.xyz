@@ -32,6 +32,7 @@ for (const match of deploySync.matchAll(/\$\w+Source\s*=\s*"\$SourceRoot\\([^"]+
 const sourceFiles = [];
 for (const fileName of topLevelFiles) sourceFiles.push(path.join(root, fileName));
 sourceFiles.push(...await walk(path.join(root, "portfolio")));
+sourceFiles.push(...await walk(path.join(root, "work_vibecoding")));
 sourceFiles.push(...await walk(path.join(root, "assets", "js")));
 
 const lineAt = (content, index) => content.slice(0, index).split(/\r?\n/).length;

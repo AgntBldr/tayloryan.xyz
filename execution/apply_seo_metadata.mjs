@@ -84,6 +84,9 @@ function buildSeoBlock(page) {
   const canonicalRoute = page.canonical ?? page.route;
   const canonicalUrl = `${config.site.baseUrl}${canonicalRoute === "/" ? "/" : canonicalRoute}`;
   const imageUrl = `${config.site.baseUrl}${page.image ?? config.site.defaultImage}`;
+  const imageAlt = page.imageAlt ?? config.site.defaultImageAlt;
+  const imageWidth = page.imageWidth ?? 1536;
+  const imageHeight = page.imageHeight ?? 2048;
   const robots = page.index === false
     ? "noindex,follow,noarchive"
     : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
@@ -105,14 +108,14 @@ function buildSeoBlock(page) {
     <meta property="og:description" content="${escapeHtml(page.description)}">
     <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
     <meta property="og:image" content="${escapeHtml(imageUrl)}">
-    <meta property="og:image:alt" content="${escapeHtml(config.site.defaultImageAlt)}">
-    <meta property="og:image:width" content="1536">
-    <meta property="og:image:height" content="2048">
+    <meta property="og:image:alt" content="${escapeHtml(imageAlt)}">
+    <meta property="og:image:width" content="${escapeHtml(imageWidth)}">
+    <meta property="og:image:height" content="${escapeHtml(imageHeight)}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${escapeHtml(page.title)}">
     <meta name="twitter:description" content="${escapeHtml(page.description)}">
     <meta name="twitter:image" content="${escapeHtml(imageUrl)}">
-    <meta name="twitter:image:alt" content="${escapeHtml(config.site.defaultImageAlt)}">${buildStructuredData(page, canonicalUrl)}
+    <meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}">${buildStructuredData(page, canonicalUrl)}
     <!-- SEO:END -->`;
 }
 

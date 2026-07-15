@@ -17,6 +17,15 @@ if (-not (Test-Path $DeployRoot)) {
 
 Write-Host "Starting Deployment Sync..." -ForegroundColor Cyan
 
+# Generate the vibecoding index, permanent case-study pages, and their SEO rows
+# before assets and pages are copied into the canonical deploy output.
+Write-Host "Generating Vibecoding Portfolio..." -ForegroundColor Yellow
+& node "$SourceRoot\execution\generate_vibecoding_portfolio.mjs"
+if ($LASTEXITCODE -ne 0) {
+    throw "Vibecoding portfolio generation failed with exit code $LASTEXITCODE."
+}
+Write-Host "Vibecoding Portfolio Generated." -ForegroundColor Green
+
 # 1. Sync Assets
 Write-Host "Syncing Assets..." -ForegroundColor Yellow
 $DeployBrandRoot = [System.IO.Path]::GetFullPath((Join-Path $DeployRoot "assets\brand"))
@@ -308,6 +317,26 @@ $vibeContent = $vibeContent -replace 'href="assets/', 'href="../assets/'
 $vibeContent = $vibeContent -replace 'href="index.html"', 'href="../"'
 $vibeContent = $vibeContent -replace 'href="work.html"', 'href="../work/"'
 [System.IO.File]::WriteAllText($VibeDest, $vibeContent, [System.Text.Encoding]::UTF8)
+
+$VibeCaseSource = Join-Path $SourceRoot "work_vibecoding"
+if (Test-Path -LiteralPath $VibeCaseSource) {
+    $VibeDestRoot = [System.IO.Path]::GetFullPath($VibeDestDir)
+    $ExpectedVibeDestRoot = [System.IO.Path]::GetFullPath((Join-Path $DeployRoot "work_vibecoding"))
+    if ($VibeDestRoot -ne $ExpectedVibeDestRoot) {
+        throw "Refusing to refresh Vibecoding routes outside the canonical deploy directory: $VibeDestRoot"
+    }
+
+    Get-ChildItem -LiteralPath $VibeDestRoot -Directory | ForEach-Object {
+        $Candidate = [System.IO.Path]::GetFullPath($_.FullName)
+        if (-not $Candidate.StartsWith("$VibeDestRoot$([System.IO.Path]::DirectorySeparatorChar)", [System.StringComparison]::OrdinalIgnoreCase)) {
+            throw "Refusing to remove a Vibecoding route outside its deploy root: $Candidate"
+        }
+        Remove-Item -LiteralPath $Candidate -Recurse -Force
+    }
+
+    Copy-Item -Path "$VibeCaseSource\*" -Destination $VibeDestRoot -Recurse -Force
+    Write-Host "Vibecoding case-study routes synced." -ForegroundColor Green
+}
 
 # 1.18. Transform work_speaker.html -> work_speaker/index.html
 Write-Host "Processing work_speaker.html -> work_speaker/index.html..." -ForegroundColor Yellow

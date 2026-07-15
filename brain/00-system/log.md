@@ -90,3 +90,9 @@ Preserved complete wordmarks, paired twelve symbol-only marks with company names
 
 ## [2026-07-14] decide | accepted current logo and buyer-proof pass
 The user accepted the current normalized recognition lockups and additive buyer-proof overview. Exact official combined wordmark assets are recorded as an optional future refinement; the accepted implementation remains reversible on `codex/conversion-ux-pass`.
+
+## [2026-07-15] build | private-source vibecoding case-study system
+Replaced the Vibecoding modal grid with a manifest-generated index and thirteen permanent project routes, added five recent private-source projects with compressed interface evidence, removed old-account GitHub links, preserved the Work side menu, and recorded [[dec-private-source-vibecoding-case-studies]] plus [[tsk-vibecoding-case-study-system]].
+
+## [2026-07-15] verify | vibecoding pre-merge release gate
+Recorded [[fct-vibecoding-release-gate-2026-07-15]] after 14/14 local routes, 13/13 case-study checks, SEO, zero-issue accessibility, 18/18 preservation checks, image budgets, private-repository scans, and desktop/mobile browser QA passed.

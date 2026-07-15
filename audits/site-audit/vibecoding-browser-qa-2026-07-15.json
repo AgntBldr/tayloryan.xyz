@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-07-15T13:15:00+02:00",
+  "branch": "codex/vibecoding-case-studies",
+  "preview": "http://127.0.0.1:4175",
+  "routes_checked": [
+    "/work_vibecoding/",
+    "/work_vibecoding/application-agent/"
+  ],
+  "desktop": {
+    "viewport": "1440x900",
+    "project_cards": 13,
+    "project_modals": 0,
+    "systems_filter_visible_cards": 5,
+    "index_horizontal_overflow": false,
+    "case_horizontal_overflow": false,
+    "case_hero_loaded": true,
+    "work_sidebar_present": true,
+    "canonical_route_correct": true
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "index_horizontal_overflow": false,
+    "case_horizontal_overflow": false,
+    "application_agent_title_fits_one_line": true,
+    "project_heading_work_toggle_overlap": false,
+    "work_navigation_opened": true,
+    "work_navigation_closed": true
+  },
+  "screenshots": [
+    "audits/site-audit/screenshots/vibecoding-index-desktop-2026-07-15.jpg",
+    "audits/site-audit/screenshots/vibecoding-index-mobile-2026-07-15.jpg",
+    "audits/site-audit/screenshots/vibecoding-application-agent-desktop-2026-07-15.jpg",
+    "audits/site-audit/screenshots/vibecoding-application-agent-mobile-2026-07-15.jpg",
+    "audits/site-audit/screenshots/vibecoding-work-menu-mobile-2026-07-15.jpg"
+  ]
+}

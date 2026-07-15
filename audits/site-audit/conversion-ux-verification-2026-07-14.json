@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T11:49:04.002Z",
+  "generated_at": "2026-07-15T11:08:07.492Z",
   "passed": true,
   "check_count": 18,
   "failure_count": 0,
@@ -72,7 +72,7 @@
     {
       "name": "Static accessibility",
       "passed": true,
-      "detail": "0 issue(s) across 61 source files."
+      "detail": "0 issue(s) across 74 source files."
     },
     {
       "name": "Clean public routes",

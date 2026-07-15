@@ -32,6 +32,8 @@ The discovery release [[tsk-seo-social-discovery-upgrade]] is live: centralized 
 
 The reversible conversion pass [[tsk-conversion-ux-reversible-pass]] is prepared on an isolated branch. It preserves the side menus, Work archive, vibecoding, Google recovery records, and Layer3 links while improving contact fit cues, navigation, accessibility, clean-route consistency, local runtime assets, and trust-logo marquees. Homepage positioning and proof-card copy remain approval-gated examples rather than live claims.
 
+The follow-on [[tsk-vibecoding-case-study-system]] replaces the Vibecoding modal grid with a generated index and thirteen permanent case-study routes. It adds five recent private-source projects without publishing repository access, retains the existing Work side menu, and removes old-account GitHub links from the shared project data. The work remains isolated from `main` pending branch review and production verification.
+
 ## Edges
 
 - derived_from [[fct-site-audit-2026-07-13]] - the audit established the cleanup and link-remediation scope.

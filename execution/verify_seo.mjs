@@ -78,7 +78,8 @@ for (const file of htmlFiles) {
     if (found !== expected) errors.push(`${route}: expected ${expected} ${label} tag(s), found ${found}`);
   }
   if (!html.includes(`href="${expectedCanonical}"`)) errors.push(`${route}: canonical URL mismatch`);
-  if (!html.includes(`content="${config.site.baseUrl}${config.site.defaultImage}"`)) errors.push(`${route}: social image mismatch`);
+  const expectedImage = `${config.site.baseUrl}${page.image ?? config.site.defaultImage}`;
+  if (!html.includes(`content="${expectedImage}"`)) errors.push(`${route}: social image mismatch`);
   const description = contentOf(html, "name", "description");
   if (!description) errors.push(`${route}: description content missing`);
 }

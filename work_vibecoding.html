@@ -1,283 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibecoding | Taylor Ryan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <title>Vibecoding Projects | Taylor Ryan</title>
+    <link rel="stylesheet" href="/assets/fonts/outfit.css">
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js" defer></script>
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #000;
-            color: #fff;
+        :root { color-scheme: dark; }
+        * { box-sizing: border-box; letter-spacing: 0; }
+        html { background: #050505; scroll-behavior: smooth; }
+        body { margin: 0; background: #050505; color: #f5f5f5; font-family: 'Outfit', sans-serif; }
+        a { color: inherit; }
+        .vibe-shell { min-height: 100vh; padding: 7rem 1.5rem 5rem; }
+        .vibe-wrap { width: min(100%, 1180px); margin: 0 auto; }
+        .vibe-eyebrow { margin: 0 0 .8rem; color: #fb923c; font-size: .78rem; font-weight: 800; text-transform: uppercase; }
+        .vibe-title { margin: 0; color: #fff; font-size: 4rem; line-height: 1; font-weight: 800; }
+        .vibe-lede { max-width: 760px; margin: 1.5rem 0 0; color: #b8b8b8; font-size: 1.22rem; line-height: 1.65; }
+        .vibe-rule { border-top: 1px solid #262626; }
+        .vibe-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 3rem; border-top: 1px solid #2b2b2b; border-bottom: 1px solid #2b2b2b; }
+        .vibe-stat { min-width: 0; padding: 1.25rem 1.5rem 1.25rem 0; }
+        .vibe-stat + .vibe-stat { padding-left: 1.5rem; border-left: 1px solid #2b2b2b; }
+        .vibe-stat strong { display: block; color: #fff; font-size: 1.45rem; line-height: 1.1; overflow-wrap: anywhere; }
+        .vibe-stat span { display: block; margin-top: .4rem; color: #8f8f8f; font-size: .8rem; line-height: 1.35; }
+        .vibe-section { padding: 4.5rem 0; }
+        .vibe-section-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 1.8rem; }
+        .vibe-section h2 { margin: 0; color: #fff; font-size: 2rem; line-height: 1.15; font-weight: 800; }
+        .vibe-section-copy { max-width: 650px; margin: .8rem 0 0; color: #a3a3a3; line-height: 1.7; }
+        .vibe-filter { display: inline-flex; flex-wrap: wrap; gap: .35rem; padding: .3rem; border: 1px solid #303030; border-radius: 8px; background: #0d0d0d; }
+        .vibe-filter button { min-height: 2.5rem; padding: .55rem .9rem; border: 0; border-radius: 6px; background: transparent; color: #9f9f9f; font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; }
+        .vibe-filter button[aria-pressed="true"] { background: #f5f5f5; color: #050505; }
+        .vibe-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+        .vibe-card { --project-accent: #fb923c; min-width: 0; overflow: hidden; border: 1px solid #292929; border-radius: 8px; background: #0b0b0b; transition: transform .2s ease, border-color .2s ease; }
+        .vibe-card:hover { transform: translateY(-3px); border-color: var(--project-accent); }
+        .vibe-card[hidden] { display: none; }
+        .vibe-card-link { display: flex; min-height: 100%; flex-direction: column; color: inherit; text-decoration: none; }
+        .vibe-card-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid #242424; background: #111; }
+        .vibe-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+        .vibe-card:hover .vibe-card-media img { transform: scale(1.025); }
+        .vibe-card-status { position: absolute; top: .85rem; right: .85rem; max-width: calc(100% - 1.7rem); padding: .35rem .55rem; border: 1px solid #383838; border-radius: 6px; background: rgba(5, 5, 5, .9); color: #eee; font-size: .7rem; font-weight: 700; }
+        .vibe-card-body { display: flex; flex: 1; flex-direction: column; padding: 1.35rem; }
+        .vibe-card-meta { margin: 0 0 .65rem; color: var(--project-accent); font-size: .74rem; font-weight: 800; text-transform: uppercase; }
+        .vibe-card h3 { margin: 0; color: #fff; font-size: 1.55rem; line-height: 1.15; font-weight: 800; overflow-wrap: anywhere; }
+        .vibe-card p { margin: .8rem 0 1.2rem; color: #a8a8a8; font-size: .95rem; line-height: 1.6; }
+        .vibe-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid #222; color: #d7d7d7; font-size: .8rem; font-weight: 700; }
+        .vibe-card-footer span { min-width: 0; overflow-wrap: anywhere; }
+        .vibe-card-footer i { width: 1rem; height: 1rem; flex: 0 0 auto; color: var(--project-accent); }
+        .vibe-back { display: inline-flex; align-items: center; gap: .5rem; margin-bottom: 2.75rem; color: #b8b8b8; font-size: .9rem; font-weight: 700; text-decoration: none; }
+        .vibe-back:hover { color: #fff; }
+        .vibe-back i { width: 1rem; height: 1rem; }
+        .vibe-case-header { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(250px, .65fr); gap: 4rem; align-items: end; }
+        .vibe-case-header .vibe-title { font-size: 4.5rem; overflow-wrap: anywhere; }
+        .vibe-case-meta { border-top: 1px solid #2c2c2c; }
+        .vibe-case-meta-row { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid #252525; }
+        .vibe-case-meta-row dt { color: #777; font-size: .76rem; text-transform: uppercase; }
+        .vibe-case-meta-row dd { min-width: 0; margin: 0; color: #ddd; line-height: 1.35; overflow-wrap: anywhere; }
+        .vibe-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.4rem; }
+        .vibe-action { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .55rem; padding: .7rem 1rem; border: 1px solid #3c3c3c; border-radius: 6px; color: #fff; font-size: .85rem; font-weight: 800; text-decoration: none; }
+        .vibe-action-primary { border-color: var(--project-accent); background: var(--project-accent); color: #050505; }
+        .vibe-action i { width: 1rem; height: 1rem; }
+        .vibe-hero-media { margin: 3.5rem 0 0; overflow: hidden; border-top: 1px solid #292929; border-bottom: 1px solid #292929; background: #0b0b0b; aspect-ratio: 16 / 9; }
+        .vibe-hero-media img { width: 100%; height: 100%; object-fit: var(--cover-fit, cover); }
+        .vibe-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; }
+        .vibe-two-col > * + * { padding-left: 4rem; border-left: 1px solid #292929; }
+        .vibe-copy h3 { margin: 0 0 .75rem; color: #fff; font-size: 1.35rem; }
+        .vibe-copy p { margin: 0; color: #aaa; font-size: 1.02rem; line-height: 1.75; }
+        .vibe-workflow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #292929; border-bottom: 1px solid #292929; }
+        .vibe-step { min-width: 0; padding: 1.5rem 1.5rem 1.5rem 0; }
+        .vibe-step + .vibe-step { padding-left: 1.5rem; border-left: 1px solid #292929; }
+        .vibe-step-number { color: var(--project-accent); font-size: .75rem; font-weight: 800; }
+        .vibe-step h3 { margin: .6rem 0 .45rem; color: #fff; font-size: 1.12rem; }
+        .vibe-step p { margin: 0; color: #999; line-height: 1.6; }
+        .vibe-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+        .vibe-gallery figure { margin: 0; min-width: 0; }
+        .vibe-gallery-media { aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid #292929; border-radius: 8px; background: #0a0a0a; }
+        .vibe-gallery img { width: 100%; height: 100%; object-fit: contain; }
+        .vibe-gallery figcaption { margin-top: .7rem; color: #8d8d8d; font-size: .82rem; line-height: 1.5; }
+        .vibe-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid #2b2b2b; }
+        .vibe-list li { position: relative; padding: 1rem 0 1rem 1.5rem; border-bottom: 1px solid #242424; color: #b4b4b4; line-height: 1.6; }
+        .vibe-list li::before { content: ''; position: absolute; top: 1.55rem; left: 0; width: .5rem; height: .5rem; background: var(--project-accent); }
+        .vibe-stack { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+        .vibe-stack span { padding: .45rem .65rem; border: 1px solid #303030; border-radius: 6px; background: #0d0d0d; color: #c8c8c8; font-size: .78rem; }
+        .vibe-privacy { padding: 1.2rem 0 1.2rem 1.2rem; border-left: 3px solid var(--project-accent); color: #aaa; line-height: 1.65; }
+        .vibe-next { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 2rem 0; border-top: 1px solid #2b2b2b; border-bottom: 1px solid #2b2b2b; color: inherit; text-decoration: none; }
+        .vibe-next small { display: block; margin-bottom: .35rem; color: #777; text-transform: uppercase; }
+        .vibe-next strong { color: #fff; font-size: 1.35rem; overflow-wrap: anywhere; }
+        .vibe-next i { width: 1.4rem; height: 1.4rem; flex: 0 0 auto; color: var(--project-accent); }
+        @media (min-width: 768px) { .vibe-shell { margin-left: 18rem; } }
+        @media (max-width: 900px) {
+            .vibe-title, .vibe-case-header .vibe-title { font-size: 3.25rem; }
+            .vibe-case-header { grid-template-columns: 1fr; gap: 2.5rem; }
+            .vibe-two-col { gap: 2rem; }
+            .vibe-two-col > * + * { padding-left: 2rem; }
         }
-
-        /* Modal Styles */
-        .modal-overlay {
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-        }
-
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        @media (max-width: 700px) {
+            .vibe-shell { padding: 6.5rem 1rem 4rem; }
+            .vibe-title { font-size: 2.75rem; }
+            .vibe-case-header .vibe-title { font-size: 2.2rem; line-height: 1.05; overflow-wrap: normal; word-break: normal; }
+            .vibe-lede { font-size: 1.05rem; }
+            .vibe-stats, .vibe-workflow { grid-template-columns: 1fr; }
+            .vibe-stat, .vibe-stat + .vibe-stat, .vibe-step, .vibe-step + .vibe-step { padding: 1rem 0; border-left: 0; }
+            .vibe-stat + .vibe-stat, .vibe-step + .vibe-step { border-top: 1px solid #292929; }
+            .vibe-section-head { display: block; padding-right: 4.25rem; }
+            .vibe-filter { display: flex; margin-top: 1.25rem; }
+            .vibe-grid, .vibe-two-col, .vibe-gallery { grid-template-columns: 1fr; }
+            .vibe-two-col { gap: 2.25rem; }
+            .vibe-two-col > * + * { padding: 2.25rem 0 0; border-top: 1px solid #292929; border-left: 0; }
+            .vibe-hero-media { aspect-ratio: 4 / 3; }
         }
     </style>
 </head>
-
-<body class="bg-black min-h-screen">
-    <!-- Sidebar (Injected) -->
+<body>
+    <!-- Generated from execution/vibecoding_projects.json. -->
     <div id="sidebar-container"></div>
+    <main class="vibe-shell">
+        <div class="vibe-wrap">
+            <header>
+                <p class="vibe-eyebrow">Work portfolio</p>
+                <h1 class="vibe-title">Vibecoding</h1>
+                <p class="vibe-lede">Products, agentic systems, data workflows, and creative tools built by pairing product judgment with AI-assisted execution. Each project now has a permanent case study with the problem, workflow, decisions, and evidence behind the interface.</p>
+                <div class="vibe-stats" aria-label="Vibecoding portfolio overview">
+                    <div class="vibe-stat"><strong>13</strong><span>Documented builds</span></div>
+                    <div class="vibe-stat"><strong>5</strong><span>Recent systems added</span></div>
+                    <div class="vibe-stat"><strong>5</strong><span>Private-source products shown safely</span></div>
+                </div>
+            </header>
 
-    <main class="md:ml-72 transition-all duration-300 pt-32 pb-20 max-w-7xl mx-auto px-6">
+            <section class="vibe-section" aria-labelledby="project-library-title">
+                <div class="vibe-section-head">
+                    <div>
+                        <p class="vibe-eyebrow">Project library</p>
+                        <h2 id="project-library-title">Builds with context</h2>
+                        <p class="vibe-section-copy">Browse the full collection or narrow it by the kind of problem being solved.</p>
+                    </div>
+                    <div class="vibe-filter" role="group" aria-label="Filter vibecoding projects">
+                        <button type="button" data-project-filter="all" aria-pressed="true">All</button>
+                        <button type="button" data-project-filter="systems" aria-pressed="false">Systems</button>
+                        <button type="button" data-project-filter="product" aria-pressed="false">Products</button>
+                        <button type="button" data-project-filter="creative-ai" aria-pressed="false">Creative AI</button>
+                    </div>
+                </div>
+                <div class="vibe-grid">
 
-        <!-- Header -->
-        <div class="mb-16">
-            <span class="text-orange-400 font-bold tracking-widest uppercase text-sm mb-4 block">Work Portfolio</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">Vibecoding</h1>
-            <p class="text-neutral-400 text-xl max-w-3xl leading-relaxed">
-                Automated agents and AI workflows.
-            </p>
+                <article class="vibe-card" data-project-category="systems" style="--project-accent:#22c55e">
+                    <a class="vibe-card-link" href="/work_vibecoding/application-agent/" aria-label="Open ApplicationAgent case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/application-agent/dashboard.jpg" alt="ApplicationAgent dashboard showing its discovery-to-outreach pipeline" width="1440" height="820" loading="eager">
+                            <span class="vibe-card-status">Active private build</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Agentic system / 2026</p>
+                            <h3>ApplicationAgent</h3>
+                            <p>A human-in-the-loop system for turning event opportunities into reviewed, route-ready outreach.</p>
+                            <div class="vibe-card-footer">
+                                <span>Next.js product</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="product" style="--project-accent:#a78bfa">
+                    <a class="vibe-card-link" href="/work_vibecoding/hypnoapp/" aria-label="Open HypnoApp case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/hypnoapp/app-dashboard.jpg" alt="HypnoApp dashboard showing sessions, progress, and rewards" width="1600" height="1000" loading="eager">
+                            <span class="vibe-card-status">Active private build</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Consumer product / 2026</p>
+                            <h3>HypnoApp</h3>
+                            <p>A local-first hypnosis and guided-meditation product built around repeatable daily practice.</p>
+                            <div class="vibe-card-footer">
+                                <span>Mobile and web app</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="systems" style="--project-accent:#38bdf8">
+                    <a class="vibe-card-link" href="/work_vibecoding/resource-summarizer/" aria-label="Open Resource Summarizer case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/resource-summarizer/enrich.jpg" alt="Resource Summarizer enrichment workspace with editable structured rows" width="1280" height="800" loading="lazy">
+                            <span class="vibe-card-status">Active private build</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Knowledge workflow / 2026</p>
+                            <h3>Resource Summarizer</h3>
+                            <p>A structured enrichment workspace for turning mixed resources into editable, reusable records.</p>
+                            <div class="vibe-card-footer">
+                                <span>Desktop, extension, API, and Worker</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="systems" style="--project-accent:#14b8a6">
+                    <a class="vibe-card-link" href="/work_vibecoding/ecommerce-intelligence/" aria-label="Open Ecommerce Lead Intelligence case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/ecommerce-intelligence/dashboard.jpg" alt="CVR ecommerce dashboard with lead-universe and ecommerce-readiness metrics" width="1440" height="820" loading="lazy">
+                            <span class="vibe-card-status">Active private build</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Data product / 2026</p>
+                            <h3>Ecommerce Lead Intelligence</h3>
+                            <p>A deterministic enrichment pipeline that turns Danish retail records into reviewable ecommerce intelligence.</p>
+                            <div class="vibe-card-footer">
+                                <span>Python pipeline and static dashboard</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="systems" style="--project-accent:#f59e0b">
+                    <a class="vibe-card-link" href="/work_vibecoding/project-second-brain/" aria-label="Open Project Second Brain case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/work/box_vibecoding.jpg" alt="Abstract coding workspace representing the project Second Brain knowledge system" width="1024" height="1024" loading="lazy">
+                            <span class="vibe-card-status">Active private system</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Knowledge architecture / 2026</p>
+                            <h3>Project Second Brain</h3>
+                            <p>A repo-local memory system that preserves decisions, facts, tasks, and handoffs across coding sessions.</p>
+                            <div class="vibe-card-footer">
+                                <span>Markdown knowledge graph</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="systems" style="--project-accent:#fb923c">
+                    <a class="vibe-card-link" href="/work_vibecoding/portfolio-site/" aria-label="Open TaylorRyan.xyz Portfolio System case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/portfolio-site/cover.jpg" alt="TaylorRyan.xyz portfolio homepage interface" width="1008" height="939" loading="lazy">
+                            <span class="vibe-card-status">Live</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Web platform / 2026</p>
+                            <h3>TaylorRyan.xyz Portfolio System</h3>
+                            <p>A large proof-of-work archive rebuilt as a searchable, deployable, and reversible portfolio system.</p>
+                            <div class="vibe-card-footer">
+                                <span>Cloudflare Pages</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="creative-ai" style="--project-accent:#ef4444">
+                    <a class="vibe-card-link" href="/work_vibecoding/yt-thumbnail-generator/" aria-label="Open YT Thumbnail Generator case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/yt-thumbnail-generator/cover.jpg" alt="YouTube thumbnail generator interface with generated options" width="991" height="591" loading="lazy">
+                            <span class="vibe-card-status">Shipped prototype</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Creative AI / 2026</p>
+                            <h3>YT Thumbnail Generator</h3>
+                            <p>A batch creative workflow that turns scripts, headshots, and prompts into thumbnail directions.</p>
+                            <div class="vibe-card-footer">
+                                <span>Google AI Studio</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="creative-ai" style="--project-accent:#ec4899">
+                    <a class="vibe-card-link" href="/work_vibecoding/ai-character-generator/" aria-label="Open AI Character Generator case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/ai-character-generator/cover.jpg" alt="AI character generator interface with character reference and generated scene" width="1484" height="803" loading="lazy">
+                            <span class="vibe-card-status">Shipped prototype</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Creative AI / 2026</p>
+                            <h3>AI Character Generator</h3>
+                            <p>A focused image-to-image studio for reimagining one character across new scenes and styles.</p>
+                            <div class="vibe-card-footer">
+                                <span>Google AI Studio</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="creative-ai" style="--project-accent:#facc15">
+                    <a class="vibe-card-link" href="/work_vibecoding/nanomem/" aria-label="Open NanoMem case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/nanomem/cover.jpg" alt="NanoMem meme generation interface" width="547" height="687" loading="lazy">
+                            <span class="vibe-card-status">Shipped prototype</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Creative AI / 2026</p>
+                            <h3>NanoMem</h3>
+                            <p>A multimodal meme workshop built for fast variants, remixing, and social-content iteration.</p>
+                            <div class="vibe-card-footer">
+                                <span>Google AI Studio</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="creative-ai" style="--project-accent:#fb7185">
+                    <a class="vibe-card-link" href="/work_vibecoding/hairstudio/" aria-label="Open HairStudio case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/hairstudio/cover.jpg" alt="HairStudio headshot and hairstyle preview interface" width="572" height="732" loading="lazy">
+                            <span class="vibe-card-status">Shipped prototype</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Creative AI / 2026</p>
+                            <h3>HairStudio</h3>
+                            <p>A practical headshot editor for previewing hairstyles while preserving a professional identity.</p>
+                            <div class="vibe-card-footer">
+                                <span>Google AI Studio</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="creative-ai" style="--project-accent:#60a5fa">
+                    <a class="vibe-card-link" href="/work_vibecoding/adfushion/" aria-label="Open AdFushion case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/adfushion/cover.jpg" alt="AdFushion marketing image generator interface" width="1502" height="844" loading="lazy">
+                            <span class="vibe-card-status">Shipped prototype</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Marketing AI / 2026</p>
+                            <h3>AdFushion</h3>
+                            <p>A marketing image studio for placing products and reference models into campaign-ready scenes.</p>
+                            <div class="vibe-card-footer">
+                                <span>Google AI Studio</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="creative-ai" style="--project-accent:#8b5cf6">
+                    <a class="vibe-card-link" href="/work_vibecoding/cinestudio/" aria-label="Open CineStudio case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/cinestudio/cover.jpg" alt="CineStudio generative video workflow interface" width="1503" height="843" loading="lazy">
+                            <span class="vibe-card-status">Shipped prototype</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Generative video / 2026</p>
+                            <h3>CineStudio</h3>
+                            <p>An end-to-end prompting and generation workspace for short cinematic video concepts.</p>
+                            <div class="vibe-card-footer">
+                                <span>Google AI Studio</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                <article class="vibe-card" data-project-category="product" style="--project-accent:#2dd4bf">
+                    <a class="vibe-card-link" href="/work_vibecoding/psilab/" aria-label="Open PsiLab case study">
+                        <div class="vibe-card-media">
+                            <img src="/assets/images/vibecoding/psilab/cover.jpg" alt="PsiLab gamified intuition challenge interface" width="338" height="662" loading="lazy">
+                            <span class="vibe-card-status">Shipped prototype</span>
+                        </div>
+                        <div class="vibe-card-body">
+                            <p class="vibe-card-meta">Interactive experiment / 2026</p>
+                            <h3>PsiLab</h3>
+                            <p>A gamified lab for running playful intuition challenges and reviewing performance over time.</p>
+                            <div class="vibe-card-footer">
+                                <span>Google AI Studio</span>
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                </div>
+            </section>
+
+            <section class="vibe-section vibe-rule" aria-labelledby="collaboration-title">
+                <p class="vibe-eyebrow">Build with me</p>
+                <h2 id="collaboration-title">Have a useful system hiding in a messy workflow?</h2>
+                <p class="vibe-section-copy">I am most interested in products where automation, judgment, data, and a real operator experience have to work together.</p>
+                <div class="vibe-actions">
+                    <a class="vibe-action" href="/contact/"><i data-lucide="message-square" aria-hidden="true"></i>Start a conversation</a>
+                </div>
+            </section>
         </div>
-
-        <!-- Section: Vibecoding -->
-        <section class="mb-32">
-            <div id="vibecoding-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Projects injected via JS -->
-                <div class="col-span-full text-center text-neutral-500 py-12">Loading Projects...</div>
-            </div>
-        </section>
-
     </main>
-
-    <!-- Modal -->
-    <div id="project-modal"
-        class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-neutral-900 border border-neutral-700 rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto relative shadow-2xl transform scale-95 transition-transform duration-300 scrollbar-hide"
-            id="modal-content">
-            <button onclick="closeModal()"
-                class="absolute top-4 right-4 p-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors z-20 group" type="button" aria-label="Close details">
-                <i data-lucide="x" class="w-6 h-6 text-neutral-400 group-hover:text-white"></i>
-            </button>
-            <div id="modal-body" class="p-8 md:p-12">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Data & Scripts -->
     <script src="/assets/js/layout.js"></script>
     <script src="/assets/js/work_sidebar.js"></script>
-    <script src="/assets/js/projects_data.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             renderWorkSidebar('vibecoding');
-            renderProjects();
-            lucide.createIcons();
+            if (window.lucide) lucide.createIcons();
+        const buttons = [...document.querySelectorAll('[data-project-filter]')];
+        const cards = [...document.querySelectorAll('[data-project-category]')];
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.projectFilter;
+                buttons.forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === button)));
+                cards.forEach((card) => { card.hidden = filter !== 'all' && card.dataset.projectCategory !== filter; });
+            });
         });
-
-        function renderProjects() {
-            const grid = document.getElementById('vibecoding-grid');
-            if (typeof PROJECTS_DATA === 'undefined') {
-                grid.innerHTML = '<div class="col-span-full text-red-500">Error: Projects Data not loaded.</div>';
-                return;
-            }
-
-            grid.innerHTML = PROJECTS_DATA.map(p => `
-                <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all cursor-pointer group h-full flex flex-col" onclick="openModal('${p.id}')">
-                    
-                    ${p.image ? `
-                    <div class="h-48 w-full overflow-hidden relative border-b border-white/5">
-                         <img src="${p.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                         <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent opacity-60"></div>
-                         
-                         <div class="absolute top-4 right-4 z-10">
-                            <span class="px-2 py-1 bg-black/60 backdrop-blur text-white text-[10px] font-bold uppercase tracking-wider border border-white/10 rounded">${p.environment}</span>
-                         </div>
-                    </div>
-                    ` : ''}
-
-                    <div class="p-8 flex-1 flex flex-col relative">
-                        ${!p.image ? `
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="px-3 py-1 bg-orange-500/10 text-orange-400 rounded text-xs font-bold uppercase tracking-wider border border-orange-500/20">${p.type}</span>
-                            <div class="px-3 py-1 bg-neutral-800 text-neutral-400 text-xs font-mono rounded">${p.environment}</div>
-                        </div>
-                        ` : ''}
-
-                        ${p.tags ? `
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            ${p.tags.map(tag => `<span class="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-bold uppercase tracking-wider rounded border border-neutral-700">${tag}</span>`).join('')}
-                        </div>
-                        ` : ''}
-                        
-                        <div class="flex items-center gap-3 mb-3">
-                             <h3 class="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors leading-tight">${p.project}</h3>
-                        </div>
-
-                        <p class="text-neutral-400 mb-6 leading-relaxed line-clamp-3 text-sm">${p.description}</p>
-                        
-                        <div class="mt-auto grid grid-cols-1 gap-3 text-xs bg-black/30 p-4 rounded-xl border border-white/5">
-                            ${p.tech_stack ? `
-                            <div>
-                                <span class="block text-neutral-500 mb-1 uppercase tracking-wider font-bold">Stack</span>
-                                <span class="text-neutral-300 line-clamp-1">${p.tech_stack}</span>
-                            </div>
-                            ` : ''}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            lucide.createIcons();
-        }
-
-        function openModal(id) {
-            const item = PROJECTS_DATA.find(p => p.id === id);
-            if (!item) return;
-
-            const modal = document.getElementById('project-modal');
-            const content = document.getElementById('modal-content');
-            const body = document.getElementById('modal-body');
-
-            // Prevent scroll
-            document.body.style.overflow = 'hidden';
-
-            // --- PROJECT MODAL CONTENT ---
-            body.innerHTML = `
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Left Column: Visuals & Context -->
-                <div class="space-y-8">
-                    ${item.image ? `
-                    <div class="rounded-xl overflow-hidden border border-neutral-700 shadow-2xl relative group">
-                        <img src="${item.image}" class="w-full h-auto object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="bg-black/80 backdrop-blur text-white text-xs px-2 py-1 rounded border border-white/10 font-mono">
-                                ${item.image.split('/').pop()}
-                            </span>
-                        </div>
-                    </div>
-                    ` : ''}
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-neutral-800/30 p-4 rounded-xl border border-neutral-700">
-                            <span class="block text-xs text-neutral-500 uppercase tracking-wider mb-2">Environment</span>
-                            <div class="font-mono text-orange-400 font-bold">${item.environment}</div>
-                        </div>
-                        <div class="bg-neutral-800/30 p-4 rounded-xl border border-neutral-700">
-                            <span class="block text-xs text-neutral-500 uppercase tracking-wider mb-2">Type</span>
-                            <div class="font-bold text-white">${item.type}</div>
-                        </div>
-                    </div>
-
-                    ${item.tech_stack ? `
-                    <div class="bg-neutral-800/30 p-6 rounded-xl border border-neutral-700">
-                        <h4 class="text-white font-bold mb-4 flex items-center gap-2">
-                            <i data-lucide="layers" class="w-5 h-5 text-blue-400"></i> Tech Stack
-                        </h4>
-                        <div class="flex flex-wrap gap-2">
-                            ${item.tech_stack.split(',').map(t => `
-                                <span class="px-3 py-1 bg-neutral-800 border border-neutral-600 rounded-full text-sm text-neutral-300 hover:text-white hover:border-neutral-500 transition-colors cursor-default">${t.trim()}</span>
-                            `).join('')}
-                        </div>
-                    </div>
-                    ` : ''}
-                </div>
-
-                <!-- Right Column: Details -->
-                <div class="space-y-8">
-                    <div>
-                        <h2 class="text-4xl font-extrabold text-white mb-4">${item.project}</h2>
-                        <p class="text-neutral-300 text-lg leading-relaxed">${item.description}</p>
-                    </div>
-
-                    <!-- Vibecode Prompt -->
-                        ${item.vibecode_prompt ? `
-                    <div class="bg-gradient-to-r from-purple-900/20 to-blue-900/20 p-6 rounded-xl border border-purple-500/20">
-                        <h4 class="text-purple-400 font-bold mb-2 flex items-center gap-2">
-                            <i data-lucide="sparkles" class="w-5 h-5"></i> Vibecode Prompt
-                        </h4>
-                        <p class="text-white italic font-serif leading-relaxed opacity-90">"${item.vibecode_prompt}"</p>
-                    </div>
-                    ` : ''}
-
-                    <!-- Inputs / Outputs Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        ${item.inputs ? `
-                        <div>
-                            <h4 class="text-sm font-bold text-neutral-500 uppercase tracking-widest mb-3">Inputs</h4>
-                            <p class="text-neutral-300 text-sm leading-relaxed">${item.inputs}</p>
-                        </div>
-                        ` : ''}
-                        ${item.output ? `
-                        <div>
-                            <h4 class="text-sm font-bold text-neutral-500 uppercase tracking-widest mb-3">Outputs</h4>
-                            <p class="text-neutral-300 text-sm leading-relaxed">${item.output}</p>
-                        </div>
-                        ` : ''}
-                    </div>
-
-                    <!-- What It Proves -->
-                        ${item.what_it_proves ? `
-                    <div class="border-t border-neutral-800 pt-6">
-                        <h4 class="text-sm font-bold text-green-500 uppercase tracking-widest mb-3 flex items-center gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4"></i> What It Proves
-                        </h4>
-                        <p class="text-neutral-300 leading-relaxed">${item.what_it_proves}</p>
-                    </div>
-                    ` : ''}
-
-                    <!-- Links -->
-                    <div class="flex flex-wrap gap-4 mt-8 pt-8 border-t border-neutral-800">
-                        ${item.github ? `
-                        <a href="${item.github}" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white font-bold rounded-xl transition-colors border border-neutral-700">
-                            <i data-lucide="github" class="w-5 h-5"></i> GitHub
-                        </a>
-                        ` : ''}
-                        ${item.url ? `
-                        <a href="${item.url}" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-colors shadow-lg shadow-blue-900/20">
-                            <i data-lucide="bot" class="w-5 h-5"></i> AI Studio
-                        </a>
-                        ` : ''}
-                    </div>
-                </div>
-            </div>
-            `;
-
-            modal.classList.remove('hidden');
-            // Force Reflow
-            void modal.offsetWidth;
-
-            modal.classList.remove('opacity-0');
-            content.classList.remove('scale-95');
-            content.classList.add('scale-100');
-
-            lucide.createIcons();
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('project-modal');
-            const content = document.getElementById('modal-content');
-
-            modal.classList.add('opacity-0');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
-
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
-        }
+        });
     </script>
 </body>
-
 </html>

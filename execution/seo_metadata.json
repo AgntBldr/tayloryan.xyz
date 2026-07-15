@@ -4,7 +4,7 @@
     "siteName": "Taylor Ryan Portfolio",
     "defaultImage": "/assets/images/taylor_headshot.jpg",
     "defaultImageAlt": "Taylor Ryan, GTM and growth expert",
-    "lastmod": "2026-07-14"
+    "lastmod": "2026-07-15"
   },
   "pages": [
     {
@@ -239,8 +239,142 @@
     },
     {
       "route": "/work_vibecoding/",
-      "title": "Vibecoding | Taylor Ryan",
-      "description": "Vibecoding page showing experimental builds, AI-assisted workflows, and the experimental builds behind them for product exploration and demos.",
+      "title": "Vibecoding Projects | Taylor Ryan",
+      "description": "Explore Taylor Ryan's AI-assisted products, agentic systems, data workflows, and creative tools through permanent project case studies.",
+      "index": true,
+      "image": "/assets/images/vibecoding/application-agent/dashboard.jpg",
+      "imageAlt": "ApplicationAgent dashboard showing its discovery-to-outreach pipeline",
+      "imageWidth": 1440,
+      "imageHeight": 820
+    },
+    {
+      "route": "/work_vibecoding/application-agent/",
+      "title": "ApplicationAgent | Vibecoding | Taylor Ryan",
+      "description": "A human-in-the-loop system for turning event opportunities into reviewed, route-ready outreach. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/application-agent/dashboard.jpg",
+      "imageAlt": "ApplicationAgent dashboard showing its discovery-to-outreach pipeline",
+      "imageWidth": 1440,
+      "imageHeight": 820,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/hypnoapp/",
+      "title": "HypnoApp | Vibecoding | Taylor Ryan",
+      "description": "A local-first hypnosis and guided-meditation product built around repeatable daily practice. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/hypnoapp/app-dashboard.jpg",
+      "imageAlt": "HypnoApp dashboard showing sessions, progress, and rewards",
+      "imageWidth": 1600,
+      "imageHeight": 1000,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/resource-summarizer/",
+      "title": "Resource Summarizer | Vibecoding | Taylor Ryan",
+      "description": "A structured enrichment workspace for turning mixed resources into editable, reusable records. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/resource-summarizer/enrich.jpg",
+      "imageAlt": "Resource Summarizer enrichment workspace with editable structured rows",
+      "imageWidth": 1280,
+      "imageHeight": 800,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/ecommerce-intelligence/",
+      "title": "Ecommerce Lead Intelligence | Vibecoding | Taylor Ryan",
+      "description": "A deterministic enrichment pipeline that turns Danish retail records into reviewable ecommerce intelligence. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/ecommerce-intelligence/dashboard.jpg",
+      "imageAlt": "CVR ecommerce dashboard with lead-universe and ecommerce-readiness metrics",
+      "imageWidth": 1440,
+      "imageHeight": 820,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/project-second-brain/",
+      "title": "Project Second Brain | Vibecoding | Taylor Ryan",
+      "description": "A repo-local memory system that preserves decisions, facts, tasks, and handoffs across coding sessions. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/work/box_vibecoding.jpg",
+      "imageAlt": "Abstract coding workspace representing the project Second Brain knowledge system",
+      "imageWidth": 1024,
+      "imageHeight": 1024,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/portfolio-site/",
+      "title": "TaylorRyan.xyz Portfolio System | Vibecoding | Taylor Ryan",
+      "description": "A large proof-of-work archive rebuilt as a searchable, deployable, and reversible portfolio system. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/portfolio-site/cover.jpg",
+      "imageAlt": "TaylorRyan.xyz portfolio homepage interface",
+      "imageWidth": 1008,
+      "imageHeight": 939,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/yt-thumbnail-generator/",
+      "title": "YT Thumbnail Generator | Vibecoding | Taylor Ryan",
+      "description": "A batch creative workflow that turns scripts, headshots, and prompts into thumbnail directions. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/yt-thumbnail-generator/cover.jpg",
+      "imageAlt": "YouTube thumbnail generator interface with generated options",
+      "imageWidth": 991,
+      "imageHeight": 591,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/ai-character-generator/",
+      "title": "AI Character Generator | Vibecoding | Taylor Ryan",
+      "description": "A focused image-to-image studio for reimagining one character across new scenes and styles. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/ai-character-generator/cover.jpg",
+      "imageAlt": "AI character generator interface with character reference and generated scene",
+      "imageWidth": 1484,
+      "imageHeight": 803,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/nanomem/",
+      "title": "NanoMem | Vibecoding | Taylor Ryan",
+      "description": "A multimodal meme workshop built for fast variants, remixing, and social-content iteration. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/nanomem/cover.jpg",
+      "imageAlt": "NanoMem meme generation interface",
+      "imageWidth": 547,
+      "imageHeight": 687,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/hairstudio/",
+      "title": "HairStudio | Vibecoding | Taylor Ryan",
+      "description": "A practical headshot editor for previewing hairstyles while preserving a professional identity. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/hairstudio/cover.jpg",
+      "imageAlt": "HairStudio headshot and hairstyle preview interface",
+      "imageWidth": 572,
+      "imageHeight": 732,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/adfushion/",
+      "title": "AdFushion | Vibecoding | Taylor Ryan",
+      "description": "A marketing image studio for placing products and reference models into campaign-ready scenes. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/adfushion/cover.jpg",
+      "imageAlt": "AdFushion marketing image generator interface",
+      "imageWidth": 1502,
+      "imageHeight": 844,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/cinestudio/",
+      "title": "CineStudio | Vibecoding | Taylor Ryan",
+      "description": "An end-to-end prompting and generation workspace for short cinematic video concepts. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/cinestudio/cover.jpg",
+      "imageAlt": "CineStudio generative video workflow interface",
+      "imageWidth": 1503,
+      "imageHeight": 843,
+      "index": true
+    },
+    {
+      "route": "/work_vibecoding/psilab/",
+      "title": "PsiLab | Vibecoding | Taylor Ryan",
+      "description": "A gamified lab for running playful intuition challenges and reviewing performance over time. See the workflow, build decisions, and evidence.",
+      "image": "/assets/images/vibecoding/psilab/cover.jpg",
+      "imageAlt": "PsiLab gamified intuition challenge interface",
+      "imageWidth": 338,
+      "imageHeight": 662,
       "index": true
     },
     {

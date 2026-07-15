@@ -1,0 +1,620 @@
+{
+  "version": 1,
+  "updated": "2026-07-15",
+  "projects": [
+    {
+      "slug": "application-agent",
+      "name": "ApplicationAgent",
+      "category": "systems",
+      "categoryLabel": "Agentic system",
+      "status": "Active private build",
+      "year": "2026",
+      "featured": true,
+      "accent": "#22c55e",
+      "environment": "Next.js product",
+      "role": "Product direction, workflow design, build orchestration",
+      "tagline": "A human-in-the-loop system for turning event opportunities into reviewed, route-ready outreach.",
+      "description": "ApplicationAgent brings speaker, podcast, webinar, conference, and meetup opportunities into one operational pipeline. It coordinates discovery, enrichment, selection, outreach preparation, browser-assisted work, and explicit human handoff instead of hiding the process behind a single autonomous action.",
+      "problem": "Opportunity research and applications are fragmented across event sites, spreadsheets, profiles, draft answers, and browser tabs. The repetitive parts invite automation, but applications still need judgment, approval, and a clean handoff when login, captcha, MFA, or positioning decisions appear.",
+      "solution": "The product treats the work as a visible pipeline. Targets move through discovery, intelligence refresh, selection, route readiness, drafting, and human handoff, with status, provider usage, review queues, and reusable profile information available from a quiet operator interface.",
+      "cover": {
+        "src": "/assets/images/vibecoding/application-agent/dashboard.jpg",
+        "alt": "ApplicationAgent dashboard showing its discovery-to-outreach pipeline",
+        "width": 1440,
+        "height": 820,
+        "fit": "cover"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "6 stages", "label": "Visible opportunity pipeline" },
+        { "value": "Human-led", "label": "Approval and handoff model" },
+        { "value": "Provider-aware", "label": "Research cost and health tracking" }
+      ],
+      "workflow": [
+        { "title": "Collect", "text": "Bring raw opportunity URLs and event records into a structured target inventory." },
+        { "title": "Research", "text": "Enrich each target, surface missing evidence, and keep provider attempts observable." },
+        { "title": "Handoff", "text": "Prepare outreach and application work while routing judgment, login, and approval moments to a person." }
+      ],
+      "decisions": [
+        "Keep every stage inspectable instead of presenting automation as a black box.",
+        "Use explicit human handoffs for authentication, captchas, file pickers, and subjective decisions.",
+        "Separate target discovery, selected opportunities, and outreach so repeated operator workflows stay focused."
+      ],
+      "proves": [
+        "Product thinking for agentic workflows with real operational boundaries.",
+        "Design of review queues, state transitions, provider observability, and human approval paths.",
+        "Ability to turn a broad automation idea into a structured multi-surface product."
+      ],
+      "stack": ["Next.js", "TypeScript", "React", "Prisma", "PostgreSQL", "Playwright", "Vitest"],
+      "privacy": "Private source. The portfolio shows the product workflow and interface without exposing repository access, credentials, provider keys, or unpublished target data."
+    },
+    {
+      "slug": "hypnoapp",
+      "name": "HypnoApp",
+      "category": "product",
+      "categoryLabel": "Consumer product",
+      "status": "Active private build",
+      "year": "2026",
+      "featured": true,
+      "accent": "#a78bfa",
+      "environment": "Mobile and web app",
+      "role": "Product direction, progression design, local-AI workflow",
+      "tagline": "A local-first hypnosis and guided-meditation product built around repeatable daily practice.",
+      "description": "HypnoApp combines guided journeys, short daily sessions, progress, rewards, soundscapes, and offline playback in one mobile experience. A local Kokoro TTS sidecar supports private audio generation while the product layer focuses on habit, sequencing, and a calm return path.",
+      "problem": "Most guided-audio products separate discovery, personalization, playback, and habit formation. Users get a library, but not necessarily a clear daily practice or a private way to create and revisit material.",
+      "solution": "The app organizes content into daily shorts, guided journeys, a personal library, and a progression loop. Local speech generation and offline playback keep the core experience useful without making every session dependent on a remote generation call.",
+      "cover": {
+        "src": "/assets/images/vibecoding/hypnoapp/app-dashboard.jpg",
+        "alt": "HypnoApp dashboard showing sessions, progress, and rewards",
+        "width": 1600,
+        "height": 1000,
+        "fit": "cover"
+      },
+      "gallery": [
+        { "src": "/assets/images/vibecoding/hypnoapp/app-home.jpg", "alt": "HypnoApp home screen with a daily short session", "caption": "A daily return path with streak and listening progress." },
+        { "src": "/assets/images/vibecoding/hypnoapp/app-detail.jpg", "alt": "HypnoApp session detail screen", "caption": "Session detail balances tone, duration, and playback choices." },
+        { "src": "/assets/images/vibecoding/hypnoapp/app-journeys.jpg", "alt": "HypnoApp guided journeys screen", "caption": "Longer journeys organize practice around a clear intention." }
+      ],
+      "metrics": [
+        { "value": "Local-first", "label": "Speech generation path" },
+        { "value": "Offline", "label": "Saved session playback" },
+        { "value": "Daily", "label": "Short-form practice loop" }
+      ],
+      "workflow": [
+        { "title": "Choose", "text": "Start from a daily short, a guided journey, or a saved session in the personal library." },
+        { "title": "Generate", "text": "Compose and render speech through the local Kokoro sidecar with optional tones and soundscapes." },
+        { "title": "Return", "text": "Track listening, progression, streaks, and rewards without turning the practice into a noisy dashboard." }
+      ],
+      "decisions": [
+        "Keep the primary practice local-first and support offline playback.",
+        "Use short daily content as the simplest return loop, with longer journeys available when desired.",
+        "Treat rewards and progression as support for practice rather than the main product."
+      ],
+      "proves": [
+        "Consumer product design across content, playback, progression, and retention loops.",
+        "Integration of a local AI sidecar with a polished cross-platform interface.",
+        "Ability to balance playful progression with a calm, focused product tone."
+      ],
+      "stack": ["Expo", "React Native", "TypeScript", "Kokoro TTS", "SQLite", "Supabase", "Zustand"],
+      "privacy": "Private source. The case study uses product screenshots and high-level architecture only; personal sessions, account data, and service credentials are not included."
+    },
+    {
+      "slug": "resource-summarizer",
+      "name": "Resource Summarizer",
+      "category": "systems",
+      "categoryLabel": "Knowledge workflow",
+      "status": "Active private build",
+      "year": "2026",
+      "featured": true,
+      "accent": "#38bdf8",
+      "environment": "Desktop, extension, API, and Worker",
+      "role": "Product architecture, schema design, model routing",
+      "tagline": "A structured enrichment workspace for turning mixed resources into editable, reusable records.",
+      "description": "Resource Summarizer accepts URLs, rich text, files, and the current browser tab, then normalizes and enriches them into rows that preserve an established working schema. The same core powers a Tauri desktop app, Chrome extension, Hono API, Cloudflare Worker, and optional MCP surface.",
+      "problem": "Useful resources arrive in inconsistent formats and locations. Manual cleanup is slow, generic summaries lose schema conventions, and high-cost models are wasteful when a deterministic parser or local route can complete the easy work.",
+      "solution": "A shared pipeline normalizes, extracts, routes, synthesizes, canonicalizes, scores, and exports each resource. Users can edit the result before export, choose model effort deliberately, retry only weak rows, and send selected data to TSV, Markdown, Google Sheets, or Google Docs.",
+      "cover": {
+        "src": "/assets/images/vibecoding/resource-summarizer/enrich.jpg",
+        "alt": "Resource Summarizer enrichment workspace with editable structured rows",
+        "width": 1280,
+        "height": 800,
+        "fit": "cover"
+      },
+      "gallery": [
+        { "src": "/assets/images/vibecoding/resource-summarizer/setup.jpg", "alt": "Resource Summarizer model and setup controls", "caption": "Setup modes keep provider and local routes explicit." },
+        { "src": "/assets/images/vibecoding/resource-summarizer/routing.jpg", "alt": "Resource Summarizer redo and model effort controls", "caption": "Redo raises model effort only for rows that need it." },
+        { "src": "/assets/images/vibecoding/resource-summarizer/export.jpg", "alt": "Resource Summarizer export destinations", "caption": "Validated rows can move into the user's existing tools." }
+      ],
+      "metrics": [
+        { "value": "4 surfaces", "label": "Desktop, extension, API, Worker" },
+        { "value": "Tiered", "label": "Deterministic, local, and hosted routes" },
+        { "value": "Editable", "label": "Human review before export" }
+      ],
+      "workflow": [
+        { "title": "Ingest", "text": "Accept mixed URLs, pasted text, files, and current-tab context without requiring one input format." },
+        { "title": "Enrich", "text": "Run deterministic extraction first, then route only the necessary work to the selected model tier." },
+        { "title": "Export", "text": "Review and edit canonical rows before copying or sending selected fields to downstream tools." }
+      ],
+      "decisions": [
+        "Make one canonical row schema the contract across every product surface.",
+        "Show model effort and retry cost before stronger routes run.",
+        "Preserve user-provided URLs and established column conventions instead of silently rewriting them."
+      ],
+      "proves": [
+        "Cross-platform architecture built around shared business logic rather than duplicated interfaces.",
+        "Cost-aware AI routing with deterministic and local work ahead of paid fallback.",
+        "Strong data-contract thinking across ingestion, review, persistence, and export."
+      ],
+      "stack": ["Tauri 2", "React", "TypeScript", "Hono", "Cloudflare Workers", "D1", "Zod", "Vitest"],
+      "privacy": "Private source. Screenshots use sample resources; API credentials, account records, canonical memory, and internal deployment configuration remain outside the portfolio."
+    },
+    {
+      "slug": "ecommerce-intelligence",
+      "name": "Ecommerce Lead Intelligence",
+      "category": "systems",
+      "categoryLabel": "Data product",
+      "status": "Active private build",
+      "year": "2026",
+      "featured": true,
+      "accent": "#14b8a6",
+      "environment": "Python pipeline and static dashboard",
+      "role": "Pipeline design, scoring model, operator dashboard",
+      "tagline": "A deterministic enrichment pipeline that turns Danish retail records into reviewable ecommerce intelligence.",
+      "description": "The system starts from a Danish CVR retail candidate universe, discovers likely websites, checks liveness, detects ecommerce and platform signals, adds financial context, scores business quality, and publishes a fast static dashboard for filtering and export.",
+      "problem": "A company registry can identify potential retailers, but it does not answer whether a business has a live site, sells online, uses a recognizable platform, or deserves outreach attention. Buying every lookup from a paid provider would make large-batch exploration unnecessarily expensive.",
+      "solution": "The pipeline uses bounded, deterministic discovery and website checks first, then combines ecommerce evidence, platform signals, company attributes, and financial context into reviewable classifications. The output remains inspectable through reports, QA samples, and a static dashboard rather than disappearing into a score alone.",
+      "cover": {
+        "src": "/assets/images/vibecoding/ecommerce-intelligence/dashboard.jpg",
+        "alt": "CVR ecommerce dashboard with lead-universe and ecommerce-readiness metrics",
+        "width": 1440,
+        "height": 820,
+        "fit": "cover"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "48,916", "label": "Retail candidates" },
+        { "value": "33,120", "label": "Live websites" },
+        { "value": "28,938", "label": "Ecommerce ready" }
+      ],
+      "workflow": [
+        { "title": "Discover", "text": "Generate and test bounded website candidates from registry and business identity signals." },
+        { "title": "Classify", "text": "Inspect live sites for product, cart, checkout, platform, payment, shipping, and return evidence." },
+        { "title": "Prioritize", "text": "Combine ecommerce confidence and business context into filters, quality bands, and exportable views." }
+      ],
+      "decisions": [
+        "Sample every stage before scaling to the full candidate universe.",
+        "Keep paid SERP calls at zero until deterministic discovery quality is understood.",
+        "Publish evidence, classifications, and QA outputs together so a score can be challenged."
+      ],
+      "proves": [
+        "Large-batch data enrichment with explicit cost and quality controls.",
+        "Productization of a Python pipeline into an operator-friendly intelligence dashboard.",
+        "Careful separation of raw data, processed evidence, scoring, and public/private product surfaces."
+      ],
+      "stack": ["Python", "DuckDB", "HTTP enrichment", "Static HTML", "Cloudflare Workers", "Pytest"],
+      "privacy": "Private source and data. The portfolio uses aggregate dashboard metrics only; company-row payloads, raw datasets, local databases, and deployment secrets are not published."
+    },
+    {
+      "slug": "project-second-brain",
+      "name": "Project Second Brain",
+      "category": "systems",
+      "categoryLabel": "Knowledge architecture",
+      "status": "Active private system",
+      "year": "2026",
+      "featured": true,
+      "accent": "#f59e0b",
+      "environment": "Markdown knowledge graph",
+      "role": "Knowledge architecture, agent protocol, portable handoff",
+      "tagline": "A repo-local memory system that preserves decisions, facts, tasks, and handoffs across coding sessions.",
+      "description": "The Second Brain is a typed Markdown knowledge graph embedded inside a project repository. It gives coding agents a route-before-read recall loop, atomic knowledge nodes, typed edges, lifecycle rules, operating logs, and a portable handoff path that works through files and git.",
+      "problem": "Long-running AI-assisted projects repeatedly lose context: decisions are re-litigated, constraints drift, one agent cannot see another agent's reasoning, and transcripts become too large to act as dependable memory.",
+      "solution": "Durable knowledge is captured as small typed nodes with summaries, provenance, confidence, status, and explicit graph relationships. Agents route through frontmatter before opening bodies, update active task state before handoff, and preserve history instead of silently overwriting prior decisions.",
+      "cover": {
+        "src": "/assets/images/work/box_vibecoding.jpg",
+        "alt": "Abstract coding workspace representing the project Second Brain knowledge system",
+        "width": 1024,
+        "height": 1024,
+        "fit": "cover"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "17 types", "label": "Typed knowledge nodes" },
+        { "value": "10 edges", "label": "Explicit relationships" },
+        { "value": "Git-native", "label": "Portable memory and rollback" }
+      ],
+      "workflow": [
+        { "title": "Route", "text": "Read summaries, tags, and edges first so recall is targeted instead of transcript-wide." },
+        { "title": "Decide", "text": "Follow relevant nodes, inspect evidence, and make contradictions or superseding decisions explicit." },
+        { "title": "Remember", "text": "Write durable learnings as atomic nodes, update task state, append the operation log, and commit the handoff." }
+      ],
+      "decisions": [
+        "Keep each project's memory isolated inside its own repository.",
+        "Use plain files and git as the portable core so memory is not tied to one agent vendor.",
+        "Preserve lifecycle history by archiving and superseding nodes instead of mutating away old context."
+      ],
+      "proves": [
+        "Design of practical long-horizon memory for AI-assisted software work.",
+        "Information architecture that makes provenance, confidence, and task state inspectable.",
+        "Operational discipline around handoff, rollback, isolation, and secret safety."
+      ],
+      "stack": ["Markdown", "YAML frontmatter", "Git", "Obsidian-compatible links", "PowerShell", "Node.js"],
+      "privacy": "Private system. This page describes the architecture without publishing the separate private vault, its business content, or any stored secrets."
+    },
+    {
+      "slug": "portfolio-site",
+      "name": "TaylorRyan.xyz Portfolio System",
+      "category": "systems",
+      "categoryLabel": "Web platform",
+      "status": "Live",
+      "year": "2026",
+      "featured": false,
+      "accent": "#fb923c",
+      "environment": "Cloudflare Pages",
+      "role": "Information architecture, migration, deployment, preservation",
+      "tagline": "A large proof-of-work archive rebuilt as a searchable, deployable, and reversible portfolio system.",
+      "description": "This portfolio is itself a build: a migrated archive of marketing, speaking, writing, quests, courses, experiments, and linked resources consolidated into one canonical Cloudflare deployment with contact, metadata, preservation, and regression checks.",
+      "problem": "Repeated migrations left duplicate deploy trees, inconsistent clean routes, hundreds of linked work artifacts, and a real risk that cleanup would erase useful evidence or break the live site.",
+      "solution": "The project established one canonical deploy output, audited linked resources, preserved recoverable documentation in a review manifest, selectively retired only confirmed broken links, and added deterministic release checks before UI and content changes move toward production.",
+      "cover": {
+        "src": "/assets/images/vibecoding/portfolio-site/cover.jpg",
+        "alt": "TaylorRyan.xyz portfolio homepage interface",
+        "width": 1008,
+        "height": 939,
+        "fit": "cover"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "622", "label": "Google resources audited" },
+        { "value": "80", "label": "Confirmed broken links retired" },
+        { "value": "Reversible", "label": "Branch and manifest release gates" }
+      ],
+      "workflow": [
+        { "title": "Inventory", "text": "Map routes, assets, deploy trees, linked resources, and offline documentation before cleanup." },
+        { "title": "Preserve", "text": "Separate public, private, broken, and recoverable records so deletion is never the default." },
+        { "title": "Ship", "text": "Generate the canonical deploy, run route and preservation gates, review on a branch, and verify production." }
+      ],
+      "decisions": [
+        "Keep one canonical DEPLOY_PUBLIC output and disable legacy duplicate syncing by default.",
+        "Preserve Google and Layer3 records unless a link is confirmed broken and approved for retirement.",
+        "Treat side menus, the full Work archive, and vibecoding as protected release surfaces."
+      ],
+      "proves": [
+        "Safe modernization of a large static site without flattening its archive.",
+        "Deployment, SEO, contact, asset, and link-preservation work coordinated through release gates.",
+        "Ability to turn cleanup risk into an auditable product workflow."
+      ],
+      "stack": ["HTML", "Vanilla JavaScript", "Cloudflare Pages", "Pages Functions", "PowerShell", "Node.js"],
+      "privacy": "Public build with private operational material excluded. Resource ledgers preserve recovery context without publishing credentials or inaccessible document contents.",
+      "liveDemo": { "url": "https://taylorryan.xyz/", "label": "Visit live site" }
+    },
+    {
+      "slug": "yt-thumbnail-generator",
+      "name": "YT Thumbnail Generator",
+      "category": "creative-ai",
+      "categoryLabel": "Creative AI",
+      "status": "Shipped prototype",
+      "year": "2026",
+      "featured": false,
+      "accent": "#ef4444",
+      "environment": "Google AI Studio",
+      "role": "Workflow design, product direction, prompt system",
+      "tagline": "A batch creative workflow that turns scripts, headshots, and prompts into thumbnail directions.",
+      "description": "The generator analyzes video context, accepts a creator headshot and direction, and produces four thumbnail options designed for fast comparison. It packages image generation into a repeatable content-production workflow instead of a one-off prompt box.",
+      "problem": "Thumbnail ideation is repetitive, visually inconsistent, and hard to compare when every concept starts from scratch.",
+      "solution": "The product combines script context, a face reference, and creative direction, then generates multiple options through distinct thumbnail archetypes and prepares exports for real publishing constraints.",
+      "cover": {
+        "src": "/assets/images/vibecoding/yt-thumbnail-generator/cover.jpg",
+        "alt": "YouTube thumbnail generator interface with generated options",
+        "width": 991,
+        "height": 591,
+        "fit": "cover"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "4 options", "label": "Per generation cycle" },
+        { "value": "Batch-ready", "label": "Content calendar input" },
+        { "value": "<2 MB", "label": "Export target" }
+      ],
+      "workflow": [
+        { "title": "Brief", "text": "Combine the video script, creator reference, and desired thumbnail direction." },
+        { "title": "Generate", "text": "Create a small set of visually distinct options for comparison rather than one opaque answer." },
+        { "title": "Publish", "text": "Review, refine, and export a practical file for the channel workflow." }
+      ],
+      "decisions": [
+        "Generate multiple directions so creative review stays comparative.",
+        "Use script context instead of relying on a title-only prompt.",
+        "Build publishing constraints into the output workflow."
+      ],
+      "proves": [
+        "Multimodal creative pipelines for real content operations.",
+        "Product framing around iteration, comparison, and export.",
+        "Practical use of identity references and controlled visual direction."
+      ],
+      "stack": ["React", "TypeScript", "Gemini API", "Google AI Studio"],
+      "privacy": "Prototype source is not linked. The portfolio presents the product workflow and public demo only.",
+      "liveDemo": { "url": "https://ai.studio/apps/drive/1fU5j35zyXBtaJ-5-RZpx_lkqqVpt2C0U?fullscreenApplet=true", "label": "Open prototype" }
+    },
+    {
+      "slug": "ai-character-generator",
+      "name": "AI Character Generator",
+      "category": "creative-ai",
+      "categoryLabel": "Creative AI",
+      "status": "Shipped prototype",
+      "year": "2026",
+      "featured": false,
+      "accent": "#ec4899",
+      "environment": "Google AI Studio",
+      "role": "Product direction, image workflow, iteration design",
+      "tagline": "A focused image-to-image studio for reimagining one character across new scenes and styles.",
+      "description": "The product takes a character reference and creative direction, then reimagines the subject in a chosen setting, style, or scenario. The intentionally narrow flow makes identity and art-direction iteration easier to control.",
+      "problem": "Generic image generators make it easy to create a new image but harder to carry a recognizable character through multiple creative contexts.",
+      "solution": "A small, reference-first workflow keeps the source character visible, makes scenario direction explicit, and returns a single result that can be refined without navigating a broad editing suite.",
+      "cover": {
+        "src": "/assets/images/vibecoding/ai-character-generator/cover.jpg",
+        "alt": "AI character generator interface with character reference and generated scene",
+        "width": 1484,
+        "height": 803,
+        "fit": "cover"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "Reference-first", "label": "Character continuity" },
+        { "value": "Single output", "label": "Focused refinement loop" },
+        { "value": "Flexible", "label": "Style and scenario direction" }
+      ],
+      "workflow": [
+        { "title": "Reference", "text": "Upload the character image that should anchor the generation." },
+        { "title": "Direct", "text": "Describe the new setting, style, action, or visual treatment." },
+        { "title": "Refine", "text": "Use the focused output as the next iteration point rather than restarting the concept." }
+      ],
+      "decisions": [
+        "Keep the interface centered on one character and one direction.",
+        "Prefer a clear refinement loop over a large option panel.",
+        "Treat identity preservation as a product constraint, not only a prompt detail."
+      ],
+      "proves": [
+        "Creative direction through controlled image-to-image prompting.",
+        "Ability to simplify a broad model capability into a usable narrow tool.",
+        "Product judgment around reference continuity and rapid iteration."
+      ],
+      "stack": ["React", "TypeScript", "Gemini image-to-image", "Google AI Studio"],
+      "privacy": "Prototype source is not linked. The case study focuses on the public product experience.",
+      "liveDemo": { "url": "https://ai.studio/apps/drive/1AgarJPElZak2TtNZx2IZwvUX-DHDkrdc", "label": "Open prototype" }
+    },
+    {
+      "slug": "nanomem",
+      "name": "NanoMem",
+      "category": "creative-ai",
+      "categoryLabel": "Creative AI",
+      "status": "Shipped prototype",
+      "year": "2026",
+      "featured": false,
+      "accent": "#facc15",
+      "environment": "Google AI Studio",
+      "role": "Product direction, remix workflow, creative operations",
+      "tagline": "A multimodal meme workshop built for fast variants, remixing, and social-content iteration.",
+      "description": "NanoMem turns image references, pasted media, and written direction into a small batch of meme-ready variations. Local history and remixing keep successful directions available for another pass.",
+      "problem": "Social teams need speed and variety, but one-off image prompts make it difficult to compare directions or reuse a successful format.",
+      "solution": "The product accepts multimodal inputs, produces four variants, saves recent outputs locally, and supports remixing so creative work behaves more like a lightweight content engine.",
+      "cover": {
+        "src": "/assets/images/vibecoding/nanomem/cover.jpg",
+        "alt": "NanoMem meme generation interface",
+        "width": 547,
+        "height": 687,
+        "fit": "contain"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "4 variants", "label": "Per creative cycle" },
+        { "value": "Multimodal", "label": "Images, paste, and prompts" },
+        { "value": "Local history", "label": "Reusable recent outputs" }
+      ],
+      "workflow": [
+        { "title": "Collect", "text": "Start from a character, reference image, pasted asset, or written idea." },
+        { "title": "Generate", "text": "Produce four different directions in one bounded creative cycle." },
+        { "title": "Remix", "text": "Carry a promising result into another iteration without losing the working context." }
+      ],
+      "decisions": [
+        "Return a small batch so social concepts can be compared quickly.",
+        "Keep clipboard paste and recent history close to the generation flow.",
+        "Make remixing a first-class action rather than forcing a fresh prompt."
+      ],
+      "proves": [
+        "High-velocity creative tooling for social and community workflows.",
+        "Multimodal input design and consumer-friendly output handling.",
+        "Thinking in repeatable content systems rather than isolated generations."
+      ],
+      "stack": ["React", "TypeScript", "Gemini Flash Image", "Google AI Studio"],
+      "privacy": "Prototype source is not linked. Public presentation is limited to the product concept and demo.",
+      "liveDemo": { "url": "https://ai.studio/apps/drive/1E03qR53QMHz04MIElRpWpXbcsV1W3_s9", "label": "Open prototype" }
+    },
+    {
+      "slug": "hairstudio",
+      "name": "HairStudio",
+      "category": "creative-ai",
+      "categoryLabel": "Creative AI",
+      "status": "Shipped prototype",
+      "year": "2026",
+      "featured": false,
+      "accent": "#fb7185",
+      "environment": "Google AI Studio",
+      "role": "Product direction, controlled editing workflow",
+      "tagline": "A practical headshot editor for previewing hairstyles while preserving a professional identity.",
+      "description": "HairStudio uses a headshot, hairstyle choice, model setting, and prompt to generate four style previews. The product focuses on controlled editing and recognizable identity rather than broad image generation.",
+      "problem": "People may want to explore a new hairstyle without losing the facial detail, framing, and professional realism that make a preview useful.",
+      "solution": "The workflow constrains the edit around one person and one visual change, then returns multiple style options for comparison.",
+      "cover": {
+        "src": "/assets/images/vibecoding/hairstudio/cover.jpg",
+        "alt": "HairStudio headshot and hairstyle preview interface",
+        "width": 572,
+        "height": 732,
+        "fit": "contain"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "4 styles", "label": "Per preview" },
+        { "value": "Identity-led", "label": "Controlled edit constraint" },
+        { "value": "Practical", "label": "Professional realism target" }
+      ],
+      "workflow": [
+        { "title": "Upload", "text": "Provide the headshot that should remain recognizable." },
+        { "title": "Choose", "text": "Select a hairstyle and add any scene or model direction." },
+        { "title": "Compare", "text": "Review four controlled variations before deciding what to refine." }
+      ],
+      "decisions": [
+        "Constrain the transformation to hair while preserving the rest of the identity.",
+        "Generate several options because a useful preview is comparative.",
+        "Optimize the product around a practical decision rather than novelty alone."
+      ],
+      "proves": [
+        "Controlled image editing with identity and realism constraints.",
+        "Simple product framing for a recognizable personal utility.",
+        "Ability to shape model behavior around a narrow visual outcome."
+      ],
+      "stack": ["React", "TypeScript", "Gemini image workflow", "Google AI Studio"],
+      "privacy": "Prototype source is not linked. The case study shows the public workflow without repository access.",
+      "liveDemo": { "url": "https://ai.studio/apps/drive/1s4vSV--ioFIb6GIe_OOFJj9wVWQqAcdf?fullscreenApplet=true", "label": "Open prototype" }
+    },
+    {
+      "slug": "adfushion",
+      "name": "AdFushion",
+      "category": "creative-ai",
+      "categoryLabel": "Marketing AI",
+      "status": "Shipped prototype",
+      "year": "2026",
+      "featured": false,
+      "accent": "#60a5fa",
+      "environment": "Google AI Studio",
+      "role": "Product direction, creative-production workflow",
+      "tagline": "A marketing image studio for placing products and reference models into campaign-ready scenes.",
+      "description": "AdFushion combines a product or object, a model reference, and art direction to create four visual concepts for ads, lifestyle imagery, or rapid campaign testing.",
+      "problem": "Performance teams need many creative directions, but conventional shoots are slow and generic generators often lose the product or person that must remain central.",
+      "solution": "The interface keeps model, product, and scene inputs separate, then generates a bounded set of stylized options designed for review and testing.",
+      "cover": {
+        "src": "/assets/images/vibecoding/adfushion/cover.jpg",
+        "alt": "AdFushion marketing image generator interface",
+        "width": 1502,
+        "height": 844,
+        "fit": "cover"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "4 concepts", "label": "Per creative brief" },
+        { "value": "2 references", "label": "Model and product inputs" },
+        { "value": "Test-ready", "label": "Campaign variation mindset" }
+      ],
+      "workflow": [
+        { "title": "Assemble", "text": "Provide the model, product, and creative direction as distinct inputs." },
+        { "title": "Compose", "text": "Generate multiple scenes while keeping the campaign subject recognizable." },
+        { "title": "Test", "text": "Review the strongest directions for ads, mockups, or another creative pass." }
+      ],
+      "decisions": [
+        "Keep model and product references explicit in the brief.",
+        "Generate a comparison set that supports performance-marketing review.",
+        "Treat the tool as a production workflow, not a gallery of unrelated images."
+      ],
+      "proves": [
+        "Translation of performance-marketing instincts into a creative product.",
+        "Multireference generation and campaign-oriented art direction.",
+        "Ability to package cutting-edge models into a focused operator flow."
+      ],
+      "stack": ["React", "TypeScript", "Vite", "Gemini API", "Veo workflow"],
+      "privacy": "Prototype source is not linked. The portfolio presents the creative workflow and demo only.",
+      "liveDemo": { "url": "https://ai.studio/apps/drive/1J35PTwcDad4ODvYz3J_SuJNUbVymypCs?fullscreenApplet=true", "label": "Open prototype" }
+    },
+    {
+      "slug": "cinestudio",
+      "name": "CineStudio",
+      "category": "creative-ai",
+      "categoryLabel": "Generative video",
+      "status": "Shipped prototype",
+      "year": "2026",
+      "featured": false,
+      "accent": "#8b5cf6",
+      "environment": "Google AI Studio",
+      "role": "Product direction, generative-video workflow",
+      "tagline": "An end-to-end prompting and generation workspace for short cinematic video concepts.",
+      "description": "CineStudio organizes characters, locations, objects, and creative direction into an eight-second video workflow using image and video models. It makes the dependencies of a complex generation visible before the expensive step runs.",
+      "problem": "Generative video can consume time and credits quickly when references, scene direction, and model requirements are assembled through trial and error.",
+      "solution": "The product turns the prompt into a structured production brief, prepares the supporting image context, and then runs the video model through a secure key flow.",
+      "cover": {
+        "src": "/assets/images/vibecoding/cinestudio/cover.jpg",
+        "alt": "CineStudio generative video workflow interface",
+        "width": 1503,
+        "height": 843,
+        "fit": "cover"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "8 seconds", "label": "Generated clip format" },
+        { "value": "Structured", "label": "Characters, place, object, direction" },
+        { "value": "Secure", "label": "Environment-based key handling" }
+      ],
+      "workflow": [
+        { "title": "Stage", "text": "Define characters, location, important objects, and the visual direction." },
+        { "title": "Prepare", "text": "Build the image and prompt context needed for a coherent video request." },
+        { "title": "Render", "text": "Run the selected video model with cost and account requirements made explicit." }
+      ],
+      "decisions": [
+        "Structure the brief before invoking the more expensive video model.",
+        "Keep API keys out of the client bundle and repository.",
+        "Explain model and billing requirements at the point where they affect the workflow."
+      ],
+      "proves": [
+        "End-to-end product design for emerging image and video models.",
+        "Secure handling of model access in a prototype environment.",
+        "Ability to organize complex creative dependencies into a clear workflow."
+      ],
+      "stack": ["React", "TypeScript", "Vite", "Gemini 2.5", "Veo 3.1"],
+      "privacy": "Prototype source is not linked. The page documents product decisions without exposing keys or private repository access.",
+      "liveDemo": { "url": "https://ai.studio/apps/drive/1EQYsbCoHSkHEOy6L1OimjWRm86ZijiMF?fullscreenApplet=true", "label": "Open prototype" }
+    },
+    {
+      "slug": "psilab",
+      "name": "PsiLab",
+      "category": "product",
+      "categoryLabel": "Interactive experiment",
+      "status": "Shipped prototype",
+      "year": "2026",
+      "featured": false,
+      "accent": "#2dd4bf",
+      "environment": "Google AI Studio",
+      "role": "Product direction, game loop, analysis layer",
+      "tagline": "A gamified lab for running playful intuition challenges and reviewing performance over time.",
+      "description": "PsiLab brings Zener cards, shape matching, remote viewing, and number-precognition challenges into one interactive product. Session history and AI-assisted reports turn isolated games into an experiment and reflection loop.",
+      "problem": "Intuition experiments are often presented either as sterile tests or as entertainment with no way to compare sessions and reflect on patterns.",
+      "solution": "The product combines several challenge modes, clear scoring, history, and a generated performance report in a game-like interface that remains explicit about the experimental framing.",
+      "cover": {
+        "src": "/assets/images/vibecoding/psilab/cover.jpg",
+        "alt": "PsiLab gamified intuition challenge interface",
+        "width": 338,
+        "height": 662,
+        "fit": "contain"
+      },
+      "gallery": [],
+      "metrics": [
+        { "value": "4 modes", "label": "Distinct challenge formats" },
+        { "value": "Session history", "label": "Progress review" },
+        { "value": "AI report", "label": "Post-session reflection" }
+      ],
+      "workflow": [
+        { "title": "Select", "text": "Choose a challenge mode with a clear interaction and scoring rule." },
+        { "title": "Play", "text": "Complete a bounded session and receive immediate outcome feedback." },
+        { "title": "Review", "text": "Compare history and generate a narrative performance report for reflection." }
+      ],
+      "decisions": [
+        "Use multiple challenge modes so the product feels like a lab rather than one repeated test.",
+        "Keep score and session history available before adding interpretation.",
+        "Use AI for the reflection layer, not for deciding whether a guess was correct."
+      ],
+      "proves": [
+        "Gamification, interactive state, and lightweight experiment design.",
+        "Separation of deterministic game rules from generative analysis.",
+        "Ability to shape an unusual concept into a coherent consumer product."
+      ],
+      "stack": ["React", "TypeScript", "Vite", "Gemini API", "Component state"],
+      "privacy": "Prototype source is not linked. The portfolio shows the public experience without repository access.",
+      "liveDemo": { "url": "https://ai.studio/apps/drive/1eazv38lv6TwGfAZdwoDX8PUABcSS0ufI", "label": "Open prototype" }
+    }
+  ]
+}

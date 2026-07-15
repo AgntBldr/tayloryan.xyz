@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Summarizer | Vibecoding | Taylor Ryan</title>
+    <link rel="stylesheet" href="/assets/fonts/outfit.css">
+    <link rel="stylesheet" href="/assets/css/tailwind.generated.css">
+    <script src="/assets/vendor/lucide-1.24.0.min.js" defer></script>
+    <style>
+        :root { color-scheme: dark; }
+        * { box-sizing: border-box; letter-spacing: 0; }
+        html { background: #050505; scroll-behavior: smooth; }
+        body { margin: 0; background: #050505; color: #f5f5f5; font-family: 'Outfit', sans-serif; }
+        a { color: inherit; }
+        .vibe-shell { min-height: 100vh; padding: 7rem 1.5rem 5rem; }
+        .vibe-wrap { width: min(100%, 1180px); margin: 0 auto; }
+        .vibe-eyebrow { margin: 0 0 .8rem; color: #fb923c; font-size: .78rem; font-weight: 800; text-transform: uppercase; }
+        .vibe-title { margin: 0; color: #fff; font-size: 4rem; line-height: 1; font-weight: 800; }
+        .vibe-lede { max-width: 760px; margin: 1.5rem 0 0; color: #b8b8b8; font-size: 1.22rem; line-height: 1.65; }
+        .vibe-rule { border-top: 1px solid #262626; }
+        .vibe-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 3rem; border-top: 1px solid #2b2b2b; border-bottom: 1px solid #2b2b2b; }
+        .vibe-stat { min-width: 0; padding: 1.25rem 1.5rem 1.25rem 0; }
+        .vibe-stat + .vibe-stat { padding-left: 1.5rem; border-left: 1px solid #2b2b2b; }
+        .vibe-stat strong { display: block; color: #fff; font-size: 1.45rem; line-height: 1.1; overflow-wrap: anywhere; }
+        .vibe-stat span { display: block; margin-top: .4rem; color: #8f8f8f; font-size: .8rem; line-height: 1.35; }
+        .vibe-section { padding: 4.5rem 0; }
+        .vibe-section-head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 1.8rem; }
+        .vibe-section h2 { margin: 0; color: #fff; font-size: 2rem; line-height: 1.15; font-weight: 800; }
+        .vibe-section-copy { max-width: 650px; margin: .8rem 0 0; color: #a3a3a3; line-height: 1.7; }
+        .vibe-filter { display: inline-flex; flex-wrap: wrap; gap: .35rem; padding: .3rem; border: 1px solid #303030; border-radius: 8px; background: #0d0d0d; }
+        .vibe-filter button { min-height: 2.5rem; padding: .55rem .9rem; border: 0; border-radius: 6px; background: transparent; color: #9f9f9f; font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; }
+        .vibe-filter button[aria-pressed="true"] { background: #f5f5f5; color: #050505; }
+        .vibe-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+        .vibe-card { --project-accent: #fb923c; min-width: 0; overflow: hidden; border: 1px solid #292929; border-radius: 8px; background: #0b0b0b; transition: transform .2s ease, border-color .2s ease; }
+        .vibe-card:hover { transform: translateY(-3px); border-color: var(--project-accent); }
+        .vibe-card[hidden] { display: none; }
+        .vibe-card-link { display: flex; min-height: 100%; flex-direction: column; color: inherit; text-decoration: none; }
+        .vibe-card-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid #242424; background: #111; }
+        .vibe-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+        .vibe-card:hover .vibe-card-media img { transform: scale(1.025); }
+        .vibe-card-status { position: absolute; top: .85rem; right: .85rem; max-width: calc(100% - 1.7rem); padding: .35rem .55rem; border: 1px solid #383838; border-radius: 6px; background: rgba(5, 5, 5, .9); color: #eee; font-size: .7rem; font-weight: 700; }
+        .vibe-card-body { display: flex; flex: 1; flex-direction: column; padding: 1.35rem; }
+        .vibe-card-meta { margin: 0 0 .65rem; color: var(--project-accent); font-size: .74rem; font-weight: 800; text-transform: uppercase; }
+        .vibe-card h3 { margin: 0; color: #fff; font-size: 1.55rem; line-height: 1.15; font-weight: 800; overflow-wrap: anywhere; }
+        .vibe-card p { margin: .8rem 0 1.2rem; color: #a8a8a8; font-size: .95rem; line-height: 1.6; }
+        .vibe-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; padding-top: 1rem; border-top: 1px solid #222; color: #d7d7d7; font-size: .8rem; font-weight: 700; }
+        .vibe-card-footer span { min-width: 0; overflow-wrap: anywhere; }
+        .vibe-card-footer i { width: 1rem; height: 1rem; flex: 0 0 auto; color: var(--project-accent); }
+        .vibe-back { display: inline-flex; align-items: center; gap: .5rem; margin-bottom: 2.75rem; color: #b8b8b8; font-size: .9rem; font-weight: 700; text-decoration: none; }
+        .vibe-back:hover { color: #fff; }
+        .vibe-back i { width: 1rem; height: 1rem; }
+        .vibe-case-header { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(250px, .65fr); gap: 4rem; align-items: end; }
+        .vibe-case-header .vibe-title { font-size: 4.5rem; overflow-wrap: anywhere; }
+        .vibe-case-meta { border-top: 1px solid #2c2c2c; }
+        .vibe-case-meta-row { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 1rem; padding: .9rem 0; border-bottom: 1px solid #252525; }
+        .vibe-case-meta-row dt { color: #777; font-size: .76rem; text-transform: uppercase; }
+        .vibe-case-meta-row dd { min-width: 0; margin: 0; color: #ddd; line-height: 1.35; overflow-wrap: anywhere; }
+        .vibe-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.4rem; }
+        .vibe-action { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .55rem; padding: .7rem 1rem; border: 1px solid #3c3c3c; border-radius: 6px; color: #fff; font-size: .85rem; font-weight: 800; text-decoration: none; }
+        .vibe-action-primary { border-color: var(--project-accent); background: var(--project-accent); color: #050505; }
+        .vibe-action i { width: 1rem; height: 1rem; }
+        .vibe-hero-media { margin: 3.5rem 0 0; overflow: hidden; border-top: 1px solid #292929; border-bottom: 1px solid #292929; background: #0b0b0b; aspect-ratio: 16 / 9; }
+        .vibe-hero-media img { width: 100%; height: 100%; object-fit: var(--cover-fit, cover); }
+        .vibe-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; }
+        .vibe-two-col > * + * { padding-left: 4rem; border-left: 1px solid #292929; }
+        .vibe-copy h3 { margin: 0 0 .75rem; color: #fff; font-size: 1.35rem; }
+        .vibe-copy p { margin: 0; color: #aaa; font-size: 1.02rem; line-height: 1.75; }
+        .vibe-workflow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #292929; border-bottom: 1px solid #292929; }
+        .vibe-step { min-width: 0; padding: 1.5rem 1.5rem 1.5rem 0; }
+        .vibe-step + .vibe-step { padding-left: 1.5rem; border-left: 1px solid #292929; }
+        .vibe-step-number { color: var(--project-accent); font-size: .75rem; font-weight: 800; }
+        .vibe-step h3 { margin: .6rem 0 .45rem; color: #fff; font-size: 1.12rem; }
+        .vibe-step p { margin: 0; color: #999; line-height: 1.6; }
+        .vibe-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+        .vibe-gallery figure { margin: 0; min-width: 0; }
+        .vibe-gallery-media { aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid #292929; border-radius: 8px; background: #0a0a0a; }
+        .vibe-gallery img { width: 100%; height: 100%; object-fit: contain; }
+        .vibe-gallery figcaption { margin-top: .7rem; color: #8d8d8d; font-size: .82rem; line-height: 1.5; }
+        .vibe-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid #2b2b2b; }
+        .vibe-list li { position: relative; padding: 1rem 0 1rem 1.5rem; border-bottom: 1px solid #242424; color: #b4b4b4; line-height: 1.6; }
+        .vibe-list li::before { content: ''; position: absolute; top: 1.55rem; left: 0; width: .5rem; height: .5rem; background: var(--project-accent); }
+        .vibe-stack { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+        .vibe-stack span { padding: .45rem .65rem; border: 1px solid #303030; border-radius: 6px; background: #0d0d0d; color: #c8c8c8; font-size: .78rem; }
+        .vibe-privacy { padding: 1.2rem 0 1.2rem 1.2rem; border-left: 3px solid var(--project-accent); color: #aaa; line-height: 1.65; }
+        .vibe-next { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 2rem 0; border-top: 1px solid #2b2b2b; border-bottom: 1px solid #2b2b2b; color: inherit; text-decoration: none; }
+        .vibe-next small { display: block; margin-bottom: .35rem; color: #777; text-transform: uppercase; }
+        .vibe-next strong { color: #fff; font-size: 1.35rem; overflow-wrap: anywhere; }
+        .vibe-next i { width: 1.4rem; height: 1.4rem; flex: 0 0 auto; color: var(--project-accent); }
+        @media (min-width: 768px) { .vibe-shell { margin-left: 18rem; } }
+        @media (max-width: 900px) {
+            .vibe-title, .vibe-case-header .vibe-title { font-size: 3.25rem; }
+            .vibe-case-header { grid-template-columns: 1fr; gap: 2.5rem; }
+            .vibe-two-col { gap: 2rem; }
+            .vibe-two-col > * + * { padding-left: 2rem; }
+        }
+        @media (max-width: 700px) {
+            .vibe-shell { padding: 6.5rem 1rem 4rem; }
+            .vibe-title { font-size: 2.75rem; }
+            .vibe-case-header .vibe-title { font-size: 2.2rem; line-height: 1.05; overflow-wrap: normal; word-break: normal; }
+            .vibe-lede { font-size: 1.05rem; }
+            .vibe-stats, .vibe-workflow { grid-template-columns: 1fr; }
+            .vibe-stat, .vibe-stat + .vibe-stat, .vibe-step, .vibe-step + .vibe-step { padding: 1rem 0; border-left: 0; }
+            .vibe-stat + .vibe-stat, .vibe-step + .vibe-step { border-top: 1px solid #292929; }
+            .vibe-section-head { display: block; padding-right: 4.25rem; }
+            .vibe-filter { display: flex; margin-top: 1.25rem; }
+            .vibe-grid, .vibe-two-col, .vibe-gallery { grid-template-columns: 1fr; }
+            .vibe-two-col { gap: 2.25rem; }
+            .vibe-two-col > * + * { padding: 2.25rem 0 0; border-top: 1px solid #292929; border-left: 0; }
+            .vibe-hero-media { aspect-ratio: 4 / 3; }
+        }
+    </style>
+
+    <!-- SEO:START -->
+    <meta name="description" content="A structured enrichment workspace for turning mixed resources into editable, reusable records. See the workflow, build decisions, and evidence.">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <link rel="canonical" href="https://taylorryan.xyz/work_vibecoding/resource-summarizer/">
+    <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/brand/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#050505">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Taylor Ryan Portfolio">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Resource Summarizer | Vibecoding | Taylor Ryan">
+    <meta property="og:description" content="A structured enrichment workspace for turning mixed resources into editable, reusable records. See the workflow, build decisions, and evidence.">
+    <meta property="og:url" content="https://taylorryan.xyz/work_vibecoding/resource-summarizer/">
+    <meta property="og:image" content="https://taylorryan.xyz/assets/images/vibecoding/resource-summarizer/enrich.jpg">
+    <meta property="og:image:alt" content="Resource Summarizer enrichment workspace with editable structured rows">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="800">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Resource Summarizer | Vibecoding | Taylor Ryan">
+    <meta name="twitter:description" content="A structured enrichment workspace for turning mixed resources into editable, reusable records. See the workflow, build decisions, and evidence.">
+    <meta name="twitter:image" content="https://taylorryan.xyz/assets/images/vibecoding/resource-summarizer/enrich.jpg">
+    <meta name="twitter:image:alt" content="Resource Summarizer enrichment workspace with editable structured rows">
+    <!-- SEO:END -->
+</head>
+<body style="--project-accent:#38bdf8">
+    <!-- Generated from execution/vibecoding_projects.json. -->
+    <div id="sidebar-container"></div>
+    <main class="vibe-shell">
+        <div class="vibe-wrap">
+            <a class="vibe-back" href="/work_vibecoding/"><i data-lucide="arrow-left" aria-hidden="true"></i>All vibecoding projects</a>
+            <header class="vibe-case-header">
+                <div>
+                    <p class="vibe-eyebrow">Knowledge workflow / 2026</p>
+                    <h1 class="vibe-title">Resource Summarizer</h1>
+                    <p class="vibe-lede">A structured enrichment workspace for turning mixed resources into editable, reusable records.</p>
+                    <div class="vibe-actions">
+                        <a class="vibe-action" href="#case-study"><i data-lucide="arrow-down" aria-hidden="true"></i>Read case study</a>
+                    </div>
+                </div>
+                <dl class="vibe-case-meta">
+                    <div class="vibe-case-meta-row"><dt>Status</dt><dd>Active private build</dd></div>
+                    <div class="vibe-case-meta-row"><dt>Role</dt><dd>Product architecture, schema design, model routing</dd></div>
+                    <div class="vibe-case-meta-row"><dt>Surface</dt><dd>Desktop, extension, API, and Worker</dd></div>
+                    <div class="vibe-case-meta-row"><dt>Source</dt><dd>Private unless a public demo is linked</dd></div>
+                </dl>
+            </header>
+
+            <figure class="vibe-hero-media" style="--cover-fit:cover">
+                <img src="/assets/images/vibecoding/resource-summarizer/enrich.jpg" alt="Resource Summarizer enrichment workspace with editable structured rows" width="1280" height="800" fetchpriority="high">
+            </figure>
+
+            <div class="vibe-stats" aria-label="Resource Summarizer project highlights">
+                <div class="vibe-stat"><strong>4 surfaces</strong><span>Desktop, extension, API, Worker</span></div><div class="vibe-stat"><strong>Tiered</strong><span>Deterministic, local, and hosted routes</span></div><div class="vibe-stat"><strong>Editable</strong><span>Human review before export</span></div>
+            </div>
+
+            <section id="case-study" class="vibe-section" aria-labelledby="case-study-title">
+                <p class="vibe-eyebrow">Case study</p>
+                <h2 id="case-study-title">From problem to working product</h2>
+                <p class="vibe-section-copy">Resource Summarizer accepts URLs, rich text, files, and the current browser tab, then normalizes and enriches them into rows that preserve an established working schema. The same core powers a Tauri desktop app, Chrome extension, Hono API, Cloudflare Worker, and optional MCP surface.</p>
+                <div class="vibe-two-col" style="margin-top:2.5rem">
+                    <div class="vibe-copy"><h3>The problem</h3><p>Useful resources arrive in inconsistent formats and locations. Manual cleanup is slow, generic summaries lose schema conventions, and high-cost models are wasteful when a deterministic parser or local route can complete the easy work.</p></div>
+                    <div class="vibe-copy"><h3>The response</h3><p>A shared pipeline normalizes, extracts, routes, synthesizes, canonicalizes, scores, and exports each resource. Users can edit the result before export, choose model effort deliberately, retry only weak rows, and send selected data to TSV, Markdown, Google Sheets, or Google Docs.</p></div>
+                </div>
+            </section>
+
+            <section class="vibe-section vibe-rule" aria-labelledby="workflow-title">
+                <p class="vibe-eyebrow">Workflow</p>
+                <h2 id="workflow-title">How the system moves</h2>
+                <div class="vibe-workflow" style="margin-top:1.75rem"><div class="vibe-step"><span class="vibe-step-number">01</span><h3>Ingest</h3><p>Accept mixed URLs, pasted text, files, and current-tab context without requiring one input format.</p></div><div class="vibe-step"><span class="vibe-step-number">02</span><h3>Enrich</h3><p>Run deterministic extraction first, then route only the necessary work to the selected model tier.</p></div><div class="vibe-step"><span class="vibe-step-number">03</span><h3>Export</h3><p>Review and edit canonical rows before copying or sending selected fields to downstream tools.</p></div></div>
+            </section>
+            <section class="vibe-section vibe-rule" aria-labelledby="gallery-title">
+                <p class="vibe-eyebrow">Interface</p>
+                <h2 id="gallery-title">Product views</h2>
+                <div class="vibe-gallery" style="margin-top:1.75rem">
+
+                    <figure>
+                        <div class="vibe-gallery-media"><img src="/assets/images/vibecoding/resource-summarizer/setup.jpg" alt="Resource Summarizer model and setup controls" loading="lazy"></div>
+                        <figcaption>Setup modes keep provider and local routes explicit.</figcaption>
+                    </figure>
+                    <figure>
+                        <div class="vibe-gallery-media"><img src="/assets/images/vibecoding/resource-summarizer/routing.jpg" alt="Resource Summarizer redo and model effort controls" loading="lazy"></div>
+                        <figcaption>Redo raises model effort only for rows that need it.</figcaption>
+                    </figure>
+                    <figure>
+                        <div class="vibe-gallery-media"><img src="/assets/images/vibecoding/resource-summarizer/export.jpg" alt="Resource Summarizer export destinations" loading="lazy"></div>
+                        <figcaption>Validated rows can move into the user&#39;s existing tools.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="vibe-section vibe-rule" aria-labelledby="decisions-title">
+                <div class="vibe-two-col">
+                    <div>
+                        <p class="vibe-eyebrow">Build decisions</p>
+                        <h2 id="decisions-title">Choices that shaped the product</h2>
+                        <div style="margin-top:1.5rem"><ul class="vibe-list"><li>Make one canonical row schema the contract across every product surface.</li><li>Show model effort and retry cost before stronger routes run.</li><li>Preserve user-provided URLs and established column conventions instead of silently rewriting them.</li></ul></div>
+                    </div>
+                    <div>
+                        <p class="vibe-eyebrow">What it demonstrates</p>
+                        <h2>Proof beyond the interface</h2>
+                        <div style="margin-top:1.5rem"><ul class="vibe-list"><li>Cross-platform architecture built around shared business logic rather than duplicated interfaces.</li><li>Cost-aware AI routing with deterministic and local work ahead of paid fallback.</li><li>Strong data-contract thinking across ingestion, review, persistence, and export.</li></ul></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="vibe-section vibe-rule" aria-labelledby="stack-title">
+                <div class="vibe-two-col">
+                    <div>
+                        <p class="vibe-eyebrow">Build stack</p>
+                        <h2 id="stack-title">Tools and architecture</h2>
+                        <div class="vibe-stack"><span>Tauri 2</span><span>React</span><span>TypeScript</span><span>Hono</span><span>Cloudflare Workers</span><span>D1</span><span>Zod</span><span>Vitest</span></div>
+                    </div>
+                    <div>
+                        <p class="vibe-eyebrow">Private by design</p>
+                        <h2>Showing the work without opening the repo</h2>
+                        <p class="vibe-privacy" style="margin-top:1.5rem">Private source. Screenshots use sample resources; API credentials, account records, canonical memory, and internal deployment configuration remain outside the portfolio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <a class="vibe-next" href="/work_vibecoding/ecommerce-intelligence/" aria-label="Next case study: Ecommerce Lead Intelligence">
+                <span><small>Next case study</small><strong>Ecommerce Lead Intelligence</strong></span>
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </main>
+    <script src="/assets/js/layout.js?v=20260715-1304"></script>
+    <script src="/assets/js/work_sidebar.js?v=20260715-1304"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderWorkSidebar('vibecoding');
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

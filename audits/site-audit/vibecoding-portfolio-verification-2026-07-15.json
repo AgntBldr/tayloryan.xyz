@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2026-07-15T11:09:25.461Z",
+  "branchIntent": "reversible-vibecoding-case-studies",
+  "projectCount": 13,
+  "recentProjectCount": 5,
+  "findings": [
+    {
+      "name": "manifest project count",
+      "passed": true,
+      "detail": "13 unique projects are defined."
+    },
+    {
+      "name": "modal removal",
+      "passed": true,
+      "detail": "The Vibecoding index uses permanent links and contains no project modal implementation."
+    },
+    {
+      "name": "index project links",
+      "passed": true,
+      "detail": "13/13 project routes are linked from the source index."
+    },
+    {
+      "name": "filter controls",
+      "passed": true,
+      "detail": "All, Systems, Products, and Creative AI filters are present."
+    },
+    {
+      "name": "side navigation preserved",
+      "passed": true,
+      "detail": "The existing Work sidebar is initialized on source and deployed indexes."
+    },
+    {
+      "name": "recent project additions",
+      "passed": true,
+      "detail": "5/5 selected recent projects are in the manifest."
+    },
+    {
+      "name": "private repository boundary",
+      "passed": true,
+      "detail": "No private AgntBldr or old KlintMarketing GitHub URL is exposed by the new portfolio surfaces."
+    },
+    {
+      "name": "old account links removed",
+      "passed": true,
+      "detail": "Legacy project data no longer links visitors to the old GitHub account."
+    },
+    {
+      "name": "case-study source routes",
+      "passed": true,
+      "detail": "13/13 source pages exist."
+    },
+    {
+      "name": "case-study deploy routes",
+      "passed": true,
+      "detail": "13/13 deployed pages exist."
+    },
+    {
+      "name": "case-study SEO coverage",
+      "passed": true,
+      "detail": "13/13 project routes have canonical metadata configuration."
+    },
+    {
+      "name": "case-study page structure",
+      "passed": true,
+      "detail": "All source and deployed pages contain the expected case-study and metadata structure."
+    },
+    {
+      "name": "portfolio image budget",
+      "passed": true,
+      "detail": "Every referenced project image exists and is at or below 300 KB."
+    }
+  ],
+  "passed": true
+}
