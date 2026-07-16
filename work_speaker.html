@@ -36,20 +36,6 @@
             border-radius: 4px;
         }
 
-        /* Marquee Animation */
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .animate-scroll {
-            animation: scroll 5s linear infinite;
-        }
     </style>
     <link rel="canonical" href="https://taylorryan.xyz/work_speaker/">
     <meta property="og:url" content="https://taylorryan.xyz/work_speaker/">
@@ -133,16 +119,6 @@
             </p>
         </div>
 
-        <!-- 3. TRUST MARQUEE (Moved) -->
-        <div class="w-full overflow-hidden bg-neutral-900/30 border-y border-neutral-800 mb-20 py-8 relative">
-            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10"></div>
-            <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10"></div>
-
-            <div class="flex whitespace-nowrap animate-scroll items-center gap-12" id="marquee-track">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-
         <!-- 1. DATA BANNER -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
             <div
@@ -213,7 +189,7 @@
             </a>
 
             <!-- Portfolio Sheet -->
-            <a href="https://docs.google.com/spreadsheets/d/1ap9ahRJvg52P2rLBM5n_3csCoOagS06uErSMeFNMXOk/"
+            <a href="https://docs.google.com/spreadsheets/d/18PfOUvVtp0wV7J8o-isUcsOFFwcuiVdKdCzlunTnsJo/"
                 target="_blank"
                 class="group bg-neutral-900 border border-neutral-800 p-8 rounded-2xl hover:border-green-500 transition-all hover:-translate-y-1 relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -436,9 +412,6 @@
                 // Populate Banner Stats
                 populateStats(processedData);
 
-                // Populate Marquee
-                populateMarquee(processedData);
-
                 // Populate Filters
                 populateFilters(processedData);
 
@@ -476,18 +449,6 @@
             const locations = data.map(d => d["City, Country"]).filter(l => l);
             const cities = new Set(locations.map(l => l.split(',')[0].trim())).size;
             document.getElementById('stat-cities').innerText = cities;
-        }
-
-        function populateMarquee(data) {
-            const track = document.getElementById('marquee-track');
-            // Use Event Name for conference names
-            const uniqueConferences = [...new Set(data.map(d => d["Event Name"]).filter(n => n && typeof n === 'string' && n.trim().length > 0))].slice(0, 50);
-
-            const makeItem = (text) => `<span class="text-xl md:text-2xl font-bold text-neutral-600 hover:text-white transition-colors uppercase tracking-widest px-8 cursor-default">${text}</span>`;
-
-            const content = uniqueConferences.map(makeItem).join('');
-            // Duplicate to ensure dense, infinite looking scroll without gaps and faster perceived speed
-            track.innerHTML = content.repeat(4);
         }
 
         function populateFilters(data) {

@@ -109,7 +109,7 @@ function renderSpeakerSidebar(activePage) {
         { id: 'contact', label: 'Contact', icon: 'mail', href: '/contact/', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20' },
         // External
         { id: 'map', label: 'Speaker Map', icon: 'map', href: 'https://www.google.com/maps/d/u/0/edit?mid=1cWfNmEZ-STpCjaQcfr9460LjF5sqV3A&usp=sharing', target: '_blank', color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20' },
-        { id: 'sheet', label: 'Portfolio Sheet', icon: 'table', href: 'https://docs.google.com/spreadsheets/d/1ap9ahRJvg52P2rLBM5n_3csCoOagS06uErSMeFNMXOk/edit', target: '_blank', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' }
+        { id: 'sheet', label: 'Portfolio Sheet', icon: 'table', href: 'https://docs.google.com/spreadsheets/d/18PfOUvVtp0wV7J8o-isUcsOFFwcuiVdKdCzlunTnsJo/edit', target: '_blank', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' }
     ];
 
     const sidebarHTML = `
