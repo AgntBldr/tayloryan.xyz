@@ -37,6 +37,8 @@
             scrollbar-width: none;
         }
     </style>
+    <!-- Umami Analytics -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="d1945245-8106-4e31-90a5-3af43160122d"></script>
 
     <!-- SEO:START -->
     <meta name="description" content="Social media work page showing strategy, publishing, and channel execution examples from Taylor Ryan's portfolio and social channels.">
@@ -63,20 +65,18 @@
     <meta name="twitter:image" content="https://taylorryan.xyz/assets/images/taylor_headshot.jpg">
     <meta name="twitter:image:alt" content="Taylor Ryan, GTM and growth expert">
     <!-- SEO:END -->
-    <!-- Umami Analytics -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="d1945245-8106-4e31-90a5-3af43160122d"></script>
 </head>
 
 <body class="bg-black min-h-screen">
-    <script src="../assets/js/layout.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_sidebar.js?v=20260714-1009"></script>
-    <script src="../assets/js/work_scroll.js?v=20260714-1009"></script>
+    <script src="../assets/js/layout.js?v=20260720-1946"></script>
+    <script src="../assets/js/work_sidebar.js?v=20260720-1946"></script>
+    <script src="../assets/js/work_scroll.js?v=20260720-1946"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Render Sidebar (will need to update work_sidebar.js?v=20260714-1009 to handle 'some')
+            // Render Sidebar (will need to update work_sidebar.js?v=20260720-1946 to handle 'some')
             if (!document.getElementById('work-sidebar')) {
-                // Temporary fallback or assume work_sidebar.js?v=20260714-1009 will be updated
+                // Temporary fallback or assume work_sidebar.js?v=20260720-1946 will be updated
                 if (typeof renderWorkSidebar === 'function') renderWorkSidebar('some');
             }
             renderResources();
