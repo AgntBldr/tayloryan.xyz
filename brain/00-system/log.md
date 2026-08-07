@@ -72,3 +72,9 @@ The Cloudflare preview crawl caught `/overview_blog_content/` in both the sitema
 
 ## [2026-07-14] deploy | SEO and social discovery release verified in production
 Merged PR #6 as `ec160337`, passed Cloudflare deployment `ce446fff`, and verified 39/39 custom-domain routes, crawler assets, noindex headers, redirects, resource payloads, and contact-email privacy.
+
+## [2026-08-06] update | refreshed Now page workflow and Teneo role
+Updated the Now page to describe the current Claude Code and Codex workflow and made the Teneo Protocol role unambiguously historical. Recorded the current workflow and past-employment constraint as verified facts.
+
+## [2026-08-06] update | corrected Telegram and GitHub profiles
+Updated personal contact links across the homepage, About page, Now page, and deploy output. Recorded @AgntBld and github.com/agntBldr as user-verified canonical profiles.
