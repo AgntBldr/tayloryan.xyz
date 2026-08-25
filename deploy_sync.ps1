@@ -409,6 +409,16 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host "SEO Metadata and Crawler Files Complete." -ForegroundColor Green
 
+# Cloudflare Web Analytics is managed in the Cloudflare dashboard. Remove the
+# retired Umami embed from both source HTML and the generated deploy output so
+# a future sync cannot silently restore the wrong Umami website property.
+Write-Host "Removing retired Umami Analytics embeds..." -ForegroundColor Yellow
+& node "$SourceRoot\execution\remove_umami_analytics.mjs"
+if ($LASTEXITCODE -ne 0) {
+    throw "Umami Analytics cleanup failed with exit code $LASTEXITCODE."
+}
+Write-Host "Retired Umami Analytics Embeds Removed." -ForegroundColor Green
+
 Write-Host "Deployment Sync Complete." -ForegroundColor Cyan
 
 # Legacy duplicate deploy sync. Disabled by default because DEPLOY_PUBLIC is the

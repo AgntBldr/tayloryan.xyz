@@ -78,3 +78,9 @@ Updated the Now page to describe the current Claude Code and Codex workflow and 
 
 ## [2026-08-06] update | corrected Telegram and GitHub profiles
 Updated personal contact links across the homepage, About page, Now page, and deploy output. Recorded @AgntBld and github.com/agntBldr as user-verified canonical profiles.
+
+## [2026-08-25] verify | production crawlability and Umami analytics
+Verified all 39 sitemap URLs return 200 with canonical tags and no noindex conflicts; confirmed Umami Cloud loads on the production indexable surface and recorded the result in [[fct-production-crawlability-and-umami-analytics-2026-08-25]].
+
+## [2026-08-25] decision | replace mismatched Umami with Cloudflare Web Analytics
+Archived the earlier Umami coverage claim after the user showed the active dashboard property had zero sessions, removed the mismatched embed, allowed Cloudflare's beacon in CSP, and recorded [[dec-replace-umami-with-cloudflare-web-analytics]]. Dashboard activation and production deployment remain pending.
