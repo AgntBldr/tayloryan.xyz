@@ -84,3 +84,6 @@ Verified all 39 sitemap URLs return 200 with canonical tags and no noindex confl
 
 ## [2026-08-25] decision | replace mismatched Umami with Cloudflare Web Analytics
 Archived the earlier Umami coverage claim after the user showed the active dashboard property had zero sessions, removed the mismatched embed, allowed Cloudflare's beacon in CSP, and recorded [[dec-replace-umami-with-cloudflare-web-analytics]]. Dashboard activation and production deployment remain pending.
+
+## [2026-08-25] deploy | Cloudflare Web Analytics verified in production
+Linked the existing analytics site to the Pages project, merged PR #11 after preview verification, and confirmed production serves the Cloudflare beacon with no Umami embed. Recorded [[evt-cloudflare-web-analytics-production-2026-08-25]].
