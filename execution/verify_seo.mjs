@@ -53,6 +53,9 @@ const htmlFiles = (await walk(DEPLOY_ROOT)).filter((file) => file.endsWith(".htm
 let pagesChecked = 0;
 for (const file of htmlFiles) {
   const html = await fs.readFile(file, "utf8");
+  if (/cloud\.umami\.is\/script\.js|data-website-id=/i.test(html)) {
+    errors.push(`${routeForFile(file)}: retired Umami Analytics embed is present`);
+  }
   if (!/<head[\s>]/i.test(html) || !/<\/head>/i.test(html)) continue;
   const route = routeForFile(file);
   const page = pagesByRoute.get(route);
@@ -94,6 +97,9 @@ const robots = await fs.readFile(path.join(DEPLOY_ROOT, "robots.txt"), "utf8");
 if (!robots.includes(`Sitemap: ${config.site.baseUrl}/sitemap.xml`)) errors.push("robots.txt sitemap declaration is missing");
 
 const headers = await fs.readFile(path.join(DEPLOY_ROOT, "_headers"), "utf8");
+if (!headers.includes("https://static.cloudflareinsights.com")) {
+  errors.push("Content Security Policy does not allow the Cloudflare Web Analytics beacon");
+}
 for (const route of ["overview_blog_content", "overview_content_gen", "overview_raw", "overview_toc_gen"]) {
   if (!headers.includes(`/${route}/*`) || !headers.includes("X-Robots-Tag: noindex")) errors.push(`${route}: noindex response header is missing`);
   if (sitemapUrls.includes(`${config.site.baseUrl}/${route}/`)) errors.push(`${route}: noindexed fragment must not appear in sitemap.xml`);
