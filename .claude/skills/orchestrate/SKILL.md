@@ -30,6 +30,14 @@ Check availability first: `& .claude\skills\orchestrate\scripts\delegate.ps1 -He
 
 ## The loop
 
+0. **Set the bar (Fable, before anything is written).** Name the thing the finished work has to
+   beat: a real artifact *we did not make*, which a critic can fetch and stand side by side with
+   ours. The acceptance test in step 1 is necessary and never sufficient - it is a bar we grade
+   ourselves, so a green one proves the code does what we predicted, not what the work needed to
+   do. Skip step 0 only where there is no outside referent (a rename, a codemod, a type fix).
+   [`../gauntlet-loop/SKILL.md`](../gauntlet-loop/SKILL.md) has the three tests a bar must pass -
+   **named, fetchable, comparable** - and the prompt that runs the loop.
+
 1. **Plan (Fable).** Decompose into work units. For each: lane, spec, and a *checkable*
    acceptance test (schema, test command, exact sections). A unit without a checkable
    contract is not ready to delegate.
@@ -42,11 +50,19 @@ Check availability first: `& .claude\skills\orchestrate\scripts\delegate.ps1 -He
    - For critical or fabrication-prone output, add one adversarial second lens (another
      lane, or a fresh subagent told to refute) - this caught real GLM fabrications in the
      population runs.
+   - **Against the bar, blind.** A critic with *fresh context* fetches the reference itself,
+     puts it next to ours with the labels stripped, and answers one binary question: which is
+     better, and what is the single biggest remaining gap. Never a score out of ten - scores
+     drift upward every round. The critic must not have seen the build, or it grades effort.
 4. **Fix loop.** Return failures to the SAME lane with the delegate's own output plus a
    one-line diagnosis. Two failures on the same unit -> escalate one tier
    (qwen -> glm -> codex/sonnet -> Fable does it). Never retry a failed prompt verbatim.
 5. **Integrate + report (Fable).** State what was built, what was verified and how, what
    remains `UNVERIFIED`, and tokens/quota spent by lane.
+
+**Exit condition.** The loop ends when the blind comparison picks ours, or when the operator
+stops it. Not when the suite goes green - a suite is our own prediction of the work, and it
+passes hardest on the surface that was never broken. Never after a fixed round count.
 
 ## Driving the lanes
 
@@ -69,6 +85,13 @@ markers. Write specs >10 lines to a file and use `-TaskFile`.
 # high-volume mechanical work, local + free
 & .claude\skills\orchestrate\scripts\delegate.ps1 -Lane qwen -Task 'Classify each line as A/B/C: ...' -Json
 ```
+
+**Never let a build lane run the full test suite.** It is the single biggest consumer of a
+lane's wall clock, and it is wasted: the orchestrator re-runs `tsc` and the full suite itself
+before merging, because a lane can never be its own final gate (see
+`../fable-mode/operating-mode.md`). Every build spec should say *"run ONLY the test files you
+touched; the orchestrator owns tsc + the full suite."* A W62 lane burned its entire 30-minute
+window mostly on a suite run whose result was discarded, and was killed before it could report.
 
 Codex notes: `-Sandbox read-only` is the default - pass `workspace-write` deliberately, and
 prefer pointing it at a branch/worktree so its diff is reviewable with `git diff`.

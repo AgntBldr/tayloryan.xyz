@@ -23,7 +23,7 @@
 
 [CmdletBinding()]
 param(
-  [ValidateSet('codex','qwen','glm','openrouter','deepseek','sonnet','auto')]
+  [ValidateSet('codex','qwen','glm','openrouter','kimi','deepseek','sonnet','auto')]
   [string]$Lane,
   [string]$Task,
   [string]$TaskFile,
@@ -41,7 +41,13 @@ param(
   [double]$Temperature = 0.2,
   # --- common ---
   [string]$OutFile,
-  [int]$TimeoutSec = 1800,
+  # 2026-08-06: was 1800. A W62 build lane was killed mid-run at 30 min with all
+  # of its file edits already on disk but its REPORT lost, which is the worst
+  # possible failure shape -- the orchestrator then has to reconstruct intent
+  # from the diff alone. Real agentic build lanes routinely run 30-60 min, so
+  # the old default was below the working range rather than a safety valve.
+  # Pass a SMALLER -TimeoutSec for genuinely short mechanical lanes.
+  [int]$TimeoutSec = 5400,
   [switch]$Health
 )
 
@@ -133,7 +139,16 @@ if ($Lane -eq 'codex') {
   $null = $p.Handle  # PS 5.1: ExitCode is null after -PassThru unless the handle is cached first
   if (-not $p.WaitForExit($TimeoutSec * 1000)) {
     try { $p.Kill() } catch {}
-    Write-Error "codex timed out after ${TimeoutSec}s (workdir $WorkDir). Partial stdout: $stdoutFile"
+    # A killed build lane has usually ALREADY written its file edits -- the work
+    # survives on disk even though the final report never arrives. Print what it
+    # managed to say so the orchestrator can pick up from the lane's own words
+    # instead of reverse-engineering intent from `git diff`, and say plainly that
+    # the workdir is expected to be dirty rather than clean.
+    $partial = ''
+    if (Test-Path $stdoutFile) { $partial = (Get-Content $stdoutFile -Encoding UTF8 | Select-Object -Last 40) -join "`n" }
+    Write-Error ("codex timed out after ${TimeoutSec}s (workdir $WorkDir).`n" +
+      "Any edits it completed are STILL ON DISK -- run 'git status' / 'git diff' before assuming nothing happened.`n" +
+      "Full partial stdout: $stdoutFile`n--- last 40 lines ---`n" + $partial)
     exit 1
   }
   $exit = $p.ExitCode
@@ -154,7 +169,7 @@ else {
   if ($MaxTokens -lt 2000) { $MaxTokens = 2000 }
   # NB: do not name any script-scope variable $providers/$messages etc. - the dot-sourced
   # router owns $script:PROVIDERS and PowerShell variable names are case-insensitive.
-  $laneMap = @{ qwen='ollama'; glm='glm'; openrouter='openrouter'; deepseek='deepseek'; sonnet='anthropic' }
+  $laneMap = @{ qwen='ollama'; glm='glm'; openrouter='openrouter'; kimi='kimi'; deepseek='deepseek'; sonnet='anthropic' }
   if ($Lane -eq 'auto') {
     $kb = [Math]::Round(([System.Text.Encoding]::UTF8.GetByteCount($Task)) / 1024.0, 1)
     $laneOrder = Get-ProviderOrder -Kb $kb

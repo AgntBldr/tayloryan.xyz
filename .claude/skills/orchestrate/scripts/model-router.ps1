@@ -29,6 +29,13 @@ $script:PROVIDERS = @{
     keyName='OPENROUTER_API_KEY'; envFiles=@('C:\Users\tempv2\HypnoApp\.env');
     extraHeaders=@{ 'HTTP-Referer'='https://localhost'; 'X-Title'='V3SecondBrain' }
   }
+  # Code-specialised Kimi on OpenRouter. Same key/endpoint as the openrouter lane,
+  # different model - keep both so a code lane and a general lane can run side by side.
+  kimi = @{
+    kind='openai'; endpoint='https://openrouter.ai/api/v1/chat/completions'; model='moonshotai/kimi-k2.7-code';
+    keyName='OPENROUTER_API_KEY'; envFiles=@('C:\Users\tempv2\HypnoApp\.env');
+    extraHeaders=@{ 'HTTP-Referer'='https://localhost'; 'X-Title'='V3SecondBrain' }
+  }
   deepseek = @{
     kind='openai'; endpoint='https://api.deepseek.com/chat/completions'; model='deepseek-chat';
     keyName='DEEPSEEK_API_KEY'; envFiles=@('C:\Users\tempv2\AgenticScrape\.env','C:\Users\tempv2\CryptoFundSignal\.env')
@@ -160,7 +167,7 @@ function Get-ProviderOrder {
 
 function Get-RouterHealth {
   $rows = @()
-  foreach($name in @('ollama','glm','openrouter','deepseek','anthropic')){
+  foreach($name in @('ollama','glm','openrouter','kimi','deepseek','anthropic')){
     $ok = $false; try { $ok = Test-Provider $name } catch {}
     $rows += [pscustomobject]@{ provider=$name; kind=$script:PROVIDERS[$name].kind; model=$script:PROVIDERS[$name].model; available=$ok }
   }
