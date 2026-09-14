@@ -97,3 +97,6 @@ Merged PR #12 and verified successful Cloudflare production deployment, 173 live
 
 ## [2026-09-14] fix | contact sender domain configuration
 Diagnosed Resend HTTP 403 from an unverified sender domain. Added dedicated contact-subdomain DNS and updated the production sender secret; deployment and delivery validation remain in [[tsk-contact-form-sender-repair]].
+
+## [2026-09-14] verify | live contact form delivery restored
+Resend verified the dedicated sending domain after DNS propagation. The corrected production sender is deployed; the live form test succeeded and Resend confirmed delivered. [[tsk-contact-form-sender-repair]] is done.

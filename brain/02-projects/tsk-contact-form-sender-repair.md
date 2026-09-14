@@ -4,7 +4,7 @@ type: task
 summary: Repair the contact form's rejected Resend sender and verify production delivery.
 tags: [contact-form, resend, dns, cloudflare]
 domain: project-management
-status: doing
+status: done
 created: 2026-09-14
 updated: 2026-09-14
 visibility: namespace
@@ -17,4 +17,4 @@ The user's production test returned the generic send failure. Resend log `6c65f2
 
 Created the dedicated sending domain `contact.taylorryan.xyz` in Resend's Ireland region. Added only its DKIM TXT and the `send.contact` SPF TXT and feedback MX records in Cloudflare; existing four DNS records remain. Receiving is disabled. Public DNS resolves the new records. Updated only the production `CONTACT_FROM_EMAIL` secret with Wrangler; the recipient and API key are preserved, and preview remains unconfigured.
 
-Pending: Resend domain verification, redeploy to activate the new sender, one labeled live form test, and provider delivery confirmation. Do not record private recipient addresses, secret values or message content in the repository.
+Completed: Resend reports the domain verified. Production deployment for commit `1f888fa` succeeded and activated the corrected sender. A labeled test submitted through the live contact page succeeded (form reset); Resend email `9cdf908c-9744-4921-a5af-99ce3f484112` reports **delivered**. No application-code change was needed. Do not record private recipient addresses, secret values or message content in the repository.
