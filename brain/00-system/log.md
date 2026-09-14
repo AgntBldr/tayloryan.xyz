@@ -1,5 +1,6 @@
 # Operation Log
 
+
 Append-only. One entry per operation: `## [YYYY-MM-DD] <op> | <title>`.
 
 ## [2026-06-29] init | vault created
@@ -87,3 +88,6 @@ Archived the earlier Umami coverage claim after the user showed the active dashb
 
 ## [2026-08-25] deploy | Cloudflare Web Analytics verified in production
 Linked the existing analytics site to the Pages project, merged PR #11 after preview verification, and confirmed production serves the Cloudflare beacon with no Umami embed. Recorded [[evt-cloudflare-web-analytics-production-2026-08-25]].
+
+## [2026-09-14] update | three 2026 speaker engagements
+Added Rockstart and NATO DIANA workshops plus the upcoming Nordic Fintech Week moderator panel from user details, MarkItDown email conversions, and the DIANA overview. Verified 173 records, original-record preservation, data parity, browser views and SEO. See [[tsk-speaker-engagements-2026]].
