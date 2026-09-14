@@ -91,3 +91,6 @@ Linked the existing analytics site to the Pages project, merged PR #11 after pre
 
 ## [2026-09-14] update | three 2026 speaker engagements
 Added Rockstart and NATO DIANA workshops plus the upcoming Nordic Fintech Week moderator panel from user details, MarkItDown email conversions, and the DIANA overview. Verified 173 records, original-record preservation, data parity, browser views and SEO. See [[tsk-speaker-engagements-2026]].
+
+## [2026-09-14] deploy | 2026 speaker additions live
+Merged PR #12 and verified successful Cloudflare production deployment, 173 live records, updated speaker HTML, and all three additions in the live browser. [[tsk-speaker-engagements-2026]] is done.
