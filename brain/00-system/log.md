@@ -94,3 +94,6 @@ Added Rockstart and NATO DIANA workshops plus the upcoming Nordic Fintech Week m
 
 ## [2026-09-14] deploy | 2026 speaker additions live
 Merged PR #12 and verified successful Cloudflare production deployment, 173 live records, updated speaker HTML, and all three additions in the live browser. [[tsk-speaker-engagements-2026]] is done.
+
+## [2026-09-14] fix | contact sender domain configuration
+Diagnosed Resend HTTP 403 from an unverified sender domain. Added dedicated contact-subdomain DNS and updated the production sender secret; deployment and delivery validation remain in [[tsk-contact-form-sender-repair]].
