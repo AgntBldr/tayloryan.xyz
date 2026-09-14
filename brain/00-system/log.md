@@ -100,3 +100,6 @@ Diagnosed Resend HTTP 403 from an unverified sender domain. Added dedicated cont
 
 ## [2026-09-14] verify | live contact form delivery restored
 Resend verified the dedicated sending domain after DNS propagation. The corrected production sender is deployed; the live form test succeeded and Resend confirmed delivered. [[tsk-contact-form-sender-repair]] is done.
+
+## [2026-09-14] update | persistent contact confirmation and calendar invitation
+Updated the shared contact handler to retain green success feedback and offer the booking calendar after submission, including modal forms. See [[tsk-contact-form-sender-repair]].

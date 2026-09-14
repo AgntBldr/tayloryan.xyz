@@ -297,6 +297,11 @@ window.handleContactSubmit = async function (e) {
         if (status) {
             status.textContent = result.message || 'Thanks. Your message was sent.';
             status.className = status.className.replace('text-neutral-400', 'text-green-400');
+            const bookingLink = document.createElement('a');
+            bookingLink.href = 'https://bookme.name/TaylorRyan';
+            bookingLink.textContent = 'Book a meeting with me';
+            bookingLink.className = 'underline underline-offset-4 font-semibold';
+            status.append(document.createElement('br'), 'Want to talk sooner? ', bookingLink, ' via my calendar.');
         }
         if (btn) {
             btn.innerHTML = 'Sent <i data-lucide="check" class="w-4 h-4"></i>';
@@ -304,17 +309,12 @@ window.handleContactSubmit = async function (e) {
             if (window.lucide) lucide.createIcons();
         }
 
+        form.reset();
         setTimeout(() => {
-            closeContactModal();
-            form.reset();
             if (btn) {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
                 btn.classList.remove('bg-green-500', 'text-white');
-            }
-            if (status) {
-                status.textContent = '';
-                status.className = status.className.replace('text-green-400', 'text-neutral-400');
             }
             if (window.lucide) lucide.createIcons();
         }, 1800);
