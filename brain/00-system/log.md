@@ -103,3 +103,9 @@ Resend verified the dedicated sending domain after DNS propagation. The correcte
 
 ## [2026-09-14] update | persistent contact confirmation and calendar invitation
 Updated the shared contact handler to retain green success feedback and offer the booking calendar after submission, including modal forms. See [[tsk-contact-form-sender-repair]].
+
+## [2026-09-14] learn | verified contact delivery and persistent booking confirmation
+Recorded provider-versus-DNS verification learning in [[fct-contact-delivery-verified-2026-09-14]] and the user-required confirmation behavior in [[dec-persist-contact-success-and-booking]].
+
+## [2026-09-14] handoff | roadmap current and ready for compaction
+Updated [[prj-taylor-ryan-site-remediation]] with completed speaker/contact work, existing next priorities, deployment evidence, and a resumption handoff. Added index routes. All requested implementation work is complete; preserve the pre-existing location-data dirty marker.

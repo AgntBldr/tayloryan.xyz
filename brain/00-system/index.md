@@ -61,7 +61,10 @@ The system exists to make portfolio work reproducible and improvable. Any AI age
 
 ### Taylor Ryan Website
 
-- [[prj-taylor-ryan-site-remediation]] -- active cleanup, preservation, and UI/UX project
+- [[prj-taylor-ryan-site-remediation]] -- active cleanup, preservation, UI/UX project, current roadmap and compaction handoff
+- [[fct-contact-delivery-verified-2026-09-14]] -- sender-domain diagnosis and confirmed production delivery
+- [[dec-persist-contact-success-and-booking]] -- user-required persistent green success and calendar invitation
+- [[tsk-speaker-engagements-2026]] -- three 2026 additions live; 173 total records
 - [[dec-use-deploy-public-folder]] -- canonical deploy target is `DEPLOY_PUBLIC/`; no other folders
 - [[dec-use-resource-preservation-manifest-before-google-link-removal]] -- preserve and review resources before retiring public links
 - [[dec-tiered-model-routing-site-maintenance]] -- route work across 5.6 SOL, cheaper frontier models, Ollama, and deterministic tools

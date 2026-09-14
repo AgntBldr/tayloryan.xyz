@@ -6,7 +6,7 @@ tags: [taylor-ryan, portfolio-site, cloudflare, link-audit, preservation]
 domain: project-management
 status: active
 created: 2026-07-13
-updated: 2026-07-14
+updated: 2026-09-14
 visibility: namespace
 owner: agent
 start: 2026-07-13
@@ -34,3 +34,19 @@ The discovery release [[tsk-seo-social-discovery-upgrade]] is live: centralized 
 
 - derived_from [[fct-site-audit-2026-07-13]] - the audit established the cleanup and link-remediation scope.
 - derived_from [[fct-teneo-folder-unrelated-to-taylor-site]] - separates Taylor Ryan work from obsolete Teneo routing.
+
+
+## Roadmap update — 2026-09-14
+
+- Done: three 2026 speaker engagements published; 173 total records with all 170 originals preserved. Rockstart and NATO DIANA workshops are historical; Nordic Fintech Week on September 24 is upcoming. See [[tsk-speaker-engagements-2026]].
+- Done: production contact delivery repaired and confirmed delivered. See [[fct-contact-delivery-verified-2026-09-14]].
+- Done: persistent green contact confirmation and calendar invitation deployed. See [[dec-persist-contact-success-and-booking]].
+- Existing next priorities, not started in this session: finish placeholder case studies, sharpen the homepage offer, and replace repeated marquees with contextual outcome proof.
+
+## Compaction handoff — 2026-09-14
+
+All user-requested speaker and contact changes are complete and live. No delivery verification or domain propagation remains pending. Latest functional commit is `b5a4128`; speaker additions were merged through PR #12. Contact settings were activated with deployment `1f888fa`. Read the linked task and learning nodes before changing these choices.
+
+Deployment uses `DEPLOY_PUBLIC/` in GitHub `AgntBldr/tayloryan.xyz`, Cloudflare Pages project `tayloryan-xyz`. Contact handler source is `assets/js/layout.js` with a matching deployed copy; backend is `functions/api/contact.js`. Do not run a broad deploy sync for a narrow handler edit.
+
+A pre-existing `DEPLOY_PUBLIC/assets/js/location_data.js` dirty marker has no visible diff and was deliberately excluded from all commits. Preserve it. Temporary PDF conversions and diagnostic scripts are ignored under `.tmp/`; they are not deliverables. No further user action is required before compaction. Resume with the next user request, not by repeating completed email tests or adding roadmap scope automatically.
