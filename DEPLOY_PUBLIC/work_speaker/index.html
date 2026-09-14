@@ -67,14 +67,14 @@
 
 <body class="min-h-screen relative overflow-x-hidden">
     <!-- Global Layout -->
-    <script src="/assets/js/layout.js?v=20260720-1946"></script>
-    <script src="/assets/js/work_sidebar.js?v=20260720-1946"></script>
+    <script src="/assets/js/layout.js?v=20260914-1405"></script>
+    <script src="/assets/js/work_sidebar.js?v=20260914-1405"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof renderWorkSidebar === 'function') renderWorkSidebar('speaker');
         });
     </script>
-    <script src="/assets/js/speaker_data.js"></script>
+    <script src="/assets/js/speaker_data.js?v=20260914"></script>
 
     <!-- Modal Container (Engagement Details) -->
     <div id="modal-container" class="fixed inset-0 z-[70] hidden">
@@ -367,7 +367,7 @@
 
         function loadSpeakerData() {
             // Priority 1: Fetch V2 JSON
-            fetch('/assets/js/speaker_data_v2.json?v=20260127')
+            fetch('/assets/js/speaker_data_v2.json?v=20260914')
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
@@ -533,6 +533,13 @@
             lucide.createIcons();
         }
 
+        function upcomingBadge(event) {
+            const today = new Date(new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Copenhagen' }) + 'T00:00:00');
+            return event.dateObj > today
+                ? '<span class="inline-flex px-2 py-1 rounded bg-blue-500/10 text-blue-400 text-xs font-bold">Upcoming</span>'
+                : '';
+        }
+
         function renderListView(container, items) {
             container.className = "space-y-12 mb-24 min-h-[400px]";
             const years = [...new Set(items.map(d => d.year))].sort((a, b) => b - a);
@@ -568,6 +575,7 @@
                                             ${event["Title"] || event["Event Name"]}
                                         </div>
                                         <div class="text-sm text-neutral-500 font-medium">${event["Event Name"]}</div>
+                                        ${upcomingBadge(event)}
                                         <div class="md:hidden mt-2 flex gap-2 text-xs text-neutral-500">
                                             <span><i data-lucide="map-pin" class="w-3 h-3 inline"></i> ${event["City, Country"] || 'Online'}</span>
                                         </div>
@@ -615,6 +623,7 @@
                         </div>
                     </div>
 
+                    ${upcomingBadge(event)}
                     <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2 min-h-[3.5rem]">
                         ${event["Title"] || event["Event Name"]}
                     </h3>
@@ -694,6 +703,7 @@
                     <div class="md:col-span-2 space-y-8">
                         <div>
                             <h3 class="text-xl font-bold text-white mb-2">${event["Title"] || 'Speaker Session'}</h3>
+                            ${upcomingBadge(event)}
                             <p class="text-neutral-300 leading-relaxed text-lg">${event["Description"] || 'No description available.'}</p>
                         </div>
 
@@ -716,6 +726,11 @@
                                 <span class="block text-xs text-neutral-500 uppercase font-bold mb-1">Date</span>
                                 <span class="text-white font-medium">${event.fullDate}</span>
                             </div>
+                            ${['Format', 'Length', 'Session Time', 'Stage'].filter(key => event[key] && event[key] !== '-').map(key => `
+                            <div>
+                                <span class="block text-xs text-neutral-500 uppercase font-bold mb-1">${key === 'Length' ? 'Duration' : key === 'Format' ? 'Role / Format' : key}</span>
+                                <span class="text-white font-medium">${event[key]}</span>
+                            </div>`).join('')}
                             <div>
                                 <span class="block text-xs text-neutral-500 uppercase font-bold mb-1">Location</span>
                                 <span class="text-white font-medium flex items-center gap-2">
